@@ -1,239 +1,398 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title> Mochileros sin Fronteras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Mochileros sin Fronteras</title>
+    <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/index.css">
-    <link rel="stylesheet" href="./style/experiences.css">
-    <link rel="stylesheet" href="./style/sidebar.css">
-    <link rel="stylesheet" href="./style/carousel.css">
-    <script type="text/javascript" src="script/carousel.js"></script>
-    <script type="text/javascript" src="script/versionb.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 
 
 <body>
-    <nav>
-    <div class="logo">
-        <img src="images/Logo.png" height=50 width=50 alt="Logo de Mochileros Sin Fronteras">
-    </div>
-    <h2>Mochileros Sin Fronteras</h2>
-    <ul class="menu">
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="#experiencias">Experiencias</a></li>
-        <li><a href="#consejos">Consejos</a></li>
-        <li><a href="#foro">Foro</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><select name="idioma" id="idioma">
-                <option value="es">🇪🇸 Español</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="fr">🇫🇷 Français</option>
-            </select>
-        </li>
-    </ul>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="images/Logo.png" height="40" width="40" alt="Logo">
+            <span>Mochileros Sin Fronteras</span>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Inicio</a></li>
+            <li><a href="buscar-rutas.html">Rutas</a></li>
+            <li><a href="versionb.html">Packs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="#foro">Comunidad</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="btn-icon" aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="registro.html" class="btn btn-primary">Mi Cuenta</a>
+        </div>
     </nav>
 
-    <main>
-        <div class="main-content">  
-            <div class="carousel">
-                <div class="banner">
-                    <h1>
-                        Compra y descubre viajes mochileros a larga distancia   
-                    </h1>                 
+    <!-- Hero Section -->
+    <section class="hero-home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content-wrapper">
+            <div class="hero-text">
+                <h1>Descubre el Mundo Como Mochilero</h1>
+                <p>Encuentra rutas, comparte experiencias y conecta con viajeros de todo el mundo</p>
+                <div class="hero-cta">
+                    <a href="buscar-rutas.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-search"></i>
+                        Explorar Rutas
+                    </a>
+                    <a href="versionb.html" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-box-open"></i>
+                        Ver Packs
+                    </a>
                 </div>
-                <div id="carousel" class="carousel-body">
-
-                    <button onclick="changeCarouselLeft()">
-                        <img class="arrow-img" src="images/free-arrow-left-icon-3099-thumb.png" alt="left-arrow">
-                    </button>
-
-                    <div class="carousel-card">
-                        
-                        <img id="carousel-img" src="images/Mexico.jpg" alt="Mexico">
-                        
-                        <div class="carousel-card-body">
-                            <h1 id="carousel-title">Pack Sudeste Asiatico 600$</h1>
-                            <p id="carousel-desc">Vietnam y Cambodia, buses, hostales y guia de visados</p>
-                            <button onclick="navigateToBuy()">Comprar</button>
-                        </div>
-                    </div>
-                    <button onclick="changeCarouselRight()">
-                        <img class="arrow-img" src="images/free-arrow-right-icon-3099-thumb.png" alt="right-arrow">
-                    </button>
-                </div>
-            </div>
-
-            <div class="experiences">
-                
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/Kathmandu-Nepal.jpg" alt="Nepal">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">Kathmandu-Nepal</h1>
-                        <a href="registro.html">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/india.jpeg" alt="India">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">India</h1>
-                        <a href="registro.html">Ver más</a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/Vietnam.jpeg" alt="Vietnam">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">Vietnam</h1>
-                        <a href="registro.html">Ver más</a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/Machu_Picchu.jpg" alt="Perú">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">Perú</h1>
-                        <a href="registro.html">Ver más</a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/Tanzania.jpeg" alt="Tanzania">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">Tanzania</h1>
-                        <a href="registro.html">Ver más</a>
-
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-image">
-                        <img class="card-img" src="images/Mexico.jpg" alt="Mexico">
-                        <a href="registro.html"><img src="images/heart-icon.png" alt="heart"></a>
-                    </div>
-
-                    <div class="card-body">
-                        <h1 class="card-header">México</h1>
-                        <a href="registro.html">Ver más</a>
-
-                    </div>
-                </div>
-                
             </div>
         </div>
+    </section>
 
-
-        <div id="side-bar">
-            <div class="authentication-form">
-                <h1>Iniciar Sesion</h1>
-                <form>
-                    <label for="usernameLogin">Nombre de Usuario:</label>
-                    <input class="authentication-form" type="text" id="usernameLogin" name="usernameLogin" required>
-                    <label for="passwordLogin">Contraseña:</label>
-                    <input class="authentication-form" type="password" id="passwordLogin" name="passwordLogin" required>
-                </form>
-                <div>
-                    <label>Recordar Credenciales</label>
-                    <input type="checkbox">
-                </div>
-
-                <div class="authentication-buttons">
-                    <a onclick="iniciarSesion()" class="btn">Iniciar Sesión</a>
-                    <a href="registro.html" class="btn">Registrarse</a>
-                </div>
+    <!-- Featured Packs Carousel -->
+    <section class="featured-packs">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Packs Destacados</h2>
+                <p>Ofertas especiales para tu próxima aventura</p>
             </div>
-
-            <div class="selection-list">
-                <div class="selection-item">
-                    <h1>Top Destinos mochileros</h1>
-                    <div>
-                        <a href="">Tailandia</a>
-                        <a href="">Bolivia</a>
-                        <a href="">Nepal</a>
-                    </div>
-                </div>
-                <div class="selection-item">
-                    <h1>Consejos Rapidos</h1>
-                    <div>
-                        <a href="">LLeva seguro medico</a>
-                        <a href="">Informate sobre visados</a>
-                        <a href="">Viaje ligero</a>
-                    </div>
-                </div>
-                <div class="selection-item">
-                    <h1>Proximos encuentros</h1>
-                    <div>
-                        <a href="">Madrid 12/10</a>
-                        <a href="">Barcelona 25/10</a>
-                        <a href="">Valencia 08/11</a>
+            
+            <div class="carousel-wrapper">
+                <button class="carousel-btn carousel-btn-prev" onclick="changeCarouselLeft()" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="carousel-track">
+                    <div class="pack-card">
+                        <div class="pack-image">
+                            <img id="carousel-img" src="images/Mexico.jpg" alt="Pack">
+                            <span class="pack-badge">Oferta</span>
+                        </div>
+                        <div class="pack-content">
+                            <h3 id="carousel-title">Pack Sudeste Asiático</h3>
+                            <p id="carousel-desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
+                            <div class="pack-footer">
+                                <span class="pack-price" id="carousel-price">600€</span>
+                                <button class="btn btn-primary" onclick="navigateToBuy()">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                <button class="carousel-btn carousel-btn-next" onclick="changeCarouselRight()" aria-label="Siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="home-main">
+        <div class="main-container">
+
+            <!-- Destinos Populares -->
+            <section class="destinations-section">
+                <div class="section-header">
+                    <h2>Destinos Populares</h2>
+                    <a href="buscar-rutas.html" class="btn btn-ghost">Ver todos <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="destinations-grid">
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/Kathmandu-Nepal.jpg" alt="Nepal">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Kathmandu, Nepal</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 12 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/india.jpeg" alt="India">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>India</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 18 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/Vietnam.jpeg" alt="Vietnam">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Vietnam</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.9
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 15 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/Machu_Picchu.jpg" alt="Perú">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Perú</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.9
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 10 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/Tanzania.jpeg" alt="Tanzania">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>Tanzania</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.8
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 8 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+
+                    <article class="destination-card">
+                        <div class="destination-image">
+                            <img src="images/Mexico.jpg" alt="México">
+                            <button class="favorite-btn" aria-label="Guardar">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="destination-info">
+                            <h3>México</h3>
+                            <div class="destination-meta">
+                                <span class="rating">
+                                    <i class="fas fa-star"></i> 4.7
+                                </span>
+                                <span class="routes-count">
+                                    <i class="fas fa-route"></i> 14 rutas
+                                </span>
+                            </div>
+                            <a href="buscar-rutas.html" class="btn btn-sm btn-primary">Explorar</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+        <!-- Sidebar -->
+        <aside class="home-sidebar">
+            <!-- Login Widget -->
+            <div class="sidebar-widget login-widget">
+                <h3><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</h3>
+                <form class="login-form">
+                    <div class="form-group">
+                        <input type="text" id="usernameLogin" placeholder="Usuario" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="passwordLogin" placeholder="Contraseña" class="form-input" required>
+                    </div>
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Recordar credenciales</label>
+                    </div>
+                    <button type="button" onclick="iniciarSesion()" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                    <a href="registro.html" class="btn btn-secondary btn-block">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
+                </form>
+            </div>
+
+            <!-- Top Destinations -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-fire"></i> Top Destinos</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="buscar-rutas.html">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Tailandia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="buscar-rutas.html">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Bolivia</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="buscar-rutas.html">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nepal</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Quick Tips -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-lightbulb"></i> Consejos Rápidos</h3>
+                <ul class="widget-list">
+                    <li>
+                        <a href="blog.html">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Lleva seguro médico</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html">
+                            <i class="fas fa-passport"></i>
+                            <span>Infórmate sobre visados</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="blog.html">
+                            <i class="fas fa-suitcase-rolling"></i>
+                            <span>Viaja ligero</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Upcoming Events -->
+            <div class="sidebar-widget">
+                <h3><i class="fas fa-calendar-alt"></i> Próximos Encuentros</h3>
+                <ul class="widget-list events-list">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <strong>Madrid</strong>
+                                <span>12 Diciembre 2025</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <strong>Barcelona</strong>
+                                <span>25 Diciembre 2025</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <strong>Valencia</strong>
+                                <span>08 Enero 2026</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-        
-            <!-- Copyright -->
-            <div class="footer-copy">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochileros Sin Fronteras</h3>
+                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
+                    <li><a href="versionb.html">Packs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recibe nuestras últimas novedades</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
-            </div>
-
-            <!-- Enlaces -->
-            <div class="footer-links">
-            <h3>Enlaces útiles</h3>
-            <ul>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="politica.html">Política de privacidad</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
-            </div>
-
-            <!-- Redes sociales -->
-            <div class="footer-social">
-            <h3>Síguenos</h3>
-            <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
-            <a href="#"><img src="images/tiktok.webp" alt="TikTok"></a>
-            <a href="#"><img src="images/youtube.webp" alt="YouTube"></a>
-            </div>
-
-            <!-- Newsletter -->
-            <div class="footer-newsletter">
-            <h3>Suscríbete</h3>
-            <form>
-                <input type="email" placeholder="Tu email" required>
-                <button type="submit">Enviar</button>
-            </form>
-            </div>
-
         </div>
     </footer>
+
+    <script src="script/carousel.js"></script>
+    <script src="script/versionb.js"></script>
 </body>
 </html>
