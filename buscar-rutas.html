@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Rutas - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/components.css">
+    <link rel="stylesheet" href="./style/buscar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/Logo.png" height="50" width="50" alt="Logo de Mochileros Sin Fronteras">
+        </div>
+        <h2>Mochileros Sin Fronteras</h2>
+        <ul class="menu">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="registro.html">Registro</a></li>
+            <li class="active"><a href="buscar-rutas.html">Buscar Rutas</a></li>
+            <li><a href="packs.html">Packs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="foro.html">Comunidad</a></li>
+            <li>
+                <select name="idioma" id="idioma">
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="search-main">
+        <!-- Hero de búsqueda -->
+        <section class="search-hero">
+            <div class="search-hero-content">
+                <h1>Encuentra tu próxima aventura</h1>
+                <p>Descubre rutas y destinos increíbles para mochileros de todo el mundo</p>
+                
+                <div class="search-bar-main">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar destino, país, tipo de ruta...">
+                    </div>
+                    <button class="btn btn-primary btn-lg" id="searchBtn">
+                        <i class="fas fa-search"></i>
+                        Buscar
+                    </button>
+                </div>
+
+                <!-- Búsquedas rápidas -->
+                <div class="quick-searches">
+                    <span class="quick-label">Populares:</span>
+                    <button class="badge badge-outline">Nepal</button>
+                    <button class="badge badge-outline">Machu Picchu</button>
+                    <button class="badge badge-outline">Patagonia</button>
+                    <button class="badge badge-outline">Islandia</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contenedor principal -->
+        <div class="search-container">
+            <!-- Sidebar de filtros -->
+            <aside class="filters-sidebar" id="filtersSidebar">
+                <div class="filters-header">
+                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <button class="btn-ghost btn-sm" id="clearFilters">
+                        <i class="fas fa-redo"></i> Limpiar
+                    </button>
+                </div>
+
+                <!-- Duración -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Duración</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="1-3-dias">
+                            <span>1-3 días</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="4-dias">
+                            <span>4 días</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="1-semana">
+                            <span>1 semana</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="10-dias">
+                            <span>10 días</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="2-semanas">
+                            <span>2 semanas</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="duration" value="3-semanas">
+                            <span>3+ semanas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Dificultad -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Dificultad</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="facil">
+                            <span>🟢 Fácil</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="moderado">
+                            <span>🟡 Moderado</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="dificil">
+                            <span>🔴 Difícil</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Presupuesto -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Presupuesto total</h4>
+                    <div class="filter-range">
+                        <input type="range" id="budgetSlider" min="0" max="3000" value="3000" step="100" class="range-slider">
+                        <div class="range-values">
+                            <span>€0</span>
+                            <span id="budgetValue">€3000+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Distancia -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Distancia total</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="distance" value="0-50">
+                            <span>0-50 km</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="distance" value="50-200">
+                            <span>50-200 km</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="distance" value="200-500">
+                            <span>200-500 km</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="distance" value="500+">
+                            <span>500+ km</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tipo de transporte -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Tipo de transporte</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="a-pie">
+                            <span>🚶 A pie</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="bicicleta">
+                            <span>🚴 Bicicleta</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="bus">
+                            <span>🚌 Bus</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="coche">
+                            <span>🚗 Coche</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="tren">
+                            <span>🚂 Tren</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="transport" value="4x4">
+                            <span>🚙 4x4</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Continente -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Continente</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="continent" value="europa">
+                            <span>🌍 Europa</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="continent" value="asia">
+                            <span>🌏 Asia</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="continent" value="africa">
+                            <span>🌍 África</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="continent" value="america">
+                            <span>🌎 América</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="continent" value="oceania">
+                            <span>🌏 Oceanía</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Características -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Características</h4>
+                    <div class="filter-options">
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="features" value="guia-local">
+                            <span>👨‍🏫 Guía local</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="features" value="transporte">
+                            <span>🚌 Transporte incluido</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="features" value="hotel">
+                            <span>🏨 Hotel</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="features" value="hostel">
+                            <span>🏠 Hostel</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" class="filter-checkbox" data-filter="features" value="camping">
+                            <span>⛺ Camping</span>
+                        </label>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Contenido principal con resultados -->
+            <div class="search-results">
+                <!-- Header de resultados -->
+                <div class="results-header">
+                    <div class="results-info">
+                        <h2><span id="resultsCount">12</span> rutas encontradas</h2>
+                        <button class="btn-ghost mobile-filter-btn">
+                            <i class="fas fa-filter"></i> Filtros
+                        </button>
+                    </div>
+                    <div class="results-sort">
+                        <label for="sortSelect">Ordenar por:</label>
+                        <select id="sortSelect" class="form-select">
+                            <option value="relevancia">Más relevantes</option>
+                            <option value="valoracion">Mejor valoradas</option>
+                            <option value="popularidad">Más populares</option>
+                            <option value="precio-asc">Precio: Bajo a Alto</option>
+                            <option value="precio-desc">Precio: Alto a Bajo</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Grid de resultados -->
+                <div class="routes-grid" id="routesGrid">
+                    <!-- Tarjeta de ruta 1 -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/Nepal.jpg" alt="Trekking Annapurna">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="route-badges">
+                                <span class="badge badge-success">Verificada</span>
+                                <span class="badge badge-info">Popular</span>
+                            </div>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Trekking Annapurna Base Camp</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                    <span class="text-muted">(127)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> Nepal, Himalaya
+                            </p>
+                            <p class="route-description">
+                                Increíble trek de 7-10 días hasta el campo base del Annapurna. Vistas espectaculares...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 7-10 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Moderada
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-walking"></i> 110 km
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">45€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=1" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta de ruta 2 -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/camino-santiago.jpg" alt="Camino de Santiago">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="route-badges">
+                                <span class="badge badge-success">Verificada</span>
+                            </div>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Camino de Santiago Francés</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                    <span class="text-muted">(342)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> España, Galicia
+                            </p>
+                            <p class="route-description">
+                                La ruta de peregrinación más famosa de Europa. 800 km de historia y cultura...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 30-35 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Fácil
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-walking"></i> 800 km
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">30€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=2" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta de ruta 3 -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/Machu_Picchu.jpg" alt="Camino Inca">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="route-badges">
+                                <span class="badge badge-success">Verificada</span>
+                                <span class="badge badge-warning">Requiere permiso</span>
+                            </div>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Camino Inca a Machu Picchu</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0</span>
+                                    <span class="text-muted">(89)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> Perú, Cusco
+                            </p>
+                            <p class="route-description">
+                                Trek clásico de 4 días hasta la ciudad perdida de los Incas. Una experiencia única...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 4 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Moderada
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-walking"></i> 43 km
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">65€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=3" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Más tarjetas... (repetir estructura similar) -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/patagonia.jpg" alt="Torres del Paine">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="route-badges">
+                                <span class="badge badge-success">Verificada</span>
+                            </div>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Circuito W - Torres del Paine</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.9</span>
+                                    <span class="text-muted">(156)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> Chile, Patagonia
+                            </p>
+                            <p class="route-description">
+                                El trekking más espectacular de la Patagonia. Glaciares, lagos turquesa y montañas...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 4-5 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Moderada
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-walking"></i> 71 km
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">55€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=4" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta de ruta 5 -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/Vietnam.jpeg" alt="Vietnam">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Ruta Mochilera Vietnam Completo</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.7</span>
+                                    <span class="text-muted">(203)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> Vietnam, Sudeste Asiático
+                            </p>
+                            <p class="route-description">
+                                De Hanoi a Ho Chi Minh. Templos, arrozales, playas y la mejor comida callejera...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 14-21 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Fácil
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-bus"></i> Transporte
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">25€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=5" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Tarjeta de ruta 6 -->
+                    <article class="route-card">
+                        <div class="route-image">
+                            <img src="images/Tanzania.jpeg" alt="Kilimanjaro">
+                            <button class="route-favorite" onclick="toggleFavorite(this)">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="route-badges">
+                                <span class="badge badge-error">Difícil</span>
+                            </div>
+                        </div>
+                        <div class="route-content">
+                            <div class="route-header">
+                                <h3 class="route-title">Ascenso al Kilimanjaro - Ruta Machame</h3>
+                                <div class="route-rating">
+                                    <i class="fas fa-star"></i>
+                                    <span>4.8</span>
+                                    <span class="text-muted">(98)</span>
+                                </div>
+                            </div>
+                            <p class="route-location">
+                                <i class="fas fa-map-marker-alt"></i> Tanzania, África
+                            </p>
+                            <p class="route-description">
+                                Conquista el techo de África. 7 días hasta los 5,895 metros del Uhuru Peak...
+                            </p>
+                            <div class="route-meta">
+                                <span class="route-meta-item">
+                                    <i class="fas fa-clock"></i> 7 días
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-chart-line"></i> Difícil
+                                </span>
+                                <span class="route-meta-item">
+                                    <i class="fas fa-walking"></i> 62 km
+                                </span>
+                            </div>
+                            <div class="route-footer">
+                                <div class="route-price">
+                                    <span class="price-from">Desde</span>
+                                    <span class="price-amount">120€</span>
+                                    <span class="price-unit">/día</span>
+                                </div>
+                                <a href="detalle-ruta.html?id=6" class="btn btn-primary">Ver ruta</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <button class="pagination-item" disabled>
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <a href="#" class="pagination-item pagination-item-active">1</a>
+                    <a href="#" class="pagination-item">2</a>
+                    <a href="#" class="pagination-item">3</a>
+                    <span class="pagination-item">...</span>
+                    <a href="#" class="pagination-item">8</a>
+                    <button class="pagination-item">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-copy">
+                <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Enlaces útiles</h3>
+                <ul>
+                    <li><a href="#">Sobre nosotros</a></li>
+                    <li><a href="politica.html">Política de privacidad</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Síguenos</h3>
+                <div>
+                    <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
+                    <a href="#"><img src="images/tiktok.webp" alt="TikTok"></a>
+                    <a href="#"><img src="images/youtube.webp" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Suscríbete</h3>
+                <form>
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script/buscar.js"></script>
+</body>
+</html>
