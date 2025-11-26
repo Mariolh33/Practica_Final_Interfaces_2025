@@ -6,6 +6,15 @@ window.onload = () => {
     document.getElementById("pack-description").textContent = pack.desc;
     document.getElementById("pack-image").src = pack.img;
     document.getElementById("pack-image").alt = pack.alt;
+
+    // Actualizar resumen de pedido
+    const priceNumber = parseFloat(pack.price.replace(/[^0-9.]/g, ''));
+    const tax = priceNumber * 0.21;
+    const total = priceNumber + tax;
+
+    document.getElementById("summary-subtotal").textContent = pack.price;
+    document.getElementById("summary-tax").textContent = `${tax.toFixed(2)}€`;
+    document.getElementById("summary-total").textContent = `${total.toFixed(2)}€`;
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,8 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (cvv.length !== 3) return mostrarError("CVV debe ser 3 digitos");
 
         // Si todo es correcto
-
-        mensaje.style.color = "green";
+        mensaje.className = "form-message success";
         mensaje.textContent = "✅ Compra completado correctamente. Redirigiendo...";
 
         setTimeout(() => {
@@ -79,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function mostrarError(texto) {
+        mensaje.className = "form-message error";
         mensaje.textContent = texto;
     }
 
