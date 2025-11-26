@@ -3,113 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mochileros Sin Fronteras</title>
-    <link rel="stylesheet" href="./style/registro.css">
+    <title>Registro - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/registro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 
 <body>
     <nav>
-    <div class="logo">
-        <img src="images/Logo.png" height=50 width=50 alt="Logo de Mochileros Sin Fronteras">
-    </div>
-    <h2>Mochileros Sin Fronteras</h2>
-    <ul class="menu">
-        <li class="active"><a href="index.html">Inicio</a></li>
-        <li><a href="registro.html">Registro</a></li>
-        <li><a href="#experiencias">Experiencias</a></li>
-        <li><a href="#consejos">Consejos</a></li>
-        <li><a href="#foro">Foro</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><select name="idioma" id="idioma">
-                <option value="es">🇪🇸 Español</option>
-                <option value="en">🇬🇧 English</option>
-                <option value="fr">🇫🇷 Français</option>
-            </select>
-        </li>
-    </ul>
-</nav>
-    <!--- Formulario de Registro -->
-    <section id="registro">
-        <h1>Regístrate</h1>
-        <form id="registroForm">
-            <!-- Campos del formulario (required indica que si no se pone el campo necesario no se puede registrar uno) -->
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
+        <div class="logo">
+            <img src="images/Logo.png" height="50" width="50" alt="Logo de Mochileros Sin Fronteras">
+            <span>Mochileros Sin Fronteras</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="buscar-rutas.html">Rutas</a></li>
+            <li><a href="packs.html">Packs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="foro.html">Comunidad</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="btn-ghost" id="searchToggle">
+                <i class="fas fa-search"></i>
+            </button>
+            <a href="registro.html" class="btn btn-primary btn-sm active">
+                <i class="fas fa-user"></i> Mi Cuenta
+            </a>
+        </div>
+    </nav>
+    <main class="registro-main">
+        <div class="registro-container">
+            <div class="registro-hero">
+                <div class="hero-content">
+                    <h1><i class="fas fa-backpack"></i> Únete a la Comunidad</h1>
+                    <p>Regístrate y comienza tu aventura mochilera</p>
+                </div>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="registro-content">
+                <div class="registro-card">
+                    <div class="card-header">
+                        <h2>Crear cuenta</h2>
+                        <p>Completa tus datos para registrarte</p>
+                    </div>
 
-            <label for="confirmar-email">Confirmar Email:</label>
-            <input type="email" id="confirmar-email" name="confirmar-email" required>
-            
-            <label for ="fecha-nacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento">
+                    <form id="registroForm" class="registro-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre" class="form-label">
+                                    <i class="fas fa-user"></i> Nombre *
+                                </label>
+                                <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="apellido" class="form-label">
+                                    <i class="fas fa-user"></i> Apellido *
+                                </label>
+                                <input type="text" id="apellido" name="apellido" class="form-input" placeholder="Tu apellido" required>
+                            </div>
+                        </div>
 
-            <label for="username">Nombre de Usuario:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <i class="fas fa-envelope"></i> Email *
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
+                        </div>
 
-            <label for="foto-perfil">Foto de perfil:</label>
-            <input type="file" id="foto-perfil" name="foto-perfil" accept="image/*">
+                        <div class="form-group">
+                            <label for="confirmar-email" class="form-label">
+                                <i class="fas fa-envelope-open"></i> Confirmar Email *
+                            </label>
+                            <input type="email" id="confirmar-email" name="confirmar-email" class="form-input" placeholder="Confirma tu email" required>
+                        </div>
 
+                        <div class="form-group">
+                            <label for="fecha-nacimiento" class="form-label">
+                                <i class="fas fa-calendar"></i> Fecha de Nacimiento
+                            </label>
+                            <input type="date" id="fecha-nacimiento" name="fecha-nacimiento" class="form-input">
+                        </div>
 
-            <!-- Checkbox para aceptar la política de privacidad-->
-            <div class="politica-box">
-                <input type="checkbox" id="acepto" name="acepto" required>
-                <label for="acepto">Acepto la <a href="politica.html">Política de Privacidad</a>
-                </label>
+                        <div class="form-group">
+                            <label for="username" class="form-label">
+                                <i class="fas fa-at"></i> Nombre de Usuario *
+                            </label>
+                            <input type="text" id="username" name="username" class="form-input" placeholder="Tu nombre de usuario" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i> Contraseña *
+                            </label>
+                            <input type="password" id="password" name="password" class="form-input" placeholder="Mínimo 8 caracteres" required>
+                            <small class="form-help">Debe contener al menos 8 caracteres</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="foto-perfil" class="form-label">
+                                <i class="fas fa-camera"></i> Foto de perfil
+                            </label>
+                            <input type="file" id="foto-perfil" name="foto-perfil" class="form-input" accept="image/*">
+                        </div>
+
+                        <div class="form-checkbox-group">
+                            <label class="form-checkbox">
+                                <input type="checkbox" id="acepto" name="acepto" required>
+                                <span>Acepto la <a href="politica.html">Política de Privacidad</a> y los Términos de Uso</span>
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" id="btnRegistrar" class="btn btn-primary btn-lg btn-block" disabled>
+                                <i class="fas fa-user-plus"></i> Crear cuenta
+                            </button>
+                        </div>
+
+                        <p id="mensaje" class="form-message"></p>
+
+                        <div class="form-footer">
+                            <p>¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
+                        </div>
+                    </form>
                 </div>
 
-            <button type="submit" id="btnRegistrar" class="btn" disabled>Guardar datos y acceder</button>
-
-            <p id="mensaje" style="margin-top: 10px; font-weight: bold;"></p>
-        </form>
-    </section>  
-   <footer>
-        <div class="footer-container">
-        
-            <!-- Copyright -->
-            <div class="footer-copy">
-            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+                <div class="registro-benefits">
+                    <h3><i class="fas fa-star"></i> Beneficios de registrarte</h3>
+                    <ul class="benefits-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Guarda tus rutas favoritas</strong>
+                                <p>Accede rápidamente a tus destinos preferidos</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Comparte experiencias</strong>
+                                <p>Sube tus propias rutas y aventuras</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Conecta con viajeros</strong>
+                                <p>Únete a nuestra comunidad global</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <strong>Ofertas exclusivas</strong>
+                                <p>Accede a descuentos especiales</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- Enlaces -->
-            <div class="footer-links">
-            <h3>Enlaces útiles</h3>
-            <ul>
-                <li><a href="#">Sobre nosotros</a></li>
-                <li><a href="politica.html">Política de privacidad</a></li>
-                <li><a href="#">Ayuda</a></li>
-            </ul>
+        </div>
+    </main>  
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>Tu compañero de viajes para explorar el mundo de forma auténtica y responsable.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
-
-            <!-- Redes sociales -->
-            <div class="footer-social">
-            <h3>Síguenos</h3>
-            <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
-            <a href="#"><img src="images/tiktok.webp" alt="TikTok"></a>
-            <a href="#"><img src="images/youtube.webp" alt="YouTube"></a>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
+                    <li><a href="packs.html">Packs de Viaje</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="foro.html">Comunidad</a></li>
+                </ul>
             </div>
-
-            <!-- Newsletter -->
-            <div class="footer-newsletter">
-            <h3>Suscríbete</h3>
-            <form>
-                <input type="email" placeholder="Tu email" required>
-                <button type="submit">Enviar</button>
-            </form>
+            <div class="footer-section">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
             </div>
-
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recibe las mejores ofertas y consejos de viaje</p>
+                <form>
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
         </div>
     </footer>
+
+    <script src="./script/registro.js"></script>
 </body>
-<script src="./script/registro.js"></script>
 </html>
 
 
