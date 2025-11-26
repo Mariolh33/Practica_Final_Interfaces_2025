@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/components.css">
+    <link rel="stylesheet" href="./style/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/Logo.png" height="50" width="50" alt="Logo de Mochileros Sin Fronteras">
+            <span>Mochileros Sin Fronteras</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="buscar-rutas.html">Rutas</a></li>
+            <li><a href="packs.html">Packs</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="foro.html">Comunidad</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="btn-ghost" id="searchToggle">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="btn btn-primary btn-sm">
+                <i class="fas fa-user"></i> Mi Cuenta
+            </button>
+        </div>
+    </nav>
+
+    <main class="blog-main">
+        <!-- Header del blog -->
+        <section class="blog-header">
+            <div class="blog-header-content">
+                <h1>Blog de Viajeros</h1>
+                <p>Consejos, historias y guías para tu próxima aventura mochilera</p>
+            </div>
+        </section>
+
+        <div class="blog-container">
+            <!-- Artículo destacado -->
+            <div class="featured-article">
+                <div class="featured-image">
+                    <img src="images/machu-picchu.jpg" alt="Artículo destacado">
+                    <span class="badge badge-warning featured-badge">Destacado</span>
+                </div>
+                <div class="featured-content">
+                    <div class="article-meta">
+                        <span class="article-category">Guías de viaje</span>
+                        <span class="article-date"><i class="fas fa-calendar"></i> 20 Nov 2025</span>
+                        <span class="article-read-time"><i class="fas fa-clock"></i> 10 min</span>
+                    </div>
+                    <h2>Guía completa para hacer el Camino Inca: Todo lo que necesitas saber</h2>
+                    <p>Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.</p>
+                    <div class="article-footer">
+                        <div class="author-info">
+                            <div class="author-avatar">MG</div>
+                            <div>
+                                <div class="author-name">María González</div>
+                                <div class="author-role">Viajera frecuente</div>
+                            </div>
+                        </div>
+                        <a href="#" class="btn btn-primary">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blog-content-wrapper">
+                <!-- Grid de artículos -->
+                <div class="articles-grid">
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/patagonia.jpg" alt="Patagonia">
+                            <span class="badge badge-info">Consejos</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 18 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 6 min</span>
+                            </div>
+                            <h3>10 consejos para viajar barato por Sudamérica</h3>
+                            <p>Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">CR</span>
+                                    <span>Carlos R.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/islandia.jpg" alt="Islandia">
+                            <span class="badge badge-success">Destinos</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 15 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 8 min</span>
+                            </div>
+                            <h3>Islandia en invierno: La guía definitiva</h3>
+                            <p>Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">AM</span>
+                                    <span>Ana M.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/annapurna.jpg" alt="Nepal">
+                            <span class="badge badge-error">Experiencias</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 12 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 12 min</span>
+                            </div>
+                            <h3>Mi experiencia en el Circuito Annapurna</h3>
+                            <p>Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">JL</span>
+                                    <span>Jorge L.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/sahara.jpg" alt="Desierto">
+                            <span class="badge badge-warning">Guías</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 10 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 7 min</span>
+                            </div>
+                            <h3>Qué llevar en tu mochila para el desierto</h3>
+                            <p>La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">LF</span>
+                                    <span>Laura F.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/costa-rica.jpg" alt="Costa Rica">
+                            <span class="badge badge-success">Destinos</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 8 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 9 min</span>
+                            </div>
+                            <h3>Costa Rica: Naturaleza y aventura</h3>
+                            <p>Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">MG</span>
+                                    <span>María G.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="images/noruega.jpg" alt="Noruega">
+                            <span class="badge badge-info">Consejos</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="article-meta">
+                                <span class="article-date"><i class="fas fa-calendar"></i> 5 Nov</span>
+                                <span class="article-read-time"><i class="fas fa-clock"></i> 5 min</span>
+                            </div>
+                            <h3>Viajar por Noruega sin arruinarte</h3>
+                            <p>Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.</p>
+                            <div class="blog-card-footer">
+                                <div class="author-mini">
+                                    <span class="author-avatar-sm">CR</span>
+                                    <span>Carlos R.</span>
+                                </div>
+                                <a href="#" class="btn-text">Leer más →</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="blog-sidebar">
+                    <!-- Categorías -->
+                    <div class="widget">
+                        <h3><i class="fas fa-folder"></i> Categorías</h3>
+                        <div class="categories-list">
+                            <a href="#" class="category-item">
+                                <span>Guías de viaje</span>
+                                <span class="category-count">24</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span>Consejos</span>
+                                <span class="category-count">18</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span>Experiencias</span>
+                                <span class="category-count">32</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span>Destinos</span>
+                                <span class="category-count">41</span>
+                            </a>
+                            <a href="#" class="category-item">
+                                <span>Equipamiento</span>
+                                <span class="category-count">15</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Artículos populares -->
+                    <div class="widget">
+                        <h3><i class="fas fa-fire"></i> Más leídos</h3>
+                        <div class="popular-posts">
+                            <a href="#" class="popular-post">
+                                <img src="images/machu-picchu.jpg" alt="Popular 1">
+                                <div>
+                                    <h4>Camino Inca: Guía completa</h4>
+                                    <span class="post-views"><i class="fas fa-eye"></i> 12.4K</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-post">
+                                <img src="images/balcanes.jpg" alt="Popular 2">
+                                <div>
+                                    <h4>Ruta por los Balcanes</h4>
+                                    <span class="post-views"><i class="fas fa-eye"></i> 9.8K</span>
+                                </div>
+                            </a>
+                            <a href="#" class="popular-post">
+                                <img src="images/serengeti.jpg" alt="Popular 3">
+                                <div>
+                                    <h4>Safari en Tanzania</h4>
+                                    <span class="post-views"><i class="fas fa-eye"></i> 8.2K</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="widget widget-cta">
+                        <h3><i class="fas fa-envelope"></i> Newsletter</h3>
+                        <p>Recibe los mejores consejos de viaje directamente en tu email</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Tu email" required>
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> Suscribirme
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="widget">
+                        <h3><i class="fas fa-tags"></i> Tags populares</h3>
+                        <div class="tags-cloud">
+                            <a href="#" class="tag">Mochilero</a>
+                            <a href="#" class="tag">Sudamérica</a>
+                            <a href="#" class="tag">Asia</a>
+                            <a href="#" class="tag">Trekking</a>
+                            <a href="#" class="tag">Presupuesto</a>
+                            <a href="#" class="tag">Europa</a>
+                            <a href="#" class="tag">Camping</a>
+                            <a href="#" class="tag">Montaña</a>
+                            <a href="#" class="tag">África</a>
+                            <a href="#" class="tag">Consejos</a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Paginación -->
+            <div class="pagination">
+                <a href="#" class="pagination-prev disabled">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </a>
+                <a href="#" class="pagination-number active">1</a>
+                <a href="#" class="pagination-number">2</a>
+                <a href="#" class="pagination-number">3</a>
+                <a href="#" class="pagination-number">4</a>
+                <a href="#" class="pagination-more">...</a>
+                <a href="#" class="pagination-number">12</a>
+                <a href="#" class="pagination-next">
+                    Siguiente <i class="fas fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>Tu compañero de viajes para explorar el mundo de forma auténtica y responsable.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
+                    <li><a href="packs.html">Packs de Viaje</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="foro.html">Comunidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recibe las mejores ofertas y consejos de viaje</p>
+                <form>
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
