@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Ruta - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/components.css">
+    <link rel="stylesheet" href="./style/detalle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="images/Logo.png" height="50" width="50" alt="Logo de Mochileros Sin Fronteras">
+            <span>Mochileros Sin Fronteras</span>
+        </div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="buscar-rutas.html" class="active">Rutas</a></li>
+            <li><a href="packs.html">Packs</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="foro.html">Comunidad</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="btn-ghost" id="searchToggle">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="btn btn-primary btn-sm">
+                <i class="fas fa-user"></i> Mi Cuenta
+            </button>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-container">
+        <nav class="breadcrumb">
+            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+            <i class="fas fa-chevron-right"></i>
+            <a href="buscar-rutas.html">Rutas</a>
+            <i class="fas fa-chevron-right"></i>
+            <span id="breadcrumbTitle">Camino Inca a Machu Picchu</span>
+        </nav>
+    </div>
+
+    <main class="route-detail-main">
+        <!-- Header de la ruta -->
+        <section class="route-header-section">
+            <div class="route-header-content">
+                <div class="route-header-info">
+                    <div class="route-badges-top">
+                        <span class="badge badge-success">Verificada</span>
+                        <span class="badge badge-warning">Difícil</span>
+                        <span class="badge badge-info">4 días</span>
+                    </div>
+                    <h1 id="routeTitle">Camino Inca a Machu Picchu</h1>
+                    <div class="route-location-header">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="routeLocation">Cusco, Perú</span>
+                    </div>
+                    <div class="route-meta-header">
+                        <div class="rating-large">
+                            <i class="fas fa-star"></i>
+                            <span class="rating-number" id="routeRating">4.9</span>
+                            <span class="rating-reviews">(<span id="routeReviews">2847</span> opiniones)</span>
+                        </div>
+                        <div class="route-stats">
+                            <div class="stat-item">
+                                <i class="fas fa-route"></i>
+                                <span><strong id="routeDistance">43</strong> km</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-users"></i>
+                                <span><strong id="routeTravelers">12,450</strong> viajeros</span>
+                            </div>
+                            <div class="stat-item">
+                                <i class="fas fa-heart"></i>
+                                <span><strong id="routeFavorites">3,821</strong> favoritos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="route-header-price">
+                    <div class="price-card">
+                        <div class="price-label">Desde</div>
+                        <div class="price-amount">
+                            <span class="currency">€</span><span id="routePrice">450</span>
+                        </div>
+                        <div class="price-per">por persona</div>
+                        <button class="btn btn-primary btn-lg btn-block" id="bookNowBtn">
+                            <i class="fas fa-calendar-check"></i> Reservar ahora
+                        </button>
+                        <button class="btn btn-outline btn-block" id="addToFavBtn">
+                            <i class="far fa-heart"></i> Guardar en favoritos
+                        </button>
+                        <div class="share-buttons">
+                            <span>Compartir:</span>
+                            <button class="btn-icon"><i class="fab fa-whatsapp"></i></button>
+                            <button class="btn-icon"><i class="fab fa-facebook"></i></button>
+                            <button class="btn-icon"><i class="fab fa-twitter"></i></button>
+                            <button class="btn-icon"><i class="fas fa-link"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galería de imágenes -->
+        <section class="route-gallery">
+            <div class="gallery-main">
+                <img src="images/machu-picchu.jpg" alt="Camino Inca" id="mainImage">
+                <button class="gallery-fullscreen" id="fullscreenBtn">
+                    <i class="fas fa-expand"></i>
+                </button>
+            </div>
+            <div class="gallery-thumbnails">
+                <img src="images/machu-picchu.jpg" alt="Vista 1" class="thumb active">
+                <img src="images/patagonia.jpg" alt="Vista 2" class="thumb">
+                <img src="images/annapurna.jpg" alt="Vista 3" class="thumb">
+                <img src="images/islandia.jpg" alt="Vista 4" class="thumb">
+                <div class="thumb more-images">
+                    <i class="fas fa-images"></i>
+                    <span>+12</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="route-detail-container">
+            <!-- Contenido principal -->
+            <div class="route-main-content">
+                <!-- Tabs de navegación -->
+                <nav class="tabs-nav">
+                    <button class="tab-btn active" data-tab="overview">
+                        <i class="fas fa-info-circle"></i> Descripción
+                    </button>
+                    <button class="tab-btn" data-tab="itinerary">
+                        <i class="fas fa-list"></i> Itinerario
+                    </button>
+                    <button class="tab-btn" data-tab="map">
+                        <i class="fas fa-map"></i> Mapa
+                    </button>
+                    <button class="tab-btn" data-tab="reviews">
+                        <i class="fas fa-star"></i> Opiniones
+                    </button>
+                </nav>
+
+                <!-- Tab: Descripción -->
+                <div class="tab-content active" id="overview">
+                    <div class="content-section">
+                        <h2>Sobre esta ruta</h2>
+                        <p class="lead" id="routeDescription">
+                            Una experiencia única recorriendo los pasos de los antiguos incas. El Camino Inca es considerado uno de los trekkings más espectaculares del mundo, combinando paisajes naturales impresionantes con la riqueza histórica de ruinas arqueológicas. La ruta culmina con una llegada mágica al amanecer a Machu Picchu, la ciudad perdida de los incas.
+                        </p>
+                        <p>
+                            Durante 4 días atravesarás bosques nubosos, pasos de montaña que superan los 4,200 metros de altura, y descubrirás complejos arqueológicos como Wiñay Wayna y Phuyupatamarca. El viaje incluye guía especializado, porteadores, comidas y equipo de camping de alta calidad.
+                        </p>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>¿Qué incluye?</h2>
+                        <div class="includes-grid">
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Guía profesional</h4>
+                                    <p>Guía experto certificado en español</p>
+                                </div>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Transporte</h4>
+                                    <p>Traslados desde/hacia Cusco</p>
+                                </div>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Comidas</h4>
+                                    <p>3 desayunos, 3 almuerzos, 3 cenas</p>
+                                </div>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Camping</h4>
+                                    <p>Tiendas, colchonetas y sacos de dormir</p>
+                                </div>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Permisos</h4>
+                                    <p>Entrada al Camino Inca y Machu Picchu</p>
+                                </div>
+                            </div>
+                            <div class="include-item">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <h4>Seguro</h4>
+                                    <p>Seguro de viaje básico incluido</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-section">
+                        <h2>Requisitos y recomendaciones</h2>
+                        <div class="requirements-list">
+                            <div class="requirement-item">
+                                <i class="fas fa-exclamation-circle text-warning"></i>
+                                <p><strong>Condición física:</strong> Se requiere buena condición física. El trek incluye caminatas de hasta 8 horas diarias.</p>
+                            </div>
+                            <div class="requirement-item">
+                                <i class="fas fa-exclamation-circle text-warning"></i>
+                                <p><strong>Altitud:</strong> Aclimatación previa recomendada. Llegaremos hasta 4,200 msnm.</p>
+                            </div>
+                            <div class="requirement-item">
+                                <i class="fas fa-info-circle text-info"></i>
+                                <p><strong>Reserva anticipada:</strong> Los permisos son limitados (500/día). Reserva con 4-6 meses de anticipación.</p>
+                            </div>
+                            <div class="requirement-item">
+                                <i class="fas fa-info-circle text-info"></i>
+                                <p><strong>Mejor época:</strong> Mayo a septiembre (temporada seca). Evitar febrero (cerrado por mantenimiento).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Itinerario -->
+                <div class="tab-content" id="itinerary">
+                    <div class="itinerary-timeline">
+                        <div class="itinerary-day">
+                            <div class="day-marker">
+                                <span class="day-number">1</span>
+                            </div>
+                            <div class="day-content">
+                                <h3>Día 1: Cusco - Km 82 - Wayllabamba</h3>
+                                <div class="day-meta">
+                                    <span><i class="fas fa-hiking"></i> 12 km</span>
+                                    <span><i class="fas fa-clock"></i> 5-6 horas</span>
+                                    <span><i class="fas fa-mountain"></i> 2,800 msnm</span>
+                                </div>
+                                <p>Salida temprano de Cusco hacia el km 82 donde inicia el Camino Inca. Después del control de permisos, comenzamos la caminata siguiendo el río Urubamba. Visitamos el sitio arqueológico de Patallaqta y continuamos hacia nuestro campamento en Wayllabamba.</p>
+                                <div class="day-highlights">
+                                    <strong>Highlights:</strong> Paisajes del Valle Sagrado, Ruinas de Patallaqta
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="itinerary-day">
+                            <div class="day-marker">
+                                <span class="day-number">2</span>
+                            </div>
+                            <div class="day-content">
+                                <h3>Día 2: Wayllabamba - Paso Warmiwañusca - Pacaymayo</h3>
+                                <div class="day-meta">
+                                    <span><i class="fas fa-hiking"></i> 11 km</span>
+                                    <span><i class="fas fa-clock"></i> 7-8 horas</span>
+                                    <span><i class="fas fa-mountain"></i> 4,200 msnm</span>
+                                </div>
+                                <p>El día más desafiante. Ascenso continuo hasta el Paso Warmiwañusca (Paso de la Mujer Muerta) a 4,200 msnm, el punto más alto del trek. Descenso al valle de Pacaymayo donde acampamos.</p>
+                                <div class="day-highlights">
+                                    <strong>Highlights:</strong> Vistas panorámicas desde el paso, Bosque nuboso
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="itinerary-day">
+                            <div class="day-marker">
+                                <span class="day-number">3</span>
+                            </div>
+                            <div class="day-content">
+                                <h3>Día 3: Pacaymayo - Wiñay Wayna</h3>
+                                <div class="day-meta">
+                                    <span><i class="fas fa-hiking"></i> 16 km</span>
+                                    <span><i class="fas fa-clock"></i> 8-9 horas</span>
+                                    <span><i class="fas fa-mountain"></i> 2,650 msnm</span>
+                                </div>
+                                <p>Visitamos los complejos arqueológicos de Runkurakay, Sayacmarca y Phuyupatamarca. Descendemos por la "escalera inca" hasta Wiñay Wayna, uno de los sitios más impresionantes del camino. Campamento cerca de las ruinas.</p>
+                                <div class="day-highlights">
+                                    <strong>Highlights:</strong> Múltiples sitios arqueológicos, Wiñay Wayna
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="itinerary-day">
+                            <div class="day-marker">
+                                <span class="day-number">4</span>
+                            </div>
+                            <div class="day-content">
+                                <h3>Día 4: Wiñay Wayna - Machu Picchu - Cusco</h3>
+                                <div class="day-meta">
+                                    <span><i class="fas fa-hiking"></i> 4 km</span>
+                                    <span><i class="fas fa-clock"></i> 2 horas + tour</span>
+                                    <span><i class="fas fa-mountain"></i> 2,430 msnm</span>
+                                </div>
+                                <p>Salida antes del amanecer hacia Inti Punku (Puerta del Sol) para ver el amanecer sobre Machu Picchu. Descenso a la ciudad perdida para tour guiado de 2-3 horas. Tiempo libre antes del retorno en tren a Cusco.</p>
+                                <div class="day-highlights">
+                                    <strong>Highlights:</strong> Amanecer en Machu Picchu, Tour guiado completo
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Mapa -->
+                <div class="tab-content" id="map">
+                    <div class="map-section">
+                        <div id="routeMap" class="route-map"></div>
+                        <div class="map-info">
+                            <h3>Información del recorrido</h3>
+                            <div class="map-stats">
+                                <div class="map-stat">
+                                    <i class="fas fa-route"></i>
+                                    <div>
+                                        <strong>43 km</strong>
+                                        <span>Distancia total</span>
+                                    </div>
+                                </div>
+                                <div class="map-stat">
+                                    <i class="fas fa-arrow-up"></i>
+                                    <div>
+                                        <strong>1,200 m</strong>
+                                        <span>Desnivel positivo</span>
+                                    </div>
+                                </div>
+                                <div class="map-stat">
+                                    <i class="fas fa-mountain"></i>
+                                    <div>
+                                        <strong>4,200 m</strong>
+                                        <span>Altitud máxima</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gráfico de elevación -->
+                    <div class="elevation-section">
+                        <h3>Perfil de elevación</h3>
+                        <canvas id="elevationChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Tab: Opiniones -->
+                <div class="tab-content" id="reviews">
+                    <div class="reviews-summary">
+                        <div class="reviews-score">
+                            <div class="score-large">4.9</div>
+                            <div class="stars-large">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>2,847 opiniones verificadas</p>
+                        </div>
+                        <div class="reviews-breakdown">
+                            <div class="rating-bar">
+                                <span>5 estrellas</span>
+                                <div class="bar"><div class="fill" style="width: 87%"></div></div>
+                                <span>87%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>4 estrellas</span>
+                                <div class="bar"><div class="fill" style="width: 10%"></div></div>
+                                <span>10%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>3 estrellas</span>
+                                <div class="bar"><div class="fill" style="width: 2%"></div></div>
+                                <span>2%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>2 estrellas</span>
+                                <div class="bar"><div class="fill" style="width: 1%"></div></div>
+                                <span>1%</span>
+                            </div>
+                            <div class="rating-bar">
+                                <span>1 estrella</span>
+                                <div class="bar"><div class="fill" style="width: 0%"></div></div>
+                                <span>0%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="reviews-filters">
+                        <button class="btn btn-sm btn-outline active">Todos</button>
+                        <button class="btn btn-sm btn-outline">5 estrellas</button>
+                        <button class="btn btn-sm btn-outline">Con fotos</button>
+                        <button class="btn btn-sm btn-outline">Recientes</button>
+                    </div>
+
+                    <div class="reviews-list" id="reviewsList">
+                        <!-- Las reseñas se cargarán dinámicamente -->
+                    </div>
+
+                    <button class="btn btn-outline btn-lg btn-block">
+                        <i class="fas fa-plus"></i> Cargar más opiniones
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="route-sidebar">
+                <!-- Widget de clima -->
+                <div class="widget weather-widget">
+                    <h3><i class="fas fa-cloud-sun"></i> Clima actual</h3>
+                    <div id="weatherData" class="weather-data">
+                        <div class="weather-main">
+                            <img src="" alt="Clima" id="weatherIcon" class="weather-icon">
+                            <div class="weather-temp">
+                                <span id="temperature">18</span>°C
+                            </div>
+                        </div>
+                        <p id="weatherDescription">Parcialmente nublado</p>
+                        <div class="weather-details">
+                            <div class="weather-detail">
+                                <i class="fas fa-tint"></i>
+                                <span><span id="humidity">65</span>% humedad</span>
+                            </div>
+                            <div class="weather-detail">
+                                <i class="fas fa-wind"></i>
+                                <span><span id="windSpeed">12</span> km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Widget de organizador -->
+                <div class="widget organizer-widget">
+                    <h3><i class="fas fa-user-circle"></i> Organizador</h3>
+                    <div class="organizer-info">
+                        <img src="images/Logo.png" alt="Organizador" class="organizer-avatar">
+                        <div>
+                            <h4>Inca Trail Adventures</h4>
+                            <div class="organizer-rating">
+                                <i class="fas fa-star"></i> 4.8 (234 rutas)
+                            </div>
+                        </div>
+                    </div>
+                    <p>Agencia especializada en trekkings por Perú con 15 años de experiencia.</p>
+                    <button class="btn btn-outline btn-block">
+                        <i class="fas fa-envelope"></i> Contactar
+                    </button>
+                </div>
+
+                <!-- Rutas similares -->
+                <div class="widget similar-routes-widget">
+                    <h3><i class="fas fa-route"></i> Rutas similares</h3>
+                    <div class="similar-routes-list">
+                        <a href="#" class="similar-route-card">
+                            <img src="images/annapurna.jpg" alt="Annapurna">
+                            <div class="similar-route-info">
+                                <h4>Circuito Annapurna</h4>
+                                <div class="similar-route-meta">
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span>€600</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="similar-route-card">
+                            <img src="images/patagonia.jpg" alt="Patagonia">
+                            <div class="similar-route-info">
+                                <h4>Patagonia Trek</h4>
+                                <div class="similar-route-meta">
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                    <span>€950</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>Tu compañero de viajes para explorar el mundo de forma auténtica y responsable.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
+                    <li><a href="packs.html">Packs de Viaje</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="foro.html">Comunidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recibe las mejores ofertas y consejos de viaje</p>
+                <form>
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script/detalle-ruta.js"></script>
+</body>
+</html>
