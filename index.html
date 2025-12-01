@@ -20,7 +20,7 @@
         <ul class="nav-menu">
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="buscar-rutas.html">Rutas</a></li>
-            <li><a href="versionb.html">Packs</a></li>
+            <li><a href= #featured-packs>Packs</a></li> 
             <li><a href="blog.html">Blog</a></li>
             <li><a href="#foro">Comunidad</a></li>
             <li><a href="#contacto">Contacto</a></li>
@@ -45,7 +45,7 @@
                         <i class="fas fa-search"></i>
                         Explorar Rutas
                     </a>
-                    <a href="versionb.html" class="btn btn-secondary btn-lg">
+                    <a href= #featured-packs class="btn btn-secondary btn-lg">
                         <i class="fas fa-box-open"></i>
                         Ver Packs
                     </a>
@@ -55,7 +55,7 @@
     </section>
 
     <!-- Featured Packs Carousel -->
-    <section class="featured-packs">
+    <section id= "featured-packs" class="featured-packs">
         <div class="section-container">
             <div class="section-header">
                 <h2>Packs Destacados</h2>
@@ -375,6 +375,13 @@
                     <li><a href="#">Términos y Condiciones</a></li>
                     <li><a href="#">Aviso Legal</a></li>
                     <li><a href="#contacto">Contacto</a></li>
+                    <li>
+                        <select name="idioma" id="idioma">
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="en">🇬🇧 English</option>
+                            <option value="fr">🇫🇷 Français</option>
+                        </select>
+                    </li>
                 </ul>
             </div>
             
@@ -394,5 +401,7 @@
 
     <script src="script/carousel.js"></script>
     <script src="script/versionb.js"></script>
+    <script src="script/nav.js"></script>
+
 </body>
 </html>

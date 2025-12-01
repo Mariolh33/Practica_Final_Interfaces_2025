@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./style/detalle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script src="script/nav.js"></script>
+
 </head>
 <body>
     <nav>
@@ -23,6 +25,13 @@
             <li><a href="blog.html">Blog</a></li>
             <li><a href="foro.html">Comunidad</a></li>
             <li><a href="contacto.html">Contacto</a></li>
+            <li>
+                <select name="idioma" id="idioma">
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+            </li>
         </ul>
         <div class="nav-actions">
             <button class="btn-ghost" id="searchToggle">
@@ -523,5 +532,6 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="script/detalle-ruta.js"></script>
+    <script src="script/nav.js"></script>
 </body>
 </html>
