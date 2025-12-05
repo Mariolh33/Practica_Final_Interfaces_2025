@@ -7,28 +7,28 @@
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/buscar.css">
+    <link rel="stylesheet" href="./style/detalle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script/nav.js"></script>
     <script src="script/versionb.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img src="images/Logo.png" height="50" width="50" alt="Logo de Mochileros Sin Fronteras">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="images/Logo.png" height="40" width="40" alt="Logo">
+            <span>Mochileros Sin Fronteras</span>
         </div>
-        <h2>Mochileros Sin Fronteras</h2>
-        <ul class="menu">
+        <ul class="nav-menu">
             <li><a href="index.html">Inicio</a></li>
-            <li><a href="registro.html">Registro</a></li>
-            <li class="active"><a href="buscar-rutas.html">Buscar Rutas</a></li>
-            <li><a href="packs.html">Packs</a></li>
+            <li><a href="buscar-rutas.html">Rutas</a></li>
+            <li><a href="versionb.html">Packs</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="foro.html">Comunidad</a></li>
+            <li><a href="#foro">Comunidad</a></li>
+            <li><a href="#contacto">Contacto</a></li>
             <li>
                 <select name="idioma" id="idioma">
                     <option value="es">🇪🇸 Español</option>
                     <option value="en">🇬🇧 English</option>
-                    <option value="fr">🇫🇷 Français</option>
                 </select>
             </li>
         </ul>
@@ -36,7 +36,6 @@
             <button class="btn-icon" aria-label="Buscar">
                 <i class="fas fa-search"></i>
             </button>
-        </div>
 
         <!-- Perfil en Navbar -->
         <div class="perfil-wrapper">
