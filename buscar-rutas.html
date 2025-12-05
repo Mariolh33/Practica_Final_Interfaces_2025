@@ -593,34 +593,55 @@
         </div>
     </main>
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-copy">
-                <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
-            </div>
-            <div class="footer-links">
-                <h3>Enlaces útiles</h3>
-                <ul>
-                    <li><a href="#">Sobre nosotros</a></li>
-                    <li><a href="politica.html">Política de privacidad</a></li>
-                    <li><a href="#">Ayuda</a></li>
-                </ul>
-            </div>
-            <div class="footer-social">
-                <h3>Síguenos</h3>
-                <div>
-                    <a href="#"><img src="images/instagram.jpg" alt="Instagram"></a>
-                    <a href="#"><img src="images/tiktok.webp" alt="TikTok"></a>
-                    <a href="#"><img src="images/youtube.webp" alt="YouTube"></a>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mochileros Sin Fronteras</h3>
+                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="footer-newsletter">
-                <h3>Suscríbete</h3>
-                <form>
+            
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
+                    <li><a href="versionb.html">Packs</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="politica.html">Política de Privacidad</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                    <li>
+                        <select name="idioma" id="idioma">
+                            <option value="es">🇪🇸 Español</option>
+                            <option value="en">🇬🇧 English</option>
+                        </select>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Newsletter</h4>
+                <p>Recibe nuestras últimas novedades</p>
+                <form class="newsletter-form">
                     <input type="email" placeholder="Tu email" required>
-                    <button type="submit">Enviar</button>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
                 </form>
             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
 
