@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Mochileros Sin Fronteras</title>
+    <title data-i18n="page_title">Blog - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/blog.css">
@@ -11,28 +11,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script/nav.js"></script>
     <script src="script/versionb.js"></script>
-
+    <script src="script/i18n.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-brand">
             <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span>Mochileros Sin Fronteras</span>
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="buscar-rutas.html">Rutas</a></li>
-            <li><a href="versionb.html">Packs</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#foro">Comunidad</a></li>
-            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="#foro" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
             <li>
-                <select name="idioma" id="idioma">
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="en">🇬🇧 English</option>
-                </select>
-            </li>
-        </ul>
+                <select name="idioma" id="idiomaHeader">
+                     <option value="es">🇪🇸 Español</option>
+                     <option value="en">🇬🇧 English</option>
+                 </select>
+             </li>
+         </ul>
         <div class="nav-actions">
             <button class="btn-icon" aria-label="Buscar">
                 <i class="fas fa-search"></i>
@@ -44,10 +44,10 @@
         <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
 
             <div class="user-menu" id="userMenu">
-                <button class="btn btn-primary">Mi perfil</button>
-                <button class="btn btn-primary">Mis Amigos</button>
-                <button class="btn btn-primary">Mis Rutas</button>
-                <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
+                <button class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
+                <button class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
+                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
+                <button class="btn btn-secondary btn-block" data-i18n="profile_logout" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
         </div>
     </nav>
@@ -56,8 +56,8 @@
         <!-- Header del blog -->
         <section class="blog-header">
             <div class="blog-header-content">
-                <h1>Blog de Viajeros</h1>
-                <p>Consejos, historias y guías para tu próxima aventura mochilera</p>
+                <h1 data-i18n="blog_title">Blog de Viajeros</h1>
+                <p data-i18n="blog_subtitle">Consejos, historias y guías para tu próxima aventura mochilera</p>
             </div>
         </section>
 
@@ -66,25 +66,25 @@
             <div class="featured-article">
                 <div class="featured-image">
                     <img src="images/machu-picchu.jpg" alt="Artículo destacado">
-                    <span class="badge badge-warning featured-badge">Destacado</span>
+                    <span class="badge badge-warning featured-badge" data-i18n="featured_badge">Destacado</span>
                 </div>
                 <div class="featured-content">
                     <div class="article-meta">
-                        <span class="article-category">Guías de viaje</span>
+                        <span class="article-category" data-i18n="featured_category">Guías de viaje</span>
                         <span class="article-date"><i class="fas fa-calendar"></i> 20 Nov 2025</span>
                         <span class="article-read-time"><i class="fas fa-clock"></i> 10 min</span>
                     </div>
-                    <h2>Guía completa para hacer el Camino Inca: Todo lo que necesitas saber</h2>
-                    <p>Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.</p>
+                    <h2 data-i18n="featured_title">Guía completa para hacer el Camino Inca: Todo lo que necesitas saber</h2>
+                    <p data-i18n="featured_excerpt">Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.</p>
                     <div class="article-footer">
                         <div class="author-info">
                             <div class="author-avatar">MG</div>
                             <div>
                                 <div class="author-name">María González</div>
-                                <div class="author-role">Viajera frecuente</div>
+                                <div class="author-role" data-i18n="author_role">Viajera frecuente</div>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-primary">Leer más <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="btn btn-primary" data-i18n="read_more">Leer más <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -95,21 +95,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/patagonia.jpg" alt="Patagonia">
-                            <span class="badge badge-info">Consejos</span>
+                            <span class="badge badge-info" data-i18n="badge_tips">Consejos</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 18 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 6 min</span>
                             </div>
-                            <h3>10 consejos para viajar barato por Sudamérica</h3>
-                            <p>Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.</p>
+                            <h3 data-i18n="card1_title">10 consejos para viajar barato por Sudamérica</h3>
+                            <p data-i18n="card1_excerpt">Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">CR</span>
                                     <span>Carlos R.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card1_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -117,21 +117,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/islandia.jpg" alt="Islandia">
-                            <span class="badge badge-success">Destinos</span>
+                            <span class="badge badge-success" data-i18n="badge_destinations">Destinos</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 15 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 8 min</span>
                             </div>
-                            <h3>Islandia en invierno: La guía definitiva</h3>
-                            <p>Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.</p>
+                            <h3 data-i18n="card2_title">Islandia en invierno: La guía definitiva</h3>
+                            <p data-i18n="card2_excerpt">Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">AM</span>
                                     <span>Ana M.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card2_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -139,21 +139,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/annapurna.jpg" alt="Nepal">
-                            <span class="badge badge-error">Experiencias</span>
+                            <span class="badge badge-error" data-i18n="badge_experiences">Experiencias</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 12 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 12 min</span>
                             </div>
-                            <h3>Mi experiencia en el Circuito Annapurna</h3>
-                            <p>Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.</p>
+                            <h3 data-i18n="card3_title">Mi experiencia en el Circuito Annapurna</h3>
+                            <p data-i18n="card3_excerpt">Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">JL</span>
                                     <span>Jorge L.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card3_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -161,21 +161,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/sahara.jpg" alt="Desierto">
-                            <span class="badge badge-warning">Guías</span>
+                            <span class="badge badge-warning" data-i18n="badge_guides">Guías</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 10 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 7 min</span>
                             </div>
-                            <h3>Qué llevar en tu mochila para el desierto</h3>
-                            <p>La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.</p>
+                            <h3 data-i18n="card4_title">Qué llevar en tu mochila para el desierto</h3>
+                            <p data-i18n="card4_excerpt">La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">LF</span>
                                     <span>Laura F.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card4_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -183,21 +183,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/costa-rica.jpg" alt="Costa Rica">
-                            <span class="badge badge-success">Destinos</span>
+                            <span class="badge badge-success" data-i18n="badge_destinations">Destinos</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 8 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 9 min</span>
                             </div>
-                            <h3>Costa Rica: Naturaleza y aventura</h3>
-                            <p>Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.</p>
+                            <h3 data-i18n="card5_title">Costa Rica: Naturaleza y aventura</h3>
+                            <p data-i18n="card5_excerpt">Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">MG</span>
                                     <span>María G.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card5_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -205,21 +205,21 @@
                     <article class="blog-card">
                         <div class="blog-card-image">
                             <img src="images/noruega.jpg" alt="Noruega">
-                            <span class="badge badge-info">Consejos</span>
+                            <span class="badge badge-info" data-i18n="badge_tips">Consejos</span>
                         </div>
                         <div class="blog-card-content">
                             <div class="article-meta">
                                 <span class="article-date"><i class="fas fa-calendar"></i> 5 Nov</span>
                                 <span class="article-read-time"><i class="fas fa-clock"></i> 5 min</span>
                             </div>
-                            <h3>Viajar por Noruega sin arruinarte</h3>
-                            <p>Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.</p>
+                            <h3 data-i18n="card6_title">Viajar por Noruega sin arruinarte</h3>
+                            <p data-i18n="card6_excerpt">Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.</p>
                             <div class="blog-card-footer">
                                 <div class="author-mini">
                                     <span class="author-avatar-sm">CR</span>
                                     <span>Carlos R.</span>
                                 </div>
-                                <a href="#" class="btn-text">Leer más →</a>
+                                <a href="#" class="btn-text" data-i18n="card6_read_more">Leer más →</a>
                             </div>
                         </div>
                     </article>
@@ -229,26 +229,26 @@
                 <aside class="blog-sidebar">
                     <!-- Categorías -->
                     <div class="widget">
-                        <h3><i class="fas fa-folder"></i> Categorías</h3>
+                        <h3><i class="fas fa-folder"></i> <span data-i18n="widget_categories">Categorías</span></h3>
                         <div class="categories-list">
                             <a href="#" class="category-item">
-                                <span>Guías de viaje</span>
+                                <span data-i18n="cat_guides">Guías de viaje</span>
                                 <span class="category-count">24</span>
                             </a>
                             <a href="#" class="category-item">
-                                <span>Consejos</span>
+                                <span data-i18n="cat_tips">Consejos</span>
                                 <span class="category-count">18</span>
                             </a>
                             <a href="#" class="category-item">
-                                <span>Experiencias</span>
+                                <span data-i18n="cat_experiences">Experiencias</span>
                                 <span class="category-count">32</span>
                             </a>
                             <a href="#" class="category-item">
-                                <span>Destinos</span>
+                                <span data-i18n="cat_destinations">Destinos</span>
                                 <span class="category-count">41</span>
                             </a>
                             <a href="#" class="category-item">
-                                <span>Equipamiento</span>
+                                <span data-i18n="cat_equipment">Equipamiento</span>
                                 <span class="category-count">15</span>
                             </a>
                         </div>
@@ -256,26 +256,26 @@
 
                     <!-- Artículos populares -->
                     <div class="widget">
-                        <h3><i class="fas fa-fire"></i> Más leídos</h3>
+                        <h3><i class="fas fa-fire"></i> <span data-i18n="widget_popular">Más leídos</span></h3>
                         <div class="popular-posts">
                             <a href="#" class="popular-post">
                                 <img src="images/machu-picchu.jpg" alt="Popular 1">
                                 <div>
-                                    <h4>Camino Inca: Guía completa</h4>
+                                    <h4 data-i18n="pop1_title">Camino Inca: Guía completa</h4>
                                     <span class="post-views"><i class="fas fa-eye"></i> 12.4K</span>
                                 </div>
                             </a>
                             <a href="#" class="popular-post">
                                 <img src="images/balcanes.jpg" alt="Popular 2">
                                 <div>
-                                    <h4>Ruta por los Balcanes</h4>
+                                    <h4 data-i18n="pop2_title">Ruta por los Balcanes</h4>
                                     <span class="post-views"><i class="fas fa-eye"></i> 9.8K</span>
                                 </div>
                             </a>
                             <a href="#" class="popular-post">
                                 <img src="images/serengeti.jpg" alt="Popular 3">
                                 <div>
-                                    <h4>Safari en Tanzania</h4>
+                                    <h4 data-i18n="pop3_title">Safari en Tanzania</h4>
                                     <span class="post-views"><i class="fas fa-eye"></i> 8.2K</span>
                                 </div>
                             </a>
@@ -284,30 +284,30 @@
 
                     <!-- Newsletter -->
                     <div class="widget widget-cta">
-                        <h3><i class="fas fa-envelope"></i> Newsletter</h3>
-                        <p>Recibe los mejores consejos de viaje directamente en tu email</p>
+                        <h3><i class="fas fa-envelope"></i> <span data-i18n="widget_newsletter_title">Newsletter</span></h3>
+                        <p data-i18n="widget_newsletter_text">Recibe los mejores consejos de viaje directamente en tu email</p>
                         <form class="newsletter-form">
-                            <input type="email" placeholder="Tu email" required>
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <input type="email" placeholder="Tu email" required data-i18n="newsletter_placeholder">
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="newsletter_subscribe">
                                 <i class="fas fa-paper-plane"></i> Suscribirme
                             </button>
-                        </form>
+                         </form>
                     </div>
 
                     <!-- Tags -->
                     <div class="widget">
-                        <h3><i class="fas fa-tags"></i> Tags populares</h3>
+                        <h3><i class="fas fa-tags"></i> <span data-i18n="widget_tags">Tags populares</span></h3>
                         <div class="tags-cloud">
-                            <a href="#" class="tag">Mochilero</a>
-                            <a href="#" class="tag">Sudamérica</a>
-                            <a href="#" class="tag">Asia</a>
-                            <a href="#" class="tag">Trekking</a>
-                            <a href="#" class="tag">Presupuesto</a>
-                            <a href="#" class="tag">Europa</a>
-                            <a href="#" class="tag">Camping</a>
-                            <a href="#" class="tag">Montaña</a>
-                            <a href="#" class="tag">África</a>
-                            <a href="#" class="tag">Consejos</a>
+                            <a href="#" class="tag" data-i18n="tag_backpacker">Mochilero</a>
+                            <a href="#" class="tag" data-i18n="tag_south_america">Sudamérica</a>
+                            <a href="#" class="tag" data-i18n="tag_asia">Asia</a>
+                            <a href="#" class="tag" data-i18n="tag_trekking">Trekking</a>
+                            <a href="#" class="tag" data-i18n="tag_budget">Presupuesto</a>
+                            <a href="#" class="tag" data-i18n="tag_europe">Europa</a>
+                            <a href="#" class="tag" data-i18n="tag_camping">Camping</a>
+                            <a href="#" class="tag" data-i18n="tag_mountain">Montaña</a>
+                            <a href="#" class="tag" data-i18n="tag_africa">África</a>
+                            <a href="#" class="tag" data-i18n="tag_tips">Consejos</a>
                         </div>
                     </div>
                 </aside>
@@ -315,7 +315,7 @@
 
             <!-- Paginación -->
             <div class="pagination">
-                <a href="#" class="pagination-prev disabled">
+                <a href="#" class="pagination-prev disabled" data-i18n="pagination_prev">
                     <i class="fas fa-chevron-left"></i> Anterior
                 </a>
                 <a href="#" class="pagination-number active">1</a>
@@ -324,7 +324,7 @@
                 <a href="#" class="pagination-number">4</a>
                 <a href="#" class="pagination-more">...</a>
                 <a href="#" class="pagination-number">12</a>
-                <a href="#" class="pagination-next">
+                <a href="#" class="pagination-next" data-i18n="pagination_next">
                     Siguiente <i class="fas fa-chevron-right"></i>
                 </a>
             </div>
@@ -334,8 +334,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Mochileros Sin Fronteras</h3>
-                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
+                <p data-i18n="footer_desc">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -344,42 +344,42 @@
             </div>
             
             <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
+                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
-                    <li><a href="versionb.html">Packs</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="buscar-rutas.html" data-i18n="footer_link_routes">Buscar Rutas</a></li>
+                    <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4 data-i18n="footer_legal">Legal</h4>
                 <ul>
-                    <li><a href="politica.html">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="politica.html" data-i18n="footer_policy">Política de Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_terms">Términos y Condiciones</a></li>
+                    <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
+                    <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
                     <li>
-                        <select name="idioma" id="idioma">
-                            <option value="es">🇪🇸 Español</option>
-                            <option value="en">🇬🇧 English</option>
-                        </select>
-                    </li>
+                        <select name="idioma" id="idiomaFooter">
+                             <option value="es">🇪🇸 Español</option>
+                             <option value="en">🇬🇧 English</option>
+                         </select>
+                     </li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Recibe nuestras últimas novedades</p>
+                <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
+                <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    <input type="email" placeholder="Tu email" required data-i18n="newsletter_placeholder">
+                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
 </body>
