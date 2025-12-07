@@ -212,7 +212,7 @@
 =========================== */
 .route-gallery {
   max-width: 1400px;
-  margin: -60px auto 30px;
+  margin: 20px auto 30px;
   padding: 0 30px;
   display: grid;
   grid-template-columns: 1fr 200px;
@@ -974,6 +974,8 @@
   .price-card {
     position: static;
     max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
   }
 
   .route-detail-container {
@@ -1084,11 +1086,15 @@
   }
 
   .itinerary-timeline {
-    padding-left: 50px;
+    padding-left: 32px;
+  }
+
+  .itinerary-timeline::before {
+    left: 12px;
   }
 
   .day-marker {
-    left: -50px;
+    left: -10px;
     width: 40px;
     height: 40px;
   }
@@ -1161,11 +1167,15 @@
   }
 
   .itinerary-timeline {
-    padding-left: 40px;
+    padding-left: 24px;
+  }
+
+  .itinerary-timeline::before {
+    left: 8px;
   }
 
   .day-marker {
-    left: -40px;
+    left: -6px;
     width: 32px;
     height: 32px;
   }

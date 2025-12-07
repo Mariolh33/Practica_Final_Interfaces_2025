@@ -232,6 +232,18 @@ a {
   align-items: start;
 }
 
+/* force main content in first column and sidebar in second on desktop */
+.main-container > .featured-packs,
+.main-container > .destinations-section,
+.main-container > section {
+  grid-column: 1;
+}
+
+.main-container > .home-sidebar {
+  grid-column: 2;
+  grid-row: 1;
+}
+
 /* ===========================
    NAVBAR
 =========================== */
@@ -242,8 +254,7 @@ nav {
   background: var(--navy-dark);
   padding: 16px 40px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
+  position: static; /* allow header to scroll away */
   z-index: 100;
 }
 
@@ -296,6 +307,29 @@ nav ul li a.active {
   gap: 12px;
   align-items: center;
 } 
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+}
 
 
 /* make wrapper positioned so the absolute menu can align to the profile image */
@@ -986,10 +1020,6 @@ footer {
   .main-container {
     grid-template-columns: 1fr;
   }
-  
-  .home-sidebar {
-    order: -1;
-  }
 }
 
 /* ===========================
@@ -998,6 +1028,42 @@ footer {
 @media (max-width: 1024px) {
   .hero-home {
     height: 500px;
+  }
+
+  /* Navbar responsive: apilar cuando no hay ancho */
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .nav-menu,
+  .nav-actions,
+  .perfil-wrapper {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  nav.nav-open .nav-menu,
+  nav.nav-open .nav-actions,
+  nav.nav-open .perfil-wrapper {
+    display: flex;
+  }
+
+  .nav-menu li {
+    width: 100%;
+  }
+
+  .nav-menu li a {
+    width: 100%;
+    padding: 10px 0;
   }
 
   .hero-text h1 {
@@ -1012,14 +1078,20 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Stack content and sidebar vertically on tablet */
   .main-container {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .home-sidebar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     gap: 24px;
+    position: static;
+    top: auto;
   }
 
   .login-widget {
@@ -1030,6 +1102,27 @@ footer {
 @media (max-width: 768px) {
   .hero-home {
     height: 450px;
+  }
+
+  /* Navbar aún más compacta */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .perfil-wrapper {
+    align-self: flex-end;
   }
 
   .hero-text h1 {
@@ -1079,7 +1172,11 @@ footer {
   }
 
   .home-sidebar {
-    grid-template-columns: 1fr;
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    position: static;
+    top: auto;
   }
 }
 
