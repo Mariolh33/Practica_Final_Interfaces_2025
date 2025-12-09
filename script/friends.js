@@ -1,46 +1,49 @@
-/* Simple friends list + chat demo
-   - Stores friends list in localStorage key 'friends_list' (if not found, uses sample)
-   - Stores conversations in localStorage under 'chat_<friendId>' as JSON array of messages
-   - UI: opens popup #popupFriends, lists friends in #friendsList, shows messages in #messages
+/*
+  friends.js
+  - Maneja la ventana de "Mis Amigos" y el chat local.
+  - Almacena la lista de amigos por usuario en localStorage.
+  - Guarda mensajes globales en localStorage bajo la clave 'global_chats'
+  - Diseño simple para pruebas: mensajes se comparten entre cuentas cambiando la sesión (sessionStorage.usuarioLogueado).
+  NOTA: Este archivo usa solo almacenamiento local (no hay servidor).
 */
+
 (function(){
-  const popup = document.getElementById('popupFriends');
-  const btnOpen = document.getElementById('btnMisAmigos');
-  const btnClose = document.getElementById('closeFriends');
-  const friendsListEl = document.getElementById('friendsList');
-  const onlineListEl = document.getElementById('onlineList');
-  const chatHeader = document.getElementById('chatHeader');
-  const messagesEl = document.getElementById('messages');
-  const inputEl = document.getElementById('chatInput');
-  const sendBtn = document.getElementById('chatSend');
-  const tabs = Array.from(document.querySelectorAll('.friends-tab-btn'));
-  const panelFriends = document.getElementById('panel-friends');
-  const panelAdd = document.getElementById('panel-add');
-  const panelOnline = document.getElementById('panel-online');
-  const addForm = document.getElementById('addFriendForm');
-  const newFriendUsername = document.getElementById('newFriendUsername');
-  const addFriendErrorEl = document.getElementById('addFriendError');
-  const popupContent = popup ? popup.querySelector('.friends-popup-content') : null;
+  // Variables DOM que se asignan en init para soportar inclusión del script en <head>
+  let popup = null;
+  let btnOpen = null;
+  let btnClose = null;
+  let friendsListEl = null;
+  let onlineListEl = null;
+  let chatHeader = null;
+  let messagesEl = null;
+  let inputEl = null;
+  let sendBtn = null;
+  let tabs = [];
+  let panelFriends = null;
+  let panelAdd = null;
+  let panelOnline = null;
+  let addForm = null;
+  let newFriendUsername = null;
+  let addFriendErrorEl = null;
+  let popupContent = null;
 
-  const SAMPLE = [ {id: 'f1', name: 'Alicia', online: true}, {id: 'f2', name: 'Carlos', online: false} ];
-
+  // Devuelve el nombre de usuario que está en sesión (usuario activo).
+  // Si no hay sesión, devolvemos 'anon' para evitar claves inválidas.
   function getLoggedUser(){
     return sessionStorage.getItem('usuarioLogueado') || 'anon';
   }
 
+  // Genera la clave de localStorage para la lista de amigos de un usuario concreto.
+  // Por ejemplo: friends_list_mario
   function friendsStorageKeyFor(user){
     return `friends_list_${user}`;
   }
 
+  // Carga la lista de amigos del usuario actualmente logueado.
   function loadFriends(){
     const user = getLoggedUser();
     const key = friendsStorageKeyFor(user);
     try {
-      // Migration: if global friends_list exists and per-user key missing, copy it for the current user
-      const globalRaw = localStorage.getItem('friends_list');
-      if (globalRaw && !localStorage.getItem(key)) {
-        try { localStorage.setItem(key, globalRaw); localStorage.removeItem('friends_list'); } catch(e){}
-      }
       const raw = localStorage.getItem(key);
       if (!raw) return [];
       const parsed = JSON.parse(raw);
@@ -49,36 +52,30 @@
     } catch(e){ return []; }
   }
 
+  // Guarda la lista de amigos para el usuario actualmente logueado.
   function saveFriends(list){
     const user = getLoggedUser();
     const key = friendsStorageKeyFor(user);
     localStorage.setItem(key, JSON.stringify(list));
   }
 
-  function listConvoKey(id){ return `chat_${id}`; }
+  // Mensajes solo en `global_chats`.
 
-  function loadMessages(id){
-    try {
-      const raw = localStorage.getItem(listConvoKey(id));
-      if (!raw) return [];
-      return JSON.parse(raw);
-    } catch(e){ return []; }
-  }
-
-  function saveMessages(id, messages){
-    localStorage.setItem(listConvoKey(id), JSON.stringify(messages));
-  }
-
-  // Global messages store so two different logged accounts can exchange messages
-  // Structure: [{ from: 'usernameA', to: 'usernameB', text: '...', ts: 123456789 }, ...]
+  // Estructura: [{ from: 'usernameA', to: 'usernameB', text: '...', ts: 123456789 }, ...]
+  // Carga el array global de mensajes que almacenan {from,to,text,ts}.
+  // Este arreglo permite que, al cambiar de sesión (usuario), los mensajes enviados
+  // por A hacia B se vean cuando B inicie sesión.
   function loadGlobalMessages(){
     try { return JSON.parse(localStorage.getItem('global_chats')) || []; } catch(e) { return []; }
   }
 
+  // Guarda el array global de mensajes en localStorage.
   function saveGlobalMessages(arr){
     try { localStorage.setItem('global_chats', JSON.stringify(arr)); } catch(e) {}
   }
 
+  // Añade un mensaje al almacenamiento global.
+  // 'from' y 'to' deben ser usernames (strings).
   function addGlobalMessage(from, to, text){
     if (!from || !to || !text) return;
     const all = loadGlobalMessages();
@@ -88,13 +85,15 @@
     return msg;
   }
 
+  // Devuelve todos los mensajes globales intercambiados entre userA y userB.
   function loadConversationGlobal(userA, userB){
     if (!userA || !userB) return [];
     const all = loadGlobalMessages();
     return all.filter(m => (m.from === userA && m.to === userB) || (m.from === userB && m.to === userA));
   }
 
-  // render friends as buttons with online indicator
+  // Renderiza la lista de amigos en el panel izquierdo.
+  // Cada elemento incluye el nombre, indicador online y un botón para eliminar.
   function renderFriends(){
     const friendArr = loadFriends();
     friendsListEl.innerHTML = '';
@@ -115,7 +114,7 @@
         btn.appendChild(dot);
       }
       btn.addEventListener('click', (e) => { e.stopPropagation(); selectFriend(f.id, f.name, li); });
-      // delete button
+      // Boton de eliminar amigo
       const delBtn = document.createElement('button');
       delBtn.type = 'button';
       delBtn.className = 'friend-delete';
@@ -128,7 +127,7 @@
     });
   }
 
-  // render online list
+  // Renderiza la lista de amigos que están online (pequeña lista separada).
   function renderOnline(){
     const friendArr = loadFriends().filter(f => f.online);
     onlineListEl.innerHTML = '';
@@ -139,20 +138,18 @@
       const li = document.createElement('li'); li.className = 'friend-item';
       const btn = document.createElement('button'); btn.type='button'; btn.className='friend-btn btn btn-block'; btn.textContent = f.name;
       btn.addEventListener('click', ()=> selectFriend(f.id, f.name, li));
-      // online dot
+      // icono de online
       const dot = document.createElement('span'); dot.className='online-dot online'; li.appendChild(btn); li.appendChild(dot);
       onlineListEl.appendChild(li);
     });
   }
 
-  // show confirmation popup for deleting friend, then perform deletion
+  // Elimina un amigo de la lista del usuario actual y borra su conversación.
   function _performDeleteFriend(id){
     if (!id) return;
     let friends = loadFriends();
     friends = friends.filter(f => f.id !== id);
     saveFriends(friends);
-    // remove conversation history for this friend
-    try { localStorage.removeItem(listConvoKey(id)); } catch(e){}
     if (currentFriendId === id) {
       currentFriendId = null;
       setChatActive(false);
@@ -164,6 +161,8 @@
     renderOnline();
   }
 
+  // Muestra el popup de confirmación para eliminar a un amigo.
+  // Si el popup no existe, usa un confirm() como fallback.
   function showDeleteFriendConfirm(id, name){
     const popupDel = document.getElementById('popupEliminarAmigo');
     // fallback to simple confirm if popup is missing
@@ -193,7 +192,7 @@
     confirmar.addEventListener('click', onConfirm);
     cancelar.addEventListener('click', onCancel);
 
-    // click outside to close
+    // Si haces click fuera, se cierra el popup
     function onOverlay(e){ if (e.target === popupDel) { cleanup(); popupDel.removeEventListener('click', onOverlay); } }
     popupDel.addEventListener('click', onOverlay);
   }
@@ -201,11 +200,13 @@
   let currentFriendId = null;
   const chatPanelEl = document.querySelector('.chat-panel');
 
+  // Muestra u oculta el panel de chat (lado derecho).
   function setChatActive(active) {
     if (!chatPanelEl) return;
     chatPanelEl.classList.toggle('chat-active', !!active);
   }
 
+  // Selecciona un amigo: marca el elemento activo, carga mensajes y abre el panel de chat.
   function selectFriend(id, name, el){
     currentFriendId = id;
     // mark active
@@ -214,37 +215,22 @@
     chatHeader.textContent = name;
     renderMessages(id);
     inputEl.focus();
-    // show chat panel now that a friend is selected
+    // muestra el chat al seleccionar un amigo
     if (popupContent) popupContent.classList.add('chat-open');
     setChatActive(true);
   }
 
   function renderMessages(id){
-    // Merge legacy per-conversation messages with global messages for this pair
-    const legacy = loadMessages(id) || [];
-    const logged = sessionStorage.getItem('usuarioLogueado') || 'me';
-    const global = loadConversationGlobal(logged, id) || [];
-    // map legacy messages to a compatible format: 'me' => logged, 'them' => friend id
-    const legacyMapped = legacy.map(m => ({
-      from: (m.from === 'me' ? logged : id),
-      to: (m.from === 'me' ? id : logged),
-      text: m.text,
-      ts: m.ts || 0
-    }));
-    // Combine and deduplicate by key (ts|from|to|text) to avoid double entries
-    const combined = legacyMapped.concat(global).sort((a,b)=> (a.ts||0) - (b.ts||0));
-    const seen = new Set();
-    const deduped = [];
-    combined.forEach(m => {
-      const key = `${m.ts}|${m.from}|${m.to}|${m.text}`;
-      if (!seen.has(key)) { seen.add(key); deduped.push(m); }
-    });
+    // Carga únicamente los mensajes globales entre el usuario logueado y el amigo.
+    const logged = getLoggedUser();
+    const conv = loadConversationGlobal(logged, id) || [];
+    const sorted = conv.slice().sort((a,b) => (a.ts||0) - (b.ts||0));
     messagesEl.innerHTML = '';
-    if (!deduped.length){
+    if (!sorted.length){
       const p = document.createElement('div'); p.className='msg them'; p.textContent = 'No hay mensajes aún. Inicia la conversación.'; messagesEl.appendChild(p);
       return;
     }
-    deduped.forEach(m => {
+    sorted.forEach(m => {
       const d = document.createElement('div');
       const isMe = (m.from === logged);
       d.className = 'msg ' + (isMe ? 'me' : 'them');
@@ -254,6 +240,7 @@
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  // Abre la ventana popup de "Mis Amigos" (se añade al body para evitar recortes por overflow).
   function openPopup(){
     if (!popup) return;
     if (popup.parentElement !== document.body) document.body.appendChild(popup);
@@ -269,6 +256,7 @@
     if (popupContent) popupContent.classList.remove('chat-open');
   }
 
+  // Cierra la ventana popup y limpia el estado del chat.
   function closePopup(){
     if (!popup) return;
     popup.classList.remove('active');
@@ -283,30 +271,32 @@
     if (popupContent) popupContent.classList.remove('chat-open');
   }
 
-  // send message
+  // Envía un mensaje: lo guarda en el almacenamiento global con {from,to,text,ts}.
+  // De esta forma, cuando el destinatario inicie sesión verá el mensaje.
   function sendMessage(){
     const text = (inputEl && inputEl.value || '').trim();
     if (!text || !currentFriendId) return;
-    const logged = sessionStorage.getItem('usuarioLogueado') || 'me';
-    // add to global messages so recipient sees it when they log in
+    const logged = getLoggedUser();
+    // Añadir mensaje al almacén global
     addGlobalMessage(logged, currentFriendId, text);
-    // Do NOT write the same message to legacy storage to avoid duplicates.
+    // No duplicamos en el almacenamiento legacy para evitar entradas repetidas.
     inputEl.value = '';
     renderMessages(currentFriendId);
   }
 
-  // Tab activation
+  // Maneja las pestañas dentro del popup: Amigos / Añadir / Online.
+  // Muestra/oculta paneles y controla si debe aparecer el panel de chat.
   function activateTab(name){
     tabs.forEach(t => { t.classList.toggle('active', t.dataset.tab === name); t.setAttribute('aria-selected', t.dataset.tab === name ? 'true' : 'false'); });
     panelFriends.classList.toggle('panel-active', name === 'friends'); panelFriends.setAttribute('aria-hidden', name === 'friends' ? 'false' : 'true');
     panelAdd.classList.toggle('panel-active', name === 'add'); panelAdd.setAttribute('aria-hidden', name === 'add' ? 'false' : 'true');
     panelOnline.classList.toggle('panel-active', name === 'online'); panelOnline.setAttribute('aria-hidden', name === 'online' ? 'false' : 'true');
-    // if switching away from friends tab, hide chat panel
+    // si salimos de la pestaña "amigos", ocultar el chat
     if (name !== 'friends') {
       setChatActive(false);
       if (popupContent) popupContent.classList.remove('chat-open');
     } else {
-      // if friends tab and a friend is selected, show chat
+      // si volvemos a "amigos" y hay un amigo seleccionado, mostrar chat
       if (!!currentFriendId) {
         if (popupContent) popupContent.classList.add('chat-open');
         setChatActive(true);
@@ -317,16 +307,42 @@
     }
   }
 
-  // wire events
-  if (btnOpen) btnOpen.addEventListener('click', (e)=>{ e.stopPropagation(); openPopup(); });
-  if (btnClose) btnClose.addEventListener('click', (e)=>{ e.stopPropagation(); closePopup(); });
-  if (popup) popup.addEventListener('click', (e)=>{ if (e.target === popup) closePopup(); });
-  if (inputEl) inputEl.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') sendMessage(); });
-  if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+  // Inicializar bindings cuando el DOM esté listo (soporta script en <head>)
+  function initFriendsBindings(){
+    popup = document.getElementById('popupFriends');
+    btnOpen = document.getElementById('btnMisAmigos');
+    btnClose = document.getElementById('closeFriends');
+    friendsListEl = document.getElementById('friendsList');
+    onlineListEl = document.getElementById('onlineList');
+    chatHeader = document.getElementById('chatHeader');
+    messagesEl = document.getElementById('messages');
+    inputEl = document.getElementById('chatInput');
+    sendBtn = document.getElementById('chatSend');
+    tabs = Array.from(document.querySelectorAll('.friends-tab-btn'));
+    panelFriends = document.getElementById('panel-friends');
+    panelAdd = document.getElementById('panel-add');
+    panelOnline = document.getElementById('panel-online');
+    addForm = document.getElementById('addFriendForm');
+    newFriendUsername = document.getElementById('newFriendUsername');
+    addFriendErrorEl = document.getElementById('addFriendError');
+    popupContent = popup ? popup.querySelector('.friends-popup-content') : null;
 
-  tabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+    // attach events
+    if (btnOpen) btnOpen.addEventListener('click', (e)=>{ e.stopPropagation(); openPopup(); });
+    // also handle buttons that use data-i18n text instead of id
+    const altBtn = document.querySelector('[data-i18n="profile_friends"]');
+    if (!btnOpen && altBtn) altBtn.addEventListener('click', (e)=>{ e.stopPropagation(); openPopup(); });
+    if (btnClose) btnClose.addEventListener('click', (e)=>{ e.stopPropagation(); closePopup(); });
+    if (popup) popup.addEventListener('click', (e)=>{ if (e.target === popup) closePopup(); });
+    if (inputEl) inputEl.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') sendMessage(); });
+    if (sendBtn) sendBtn.addEventListener('click', sendMessage);
+    tabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+  }
 
-  // add friend form
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initFriendsBindings); else initFriendsBindings();
+
+  // Formulario: Añadir un nuevo amigo.
+  // Valida que el username exista en localStorage.usuarios, que no sea el propio usuario y que no esté duplicado.
   if (addForm) addForm.addEventListener('submit', (e)=>{
     e.preventDefault();
     const username = (newFriendUsername.value || '').trim();
@@ -354,8 +370,8 @@
     } catch(e) { /* ignore sessionStorage errors */ }
 
     const friends = loadFriends();
-    const id = user.username; // use username as friend id
-    // prevent duplicates
+    const id = user.username; // usar username como id de amigo
+    // prevenir duplicados
     if (friends.find(f => f.id === id)) {
       if (addFriendErrorEl) addFriendErrorEl.textContent = 'Este usuario ya está en tu lista de amigos.';
       return;
@@ -367,15 +383,14 @@
     saveFriends(friends);
     newFriendUsername.value = '';
     if (addFriendErrorEl) addFriendErrorEl.textContent = '';
-    // switch back to friends tab and refresh
+    // Vuelve a la pestaña de amigos y refresca
     renderFriends();
     renderOnline();
     activateTab('friends');
   });
 
-  // no automatic seeding: start with an empty friends list by default
 
-  // Expose for debugging
+  // Exponer utilidades para depuración desde la consola.
   window._friendsUI = { openPopup, closePopup, renderFriends, renderOnline };
 
 })();

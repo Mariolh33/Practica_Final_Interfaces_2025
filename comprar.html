@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./style/comprar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="script/comprar.js"></script>
-    <!-- Duplicate nav.js include removed -->
+    <script src="script/nav.js"></script>
 </head>
 
 <body>
@@ -40,7 +40,19 @@
             <button class="btn-icon" aria-label="Buscar">
                 <i class="fas fa-search"></i>
             </button>
-            <a href="registro.html" class="btn btn-primary">Mi Cuenta</a>
+        </div>
+        
+        <!-- Perfil en Navbar (sustituye enlace Mi Cuenta) -->
+        <div class="perfil-wrapper">
+            <span id="nombreUsuario" class="nombre-usuario"></span>
+            <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+
+            <div class="user-menu" id="userMenu">
+                <button class="btn btn-primary">Mi perfil</button>
+                <button id="btnMisAmigos" class="btn btn-primary">Mis Amigos</button>
+                <button class="btn btn-primary">Mis Rutas</button>
+                <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
         </div>
     </nav>
 
@@ -234,6 +246,59 @@
     </footer>
 
   </main>
-        <script src="script/nav.js"></script>
+    <!-- Popup Amigos (copiado desde versionb.html) -->
+    <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
+        <div class="popup-content friends-popup-content">
+            <div class="friends-left">
+                <div class="friends-header">
+                    <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                    </div>
+                </div>
+
+                <div id="friendsPanels" class="friends-panels">
+                    <div id="panel-friends" class="panel panel-active" role="tabpanel">
+                        <ul id="friendsList" class="friends-list"></ul>
+                    </div>
+
+                    <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
+                        <form id="addFriendForm" class="add-friend-panel">
+                            <label for="newFriendUsername">Nombre de usuario (username)</label>
+                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
+                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
+                        </form>
+                    </div>
+
+                    <div id="panel-online" class="panel" role="tabpanel" aria-hidden="true">
+                        <ul id="onlineList" class="friends-list online-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-panel">
+                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
+                <div id="messages" class="messages" aria-live="polite"></div>
+                <div class="chat-input-row">
+                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
+                    <button id="chatSend" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+            <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
+        </div>
+    </div>
+
+    <!-- Popup Confirmar eliminación de amigo -->
+    <div id="popupEliminarAmigo" class="popup">
+        <div class="popup-content">
+            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
+            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
+            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+    <script src="script/versionb.js"></script>
+    <script src="script/friends.js"></script>
 </body>
 </html>
