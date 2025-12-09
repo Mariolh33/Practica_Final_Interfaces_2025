@@ -337,59 +337,61 @@
     if (inputEl) inputEl.addEventListener('keydown', (e)=>{ if (e.key === 'Enter') sendMessage(); });
     if (sendBtn) sendBtn.addEventListener('click', sendMessage);
     tabs.forEach(t => t.addEventListener('click', () => activateTab(t.dataset.tab)));
+
+    // Formulario: Añadir un nuevo amigo. Se registra aquí para garantizar que
+    // `addForm` exista (se asigna durante init). Esto evita que el listener
+    // se pierda si el script se carga en el head y la comprobación fuera de
+    // init se ejecutó antes del DOMContentLoaded.
+    if (addForm) addForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const username = (newFriendUsername.value || '').trim();
+      if (!username) return;
+      // clear previous error
+      if (addFriendErrorEl) addFriendErrorEl.textContent = '';
+
+      // load existing site users from localStorage (key: 'usuarios')
+      let siteUsers = [];
+      try { siteUsers = JSON.parse(localStorage.getItem('usuarios')) || []; } catch(err) { siteUsers = []; }
+
+      const user = siteUsers.find(u => u.username === username);
+      if (!user) {
+        if (addFriendErrorEl) addFriendErrorEl.textContent = 'No existe ningún usuario con ese nombre de usuario.';
+        return;
+      }
+
+      // prevent adding yourself: current logged username stored in sessionStorage.usuarioLogueado
+      try {
+        const logged = sessionStorage.getItem('usuarioLogueado');
+        if (logged && logged === user.username) {
+          if (addFriendErrorEl) addFriendErrorEl.textContent = 'No puedes añadirte a ti mismo como amigo.';
+          return;
+        }
+      } catch(err) { /* ignore sessionStorage errors */ }
+
+      const friends = loadFriends();
+      const id = user.username; // usar username como id de amigo
+      // prevenir duplicados
+      if (friends.find(f => f.id === id)) {
+        if (addFriendErrorEl) addFriendErrorEl.textContent = 'Este usuario ya está en tu lista de amigos.';
+        return;
+      }
+
+      const displayName = (user.nombre || user.username) + (user.apellido ? ' ' + user.apellido : '');
+      const newF = { id, name: displayName, online: !!user.online };
+      friends.push(newF);
+      saveFriends(friends);
+      newFriendUsername.value = '';
+      if (addFriendErrorEl) addFriendErrorEl.textContent = '';
+      // Vuelve a la pestaña de amigos y refresca
+      renderFriends();
+      renderOnline();
+      activateTab('friends');
+    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initFriendsBindings); else initFriendsBindings();
 
-  // Formulario: Añadir un nuevo amigo.
-  // Valida que el username exista en localStorage.usuarios, que no sea el propio usuario y que no esté duplicado.
-  if (addForm) addForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const username = (newFriendUsername.value || '').trim();
-    if (!username) return;
-    // clear previous error
-    if (addFriendErrorEl) addFriendErrorEl.textContent = '';
-
-    // load existing site users from localStorage (key: 'usuarios')
-    let siteUsers = [];
-    try { siteUsers = JSON.parse(localStorage.getItem('usuarios')) || []; } catch(e) { siteUsers = []; }
-
-    const user = siteUsers.find(u => u.username === username);
-    if (!user) {
-      if (addFriendErrorEl) addFriendErrorEl.textContent = 'No existe ningún usuario con ese nombre de usuario.';
-      return;
-    }
-
-    // prevent adding yourself: current logged username stored in sessionStorage.usuarioLogueado
-    try {
-      const logged = sessionStorage.getItem('usuarioLogueado');
-      if (logged && logged === user.username) {
-        if (addFriendErrorEl) addFriendErrorEl.textContent = 'No puedes añadirte a ti mismo como amigo.';
-        return;
-      }
-    } catch(e) { /* ignore sessionStorage errors */ }
-
-    const friends = loadFriends();
-    const id = user.username; // usar username como id de amigo
-    // prevenir duplicados
-    if (friends.find(f => f.id === id)) {
-      if (addFriendErrorEl) addFriendErrorEl.textContent = 'Este usuario ya está en tu lista de amigos.';
-      return;
-    }
-
-    const displayName = (user.nombre || user.username) + (user.apellido ? ' ' + user.apellido : '');
-    const newF = { id, name: displayName, online: !!user.online };
-    friends.push(newF);
-    saveFriends(friends);
-    newFriendUsername.value = '';
-    if (addFriendErrorEl) addFriendErrorEl.textContent = '';
-    // Vuelve a la pestaña de amigos y refresca
-    renderFriends();
-    renderOnline();
-    activateTab('friends');
-  });
-
-
+  
   // Exponer utilidades para depuración desde la consola.
   window._friendsUI = { openPopup, closePopup, renderFriends, renderOnline };
 
