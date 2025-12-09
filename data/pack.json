@@ -1,0 +1,17 @@
+[
+  {
+    "id": "pack_se_asia",
+    "price": "600€",
+    "img": "./images/Vietnam.jpeg"
+  },
+  {
+    "id": "pack_india",
+    "price": "1200€",
+    "img": "./images/india.jpeg"
+  },
+  {
+    "id": "pack_tanzania",
+    "price": "800€",
+    "img": "./images/Tanzania.jpeg"
+  }
+]

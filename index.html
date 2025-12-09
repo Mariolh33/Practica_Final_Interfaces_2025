@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script/i18n.js" defer></script>
+    <!-- <script src="script/packs.js" defer></script> -->
+    <script src="script/carousel.js" defer></script>
 </head>
 
 
@@ -66,7 +68,7 @@
     </section>
 
     <!-- Featured Packs Carousel -->
-    <section id= "featured-packs" class="featured-packs">
+    <section id="featured-packs" class="featured-packs">
         <div class="section-container">
             <div class="section-header">
                 <h2 data-i18n="index_featured_packs">Packs Destacados</h2>
@@ -74,21 +76,22 @@
             </div>
             
             <div class="carousel-wrapper">
-                <button class="carousel-btn carousel-btn-prev" onclick="changeCarouselLeft()" aria-label="Anterior">
+                <button class="carousel-btn carousel-btn-prev" onclick="window.carousel.changeLeft()" aria-label="Anterior">
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 
-                <div class="carousel-track">
+                <div class="carousel-track" id="carousel-track">
                     <div class="pack-card">
                         <div class="pack-image">
-                            <img id="carousel-img" src="images/Mexico.jpg" alt="Pack">
-                            <span class="pack-badge" data-i18n="index_pack_offer">Oferta</span>
+                            <img id="carousel-img" src="" alt="">
                         </div>
                         <div class="pack-content">
-                            <h3 id="carousel-title" data-i18n="index_carousel_title">Pack Sudeste Asiático</h3>
-                            <p id="carousel-desc" data-i18n="index_carousel_desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
+                            <div>
+                                <h3 id="carousel-title"></h3>
+                                <p id="carousel-desc" class="carousel-desc"></p>
+                            </div>
                             <div class="pack-footer">
-                                <span class="pack-price" id="carousel-price" data-i18n="index_carousel_price">600€</span>
+                                <span class="pack-price" id="carousel-price"></span>
                                 <button class="btn btn-primary" onclick="navigateToBuy()">
                                     <i class="fas fa-shopping-cart"></i>
                                     <span data-i18n="index_pack_buy">Comprar</span>
@@ -97,13 +100,16 @@
                         </div>
                     </div>
                 </div>
+
                 
-                <button class="carousel-btn carousel-btn-next" onclick="changeCarouselRight()" aria-label="Siguiente">
+                <button class="carousel-btn carousel-btn-next" onclick="window.carousel.changeRight()" aria-label="Siguiente">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
         </div>
     </section>
+
+
 
     <!-- Main Content -->
     <main class="home-main">

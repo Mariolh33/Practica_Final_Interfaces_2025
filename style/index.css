@@ -116,13 +116,6 @@ a {
   color: var(--gray-medium);
 }
 
-.carousel-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
 .carousel-btn {
   background: var(--navy-bright);
   color: white;
@@ -145,33 +138,64 @@ a {
   font-size: 1.25rem;
 }
 
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
 .carousel-track {
-  flex: 1;
-  overflow: hidden;
+    width: 800px; /* ancho fijo */
+    height: 500px; /* altura fija */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
 }
 
 .pack-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  transition: transform 0.3s ease;
-}
-
-.pack-card:hover {
-  transform: translateY(-8px);
+    width: 100%;
+    height: 100%;
+    background: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .pack-image {
-  position: relative;
-  height: 300px;
-  overflow: hidden;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
 }
 
 .pack-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* recorta y centra la imagen */
+}
+
+.pack-content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.carousel-desc {
+    max-height: 100px; /* límite del texto */
+    overflow-y: auto; /* scroll si es demasiado largo */
+    margin-bottom: 12px;
+}
+
+.pack-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .pack-badge {
@@ -186,30 +210,20 @@ a {
   font-size: 0.875rem;
 }
 
-.pack-content {
-  padding: 24px;
-}
-
 .pack-content h3 {
   font-size: 1.5rem;
   color: var(--navy-dark);
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .pack-content p {
   color: var(--gray-dark);
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.pack-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  line-height: 1.4;
+  margin-bottom: 12px;
 }
 
 .pack-price {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: var(--navy-bright);
 }

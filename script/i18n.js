@@ -1,282 +1,45 @@
-(function () {
-    const translations = {
-        es: {
-            page_title: 'Blog - Mochileros Sin Fronteras',
-            index_page_title: 'Inicio - Mochileros Sin Fronteras',
-            brand: 'Mochileros Sin Fronteras',
-            nav_home: 'Inicio',
-            nav_routes: 'Rutas',
-            nav_packs: 'Packs',
-            nav_blog: 'Blog',
-            nav_community: 'Comunidad',
-            nav_contact: 'Contacto',
-            profile_profile: 'Mi perfil',
-            profile_friends: 'Mis Amigos',
-            profile_routes: 'Mis Rutas',
-            profile_logout: 'Cerrar sesión',
-            blog_title: 'Blog de Viajeros',
-            blog_subtitle: 'Consejos, historias y guías para tu próxima aventura mochilera',
-            featured_badge: 'Destacado',
-            featured_category: 'Guías de viaje',
-            featured_title: 'Guía completa para hacer el Camino Inca: Todo lo que necesitas saber',
-            featured_excerpt: 'Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.',
-            author_role: 'Viajera frecuente',
-            read_more: 'Leer más',
-            badge_tips: 'Consejos',
-            badge_destinations: 'Destinos',
-            badge_experiences: 'Experiencias',
-            badge_guides: 'Guías',
-            card1_title: '10 consejos para viajar barato por Sudamérica',
-            card1_excerpt: 'Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.',
-            card1_read_more: 'Leer más →',
-            card2_title: 'Islandia en invierno: La guía definitiva',
-            card2_excerpt: 'Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.',
-            card2_read_more: 'Leer más →',
-            card3_title: 'Mi experiencia en el Circuito Annapurna',
-            card3_excerpt: 'Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.',
-            card3_read_more: 'Leer más →',
-            card4_title: 'Qué llevar en tu mochila para el desierto',
-            card4_excerpt: 'La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.',
-            card4_read_more: 'Leer más →',
-            card5_title: 'Costa Rica: Naturaleza y aventura',
-            card5_excerpt: 'Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.',
-            card5_read_more: 'Leer más →',
-            card6_title: 'Viajar por Noruega sin arruinarte',
-            card6_excerpt: 'Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.',
-            card6_read_more: 'Leer más →',
-            widget_categories: 'Categorías',
-            cat_guides: 'Guías de viaje',
-            cat_tips: 'Consejos',
-            cat_experiences: 'Experiencias',
-            cat_destinations: 'Destinos',
-            cat_equipment: 'Equipamiento',
-            widget_popular: 'Más leídos',
-            pop1_title: 'Camino Inca: Guía completa',
-            pop2_title: 'Ruta por los Balcanes',
-            pop3_title: 'Safari en Tanzania',
-            widget_newsletter_title: 'Newsletter',
-            widget_newsletter_text: 'Recibe los mejores consejos de viaje directamente en tu email',
-            newsletter_placeholder: 'Tu email',
-            newsletter_subscribe: 'Suscribirme',
-            widget_tags: 'Tags populares',
-            tag_backpacker: 'Mochilero',
-            tag_south_america: 'Sudamérica',
-            tag_asia: 'Asia',
-            tag_trekking: 'Trekking',
-            tag_budget: 'Presupuesto',
-            tag_europe: 'Europa',
-            tag_camping: 'Camping',
-            tag_mountain: 'Montaña',
-            tag_africa: 'África',
-            tag_tips: 'Consejos',
-            pagination_prev: 'Anterior',
-            pagination_next: 'Siguiente',
-            footer_desc: 'Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.',
-            footer_quick_links: 'Enlaces Rápidos',
-            footer_link_routes: 'Buscar Rutas',
-            footer_legal: 'Legal',
-            footer_policy: 'Política de Privacidad',
-            footer_terms: 'Términos y Condiciones',
-            footer_legal_notice: 'Aviso Legal',
-            footer_newsletter_title: 'Newsletter',
-            footer_newsletter_text: 'Recibe nuestras últimas novedades',
-            footer_subscribe: 'Suscribirse',
-            footer_copyright: '© 2025 Mochileros Sin Fronteras. Todos los derechos reservados.',
-            index_page_title: 'Inicio - Mochileros Sin Fronteras',
-            index_hero_title: 'Descubre el Mundo Como Mochilero',
-            index_hero_subtitle: 'Encuentra rutas, comparte experiencias y conecta con viajeros de todo el mundo',
-            index_hero_explore: 'Explorar Rutas',
-            index_hero_packs: 'Ver Packs',
-            index_featured_packs: 'Packs Destacados',
-            index_featured_packs_desc: 'Ofertas especiales para tu próxima aventura',
-            index_pack_offer: 'Oferta',
-            index_pack_buy: 'Comprar',
-            index_carousel_title: 'Pack Sudeste Asiático',
-            index_carousel_desc: 'Vietnam y Camboya, buses, hostales y guía de visados',
-            index_carousel_price: '600€',
-            index_popular_destinations: 'Destinos Populares',
-            index_see_all: 'Ver todos',
-            index_sidebar_login_title: 'Iniciar Sesión',
-            index_sidebar_login_user: 'Usuario',
-            index_sidebar_login_pass: 'Contraseña',
-            index_sidebar_login_remember: 'Recordar credenciales',
-            index_sidebar_login_btn: 'Entrar',
-            index_sidebar_login_register: 'Registrarse',
-            index_sidebar_top_destinations: 'Top Destinos',
-            index_sidebar_dest_thailand: 'Tailandia',
-            index_sidebar_dest_bolivia: 'Bolivia',
-            index_sidebar_dest_nepal: 'Nepal',
-            index_sidebar_quick_tips: 'Consejos Rápidos',
-            index_sidebar_tip_insurance: 'Lleva seguro médico',
-            index_sidebar_tip_visas: 'Infórmate sobre visados',
-            index_sidebar_tip_light: 'Viaja ligero',
-            index_sidebar_upcoming_events: 'Próximos Encuentros',
-            index_sidebar_event_madrid: 'Madrid',
-            index_sidebar_event_date1: '12 Diciembre 2025',
-            index_sidebar_event_barcelona: 'Barcelona',
-            index_sidebar_event_date2: '25 Diciembre 2025',
-            index_sidebar_event_valencia: 'Valencia',
-            index_sidebar_event_date3: '08 Enero 2026'
-        },
-        en: {
-            page_title: 'Blog - Backpackers Without Borders',
-            index_page_title: 'Home - Backpackers Without Borders',
-            brand: 'Backpackers Without Borders',
-            nav_home: 'Home',
-            nav_routes: 'Routes',
-            nav_packs: 'Packs',
-            nav_blog: 'Blog',
-            nav_community: 'Community',
-            nav_contact: 'Contact',
-            profile_profile: 'My profile',
-            profile_friends: 'My Friends',
-            profile_routes: 'My Routes',
-            profile_logout: 'Log out',
-            blog_title: 'Travelers Blog',
-            blog_subtitle: 'Tips, stories and guides for your next backpacking adventure',
-            featured_badge: 'Featured',
-            featured_category: 'Travel guides',
-            featured_title: 'Complete guide to the Inca Trail: Everything you need to know',
-            featured_excerpt: 'Discover all the secrets of South America’s most famous trek. From permits to what to pack and how to train for the adventure of a lifetime.',
-            author_role: 'Frequent traveler',
-            read_more: 'Read more',
-            badge_tips: 'Tips',
-            badge_destinations: 'Destinations',
-            badge_experiences: 'Experiences',
-            badge_guides: 'Guides',
-            card1_title: '10 tips to travel cheap through South America',
-            card1_excerpt: 'Learn to stretch your budget without sacrificing amazing experiences on your South America trip.',
-            card1_read_more: 'Read more →',
-            card2_title: 'Iceland in winter: The ultimate guide',
-            card2_excerpt: 'Everything you need to know to enjoy northern lights, glaciers and hot springs in the land of ice and fire.',
-            card2_read_more: 'Read more →',
-            card3_title: 'My experience on the Annapurna Circuit',
-            card3_excerpt: 'A personal account of 15 days trekking the Himalayas, overcoming challenges and living unforgettable moments.',
-            card3_read_more: 'Read more →',
-            card4_title: 'What to pack for the desert',
-            card4_excerpt: 'The definitive gear list to survive and enjoy an adventure in the Sahara desert.',
-            card4_read_more: 'Read more →',
-            card5_title: 'Costa Rica: Nature and adventure',
-            card5_excerpt: 'Top national parks, hidden beaches and adventure activities in the Central American paradise.',
-            card5_read_more: 'Read more →',
-            card6_title: 'Travel Norway without breaking the bank',
-            card6_excerpt: 'Proven strategies to enjoy one of the most expensive countries in the world on a backpacker budget.',
-            card6_read_more: 'Read more →',
-            widget_categories: 'Categories',
-            cat_guides: 'Travel guides',
-            cat_tips: 'Tips',
-            cat_experiences: 'Experiences',
-            cat_destinations: 'Destinations',
-            cat_equipment: 'Equipment',
-            widget_popular: 'Most read',
-            pop1_title: 'Inca Trail: Complete guide',
-            pop2_title: 'Balkans route',
-            pop3_title: 'Safari in Tanzania',
-            widget_newsletter_title: 'Newsletter',
-            widget_newsletter_text: 'Get the best travel tips straight to your inbox',
-            newsletter_placeholder: 'Your email',
-            newsletter_subscribe: 'Subscribe',
-            widget_tags: 'Popular tags',
-            tag_backpacker: 'Backpacker',
-            tag_south_america: 'South America',
-            tag_asia: 'Asia',
-            tag_trekking: 'Trekking',
-            tag_budget: 'Budget',
-            tag_europe: 'Europe',
-            tag_camping: 'Camping',
-            tag_mountain: 'Mountain',
-            tag_africa: 'Africa',
-            tag_tips: 'Tips',
-            pagination_prev: 'Previous',
-            pagination_next: 'Next',
-            footer_desc: 'Your community of travelers and adventurers. Discover the world with us.',
-            footer_quick_links: 'Quick Links',
-            footer_link_routes: 'Search Routes',
-            footer_legal: 'Legal',
-            footer_policy: 'Privacy Policy',
-            footer_terms: 'Terms & Conditions',
-            footer_legal_notice: 'Legal Notice',
-            footer_newsletter_title: 'Newsletter',
-            footer_newsletter_text: 'Get our latest updates',
-            footer_subscribe: 'Subscribe',
-            footer_copyright: '© 2025 Backpackers Without Borders. All rights reserved.',
-            index_page_title: 'Home - Backpackers Without Borders',
-            index_hero_title: 'Discover the World as a Backpacker',
-            index_hero_subtitle: 'Find routes, share experiences and connect with travelers from around the world',
-            index_hero_explore: 'Explore Routes',
-            index_hero_packs: 'View Packs',
-            index_featured_packs: 'Featured Packs',
-            index_featured_packs_desc: 'Special offers for your next adventure',
-            index_pack_offer: 'Offer',
-            index_pack_buy: 'Buy',
-            index_carousel_title: 'Southeast Asia Pack',
-            index_carousel_desc: 'Vietnam and Cambodia, buses, hostels and visa guide',
-            index_carousel_price: '€600',
-            index_popular_destinations: 'Popular Destinations',
-            index_see_all: 'See all',
-            index_sidebar_login_title: 'Login',
-            index_sidebar_login_user: 'Username',
-            index_sidebar_login_pass: 'Password',
-            index_sidebar_login_remember: 'Remember credentials',
-            index_sidebar_login_btn: 'Login',
-            index_sidebar_login_register: 'Register',
-            index_sidebar_top_destinations: 'Top Destinations',
-            index_sidebar_dest_thailand: 'Thailand',
-            index_sidebar_dest_bolivia: 'Bolivia',
-            index_sidebar_dest_nepal: 'Nepal',
-            index_sidebar_quick_tips: 'Quick Tips',
-            index_sidebar_tip_insurance: 'Get travel insurance',
-            index_sidebar_tip_visas: 'Check visa requirements',
-            index_sidebar_tip_light: 'Travel light',
-            index_sidebar_upcoming_events: 'Upcoming Meetups',
-            index_sidebar_event_madrid: 'Madrid',
-            index_sidebar_event_date1: 'December 12, 2025',
-            index_sidebar_event_barcelona: 'Barcelona',
-            index_sidebar_event_date2: 'December 25, 2025',
-            index_sidebar_event_valencia: 'Valencia',
-            index_sidebar_event_date3: 'January 8, 2026'
-        }
-    };
+let currentLang = localStorage.getItem("lang") || "es";
+let i18nData = {}; // Traducciones cargadas
 
-    const headerSelect = document.getElementById('idiomaHeader');
-    const footerSelect = document.getElementById('idiomaFooter');
+async function applyTranslations(lang = currentLang) {
+    try {
+        const res = await fetch(`i18n/${lang}.json`);
+        if (!res.ok) throw new Error(`No se pudo cargar i18n/${lang}.json`);
+        i18nData = await res.json();
 
-    function setLanguage(lang) {
-        if (!translations[lang]) return;
-        document.querySelectorAll('[data-i18n]').forEach(el => {
-            const key = el.getAttribute('data-i18n');
-            const text = translations[lang][key];
-            if (text === undefined) return;
-            if (el.tagName === 'INPUT') {
-                el.placeholder = text;
-            } else if (el.tagName === 'TITLE') {
-                el.textContent = text;
-            } else {
-                let replaced = false;
-                el.childNodes.forEach(node => {
-                    if (node.nodeType === Node.TEXT_NODE) {
-                        node.textContent = text;
-                        replaced = true;
-                    }
-                });
-                if (!replaced) {
-                    el.textContent = text;
-                }
-            }
+        // Actualizar textos con data-i18n
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+            const key = el.getAttribute("data-i18n");
+            if (i18nData[key]) el.textContent = i18nData[key];
         });
 
-        if (headerSelect) headerSelect.value = lang;
-        if (footerSelect) footerSelect.value = lang;
-        localStorage.setItem('site_lang', lang);
-    }
+        // Avisar al carrusel que el idioma cambió
+        if (window.carousel && typeof window.carousel.update === "function") {
+            window.carousel.update();
+        }
 
-    function init() {
-        const saved = localStorage.getItem('site_lang') || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'es');
-        const lang = saved || 'es';
-        if (headerSelect) headerSelect.addEventListener('change', (e) => setLanguage(e.target.value));
-        if (footerSelect) footerSelect.addEventListener('change', (e) => setLanguage(e.target.value));
-        setLanguage(lang);
+    } catch (error) {
+        console.error("Error cargando traducciones:", error);
     }
+}
 
-    document.addEventListener('DOMContentLoaded', init);
-})();
+function changeLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("lang", lang);
+    applyTranslations(lang);
+}
+
+// Detectar cambios en los selects
+const headerSelect = document.getElementById("idiomaHeader");
+const footerSelect = document.getElementById("idiomaFooter");
+
+headerSelect?.addEventListener("change", e => changeLanguage(e.target.value));
+footerSelect?.addEventListener("change", e => changeLanguage(e.target.value));
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Establecer el select del header según el idioma guardado
+    if (headerSelect) headerSelect.value = currentLang;
+    if (footerSelect) footerSelect.value = currentLang;
+
+    applyTranslations();
+});
