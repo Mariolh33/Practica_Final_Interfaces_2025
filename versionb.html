@@ -247,9 +247,10 @@
 
                             <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
                                 <form id="addFriendForm" class="add-friend-panel">
-                                    <label for="newFriendName">Nombre del amigo</label>
-                                    <input id="newFriendName" name="name" class="form-input" placeholder="Ej. Laura" required>
-                                    <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                                            <label for="newFriendUsername">Nombre de usuario (username)</label>
+                                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
+                                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
                                 </form>
                             </div>
 
@@ -270,6 +271,15 @@
                     </div>
                     <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
 
+                </div>
+            </div>
+
+            <!-- Popup Confirmar eliminación de amigo -->
+            <div id="popupEliminarAmigo" class="popup">
+                <div class="popup-content">
+                    <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
+                    <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
+                    <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
                 </div>
             </div>
 

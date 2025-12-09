@@ -873,6 +873,8 @@ nav ul li a.active {
   margin: 6px 8px;
 }
 
+.friend-item { position: relative; }
+
 .friend-item:hover, .friend-item.active {
   background: #e9f2ff;
 }
@@ -883,12 +885,34 @@ nav ul li a.active {
   text-align: left;
   background: transparent;
   border: none;
-  padding: 10px 12px;
+  padding: 10px 12px 10px 12px;
+  padding-right: 44px;
   font-weight: 600;
   color: var(--navy-dark);
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* small delete button on each friend row */
+.friend-delete {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background: #e74c3c;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+.friend-delete:hover { background: #c0392b; transform: translateY(-52%); }
 
 .friend-item .friend-btn:hover {
   background: rgba(14, 79, 184, 0.06);
@@ -928,6 +952,8 @@ nav ul li a.active {
 
 .add-friend-panel { display:flex; flex-direction:column; gap:8px; padding: 6px; }
 .add-friend-panel label { font-weight:600; }
+
+.error-msg { color: #c0392b; font-size: 0.95rem; margin-top: 6px; min-height: 1.2em; }
 
 .chat-panel {
   flex: 1;
