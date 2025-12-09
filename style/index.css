@@ -838,6 +838,8 @@ nav ul li a.active {
   gap: 0;
   padding: 0;
   overflow: hidden;
+  /* limitar alto para que no crezca fuera de la ventana; el area .messages hará scroll */
+  max-height: 80vh;
 }
 
 .friends-left {
