@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Mochileros sin Fronteras</title>
+    <title data-i18n="index_page_title">Inicio - Mochileros sin Fronteras</title>
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/detalle.css">
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script/i18n.js" defer></script>
 </head>
 
 
@@ -16,20 +17,20 @@
     <nav class="navbar">
         <div class="nav-brand">
             <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span>Mochileros Sin Fronteras</span>
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
         </div>
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="buscar-rutas.html">Rutas</a></li>
-            <li><a href="versionb.html">Packs</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="#foro">Comunidad</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="#foro" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
             <li>
-                <select name="idioma" id="idioma">
+                <select name="idioma" id="idiomaHeader">
                     <option value="es">🇪🇸 Español</option>
                     <option value="en">🇬🇧 English</option>
                 </select>
@@ -48,16 +49,16 @@
         <div class="hero-overlay"></div>
         <div class="hero-content-wrapper">
             <div class="hero-text">
-                <h1>Descubre el Mundo Como Mochilero</h1>
-                <p>Encuentra rutas, comparte experiencias y conecta con viajeros de todo el mundo</p>
+                <h1 data-i18n="index_hero_title">Descubre el Mundo Como Mochilero</h1>
+                <p data-i18n="index_hero_subtitle">Encuentra rutas, comparte experiencias y conecta con viajeros de todo el mundo</p>
                 <div class="hero-cta">
                     <a href="buscar-rutas.html" class="btn btn-primary btn-lg">
                         <i class="fas fa-search"></i>
-                        Explorar Rutas
+                        <span data-i18n="index_hero_explore">Explorar Rutas</span>
                     </a>
                     <a href= #featured-packs class="btn btn-secondary btn-lg">
                         <i class="fas fa-box-open"></i>
-                        Ver Packs
+                        <span data-i18n="index_hero_packs">Ver Packs</span>
                     </a>
                 </div>
             </div>
@@ -68,8 +69,8 @@
     <section id= "featured-packs" class="featured-packs">
         <div class="section-container">
             <div class="section-header">
-                <h2>Packs Destacados</h2>
-                <p>Ofertas especiales para tu próxima aventura</p>
+                <h2 data-i18n="index_featured_packs">Packs Destacados</h2>
+                <p data-i18n="index_featured_packs_desc">Ofertas especiales para tu próxima aventura</p>
             </div>
             
             <div class="carousel-wrapper">
@@ -81,16 +82,16 @@
                     <div class="pack-card">
                         <div class="pack-image">
                             <img id="carousel-img" src="images/Mexico.jpg" alt="Pack">
-                            <span class="pack-badge">Oferta</span>
+                            <span class="pack-badge" data-i18n="index_pack_offer">Oferta</span>
                         </div>
                         <div class="pack-content">
-                            <h3 id="carousel-title">Pack Sudeste Asiático</h3>
-                            <p id="carousel-desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
+                            <h3 id="carousel-title" data-i18n="index_carousel_title">Pack Sudeste Asiático</h3>
+                            <p id="carousel-desc" data-i18n="index_carousel_desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
                             <div class="pack-footer">
-                                <span class="pack-price" id="carousel-price">600€</span>
+                                <span class="pack-price" id="carousel-price" data-i18n="index_carousel_price">600€</span>
                                 <button class="btn btn-primary" onclick="navigateToBuy()">
                                     <i class="fas fa-shopping-cart"></i>
-                                    Comprar
+                                    <span data-i18n="index_pack_buy">Comprar</span>
                                 </button>
                             </div>
                         </div>
@@ -111,8 +112,8 @@
             <!-- Destinos Populares -->
             <section class="destinations-section">
                 <div class="section-header">
-                    <h2>Destinos Populares</h2>
-                    <a href="buscar-rutas.html" class="btn btn-ghost">Ver todos <i class="fas fa-arrow-right"></i></a>
+                    <h2 data-i18n="index_popular_destinations">Destinos Populares</h2>
+                    <a href="buscar-rutas.html" class="btn btn-ghost"><span data-i18n="index_see_all">Ver todos</span> <i class="fas fa-arrow-right"></i></a>
                 </div>
                 
                 <div class="destinations-grid">
@@ -248,47 +249,47 @@
         <aside class="home-sidebar">
             <!-- Login Widget -->
             <div id= "SidebarLogin" class="sidebar-widget login-widget">
-                <h3><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</h3>
+                <h3><i class="fas fa-sign-in-alt"></i> <span data-i18n="index_sidebar_login_title">Iniciar Sesión</span></h3>
                 <form class="login-form">
                     <div class="form-group">
-                        <input type="text" id="usernameLogin" placeholder="Usuario" class="form-input" required>
+                        <input type="text" id="usernameLogin" placeholder="Usuario" data-i18n="index_sidebar_login_user" class="form-input" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" id="passwordLogin" placeholder="Contraseña" class="form-input" required>
+                        <input type="password" id="passwordLogin" placeholder="Contraseña" data-i18n="index_sidebar_login_pass" class="form-input" required>
                     </div>
                     <div class="form-checkbox">
                         <input type="checkbox" id="remember">
-                        <label for="remember">Recordar credenciales</label>
+                        <label for="remember" data-i18n="index_sidebar_login_remember">Recordar credenciales</label>
                     </div>
                     <button type="button" onclick="iniciarSesion()" class="btn btn-primary btn-block">
-                        <i class="fas fa-sign-in-alt"></i> Entrar
+                        <i class="fas fa-sign-in-alt"></i> <span data-i18n="index_sidebar_login_btn">Entrar</span>
                     </button>
                     <a href="registro.html" class="btn btn-secondary btn-block">
-                        <i class="fas fa-user-plus"></i> Registrarse
+                        <i class="fas fa-user-plus"></i> <span data-i18n="index_sidebar_login_register">Registrarse</span>
                     </a>
                 </form>
             </div>
 
             <!-- Top Destinations -->
             <div class="sidebar-widget">
-                <h3><i class="fas fa-fire"></i> Top Destinos</h3>
+                <h3><i class="fas fa-fire"></i> <span data-i18n="index_sidebar_top_destinations">Top Destinos</span></h3>
                 <ul class="widget-list">
                     <li>
                         <a href="buscar-rutas.html">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Tailandia</span>
+                            <span data-i18n="index_sidebar_dest_thailand">Tailandia</span>
                         </a>
                     </li>
                     <li>
                         <a href="buscar-rutas.html">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Bolivia</span>
+                            <span data-i18n="index_sidebar_dest_bolivia">Bolivia</span>
                         </a>
                     </li>
                     <li>
                         <a href="buscar-rutas.html">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Nepal</span>
+                            <span data-i18n="index_sidebar_dest_nepal">Nepal</span>
                         </a>
                     </li>
                 </ul>
@@ -296,24 +297,24 @@
 
             <!-- Quick Tips -->
             <div class="sidebar-widget">
-                <h3><i class="fas fa-lightbulb"></i> Consejos Rápidos</h3>
+                <h3><i class="fas fa-lightbulb"></i> <span data-i18n="index_sidebar_quick_tips">Consejos Rápidos</span></h3>
                 <ul class="widget-list">
                     <li>
                         <a href="blog.html">
                             <i class="fas fa-shield-alt"></i>
-                            <span>Lleva seguro médico</span>
+                            <span data-i18n="index_sidebar_tip_insurance">Lleva seguro médico</span>
                         </a>
                     </li>
                     <li>
                         <a href="blog.html">
                             <i class="fas fa-passport"></i>
-                            <span>Infórmate sobre visados</span>
+                            <span data-i18n="index_sidebar_tip_visas">Infórmate sobre visados</span>
                         </a>
                     </li>
                     <li>
                         <a href="blog.html">
                             <i class="fas fa-suitcase-rolling"></i>
-                            <span>Viaja ligero</span>
+                            <span data-i18n="index_sidebar_tip_light">Viaja ligero</span>
                         </a>
                     </li>
                 </ul>
@@ -321,14 +322,14 @@
 
             <!-- Upcoming Events -->
             <div class="sidebar-widget">
-                <h3><i class="fas fa-calendar-alt"></i> Próximos Encuentros</h3>
+                <h3><i class="fas fa-calendar-alt"></i> <span data-i18n="index_sidebar_upcoming_events">Próximos Encuentros</span></h3>
                 <ul class="widget-list events-list">
                     <li>
                         <a href="#">
                             <i class="fas fa-map-pin"></i>
                             <div>
-                                <strong>Madrid</strong>
-                                <span>12 Diciembre 2025</span>
+                                <strong data-i18n="index_sidebar_event_madrid">Madrid</strong>
+                                <span data-i18n="index_sidebar_event_date1">12 Diciembre 2025</span>
                             </div>
                         </a>
                     </li>
@@ -336,8 +337,8 @@
                         <a href="#">
                             <i class="fas fa-map-pin"></i>
                             <div>
-                                <strong>Barcelona</strong>
-                                <span>25 Diciembre 2025</span>
+                                <strong data-i18n="index_sidebar_event_barcelona">Barcelona</strong>
+                                <span data-i18n="index_sidebar_event_date2">25 Diciembre 2025</span>
                             </div>
                         </a>
                     </li>
@@ -345,8 +346,8 @@
                         <a href="#">
                             <i class="fas fa-map-pin"></i>
                             <div>
-                                <strong>Valencia</strong>
-                                <span>08 Enero 2026</span>
+                                <strong data-i18n="index_sidebar_event_valencia">Valencia</strong>
+                                <span data-i18n="index_sidebar_event_date3">08 Enero 2026</span>
                             </div>
                         </a>
                     </li>
@@ -359,8 +360,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Mochileros Sin Fronteras</h3>
-                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
+                <p data-i18n="footer_desc">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -369,24 +370,24 @@
             </div>
             
             <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
+                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
-                    <li><a href="versionb.html">Packs</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="buscar-rutas.html" data-i18n="footer_link_routes">Buscar Rutas</a></li>
+                    <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4 data-i18n="footer_legal">Legal</h4>
                 <ul>
-                    <li><a href="politica.html">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html" data-i18n="footer_policy">Política de Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_terms">Términos y Condiciones</a></li>
+                    <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
+                    <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
                     <li>
-                        <select name="idioma" id="idioma">
+                        <select name="idioma" id="idiomaFooter">
                             <option value="es">🇪🇸 Español</option>
                             <option value="en">🇬🇧 English</option>
                         </select>
@@ -395,16 +396,16 @@
             </div>
             
             <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Recibe nuestras últimas novedades</p>
+                <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
+                <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    <input type="email" placeholder="Tu email" data-i18n="footer_newsletter_placeholder" required>
+                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
 
