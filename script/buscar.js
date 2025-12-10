@@ -115,7 +115,7 @@ const routesData = [
     distance: 80,
     transport: "bicicleta",
     continent: "asia",
-    image: "images/angkor.jpg",
+    image: "images/angkor.jpeg",
     description: "Descubre los templos milenarios de Angkor en bicicleta. Amanecer en Angkor Wat y exploración de templos ocultos en la selva.",
     features: ["guia-local", "hostel"]
   },
