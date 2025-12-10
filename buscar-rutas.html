@@ -47,13 +47,70 @@
         <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
 
             <div class="user-menu" id="userMenu">
-                <button class="btn btn-primary">Mi perfil</button>
+                <button id="btnMiPerfil" class="btn btn-primary">Mi perfil</button>
                 <button id="btnMisAmigos" class="btn btn-primary">Mis Amigos</button>
                 <button class="btn btn-primary">Mis Rutas</button>
                 <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
         </div>
     </nav>
+
+    <!-- Popups -->
+    <!-- Popup Gestionar Perfil -->
+    <div id="popupMiPerfil" class="popup profile-popup">
+        <div class="popup-content profile-popup-content">
+            <button id="closeProfile" class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Mi Perfil</h2>
+            <div class="profile-form-wrapper">
+                <form id="profileForm" class="profile-form">
+                    <div class="profile-photo-section">
+                        <div class="profile-photo-container">
+                            <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
+                        </div>
+                        <div class="profile-photo-input">
+                            <label for="profilePhoto">Cambiar foto</label>
+                            <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileNombre">Nombre</label>
+                        <input type="text" id="profileNombre" placeholder="Tu nombre" readonly>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileApellido">Apellido</label>
+                        <input type="text" id="profileApellido" placeholder="Tu apellido" readonly>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" placeholder="tu@email.com" readonly>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileUsername">Nombre de Usuario</label>
+                        <input type="text" id="profileUsername" placeholder="Tu usuario" readonly>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profilePassword">Cambiar contraseña (opcional)</label>
+                        <input type="password" id="profilePassword" placeholder="Nueva contraseña (dejar en blanco para no cambiar)" readonly>
+                    </div>
+
+                    <div id="profileMessage" class="profile-message"></div>
+
+                    <div class="profile-actions">
+                        <button type="button" id="btnEditProfile" class="btn btn-primary">Editar</button>
+                        <button type="submit" id="btnSaveProfile" class="btn btn-primary" style="display:none;">Guardar cambios</button>
+                        <button type="button" id="btnCancelEdit" class="btn btn-secondary" style="display:none;">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <main class="search-main">
         <!-- Hero de búsqueda -->
@@ -702,6 +759,8 @@
             <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
         </div>
     </div>
+
+    <script src="script/profile.js"></script>
 
 </body>
 </html>
