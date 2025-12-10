@@ -113,6 +113,66 @@
             </div>
         </div>
     </div>
+    <!-- Popup Amigos -->
+    <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
+        <div class="popup-content friends-popup-content">
+            <div class="friends-left">
+                <div class="friends-header">
+                    <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                    </div>
+                </div>
+
+                <div id="friendsPanels" class="friends-panels">
+                    <div id="panel-friends" class="panel panel-active" role="tabpanel">
+                        <ul id="friendsList" class="friends-list"></ul>
+                    </div>
+
+                    <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
+                        <form id="addFriendForm" class="add-friend-panel">
+                            <label for="newFriendUsername">Nombre de usuario (username)</label>
+                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
+                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
+                        </form>
+                    </div>
+
+                    <div id="panel-online" class="panel" role="tabpanel" aria-hidden="true">
+                        <ul id="onlineList" class="friends-list online-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-panel">
+                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
+                <div id="messages" class="messages" aria-live="polite"></div>
+                <div class="chat-input-row">
+                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
+                    <button id="chatSend" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+            <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
+        </div>
+    </div>
+
+    <!-- Popup Confirmar eliminación de amigo -->
+    <div id="popupEliminarAmigo" class="popup">
+        <div class="popup-content">
+            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
+            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
+            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Popup cerrar sesión -->
+            <div id="popupCerrarSesion" class="popup">
+                <div class="popup-content">
+                    <p>¿Estás seguro de que quieres cerrar sesión?</p>
+                    <button id="confirmarCerrar" class="btn btn-primary">Sí, cerrar sesión</button>
+                    <button id="cancelarCerrar" class="btn btn-secondary">Cancelar</button>
+                </div>
+            </div>
 
     <main class="blog-main">
         <!-- Header del blog -->
@@ -445,60 +505,7 @@
         </div>
     </footer>
 </footer>
-
-    <!-- Popup Amigos (copiado desde versionb.html para disponer del markup en todas las páginas) -->
-    <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
-        <div class="popup-content friends-popup-content">
-            <div class="friends-left">
-                <div class="friends-header">
-                    <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
-                    </div>
-                </div>
-
-                <div id="friendsPanels" class="friends-panels">
-                    <div id="panel-friends" class="panel panel-active" role="tabpanel">
-                        <ul id="friendsList" class="friends-list"></ul>
-                    </div>
-
-                    <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
-                        <form id="addFriendForm" class="add-friend-panel">
-                            <label for="newFriendUsername">Nombre de usuario (username)</label>
-                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
-                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
-                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
-                        </form>
-                    </div>
-
-                    <div id="panel-online" class="panel" role="tabpanel" aria-hidden="true">
-                        <ul id="onlineList" class="friends-list online-list"></ul>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-panel">
-                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
-                <div id="messages" class="messages" aria-live="polite"></div>
-                <div class="chat-input-row">
-                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
-                    <button id="chatSend" class="btn btn-primary">Enviar</button>
-                </div>
-            </div>
-            <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
-        </div>
-    </div>
-
-    <!-- Popup Confirmar eliminación de amigo -->
-    <div id="popupEliminarAmigo" class="popup">
-        <div class="popup-content">
-            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
-            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
-            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
-        </div>
-    </div>
-
-    <script src="script/profile.js"></script>
+<script src="script/profile.js"></script>
 
 </body>
 </html>
