@@ -43,7 +43,7 @@ window.carousel = (function() {
 
         // Botón comprar
         const buyEl = document.querySelector(".pack-footer button span[data-i18n='index_pack_buy']");
-        if (buyEl) buyEl.textContent = i18nPacks.index_pack_buy || "Comprar";
+        if (buyEl) buyEl.textContent = i18nData.index_pack_buy || "Comprar";
     }
 
     function changeLeft() {
