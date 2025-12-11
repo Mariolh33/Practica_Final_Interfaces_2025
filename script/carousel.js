@@ -4,9 +4,10 @@ window.carousel = (function() {
 
     async function loadPacks() {
         try {
-            const fpack = await fetch("../data/pack.json");            
+            // usar ruta relativa para evitar problemas según cómo se sirva el proyecto
+            const fpack = await fetch('data/pack.json');
             if (!fpack.ok) throw new Error("No se pudo cargar data/pack.json");
-            packs = await fpack.json();            
+            packs = await fpack.json();
             update(); // Mostrar primer pack
         } catch (error) {
             console.error("Error cargando packs:", error);
@@ -16,48 +17,48 @@ window.carousel = (function() {
     }
 
     async function update() {
-        const currentLang = localStorage.getItem("lang") || "es";
-        const fi18n = await fetch(`../data/i18n/${currentLang}/pack.json`);
-        i18nPacks = await fi18n.json();
-        if (!packs.length || !i18nPacks) return;
+        if (!packs || !packs.length) return;
 
         const pack = packs[currentIndex];
-        const packText = i18nPacks[pack.id] || {};
 
         // Imagen
         const imgEl = document.getElementById("carousel-img");
         if (imgEl) {
             imgEl.src = pack.img;
-            imgEl.alt = packText.alt || "";
+            imgEl.alt = pack.id || '';
         }
 
-        // Título y descripción
+        // Título/desc — pack.json no incluye título; mostrar id legible por defecto
         const titleEl = document.getElementById("carousel-title");
         const descEl = document.getElementById("carousel-desc");
-        if (titleEl) titleEl.textContent = packText.title || pack.id;
-        if (descEl) descEl.textContent = packText.descShort || "";
+        if (titleEl) titleEl.textContent = (pack.title || pack.id.replace(/^pack_/, '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase()));
+        if (descEl) descEl.textContent = pack.descShort || '';
 
         // Precio
         const priceEl = document.getElementById("carousel-price");
-        if (priceEl) priceEl.textContent = pack.price;
+        if (priceEl) priceEl.textContent = (typeof pack.price === 'number' ? pack.price + '€' : (pack.price || ''));
 
-        // Botón comprar
-        const buyEl = document.querySelector(".pack-footer button span[data-i18n='index_pack_buy']");
-        if (buyEl) buyEl.textContent = i18nData.index_pack_buy || "Comprar";
+        // No hacer fetch a i18n que no exista aquí; dejar i18n.js manejar textos globales.
     }
 
     function changeLeft() {
+        if (!packs.length) return;
         currentIndex = (currentIndex - 1 + packs.length) % packs.length;
         update();
     }
 
     function changeRight() {
+        if (!packs.length) return;
         currentIndex = (currentIndex + 1) % packs.length;
         update();
     }
 
     function navigateToBuy() {
+        if (!packs.length) return;
+        // Guardar solo el pack seleccionado (id,img,price) para la página de compra
         localStorage.setItem("selectedPack", JSON.stringify(packs[currentIndex]));
+        // También guardar el id separado por si la página comprar necesita recargar datos
+        localStorage.setItem("selectedPackId", packs[currentIndex].id);
         window.location.href = 'comprar.html';
     }
 
@@ -70,3 +71,8 @@ window.carousel = (function() {
 
     return { update, changeLeft, changeRight, navigateToBuy };
 })();
+
+// Añadir aliases globales para compatibilidad con los onclick en los HTML
+window.navigateToBuy = () => window.carousel?.navigateToBuy?.();
+window.changeCarouselLeft = () => window.carousel?.changeLeft?.();
+window.changeCarouselRight = () => window.carousel?.changeRight?.();

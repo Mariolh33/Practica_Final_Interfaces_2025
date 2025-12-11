@@ -1,21 +1,70 @@
-const pack = JSON.parse(localStorage.getItem("selectedPack"));
+document.addEventListener("DOMContentLoaded", async () => {
+    let stored = localStorage.getItem("selectedPack");
+    let pack = stored ? JSON.parse(stored) : null;
 
-window.onload = () => {
-    document.getElementById("pack-title").textContent = pack.title;
-    document.getElementById("pack-price").textContent = pack.price;
-    document.getElementById("pack-description").textContent = pack.desc;
-    document.getElementById("pack-image").src = pack.img;
-    document.getElementById("pack-image").alt = pack.alt;
+    const selectedId = localStorage.getItem("selectedPackId") || (pack && pack.id);
 
-    // Actualizar resumen de pedido
-    const priceNumber = parseFloat(pack.price.replace(/[^0-9.]/g, ''));
-    const tax = priceNumber * 0.21;
-    const total = priceNumber + tax;
+    try {
+        if ((!pack || !pack.id) && selectedId) {
+            // buscar pack en data/pack.json
+            const res = await fetch('/data/pack.json');
+            if (res.ok) {
+                const all = await res.json();
+                const found = all.find(p => p.id === selectedId);
+                if (found) pack = { ...found, ...(pack || {}) };
+            }
+        }
 
-    document.getElementById("summary-subtotal").textContent = pack.price;
-    document.getElementById("summary-tax").textContent = `${tax.toFixed(2)}€`;
-    document.getElementById("summary-total").textContent = `${total.toFixed(2)}€`;
-};
+        // Si aún falta pack, mostrar mensaje y devolver
+        if (!pack) {
+            console.error('No se encontró el pack seleccionado');
+            document.getElementById("pack-title").textContent = 'Pack no seleccionado';
+            return;
+        }
+
+        // Intentar cargar traducciones para packs (opcional)
+        const lang = localStorage.getItem('lang') || 'es';
+        try {
+            const resI = await fetch(`/data/i18n/${lang}/pack.json`);
+            if (resI.ok) {
+                const i18nPacks = await resI.json();
+                const t = i18nPacks[pack.id] || {};
+                pack.title = t.title || pack.title || pack.id;
+                pack.desc = t.desc || pack.desc || '';
+                pack.alt = t.alt || pack.alt || pack.id;
+            } else {
+                // fallback: generar título legible desde id
+                pack.title = pack.title || pack.id.replace(/^pack_/, '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+                pack.desc = pack.desc || '';
+                pack.alt = pack.alt || pack.id;
+            }
+        } catch (e) {
+            pack.title = pack.title || pack.id.replace(/^pack_/, '').replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            pack.desc = pack.desc || '';
+            pack.alt = pack.alt || pack.id;
+        }
+
+        // Rellenar UI
+        document.getElementById("pack-title").textContent = pack.title;
+        document.getElementById("pack-price").textContent = (typeof pack.price === 'number' ? pack.price + '€' : (pack.price || ''));
+        document.getElementById("pack-description").textContent = pack.desc || '';
+        const imgEl = document.getElementById("pack-image");
+        if (imgEl) {
+            imgEl.src = pack.img || '';
+            imgEl.alt = pack.alt || pack.title || '';
+        }
+
+        // Resumen pedido (cálculo seguro)
+        const priceNumber = parseFloat(String(pack.price).replace(/[^0-9.]/g, '')) || 0;
+        const tax = priceNumber * 0.21;
+        const total = priceNumber + tax;
+        document.getElementById("summary-subtotal").textContent = (priceNumber ? priceNumber.toFixed(2) + '€' : '0.00€');
+        document.getElementById("summary-tax").textContent = `${tax.toFixed(2)}€`;
+        document.getElementById("summary-total").textContent = `${total.toFixed(2)}€`;
+    } catch (err) {
+        console.error('Error inicializando comprar:', err);
+    }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 
