@@ -1,270 +1,550 @@
+// ============================================
+// VARIABLES GLOBALES
+// ============================================
+let routeData = {};
+let userData = {};
+let i18nRoute = {};
+let currentRouteId = 'route_caminoinca';
+
+// ============================================
+// CARGAR DATOS
+// ============================================
 async function loadData() {
-  const [routeRes, userRes, i18nRes] = await Promise.all([
-    fetch('../data/route.json').then(r => r.json()),
-    fetch('../data/user.json').then(r => r.json()),
-    fetch('../data/i18n/es/route.json').then(r => r.json())
-  ]);
+  try {
+    console.log('=== INICIANDO CARGA DE DATOS ===');
+    
+    const [routeRes, userRes, i18nRes] = await Promise.all([
+      fetch('./data/route.json').then(r => r.json()),
+      fetch('./data/user.json').then(r => r.json()),
+      fetch('./data/i18n/es/route.json').then(r => r.json())
+    ]);
 
-  const routeData = routeRes;
-  const userData = userRes;
-  const i18nRoute = i18nRes;
+    routeData = routeRes;
+    userData = userRes;
+    i18nRoute = i18nRes;
 
-  // Inicializar app después de cargar datos
-  initializeApp(routeData, userData, i18nRoute);
+    console.log('routeData cargado:', routeData);
+    console.log('userData cargado, usuarios:', Object.keys(userData).length);
+    console.log('i18nRoute cargado:', i18nRoute);
+
+    console.log('=== DATOS CARGADOS EXITOSAMENTE ===');
+    initializeApp();
+  } catch (error) {
+    console.error('=== ERROR CARGANDO DATOS ===', error);
+    alert('Error cargando datos: ' + error.message);
+  }
 }
 
 document.addEventListener('DOMContentLoaded', loadData);
 
-function initializeApp(routeData, userData, i18nRoute) {
+// ============================================
+// INICIALIZAR APP
+// ============================================
+function initializeApp() {
+  console.log('=== INICIALIZANDO APP ===');
+  console.log('URL completa:', window.location.href);
+  console.log('Query string:', window.location.search);
+  
   const urlParams = new URLSearchParams(window.location.search);
-  // const routeId = urlParams.get('id') || 'route_caminoinca';
-  const routeId = 'route_caminoinca';
+  let routeId = urlParams.get('id');
+  
+  console.log('ID desde URL (raw):', routeId);
+  console.log('routeData keys disponibles:', Object.keys(routeData));
+  
+  // Si no hay ID o no existe, usar el primero disponible
+  if (!routeId || !(routeId in routeData)) {
+    console.warn('ID de ruta no encontrado o inválido:', routeId);
+    routeId = 'route_caminoinca';
+    console.log('Usando ruta por defecto:', routeId);
+  }
 
-  loadRouteData(routeId, routeData, i18nRoute);
+  currentRouteId = routeId;
+
+  console.log('currentRouteId final:', currentRouteId);
+  console.log('Título de la ruta:', routeData[currentRouteId]?.title);
+
+  loadRouteData(currentRouteId);
+  loadGallery(currentRouteId);
+  loadIncludes(currentRouteId);
+  loadItinerary(currentRouteId);
   initializeTabs();
   initializeGallery();
-  initializeFavoriteButton(routeId);
+  initializeFavoriteButton(currentRouteId);
   initializeShareButtons();
   loadWeatherData();
-  loadReviews(routeId, routeData, userData, i18nRoute);
+  loadReviews(currentRouteId);
   initializeBooking();
   initializeReviewFilters();
 }
 
-
-// ===========================
-// CARGAR DATOS DE LA RUTA
-// ===========================
-function loadRouteData(routeId, routeData, i18nRoute) {
+// ============================================
+// CARGAR DATOS DE RUTA
+// ============================================
+function loadRouteData(routeId) {
+  console.log('>>> loadRouteData:', routeId);
   
   const route = routeData[routeId];
   const i18n = i18nRoute[routeId] || {};
 
-  console.log(route);
-  console.log(i18n);
-  console.log(route.reviewsCount);
+  if (!route) {
+    console.error(`Ruta no encontrada: ${routeId}`);
+    return;
+  }
 
- 
-  document.getElementById('breadcrumbTitle').textContent = i18n.title;
-  document.getElementById('routeTitle').textContent = i18n.title;
-  document.getElementById('routeLocation').textContent = i18n.location;
-  document.getElementById('routeRating').textContent = route.rating;
-  document.getElementById('reviewsCount').textContent = route.reviewsCount.toLocaleString();
-  document.getElementById('routeDistance').textContent = route.distance;
-  document.getElementById('routePrice').textContent = route.priceFrom.toLocaleString();
-  document.getElementById('routeTravelers').textContent = route.travelers.toLocaleString();
-  document.getElementById('routeFavorites').textContent = route.favorites.toLocaleString();
-  document.getElementById('routeShortDescription').textContent = i18n.descShort;
-  document.getElementById('routeDescription').textContent = i18n.descLong;
+  console.log('Ruta encontrada:', route);
+  console.log('i18n datos:', i18n);
+
+  // Actualizar elementos HTML
+  const updateEl = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.textContent = value;
+      console.log(`✓ ${id}: ${value}`);
+    } else {
+      console.warn(`✗ Elemento no existe: ${id}`);
+    }
+  };
+
+  updateEl('breadcrumbTitle', i18n.title || route.title || 'Ruta');
+  updateEl('routeTitle', i18n.title || route.title || '');
+  updateEl('routeLocation', i18n.location || route.location || '');
+  updateEl('routeRating', route.rating || '0');
+  updateEl('reviewsCount', (route.reviewsCount || 0).toLocaleString());
+  updateEl('routeDistance', route.distance || '0');
+  updateEl('routePrice', (route.priceFrom || 0).toLocaleString());
+  updateEl('routeTravelers', (route.travelers || 0).toLocaleString());
+  updateEl('routeFavorites', (route.favorites || 0).toLocaleString());
+  updateEl('routeShortDescription', i18n.descShort || '');
+  updateEl('routeDescription', i18n.descLong || '');
 }
 
-// ===========================
-// SISTEMA DE TABS
-// ===========================
+// ============================================
+// CARGAR GALERÍA
+// ============================================
+function loadGallery(routeId) {
+  console.log('>>> loadGallery:', routeId);
+  
+  const route = routeData[routeId];
+  if (!route || !route.images) {
+    console.warn('No hay imágenes para cargar');
+    return;
+  }
+
+  console.log('Imágenes encontradas:', route.images);
+  console.log('Primera imagen:', route.images[0]);
+
+  const mainImage = document.getElementById('mainImage');
+  const galleryContainer = document.getElementById('galleryThumbnails');
+
+  console.log('mainImage elemento:', mainImage);
+  console.log('galleryContainer elemento:', galleryContainer);
+
+  if (mainImage && route.images.length > 0) {
+    const imagePath = `./${route.images[0]}`;
+    console.log('Asignando mainImage.src a:', imagePath);
+    mainImage.src = imagePath;
+  }
+
+  if (galleryContainer) {
+    galleryContainer.innerHTML = route.images.map((img, idx) => `
+      <img src="./${img}" alt="Foto ${idx + 1}" class="thumb ${idx === 0 ? 'active' : ''}">
+    `).join('');
+    console.log('Galería cargada con', route.images.length, 'imágenes');
+  }
+}
+
+// ============================================
+// CARGAR INCLUYE
+// ============================================
+function loadIncludes(routeId) {
+  console.log('>>> loadIncludes:', routeId);
+  
+  const route = routeData[routeId];
+  if (!route || !route.includes) return;
+
+  const includesGrid = document.getElementById('includesGrid');
+  if (!includesGrid) return;
+
+  const icons = {
+    'guide': { icon: 'fa-person-hiking', text: 'Guía profesional' },
+    'transport': { icon: 'fa-car', text: 'Transporte' },
+    'meals': { icon: 'fa-utensils', text: 'Comidas' },
+    'camping-gear': { icon: 'fa-tent', text: 'Equipo camping' },
+    'permits': { icon: 'fa-ticket', text: 'Permisos' },
+    'insurance': { icon: 'fa-shield', text: 'Seguro' }
+  };
+
+  includesGrid.innerHTML = route.includes.map(item => {
+    const config = icons[item] || { icon: 'fa-check', text: item };
+    return `
+      <div class="include-item">
+        <i class="fas ${config.icon}"></i>
+        <span>${config.text}</span>
+      </div>
+    `;
+  }).join('');
+}
+
+// ============================================
+// CARGAR ITINERARIO
+// ============================================
+function loadItinerary(routeId) {
+  console.log('>>> loadItinerary:', routeId);
+  
+  const route = routeData[routeId];
+  const i18n = i18nRoute[routeId] || {};
+
+  if (!route || !route.itinerary) {
+    console.warn('No hay itinerario');
+    return;
+  }
+
+  const container = document.getElementById('itineraryTimeline');
+  if (!container) {
+    console.warn('Contenedor itineraryTimeline no existe');
+    return;
+  }
+
+  container.innerHTML = route.itinerary.map(day => {
+    const dayData = i18n.itinerary?.[day.day] || {};
+    return `
+      <div class="itinerary-day">
+        <div class="day-header">
+          <h3>${dayData.title || `Día ${day.day}`}</h3>
+          <div class="day-stats">
+            <span><i class="fas fa-route"></i> ${day.distance} km</span>
+            <span><i class="fas fa-clock"></i> ${day.duration}</span>
+            <span><i class="fas fa-mountain"></i> ${day.altitude}m</span>
+          </div>
+        </div>
+        <p class="day-description">${dayData.text || 'Descripción disponible'}</p>
+      </div>
+    `;
+  }).join('');
+
+  console.log('✓ Itinerario cargado');
+}
+
+// ============================================
+// TABS
+// ============================================
 function initializeTabs() {
+  console.log('>>> initializeTabs');
+  
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
+
+  console.log('Botones encontrados:', tabBtns.length);
+  console.log('Contenidos encontrados:', tabContents.length);
   
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetTab = btn.dataset.tab;
+      console.log('Click en tab:', targetTab);
+      
       tabBtns.forEach(b => b.classList.remove('active'));
       tabContents.forEach(c => c.classList.remove('active'));
+      
       btn.classList.add('active');
-      document.getElementById(targetTab).classList.add('active');
+      const targetContent = document.getElementById(targetTab);
+      if (targetContent) {
+        targetContent.classList.add('active');
+      } else {
+        console.warn('Contenido no encontrado:', targetTab);
+      }
 
-      if (targetTab === 'map') setTimeout(initializeMap, 100);
-    });
-  });
-}
-
-// ===========================
-// GALERÍA DE IMÁGENES
-// ===========================
-function initializeGallery() {
-  const mainImage = document.getElementById('mainImage');
-  const thumbnails = document.querySelectorAll('.thumb:not(.more-images)');
-  const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-  thumbnails.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      mainImage.src = thumb.src;
-      thumbnails.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-    });
-  });
-
-  if (fullscreenBtn) {
-    fullscreenBtn.addEventListener('click', () => {
-      if (mainImage.requestFullscreen) mainImage.requestFullscreen();
-      else if (mainImage.webkitRequestFullscreen) mainImage.webkitRequestFullscreen();
-      else if (mainImage.msRequestFullscreen) mainImage.msRequestFullscreen();
-    });
-  }
-}
-
-// ===========================
-// MAPA INTERACTIVO (Leaflet)
-// ===========================
-let map = null;
-function initializeMap() {
-  if (map) { map.invalidateSize(); return; }
-
-  const routeId = new URLSearchParams(window.location.search).get('id') || '1';
-  const route = routeData[routeId] || routeData['1'];
-
-  map = L.map('routeMap').setView(route.coordinates, 10);
-
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors',
-    maxZoom: 18
-  }).addTo(map);
-
-  const startIcon = L.divIcon({
-    html: '<div class="marker-start"><i class="fas fa-flag"></i></div>',
-    className: '',
-    iconSize: [32, 32]
-  });
-
-  L.marker(route.coordinates, { icon: startIcon })
-    .addTo(map)
-    .bindPopup(`<strong>${route.title}</strong><br>${route.location}`);
-
-  // Polilínea simulada
-  const routePath = route.coordinates.concat([ // ejemplo simple
-    [route.coordinates[0]+0.1, route.coordinates[1]+0.1],
-    [route.coordinates[0]+0.2, route.coordinates[1]+0.05]
-  ]);
-
-  L.polyline(routePath, { color: '#2563eb', weight: 4, opacity: 0.8 }).addTo(map);
-
-  const endIcon = L.divIcon({
-    html: '<div class="marker-end"><i class="fas fa-flag-checkered"></i></div>',
-    className: '',
-    iconSize: [32, 32]
-  });
-
-  L.marker(routePath[routePath.length-1], { icon: endIcon })
-    .addTo(map)
-    .bindPopup('<strong>Meta</strong><br>Machu Picchu');
-
-  map.fitBounds(routePath);
-  initializeElevationChart();
-}
-
-// ===========================
-// GRÁFICO DE ELEVACIÓN (Chart.js)
-// ===========================
-function initializeElevationChart() {
-  const ctx = document.getElementById('elevationChart');
-  if (!ctx) return;
-
-  const elevationData = {
-    labels: ['Km 0','Km 10','Km 20','Km 30','Km 43'],
-    datasets: [{
-      label: 'Elevación (msnm)',
-      data: [2800,3200,4200,3600,2430],
-      fill: true,
-      backgroundColor: 'rgba(37,99,235,0.2)',
-      borderColor: 'rgba(37,99,235,1)',
-      borderWidth: 3,
-      tension: 0.4,
-      pointRadius: 5,
-      pointBackgroundColor: 'rgba(37,99,235,1)',
-      pointBorderColor: '#fff',
-      pointBorderWidth: 2,
-      pointHoverRadius: 7
-    }]
-  };
-
-  new Chart(ctx, {
-    type: 'line',
-    data: elevationData,
-    options: { responsive:true, plugins:{legend:{display:false}}}
-  });
-}
-
-// ===========================
-// CLIMA (simulado)
-// ===========================
-function loadWeatherData() {
-  const weatherData = { temp:18, description:"Parcialmente nublado", humidity:65, windSpeed:12, icon:"02d" };
-  document.getElementById('temperature').textContent = weatherData.temp;
-  document.getElementById('weatherDescription').textContent = weatherData.description;
-  document.getElementById('humidity').textContent = weatherData.humidity;
-  document.getElementById('windSpeed').textContent = weatherData.windSpeed;
-  document.getElementById('weatherIcon').src = `https://openweathermap.org/img/wn/${weatherData.icon}@2x.png`;
-}
-
-// ===========================
-// FAVORITOS
-// ===========================
-function initializeFavoriteButton(routeId) {
-  const favBtn = document.getElementById('addToFavBtn');
-  if (!favBtn) return;
-
-  const favorites = JSON.parse(localStorage.getItem('favorites')||'[]');
-  let isFavorite = favorites.includes(parseInt(routeId));
-  updateFavButton(favBtn, isFavorite);
-
-  favBtn.addEventListener('click', () => {
-    isFavorite = !isFavorite;
-    if (isFavorite) favorites.push(parseInt(routeId));
-    else favorites.splice(favorites.indexOf(parseInt(routeId)),1);
-    localStorage.setItem('favorites',JSON.stringify(favorites));
-    updateFavButton(favBtn,isFavorite);
-  });
-}
-function updateFavButton(btn,active){
-  btn.innerHTML = active?'<i class="fas fa-heart"></i> En favoritos':'<i class="far fa-heart"></i> Guardar en favoritos';
-  btn.classList.toggle('active',active);
-}
-
-// ===========================
-// COMPARTIR
-// ===========================
-function initializeShareButtons() {
-  const shareButtons = document.querySelectorAll('.share-buttons .btn-icon');
-  shareButtons.forEach((btn,index)=>{
-    btn.addEventListener('click',()=>{
-      const url = window.location.href;
-      const title = document.getElementById('routeTitle').textContent;
-      switch(index){
-        case 0: window.open(`https://wa.me/?text=${encodeURIComponent(title+' - '+url)}`,'_blank'); break;
-        case 1: window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,'_blank'); break;
-        case 2: window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,'_blank'); break;
-        case 3: navigator.clipboard.writeText(url).then(()=>alert('¡Enlace copiado al portapapeles!')); break;
+      if (targetTab === 'map') {
+        setTimeout(initializeMap, 100);
       }
     });
   });
 }
 
-// ===========================
-// RESEÑAS
-// ===========================
-function loadReviews(routeId) {
-  const reviewsList = document.getElementById('reviewsList');
-  if (!reviewsList) return;
+// ============================================
+// GALERÍA
+// ============================================
+function initializeGallery() {
+  console.log('>>> initializeGallery');
+  
+  const mainImage = document.getElementById('mainImage');
+  const galleryContainer = document.getElementById('galleryThumbnails');
+  
+  if (!galleryContainer) {
+    console.warn('Galería container no existe');
+    return;
+  }
 
-  // Mapear reviews con usuarios e i18n
-  const reviews = (routeData[routeId]?.reviewsData || []).map(r=>{
-    const user = userData[r.user] || { name: r.author, avatar: r.avatar };
-    const text = i18nRoute[routeId]?.reviews?.[r.id] || r.text;
-    return {...r, author:user.name, avatar:user.avatar, text};
+  const thumbnails = galleryContainer.querySelectorAll('.thumb');
+  const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+  console.log('Thumbnails encontrados:', thumbnails.length);
+
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      if (mainImage) mainImage.src = thumb.src;
+      thumbnails.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+    });
   });
 
-  reviewsList.innerHTML = reviews.map(r=>`
+  if (fullscreenBtn && mainImage) {
+    fullscreenBtn.addEventListener('click', () => {
+      if (mainImage.requestFullscreen) mainImage.requestFullscreen();
+      else if (mainImage.webkitRequestFullscreen) mainImage.webkitRequestFullscreen();
+    });
+  }
+}
+
+// ============================================
+// MAPA
+// ============================================
+let map = null;
+
+function initializeMap() {
+  console.log('>>> initializeMap');
+  
+  if (map) {
+    map.invalidateSize();
+    return;
+  }
+
+  const route = routeData[currentRouteId];
+  if (!route || !route.coordinates) {
+    console.warn('No hay coordenadas para el mapa');
+    return;
+  }
+
+  const mapContainer = document.getElementById('routeMap');
+  if (!mapContainer) {
+    console.warn('Contenedor routeMap no existe');
+    return;
+  }
+
+  try {
+    map = L.map('routeMap').setView(route.coordinates, 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap',
+      maxZoom: 18
+    }).addTo(map);
+
+    L.marker(route.coordinates).addTo(map).bindPopup(route.title);
+
+    console.log('✓ Mapa inicializado');
+    initializeElevationChart();
+  } catch (e) {
+    console.error('Error inicializando mapa:', e);
+  }
+}
+
+// ============================================
+// GRÁFICO ELEVACIÓN
+// ============================================
+function initializeElevationChart() {
+  console.log('>>> initializeElevationChart');
+  
+  const ctx = document.getElementById('elevationChart');
+  if (!ctx) {
+    console.warn('Canvas elevationChart no existe');
+    return;
+  }
+
+  const route = routeData[currentRouteId];
+  const elevationData = route?.elevationProfile || [
+    { km: 0, m: 2600 },
+    { km: 10, m: 3000 },
+    { km: 20, m: 4200 },
+    { km: 30, m: 3600 },
+    { km: 40, m: 2800 },
+    { km: 43, m: 2430 }
+  ];
+
+  const labels = elevationData.map(d => `Km ${d.km}`);
+  const data = elevationData.map(d => d.m);
+
+  try {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Elevación (m)',
+          data: data,
+          fill: true,
+          backgroundColor: 'rgba(37,99,235,0.2)',
+          borderColor: 'rgba(37,99,235,1)',
+          borderWidth: 3,
+          tension: 0.4
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+    console.log('✓ Gráfico elevación inicializado');
+  } catch (e) {
+    console.error('Error en gráfico:', e);
+  }
+}
+
+// ============================================
+// CLIMA
+// ============================================
+function loadWeatherData() {
+  console.log('>>> loadWeatherData');
+  
+  const weather = { temp: 18, description: "Parcialmente nublado", humidity: 65, windSpeed: 12, icon: "02d" };
+
+  document.getElementById('temperature').textContent = weather.temp;
+  document.getElementById('weatherDescription').textContent = weather.description;
+  document.getElementById('humidity').textContent = weather.humidity;
+  document.getElementById('windSpeed').textContent = weather.windSpeed;
+  document.getElementById('weatherIcon').src = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;
+}
+
+// ============================================
+// FAVORITOS
+// ============================================
+function initializeFavoriteButton(routeId) {
+  console.log('>>> initializeFavoriteButton:', routeId);
+  
+  const favBtn = document.getElementById('addToFavBtn');
+  if (!favBtn) return;
+
+  const favorites = JSON.parse(localStorage.getItem('favorites') || '[]');
+  let isFav = favorites.includes(routeId);
+  updateFavButton(favBtn, isFav);
+
+  favBtn.addEventListener('click', () => {
+    isFav = !isFav;
+    if (isFav) favorites.push(routeId);
+    else favorites = favorites.filter(id => id !== routeId);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    updateFavButton(favBtn, isFav);
+  });
+}
+
+function updateFavButton(btn, active) {
+  btn.innerHTML = active ? '<i class="fas fa-heart"></i> En favoritos' : '<i class="far fa-heart"></i> Guardar';
+  btn.classList.toggle('active', active);
+}
+
+// ============================================
+// COMPARTIR
+// ============================================
+function initializeShareButtons() {
+  console.log('>>> initializeShareButtons');
+  
+  const shareContainer = document.getElementById('shareButtons');
+  if (!shareContainer) return;
+
+  shareContainer.innerHTML = `
+    <button class="btn-icon" onclick="shareWhatsApp()" title="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <button class="btn-icon" onclick="shareFacebook()" title="Facebook">
+      <i class="fab fa-facebook"></i>
+    </button>
+    <button class="btn-icon" onclick="shareTwitter()" title="Twitter">
+      <i class="fab fa-twitter"></i>
+    </button>
+    <button class="btn-icon" onclick="copyLink()" title="Copiar">
+      <i class="fas fa-link"></i>
+    </button>
+  `;
+}
+
+function shareWhatsApp() {
+  const url = window.location.href;
+  const title = document.getElementById('routeTitle')?.textContent || 'Mi ruta';
+  window.open(`https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+}
+
+function shareFacebook() {
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`, '_blank');
+}
+
+function shareTwitter() {
+  const title = document.getElementById('routeTitle')?.textContent || 'Mi ruta';
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`, '_blank');
+}
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => alert('¡Enlace copiado!'));
+}
+
+// ============================================
+// RESEÑAS
+// ============================================
+function generateStars(rating) {
+  let stars = '';
+  for (let i = 0; i < 5; i++) {
+    if (i < Math.floor(rating)) stars += '<i class="fas fa-star"></i>';
+    else if (i < rating) stars += '<i class="fas fa-star-half-alt"></i>';
+    else stars += '<i class="far fa-star"></i>';
+  }
+  return stars;
+}
+
+function markHelpful(id) {
+  alert('Gracias por tu feedback');
+}
+
+function loadReviews(routeId) {
+  console.log('>>> loadReviews:', routeId);
+  
+  const reviewsList = document.getElementById('reviewsList');
+  if (!reviewsList) {
+    console.warn('reviewsList no existe');
+    return;
+  }
+
+  const route = routeData[routeId];
+  if (!route || !route.reviewsData) {
+    reviewsList.innerHTML = '<p>Sin reseñas</p>';
+    return;
+  }
+
+  const reviews = route.reviewsData.map(r => {
+    const user = userData[r.user] || { name: 'Anónimo', avatar: '?' };
+    const text = i18nRoute[routeId]?.reviews?.[r.id] || 'Sin descripción';
+    return { ...r, author: user.name, avatar: user.avatar, text };
+  });
+
+  reviewsList.innerHTML = reviews.map(r => `
     <div class="review-card">
       <div class="review-header">
         <div class="reviewer-info">
           <div class="reviewer-avatar">${r.avatar}</div>
-          <div><div class="reviewer-name">${r.author}</div><div class="review-date">${r.date}</div></div>
+          <div class="reviewer-name">${r.author}</div>
+          <div class="review-date">${r.date}</div>
         </div>
         <div class="review-rating">${generateStars(r.rating)}</div>
       </div>
       <div class="review-text">${r.text}</div>
-      ${r.images.length>0? `<div class="review-images">${r.images.map(img=>`<img src="${img}" alt="Foto de reseña">`).join('')}</div>`: ''}
-      <div class="review-helpful"><span>${r.helpful} personas encontraron esto útil</span> <button onclick="markHelpful(${r.id})"><i class="far fa-thumbs-up"></i> Útil</button></div>
+      <div class="review-helpful">
+        ${r.helpful || 0} útil - <button onclick="markHelpful('${r.id}')">👍</button>
+      </div>
     </div>
   `).join('');
+
+  console.log('✓ Reseñas cargadas:', reviews.length);
 }
+
+// ============================================
+// RESERVA Y FILTROS
+// ============================================
+function initializeBooking() {
+  console.log('>>> initializeBooking');
+  
+  const bookBtn = document.getElementById('bookNowBtn');
+  if (bookBtn) {
+    bookBtn.addEventListener('click', () => {
+      alert('Reserva próximamente');
+    });
+  }
+}
+
+function initializeReviewFilters() {
+  console.log('>>> initializeReviewFilters');
+}
+
+console.log('Script detalle-ruta.js cargado');

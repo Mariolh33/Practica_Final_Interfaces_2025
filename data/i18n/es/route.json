@@ -45,5 +45,226 @@
         "r4": "Mejor experiencia de viaje de mi vida. El camino es desafiante pero gratificante. Ver Machu Picchu desde Inti Punku fue un momento que nunca olvidaré. Los porteadores son verdaderos héroes - llevan todo el equipo pesado. Vale cada euro invertido.",
         "r5": "Simplemente perfecto. La combinación de naturaleza, historia y aventura es imbatible. Los campamentos están bien ubicados y la comida es abundante. El guía compartió muchas historias fascinantes sobre la cultura inca. Consejo: reserven con la mayor anticipación posible."
     }
+  },
+  "route_patagonia": {
+    "title": "Trekking en la Patagonia",
+    "location": "El Chaltén, Argentina",
+    "descShort": "Explora los espectaculares paisajes de la Patagonia argentina con vistas al Fitz Roy.",
+    "descLong": "El trekking en la Patagonia es una experiencia única en uno de los rincones más salvajes y hermosos de Sudamérica. Con sus imponentes montañas, glaciares y lagos cristalinos, esta región ofrece aventura pura para los amantes del senderismo.",
+    "itinerary": {
+      "1": {"title": "Día 1: Llegada a El Chaltén", "text": "Llegamos a El Chaltén y realizamos una caminata corta para aclimatarnos en la zona."},
+      "2": {"title": "Día 2: Laguna de los Tres", "text": "Excursión a la Laguna de los Tres con vistas espectaculares del Fitz Roy."},
+      "3": {"title": "Día 3: Ascenso al Fitz Roy", "text": "Desafiante ascenso que recompensa con vistas panorámicas inolvidables."},
+      "4": {"title": "Día 4: Laguna Torre", "text": "Senderismo hacia Laguna Torre con vistas del Cerro Torre."},
+      "5": {"title": "Día 5: Retorno", "text": "Último día de trekking antes del retorno a la civilización."}
+    },
+    "reviews": {
+      "r1": "Absolutamente impresionante. Los paisajes del Fitz Roy son aún más espectaculares en persona. La calidad de la organización y los guías fue excelente.",
+      "r2": "Una aventura que no olvidaré nunca. La patagonia tiene algo mágico. Recomiendo llevar ropa impermeable, el clima cambia constantemente.",
+      "r3": "Muy buena experiencia, aunque el tercer día fue bastante exigente. Los campamentos son cómodos y la comida es abundante.",
+      "r4": "Perfecto para los amantes de la naturaleza. El Fitz Roy al atardecer es uno de los espectáculos más hermosos que he visto.",
+      "r5": "Vale cada paso. La patagonia es salvaje, hermosa y adictiva. Volvería sin dudarlo."
+    }
+  },
+  "route_balcanes": {
+    "title": "Ruta de los Balcanes",
+    "location": "Europa del Este",
+    "descShort": "Descubre la belleza de los Balcanes visitando Bosnia, Croacia, Montenegro y Albania.",
+    "descLong": "La Ruta de los Balcanes te lleva a través de algunos de los países más hermosos y menos explorados de Europa. Playas, montañas y cultura milenaria en una sola aventura. Desde las calles históricas de Sarajevo hasta las playas de Dubrovnik y las montañas de Albania.",
+    "itinerary": {
+      "1": {"title": "Día 1: Sarajevo", "text": "Exploración de la capital bosnia con su fascinante historia y arquitectura."},
+      "2": {"title": "Día 2: Mostar", "text": "Visita al famoso puente de Mostar y los bazares otomanos."},
+      "3": {"title": "Día 3: Dubrovnik", "text": "La Perla del Adriático con sus murallas medievales y playas cristalinas."},
+      "4": {"title": "Día 4: Kotor", "text": "Fiordo de Kotor en Montenegro, uno de los lugares más hermosos del Mediterráneo."},
+      "5": {"title": "Día 5: Budva", "text": "Playas y vida nocturna en la costa montenegrina."},
+      "6": {"title": "Día 6: Tirana", "text": "La vibrante capital albanesa con su mezcla de arquitectura comunista y moderna."},
+      "7": {"title": "Día 7: Ohrid", "text": "El lago más antiguo de Europa con monasterios bizantinos."}
+    },
+    "reviews": {
+      "r1": "Los Balcanes son una joya escondida. La combinación de historia, naturaleza y gastronomía es perfecta.",
+      "r2": "Excelente ruta, muy bien organizada. Los alojamientos fueron cómodos y los traslados puntuales.",
+      "r3": "Me encantó la diversidad de paisajes y culturas. Cada país tiene su encanto único."
+    }
+  },
+  "route_serengeti": {
+    "title": "Safari Serengeti y Ngorongoro",
+    "location": "Tanzania",
+    "descShort": "Observa la gran migración y los Big Five en los parques nacionales más famosos de África.",
+    "descLong": "El Safari por el Serengeti y Ngorongoro es una experiencia única para los amantes de la vida salvaje. Observa leones, elefantes, rinocerontes, búfalos y leopardos en su hábitat natural. La Gran Migración de ñus es uno de los espectáculos naturales más impresionantes del planeta.",
+    "itinerary": {
+      "1": {"title": "Día 1: Arusha - Serengeti", "text": "Traslado desde Arusha hacia el Parque Nacional Serengeti."},
+      "2": {"title": "Día 2: Valle de Seronera", "text": "Safari completo por el corazón del Serengeti con abundante vida salvaje."},
+      "3": {"title": "Día 3: Gran Migración", "text": "Búsqueda de las manadas de ñus y cebras en su migración anual."},
+      "4": {"title": "Día 4: Kopjes del Serengeti", "text": "Exploración de las formaciones rocosas hogar de leones y leopardos."},
+      "5": {"title": "Día 5: Cráter Ngorongoro", "text": "Descenso al cráter, un ecosistema único con increíble concentración de animales."},
+      "6": {"title": "Día 6: Suelo del Cráter", "text": "Último safari en el suelo del cráter antes del retorno."}
+    },
+    "reviews": {
+      "r1": "Ver leones cazando en el Serengeti fue el momento más emocionante de mi vida. Safari increíble.",
+      "r2": "El cráter Ngorongoro es simplemente espectacular. Vimos los Big Five en un solo día.",
+      "r3": "Experiencia inolvidable. Los guías son muy conocedores y los lodges son de primera calidad."
+    }
+  },
+  "route_annapurna": {
+    "title": "Circuito Annapurna",
+    "location": "Nepal",
+    "descShort": "Uno de los trekkings más espectaculares del mundo atravesando el paso Thorong La a 5,416m.",
+    "descLong": "El Circuito Annapurna es considerado uno de los mejores trekkings del mundo. Atraviesa el paso Thorong La a más de 5,400 metros de altitud y ofrece vistas espectaculares del Himalaya. La diversidad de paisajes, desde selvas subtropicales hasta desiertos de alta montaña, es impresionante.",
+    "itinerary": {
+      "1": {"title": "Día 1: Besisahar - Bhulbhule", "text": "Inicio del circuito en los valles subtropicales de Nepal."},
+      "2": {"title": "Día 2: Jagat - Dharapani", "text": "Ascenso gradual siguiendo el río Marsyangdi."},
+      "3": {"title": "Día 3: Chame", "text": "Entrada a la zona del Annapurna con las primeras vistas de los picos nevados."},
+      "4": {"title": "Día 4: Upper Pisang", "text": "Vistas espectaculares del Annapurna II y III."},
+      "5": {"title": "Día 5: Manang", "text": "Llegada a Manang para aclimatación en este pueblo de alta montaña."},
+      "6": {"title": "Día 6: Día de Aclimatación", "text": "Día de descanso en Manang para adaptarse a la altitud."},
+      "7": {"title": "Día 7: Yak Kharka", "text": "Continuación del ascenso hacia el Thorong La."},
+      "8": {"title": "Día 8: Thorong La Pass", "text": "El día más desafiante: cruce del paso a 5,416 metros de altitud."},
+      "9": {"title": "Día 9: Muktinath", "text": "Descenso hacia Muktinath, un importante lugar de peregrinación."},
+      "10": {"title": "Día 10: Jomsom", "text": "Llegada a Jomsom completando el circuito."}
+    },
+    "reviews": {
+      "r1": "El Annapurna es épico. El paso Thorong La fue durísimo pero las vistas desde arriba valen todo el esfuerzo.",
+      "r2": "Experiencia transformadora. La cultura nepalí, las montañas y la aventura se combinan perfectamente.",
+      "r3": "Físicamente muy exigente pero emocionalmente gratificante. La aclimatación es crucial."
+    }
+  },
+  "route_islandia": {
+    "title": "Vuelta a Islandia",
+    "location": "Islandia",
+    "descShort": "Recorre la Ring Road descubriendo cascadas, glaciares, auroras boreales y aguas termales.",
+    "descLong": "La vuelta completa a Islandia por la famosa Ring Road es un viaje de naturaleza en estado puro. Desde los géiseres hasta los glaciares, pasando por playas de arena negra y auroras boreales, cada kilómetro ofrece algo nuevo y espectacular.",
+    "itinerary": {
+      "1": {"title": "Día 1: Reykjavik - Vik", "text": "Ruta por la costa sur con cascadas Seljalandsfoss y Skógafoss."},
+      "2": {"title": "Día 2: Jökulsárlón Glacier", "text": "Laguna glaciar con icebergs flotantes, uno de los lugares más fotogénicos de Islandia."},
+      "3": {"title": "Día 3: Egilsstaðir", "text": "Fiordos del este con paisajes dramáticos y pueblos pesqueros."},
+      "4": {"title": "Día 4: Lago Mývatn", "text": "Área geotérmica con formaciones de lava y aguas termales naturales."},
+      "5": {"title": "Día 5: Akureyri", "text": "La capital del norte con jardines botánicos y cultura vikinga."},
+      "6": {"title": "Día 6: Fiordos del Oeste", "text": "La región más remota con acantilados espectaculares y fauna marina."},
+      "7": {"title": "Día 7: Península Snæfellsnes", "text": "Islandia en miniatura con volcanes, playas y pueblos pintorescos."},
+      "8": {"title": "Día 8: Círculo Dorado", "text": "Geysir, Gullfoss y Parque Nacional Þingvellir antes de regresar."}
+    },
+    "reviews": {
+      "r1": "Islandia es otro planeta. La variedad de paisajes es abrumadora. Las auroras fueron la cereza del pastel.",
+      "r2": "El viaje perfecto para amantes de la naturaleza. Cada día es una nueva aventura visual.",
+      "r3": "Caro pero vale cada corona. Los alojamientos fueron excelentes y el coche de alquiler impecable."
+    }
+  },
+  "route_angkor": {
+    "title": "Templos de Angkor Wat",
+    "location": "Camboya",
+    "descShort": "Descubre los templos milenarios de Angkor en bicicleta con amanecer en Angkor Wat.",
+    "descLong": "Los templos de Angkor son uno de los complejos arqueológicos más impresionantes del mundo. Recorrerlos en bicicleta te permite explorar tanto los templos principales como los ocultos en la selva, viviendo una experiencia auténtica y activa.",
+    "itinerary": {
+      "1": {"title": "Día 1: Angkor Wat y Angkor Thom", "text": "Amanecer en Angkor Wat seguido de exploración del complejo de Angkor Thom y el Bayon."},
+      "2": {"title": "Día 2: Templos de la Selva", "text": "Ta Prohm con árboles creciendo entre ruinas, Preah Khan y Neak Pean."},
+      "3": {"title": "Día 3: Banteay Srei", "text": "El templo más ornamentado de Angkor con tallas en piedra rosa."}
+    },
+    "reviews": {
+      "r1": "Angkor Wat al amanecer es mágico. Los templos son aún más impresionantes en persona.",
+      "r2": "Recorrer los templos en bicicleta fue genial. El ritmo es perfecto para disfrutar de cada detalle.",
+      "r3": "Una experiencia cultural increíble. Los guías locales conocen cada historia de las ruinas."
+    }
+  },
+  "route_sahara": {
+    "title": "Desierto del Sahara",
+    "location": "Marruecos",
+    "descShort": "Aventura en las dunas de Erg Chebbi con noche bajo las estrellas en campamento bereber.",
+    "descLong": "La experiencia del desierto del Sahara en Marruecos es inolvidable. Desde las dunas doradas de Erg Chebbi hasta la hospitalidad bereber, pasando por las gargantas del Todra y los valles del Atlas, es un viaje que combina aventura y cultura.",
+    "itinerary": {
+      "1": {"title": "Día 1: Marrakech - Ouarzazate", "text": "Cruce del Alto Atlas hacia la 'puerta del desierto'."},
+      "2": {"title": "Día 2: Valle del Dades y Todra", "text": "Exploración de las impresionantes gargantas del Todra."},
+      "3": {"title": "Día 3: Merzouga y Erg Chebbi", "text": "Paseo en camello al atardecer y noche en campamento bereber bajo las estrellas."},
+      "4": {"title": "Día 4: Amanecer en las Dunas", "text": "Amanecer en las dunas antes del retorno."}
+    },
+    "reviews": {
+      "r1": "La noche en el desierto fue mágica. El cielo estrellado es algo que nunca olvidaré.",
+      "r2": "Los bereberes fueron increíbles anfitriones. La cena y música tradicional alrededor del fuego fue especial.",
+      "r3": "Las dunas son impresionantes. El paseo en camello es imprescindible."
+    }
+  },
+  "route_noruega": {
+    "title": "Fjordos de Noruega",
+    "location": "Noruega",
+    "descShort": "Viaje en tren por los fjordos noruegos visitando Bergen, Flåm y Geirangerfjord.",
+    "descLong": "Los fjordos de Noruega ofrecen algunos de los paisajes más espectaculares de Europa. Este viaje combina trenes escénicos, ferries por los fjordos y pueblos pintorescos, mostrando lo mejor de la naturaleza noruega.",
+    "itinerary": {
+      "1": {"title": "Día 1: Bergen - Voss", "text": "Desde la ciudad hanseática de Bergen hacia las montañas."},
+      "2": {"title": "Día 2: Flåm Railway", "text": "El tren más hermoso del mundo descendiendo hacia el fiordo."},
+      "3": {"title": "Día 3: Sognefjord", "text": "Crucero por el fiordo más largo y profundo de Noruega."},
+      "4": {"title": "Día 4: Geirangerfjord", "text": "Patrimonio de la UNESCO con cascadas espectaculares."},
+      "5": {"title": "Día 5: Ålesund", "text": "Ciudad art nouveau reconstruida después del incendio de 1904."},
+      "6": {"title": "Día 6: Trondheim", "text": "Tercera ciudad de Noruega con catedral gótica."},
+      "7": {"title": "Día 7: Regreso a Bergen", "text": "Vuelta a Bergen completando el circuito de los fjordos."}
+    },
+    "reviews": {
+      "r1": "Los fjordos son espectaculares. El tren de Flåm es realmente el más hermoso que he tomado.",
+      "r2": "Noruega es cara pero vale la pena. Los paisajes son de otro mundo.",
+      "r3": "Perfecta combinación de naturaleza y cultura. Los pueblos son encantadores."
+    }
+  },
+  "route_costarica": {
+    "title": "Costa Rica Aventura",
+    "location": "Costa Rica",
+    "descShort": "Selva tropical, playas paradisíacas y vida salvaje en Monteverde, Arenal y Manuel Antonio.",
+    "descLong": "Costa Rica es el paraíso de la biodiversidad. Este viaje combina volcanes activos, bosques nubosos, playas vírgenes y una increíble variedad de fauna. Desde monos aulladores hasta perezosos, tucanes y ballenas jorobadas.",
+    "itinerary": {
+      "1": {"title": "Día 1: San José - La Fortuna", "text": "Traslado hacia el volcán Arenal."},
+      "2": {"title": "Día 2: Volcán Arenal y Aguas Termales", "text": "Caminata cerca del volcán y relax en aguas termales naturales."},
+      "3": {"title": "Día 3: Monteverde Cloud Forest", "text": "Exploración del bosque nuboso con su increíble biodiversidad."},
+      "4": {"title": "Día 4: Canopy Tour", "text": "Tirolesa entre las copas de los árboles y puentes colgantes."},
+      "5": {"title": "Día 5: Manuel Antonio", "text": "Traslado a la costa del Pacífico."},
+      "6": {"title": "Día 6: Playa Manuel Antonio", "text": "Día de playa en el parque nacional con monos y perezosos."},
+      "7": {"title": "Día 7: Uvita Whale Watching", "text": "Avistamiento de ballenas jorobadas (temporada)."},
+      "8": {"title": "Día 8: Corcovado National Park", "text": "Uno de los lugares con mayor biodiversidad del planeta."},
+      "9": {"title": "Día 9: Tortuguero", "text": "Canales de Tortuguero explorando en kayak."}
+    },
+    "reviews": {
+      "r1": "Costa Rica es pura vida literalmente. La cantidad de animales que vimos fue increíble.",
+      "r2": "Perfecto equilibrio entre aventura y relax. Las playas son hermosas y la selva fascinante.",
+      "r3": "Los guías naturalistas son excelentes. Aprendimos mucho sobre la fauna y flora."
+    }
+  },
+  "route_muralla_china": {
+    "title": "Gran Muralla China",
+    "location": "China",
+    "descShort": "Camina por tramos restaurados y salvajes de la Gran Muralla con vistas impresionantes.",
+    "descLong": "Caminar por la Gran Muralla China es recorrer la historia. Esta ruta combina secciones restauradas y tramos salvajes menos visitados, ofreciendo una experiencia auténtica de uno de los monumentos más impresionantes del mundo.",
+    "itinerary": {
+      "1": {"title": "Día 1: Jinshanling", "text": "Sección restaurada pero menos turística con torres de vigilancia bien preservadas."},
+      "2": {"title": "Día 2: Simatai y Muralla Salvaje", "text": "Tramo más desafiante con secciones no restauradas y vistas espectaculares."},
+      "3": {"title": "Día 3: Mutianyu", "text": "Una de las secciones más hermosas con bosques circundantes."}
+    },
+    "reviews": {
+      "r1": "La Muralla es aún más impresionante de lo que imaginaba. La sección de Jinshanling es espectacular.",
+      "r2": "Caminar por la muralla salvaje es una aventura única. Las vistas son increíbles.",
+      "r3": "Físicamente exigente pero vale la pena. La historia que respira cada piedra es asombrosa."
+    }
+  },
+  "route_ruta66": {
+    "title": "Ruta 66 Clásica",
+    "location": "Estados Unidos",
+    "descShort": "De Chicago a Los Ángeles por la madre de todas las carreteras atravesando el corazón de América.",
+    "descLong": "La mítica Ruta 66 es un viaje por la América profunda. Desde los rascacielos de Chicago hasta las playas de Santa Mónica, pasando por pueblos fantasma, diners retro y paisajes icónicos del oeste americano. Es un viaje nostálgico por la cultura estadounidense.",
+    "itinerary": {
+      "1": {"title": "Día 1: Chicago - Springfield", "text": "Inicio en Chicago siguiendo los primeros tramos históricos."},
+      "2": {"title": "Día 2: St. Louis", "text": "El famoso Gateway Arch y BBQ de Missouri."},
+      "3": {"title": "Día 3: Tulsa", "text": "Oklahoma con sus museos de la Ruta 66."},
+      "4": {"title": "Día 4: Oklahoma City", "text": "Capital de Oklahoma con cultura cowboy."},
+      "5": {"title": "Día 5: Amarillo", "text": "El famoso Cadillac Ranch en Texas."},
+      "6": {"title": "Día 6: Santa Fe", "text": "Arte y cultura en Nuevo México."},
+      "7": {"title": "Día 7: Albuquerque", "text": "Desierto del sudoeste y cultura nativa americana."},
+      "8": {"title": "Día 8: Flagstaff", "text": "Puerta al Gran Cañón en Arizona."},
+      "9": {"title": "Día 9: Gran Cañón", "text": "Desvío imprescindible a una de las maravillas naturales del mundo."},
+      "10": {"title": "Día 10: Williams - Seligman", "text": "Pueblos clásicos de la Ruta 66 perfectamente preservados."},
+      "11": {"title": "Día 11: Kingman - Oatman", "text": "Pueblo fantasma con burros salvajes."},
+      "12": {"title": "Día 12: Barstow", "text": "Desierto de Mojave en California."},
+      "13": {"title": "Día 13: San Bernardino", "text": "Primer McDonald's original de la Ruta 66."},
+      "14": {"title": "Día 14: Santa Monica Pier", "text": "Final épico en el icónico muelle del Pacífico."}
+    },
+    "reviews": {
+      "r1": "Un viaje nostálgico por la América clásica. Los diners vintage y pueblos retro son encantadores.",
+      "r2": "La libertad de la carretera es real. Cada estado tiene su personalidad única.",
+      "r3": "Hacer la Ruta 66 era un sueño desde niño. Superó todas mis expectativas."
+    }
   }
 }

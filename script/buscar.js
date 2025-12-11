@@ -8,7 +8,7 @@
 // ===========================
 const routesData = [
   {
-    id: 1,
+    id: "route_caminoinca",
     title: "Camino Inca a Machu Picchu",
     location: "Cusco, Perú",
     rating: 4.9,
@@ -24,7 +24,7 @@ const routesData = [
     features: ["guia-local", "camping"]
   },
   {
-    id: 2,
+    id: "route_balcanes",
     title: "Ruta de los Balcanes",
     location: "Europa del Este",
     rating: 4.7,
@@ -40,7 +40,7 @@ const routesData = [
     features: ["transporte", "hostel"]
   },
   {
-    id: 3,
+    id: "route_serengeti",
     title: "Safari Serengeti y Ngorongoro",
     location: "Tanzania",
     rating: 4.8,
@@ -56,7 +56,7 @@ const routesData = [
     features: ["guia-local", "hotel"]
   },
   {
-    id: 4,
+    id: "route_annapurna",
     title: "Circuito Annapurna",
     location: "Nepal",
     rating: 4.9,
@@ -72,7 +72,7 @@ const routesData = [
     features: ["guia-local", "camping", "hostel"]
   },
   {
-    id: 5,
+    id: "route_islandia",
     title: "Vuelta a Islandia",
     location: "Islandia",
     rating: 4.6,
@@ -88,7 +88,7 @@ const routesData = [
     features: ["transporte", "hotel"]
   },
   {
-    id: 6,
+    id: "route_patagonia",
     title: "Patagonia Argentina",
     location: "Argentina",
     rating: 4.8,
@@ -104,7 +104,7 @@ const routesData = [
     features: ["guia-local", "hostel", "camping"]
   },
   {
-    id: 7,
+    id: "route_angkor",
     title: "Templos de Angkor Wat",
     location: "Camboya",
     rating: 4.7,
@@ -120,7 +120,7 @@ const routesData = [
     features: ["guia-local", "hostel"]
   },
   {
-    id: 8,
+    id: "route_sahara",
     title: "Desierto del Sahara",
     location: "Marruecos",
     rating: 4.5,
@@ -136,7 +136,7 @@ const routesData = [
     features: ["guia-local", "camping"]
   },
   {
-    id: 9,
+    id: "route_noruega",
     title: "Fjordos de Noruega",
     location: "Noruega",
     rating: 4.7,
@@ -152,7 +152,7 @@ const routesData = [
     features: ["transporte", "hotel"]
   },
   {
-    id: 10,
+    id: "route_costarica",
     title: "Costa Rica Aventura",
     location: "Costa Rica",
     rating: 4.6,
@@ -168,7 +168,7 @@ const routesData = [
     features: ["guia-local", "hostel", "hotel"]
   },
   {
-    id: 11,
+    id: "route_muralla_china",
     title: "Gran Muralla China",
     location: "China",
     rating: 4.5,
@@ -184,7 +184,7 @@ const routesData = [
     features: ["guia-local", "hotel"]
   },
   {
-    id: 12,
+    id: "route_ruta66",
     title: "Ruta 66 Clásica",
     location: "Estados Unidos",
     rating: 4.4,
@@ -485,7 +485,7 @@ function renderRoutes(routes) {
     <article class="route-card">
       <div class="route-image">
         <img src="${route.image}" alt="${route.title}">
-        <button class="route-favorite" onclick="toggleFavorite(${route.id})" id="fav-${route.id}">
+        <button class="route-favorite" onclick="toggleFavorite('${route.id}')" id="fav-${route.id}">
           <i class="far fa-heart"></i>
         </button>
         <div class="route-badges">
