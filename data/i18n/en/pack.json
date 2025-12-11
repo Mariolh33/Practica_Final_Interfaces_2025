@@ -1,0 +1,80 @@
+{
+    "pack_japon": {
+        "title": "Ancient Japan",
+        "descShort": "Discover the best of Japan by visiting Tokyo, Kyoto, and Nara",
+        "descLong": "Embark on an unforgettable experience through the heart of Japan, where ancient tradition and modern life coexist in perfect harmony. This carefully designed journey will take you from the vibrant metropolis of Tokyo, with its neon lights and cutting-edge technology, to the serene temples and zen gardens of Kyoto.\n\nDiscover Japan’s contrasts: attend a tea ceremony, walk through a bamboo forest, stay in a ryokan, and taste authentic sushi at the Tsukiji market.",
+        "alt": "Image of the Japan trip"
+    },
+    "pack_indonesia": {
+        "title": "Charms of Indonesia",
+        "descShort": "Explore Bali, Java, and the paradise islands of Indonesia",
+        "descLong": "Immerse yourself in the cultural and natural diversity of Indonesia, from the golden beaches of Bali to the ancient temples of Java. Enjoy vibrant local life, volcanic landscapes, and the richness of its cuisine.\n\nAdmire the rice terraces, snorkel in crystal-clear waters, and be captivated by traditional dances and the warmth of its people.",
+        "alt": "Image of the Indonesia trip"
+    },
+    "pack_tailandia": {
+        "title": "Tropical Thailand",
+        "descShort": "Experience the magic of Bangkok, Chiang Mai, and the tropical islands",
+        "descLong": "Discover exotic Thailand, where lush nature and ancient culture come together. Visit golden temples, explore floating markets, and relax on paradise beaches.\n\nTake part in colorful festivals, enjoy delicious street food, and explore jungles and waterfalls in the country’s northern region.",
+        "alt": "Image of the Thailand trip"
+    },
+    "pack_india": {
+        "title": "Mysteries of India",
+        "descShort": "Explore Delhi, Jaipur, Agra, and the charm of the Taj Mahal",
+        "descLong": "Dive into the most authentic and fascinating India. From the bustling streets of Delhi to the majesty of the Taj Mahal, passing through royal palaces and lively bazaars.\n\nLive a spiritual experience, taste exotic spices, and walk through paths full of history and color that make India an unforgettable destination.",
+        "alt": "Image of the India trip"
+    },
+    "pack_corea": {
+        "title": "Modern Korea",
+        "descShort": "Discover Seoul, Busan, and the mix of tradition and technology",
+        "descLong": "Travel to South Korea and be amazed by its unique combination of modernity and tradition. Explore futuristic skyscrapers, ancient palaces, and vibrant neighborhoods full of art and gastronomy.\n\nEnjoy K-pop culture, the hanbok, street food, and the natural landscapes surrounding its cities.",
+        "alt": "Image of the Korea trip"
+    },
+    "pack_vietnam": {
+        "title": "Authentic Vietnam",
+        "descShort": "Explore Hanoi, Ha Long Bay, and Vietnamese culture",
+        "descLong": "Experience the cultural and natural richness of Vietnam, from bustling Hanoi to the natural wonders of Ha Long Bay. Walk through traditional markets, temples, and breathtaking landscapes.\n\nEnjoy local cuisine, bike rides through the countryside, and the hospitality of its people.",
+        "alt": "Image of the Vietnam trip"
+    },
+    "pack_china": {
+        "title": "Empires of China",
+        "descShort": "Explore Beijing, Xi'an, and the greatness of the Great Wall",
+        "descLong": "Immerse yourself in China’s millennia-old history, from the capital Beijing to the ancient city of Xi'an. Visit the Great Wall, the Forbidden City, and the Terracotta Warriors.\n\nDiscover the traditions, imperial culture, and modernity that coexist in this vast country.",
+        "alt": "Image of the China trip"
+    },
+    "pack_italia": {
+        "title": "Treasures of Italy",
+        "descShort": "Discover Rome, Florence, and Venice in an unforgettable trip",
+        "descLong": "Explore Italy’s most iconic cities: Rome with its ancient history, Florence and its Renaissance art, and Venice with its world-famous canals.\n\nEnjoy authentic Italian pasta, visit world-renowned museums, and be amazed by classical architecture and European charm.",
+        "alt": "Image of the Italy trip"
+    },
+    "pack_francia": {
+        "title": "Romance in France",
+        "descShort": "Explore Paris, the Loire Valley, and Provence",
+        "descLong": "Experience the magic of France starting in Paris, the city of love, and continuing through Renaissance castles and lavender fields in Provence.\n\nEnjoy French cuisine, stroll along the Seine, and visit some of the world’s most important museums.",
+        "alt": "Image of the France trip"
+    },
+    "pack_kenia": {
+        "title": "Safari in Kenya",
+        "descShort": "Experience a real safari through Masai Mara and Nairobi",
+        "descLong": "Immerse yourself in Africa’s wild nature. Watch lions, elephants, and giraffes roaming free across the Masai Mara plains.\n\nGuided by local experts, enjoy lodge accommodations and a true introduction to African cultures.",
+        "alt": "Image of the Kenya safari"
+    },
+    "pack_marruecos": {
+        "title": "Colors of Morocco",
+        "descShort": "Discover Marrakech, the Sahara Desert, and Fez",
+        "descLong": "A journey filled with aromas, vibrant colors, and Arab architecture. Explore Marrakech’s souks, ride a camel through the Sahara Desert, and walk through the historic streets of Fez.\n\nA perfect blend of tradition, exotic cuisine, and breathtaking landscapes.",
+        "alt": "Image of the Morocco trip"
+    },
+    "pack_peru": {
+        "title": "Adventures in Peru",
+        "descShort": "Explore Cusco, Machu Picchu, and Andean culture",
+        "descLong": "Travel to the heart of the Inca Empire, visit mystical Machu Picchu, and discover unique Andean landscapes.\n\nEnjoy Peruvian cuisine, meet local communities, and live a cultural experience full of history.",
+        "alt": "Image of the Peru trip"
+    },
+    "pack_mexico": {
+        "title": "Essential Mexico",
+        "descShort": "Discover Mexico City, Cancun, and Chichén Itzá",
+        "descLong": "A complete journey through Mexico: ancestral history, paradise beaches, and world-renowned cuisine.\n\nExplore Mayan ruins, swim in crystal-clear cenotes, and enjoy the vibrancy of Mexican culture.",
+        "alt": "Image of the Mexico trip"
+    }
+}

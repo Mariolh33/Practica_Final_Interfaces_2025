@@ -1,57 +1,72 @@
-const packs = [
-    {
-        title: "Pack Sudeste Asiatico",
-        price: "600€",
-        descShort: "Disfruta una adventura maravillosa por tres paises en el Sudeste de Asia.",
-        desc: "Disfruta una adventura maravillosa por tres paises en el Sudeste de Asia.\nEn este pack, incluimos un bus que te llevara por las ciudades y la naturaleza de estos paises.\nDisfruta con otros viajadores que han comprado el mismo pack. Tambien inluye el alojamiento y comida durante el viaje.",
-        img: "./images/Vietnam.jpeg",
-        alt: "Vietnam"
-    },
-    {
-        title: "Pack India",
-        price: "1200€",
-        descShort: "New Dehli, y Mumbia, incluye JR Pass y hoteles",
-        desc: "New Dehli, y Mumbia, incluye JR Pass y hoteles",
-        img: "./images/india.jpeg",
-        alt: "India"
-        
-    },
-    {
-        title: "Pack Tanzania",
-        price: "800€",
-        descShort: "Safaris por Tanzania, rutas, transporte y alojamiento",
-        desc: "Safaris por Tanzania, rutas, transporte y alojamiento",
-        img: "./images/Tanzania.jpeg",
-        alt: "Tanzania"
+window.carousel = (function() {
+    let packs = [];
+    let currentIndex = 0;
+
+    async function loadPacks() {
+        try {
+            const fpack = await fetch("../data/pack.json");            
+            if (!fpack.ok) throw new Error("No se pudo cargar data/pack.json");
+            packs = await fpack.json();            
+            update(); // Mostrar primer pack
+        } catch (error) {
+            console.error("Error cargando packs:", error);
+            const track = document.getElementById("carousel-track");
+            if (track) track.innerHTML = "<p>No se pudieron cargar los packs.</p>";
+        }
     }
-]
 
-let currentIndex = 0;
+    async function update() {
+        const currentLang = localStorage.getItem("lang") || "es";
+        const fi18n = await fetch(`../data/i18n/${currentLang}/pack.json`);
+        i18nPacks = await fi18n.json();
+        if (!packs.length || !i18nPacks) return;
 
-function navigateToBuy(){
-    localStorage.setItem("selectedPack", JSON.stringify(packs[currentIndex]));
-    window.location.href='comprar.html';
-}
+        const pack = packs[currentIndex];
+        const packText = i18nPacks[pack.id] || {};
 
+        // Imagen
+        const imgEl = document.getElementById("carousel-img");
+        if (imgEl) {
+            imgEl.src = pack.img;
+            imgEl.alt = packText.alt || "";
+        }
 
-function updateCarousel(){
-    const pack = packs[currentIndex]
-    document.getElementById("carousel-img").src = pack.img;
-    document.getElementById("carousel-title").textContent = pack.title;
-    document.getElementById("carousel-desc").textContent = pack.descShort;
+        // Título y descripción
+        const titleEl = document.getElementById("carousel-title");
+        const descEl = document.getElementById("carousel-desc");
+        if (titleEl) titleEl.textContent = packText.title || pack.id;
+        if (descEl) descEl.textContent = packText.descShort || "";
 
-}
+        // Precio
+        const priceEl = document.getElementById("carousel-price");
+        if (priceEl) priceEl.textContent = pack.price;
 
-function changeCarouselLeft() {
+        // Botón comprar
+        const buyEl = document.querySelector(".pack-footer button span[data-i18n='index_pack_buy']");
+        if (buyEl) buyEl.textContent = i18nData.index_pack_buy || "Comprar";
+    }
 
-    currentIndex = (currentIndex - 1 + packs.length) % packs.length;
-    updateCarousel();
-}
+    function changeLeft() {
+        currentIndex = (currentIndex - 1 + packs.length) % packs.length;
+        update();
+    }
 
-function changeCarouselRight() {
+    function changeRight() {
+        currentIndex = (currentIndex + 1) % packs.length;
+        update();
+    }
 
-    currentIndex = (currentIndex + 1 + packs.length) % packs.length;
-    updateCarousel();
-}
+    function navigateToBuy() {
+        localStorage.setItem("selectedPack", JSON.stringify(packs[currentIndex]));
+        window.location.href = 'comprar.html';
+    }
 
-setInterval(changeCarouselRight, 2000);
+    document.addEventListener("DOMContentLoaded", () => {
+        if (document.getElementById("carousel-track")) {
+            loadPacks();
+            setInterval(changeRight, 5000);
+        }
+    });
+
+    return { update, changeLeft, changeRight, navigateToBuy };
+})();

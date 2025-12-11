@@ -1,0 +1,80 @@
+{
+    "pack_japon": {
+        "title": "Japón Ancestral",
+        "descShort": "Descubre lo mejor de Japón visitando Tokio, Kioto y Nara",
+        "descLong": "Embárcate en una experiencia inolvidable por el corazón del Japón, donde lo ancestral y lo moderno conviven en armonía. Este viaje cuidadosamente diseñado te llevará desde la vibrante metrópolis de Tokio, con sus neones y tecnología de punta, hasta los tranquilos templos y jardines zen de Kioto.\n\nDescubre los contrastes de Japón: asiste a una ceremonia del té, camina por un bosque de bambú, duerme en un ryokan y prueba auténtico sushi en el mercado de Tsukiji.",
+        "alt": "Imagen del viaje a Japón"
+    },
+    "pack_indonesia": {
+        "title": "Encantos de Indonesia",
+        "descShort": "Explora Bali, Java y las paradisíacas islas de Indonesia",
+        "descLong": "Sumérgete en la diversidad cultural y natural de Indonesia, desde las playas doradas de Bali hasta los templos milenarios de Java. Disfruta de la vibrante vida local, los paisajes volcánicos y la riqueza de su gastronomía.\n\nAdmira los arrozales en terrazas, practica snorkel en aguas cristalinas y déjate cautivar por los bailes tradicionales y la calidez de su gente.",
+        "alt": "Imagen del viaje a Indonesia"
+    },
+    "pack_tailandia": {
+        "title": "Tailandia Tropical",
+        "descShort": "Vive la magia de Bangkok, Chiang Mai y las islas tropicales",
+        "descLong": "Descubre la exótica Tailandia, donde la naturaleza exuberante y la cultura milenaria se unen. Pasea por templos dorados, explora mercados flotantes y relájate en playas paradisíacas.\n\nParticipa en festivales coloridos, disfruta de la deliciosa comida callejera y explora selvas y cascadas en el norte del país.",
+        "alt": "Imagen del viaje a Tailandia"
+    },
+    "pack_india": {
+        "title": "Misterios de India",
+        "descShort": "Explora Delhi, Jaipur, Agra y el encanto del Taj Mahal",
+        "descLong": "Adéntrate en la India más auténtica y fascinante. Desde el bullicio de Delhi hasta la majestuosidad del Taj Mahal, pasando por palacios reales y bazares llenos de vida.\n\nVive una experiencia espiritual, degusta especias exóticas y recorre los caminos llenos de historia y color que hacen de India un destino inolvidable.",
+        "alt": "Imagen del viaje a India"
+    },
+    "pack_corea": {
+        "title": "Corea Moderna",
+        "descShort": "Descubre Seúl, Busan y la mezcla de tradición y tecnología",
+        "descLong": "Viaja a Corea del Sur y maravíllate con su combinación única de modernidad y tradición. Explora rascacielos futuristas, palacios ancestrales y barrios vibrantes llenos de arte y gastronomía.\n\nDisfruta del K-pop, el hanbok, la comida callejera y los paisajes naturales que rodean sus ciudades.",
+        "alt": "Imagen del viaje a Corea"
+    },
+    "pack_vietnam": {
+        "title": "Vietnam Auténtico",
+        "descShort": "Explora Hanoi, la bahía de Ha Long y la cultura vietnamita",
+        "descLong": "Vive la riqueza cultural y natural de Vietnam, desde la bulliciosa Hanoi hasta las maravillas naturales de la bahía de Ha Long. Recorre mercados tradicionales, templos y paisajes impresionantes.\n\nDisfruta de la gastronomía local, paseos en bicicleta por el campo y la hospitalidad de sus gentes.",
+        "alt": "Imagen del viaje a Vietnam"
+    },
+    "pack_china": {
+        "title": "Imperios de China",
+        "descShort": "Explora Beijing, Xi'an y la Grandeza de la Gran Muralla",
+        "descLong": "Adéntrate en la historia milenaria de China, desde la capital Beijing hasta la ciudad antigua de Xi'an. Visita la Gran Muralla, la Ciudad Prohibida y los Guerreros de Terracota.\n\nDescubre las tradiciones, la cultura imperial y la modernidad que conviven en este vasto país.",
+        "alt": "Imagen del viaje a China"
+    },
+    "pack_italia": {
+        "title": "Tesoros de Italia",
+        "descShort": "Descubre Roma, Florencia y Venecia en un viaje inolvidable",
+        "descLong": "Recorre las ciudades más emblemáticas de Italia: Roma y su historia milenaria, Florencia con su arte renacentista y Venecia con sus canales únicos en el mundo.\n\nDegusta auténtica pasta italiana, visita museos de fama mundial y déjate impresionar por la arquitectura clásica y el encanto europeo.",
+        "alt": "Imagen del viaje a Italia"
+    },
+    "pack_francia": {
+        "title": "Romance en Francia",
+        "descShort": "Explora París, el Valle del Loira y la Provenza",
+        "descLong": "Vive la magia francesa comenzando en París, la ciudad del amor, y continúa entre castillos renacentistas y campos de lavanda en flor.\n\nDisfruta de la gastronomía francesa, pasea junto al Sena y visita algunos de los museos más importantes del mundo.",
+        "alt": "Imagen del viaje a Francia"
+    },
+    "pack_kenia": {
+        "title": "Safari en Kenia",
+        "descShort": "Vive un auténtico safari por Masái Mara y Nairobi",
+        "descLong": "Sumérgete en la naturaleza salvaje de África. Observa leones, elefantes y jirafas en libertad mientras recorres las llanuras del Masái Mara.\n\nExperiencia acompañada por guías locales, alojamientos en lodges y un acercamiento real a las culturas africanas.",
+        "alt": "Imagen del safari en Kenia"
+    },
+    "pack_marruecos": {
+        "title": "Colores de Marruecos",
+        "descShort": "Descubre Marrakech, el desierto del Sahara y Fez",
+        "descLong": "Un viaje lleno de aromas, colores y arquitectura árabe. Explora los zocos de Marrakech, monta en camello por el desierto del Sahara y recorre las calles históricas de Fez.\n\nUna mezcla perfecta de tradición, gastronomía exótica y paisajes impresionantes.",
+        "alt": "Imagen del viaje a Marruecos"
+    },
+    "pack_peru": {
+        "title": "Aventuras en Perú",
+        "descShort": "Explora Cusco, Machu Picchu y la cultura andina",
+        "descLong": "Viaja al corazón del imperio inca, visita la mística Machu Picchu y recorre paisajes andinos únicos.\n\nDisfruta de la culinaria peruana, conoce comunidades locales y vive una experiencia cultural llena de historia.",
+        "alt": "Imagen del viaje a Perú"
+    },
+    "pack_mexico": {
+        "title": "México Esencial",
+        "descShort": "Descubre Ciudad de México, Cancún y Chichén Itzá",
+        "descLong": "Un viaje completo por México: historia ancestral, playas paradisíacas y una gastronomía reconocida mundialmente.\n\nExplora ruinas mayas, bucea en cenotes cristalinos y vive la energía vibrante de la cultura mexicana.",
+        "alt": "Imagen del viaje a México"
+    }
+}

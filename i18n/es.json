@@ -1,0 +1,193 @@
+{
+    "page_title": "Blog - Mochileros Sin Fronteras",
+    "index_page_title": "Inicio - Mochileros Sin Fronteras",
+    "brand": "Mochileros Sin Fronteras",
+    "nav_home": "Inicio",
+    "nav_routes": "Rutas",
+    "nav_packs": "Packs",
+    "nav_blog": "Blog",
+    "nav_community": "Comunidad",
+    "nav_contact": "Contacto",
+    "profile_profile": "Mi perfil",
+    "profile_friends": "Mis Amigos",
+    "profile_routes": "Mis Rutas",
+    "profile_logout": "Cerrar sesión",
+    "blog_title": "Blog de Viajeros",
+    "blog_subtitle": "Consejos, historias y guías para tu próxima aventura mochilera",
+    "featured_badge": "Destacado",
+    "featured_category": "Guías de viaje",
+    "featured_title": "Guía completa para hacer el Camino Inca: Todo lo que necesitas saber",
+    "featured_excerpt": "Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.",
+    "author_role": "Viajera frecuente",
+    "read_more": "Leer más",
+    "badge_tips": "Consejos",
+    "badge_destinations": "Destinos",
+    "badge_experiences": "Experiencias",
+    "badge_guides": "Guías",
+    "card1_title": "10 consejos para viajar barato por Sudamérica",
+    "card1_excerpt": "Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.",
+    "card1_read_more": "Leer más →",
+    "card2_title": "Islandia en invierno: La guía definitiva",
+    "card2_excerpt": "Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.",
+    "card2_read_more": "Leer más →",
+    "card3_title": "Mi experiencia en el Circuito Annapurna",
+    "card3_excerpt": "Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.",
+    "card3_read_more": "Leer más →",
+    "card4_title": "Qué llevar en tu mochila para el desierto",
+    "card4_excerpt": "La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.",
+    "card4_read_more": "Leer más →",
+    "card5_title": "Costa Rica: Naturaleza y aventura",
+    "card5_excerpt": "Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.",
+    "card5_read_more": "Leer más →",
+    "card6_title": "Viajar por Noruega sin arruinarte",
+    "card6_excerpt": "Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.",
+    "card6_read_more": "Leer más →",
+    "widget_categories": "Categorías",
+    "cat_guides": "Guías de viaje",
+    "cat_tips": "Consejos",
+    "cat_experiences": "Experiencias",
+    "cat_destinations": "Destinos",
+    "cat_equipment": "Equipamiento",
+    "widget_popular": "Más leídos",
+    "pop1_title": "Camino Inca: Guía completa",
+    "pop2_title": "Ruta por los Balcanes",
+    "pop3_title": "Safari en Tanzania",
+    "widget_newsletter_title": "Newsletter",
+    "widget_newsletter_text": "Recibe los mejores consejos de viaje directamente en tu email",
+    "newsletter_placeholder": "Tu email",
+    "newsletter_subscribe": "Suscribirme",
+    "widget_tags": "Tags populares",
+    "tag_backpacker": "Mochilero",
+    "tag_south_america": "Sudamérica",
+    "tag_asia": "Asia",
+    "tag_trekking": "Trekking",
+    "tag_budget": "Presupuesto",
+    "tag_europe": "Europa",
+    "tag_camping": "Camping",
+    "tag_mountain": "Montaña",
+    "tag_africa": "África",
+    "tag_tips": "Consejos",
+    "pagination_prev": "Anterior",
+    "pagination_next": "Siguiente",
+    "footer_desc": "Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.",
+    "footer_quick_links": "Enlaces Rápidos",
+    "footer_link_routes": "Buscar Rutas",
+    "footer_legal": "Legal",
+    "footer_policy": "Política de Privacidad",
+    "footer_terms": "Términos y Condiciones",
+    "footer_legal_notice": "Aviso Legal",
+    "footer_newsletter_title": "Newsletter",
+    "footer_newsletter_text": "Recibe nuestras últimas novedades",
+    "footer_subscribe": "Suscribirse",
+    "footer_copyright": "© 2025 Mochileros Sin Fronteras. Todos los derechos reservados.",
+    "index_hero_title": "Descubre el Mundo Como Mochilero",
+    "index_hero_subtitle": "Encuentra rutas, comparte experiencias y conecta con viajeros de todo el mundo",
+    "index_hero_explore": "Explorar Rutas",
+    "index_hero_packs": "Ver Packs",
+    "index_featured_packs": "Packs Destacados",
+    "index_featured_packs_desc": "Ofertas especiales para tu próxima aventura",
+    "index_pack_offer": "Oferta",
+    "index_pack_buy": "Comprar",
+    "index_carousel_title": "Pack Sudeste Asiático",
+    "index_carousel_desc": "Vietnam y Camboya, buses, hostales y guía de visados",
+    "index_carousel_price": "600€",
+    "index_popular_destinations": "Destinos Populares",
+    "index_see_all": "Ver todos",
+    "index_sidebar_login_title": "Iniciar Sesión",
+    "index_sidebar_login_user": "Usuario",
+    "index_sidebar_login_pass": "Contraseña",
+    "index_sidebar_login_remember": "Recordar credenciales",
+    "index_sidebar_login_btn": "Entrar",
+    "index_sidebar_login_register": "Registrarse",
+    "index_sidebar_top_destinations": "Top Destinos",
+    "index_sidebar_dest_thailand": "Tailandia",
+    "index_sidebar_dest_bolivia": "Bolivia",
+    "index_sidebar_dest_nepal": "Nepal",
+    "index_sidebar_quick_tips": "Consejos Rápidos",
+    "index_sidebar_tip_insurance": "Lleva seguro médico",
+    "index_sidebar_tip_visas": "Infórmate sobre visados",
+    "index_sidebar_tip_light": "Viaja ligero",
+    "index_sidebar_upcoming_events": "Próximos Encuentros",
+    "index_sidebar_event_madrid": "Madrid",
+    "index_sidebar_event_date1": "12 Diciembre 2025",
+    "index_sidebar_event_barcelona": "Barcelona",
+    "index_sidebar_event_date2": "25 Diciembre 2025",
+    "index_sidebar_event_valencia": "Valencia",
+    "index_sidebar_event_date3": "08 Enero 2026",        
+    "continents": {
+        "america": "América"
+    },
+
+    "countries": {
+        "peru": "Perú"
+    },
+
+    "difficulty": {
+        "hard": "Difícil"
+    },
+
+    "transport": {
+        "hiking": "A pie"
+    },
+
+    "features": {
+        "camping": "Camping",
+        "local-guide": "Guía local",
+        "permit-required": "Requiere permiso"
+    },
+
+    "includes": {
+        "guide": "Guía profesional",
+        "transport": "Transporte incluido",
+        "meals": "Todas las comidas",
+        "camping-gear": "Equipo de camping",
+        "permits": "Permisos del Camino Inca y Machu Picchu",
+        "insurance": "Seguro incluido"
+    },
+
+    "highlights": {
+        "valle-sagrado": "Paisajes del Valle Sagrado",
+        "patallaqta": "Ruinas de Patallaqta",
+        "warmiwañusca": "Paso Warmiwañusca (4200 m)",
+        "runkurakay": "Ruinas de Runkurakay",
+        "sayacmarca": "Complejo arqueológico de Sayacmarca",
+        "phuyupatamarca": "Phuyupatamarca, 'La ciudad sobre las nubes'",
+        "inti-punku": "Puerta del Sol",
+        "machupicchu": "Machu Picchu"
+    },
+
+    "routes": {
+        "route_caminoinca": {
+        "title": "Camino Inca a Machu Picchu",
+        "location": "Cusco, Perú",
+        "descShort": "Una experiencia única recorriendo los pasos de los antiguos incas.",
+        "descLong": "El Camino Inca es considerado uno de los trekkings más espectaculares del mundo...",
+        "galleryAlt": "Imagen del Camino Inca",
+
+        "itinerary": {
+            "1": {
+            "title": "Día 1: Cusco - Km 82 - Wayllabamba",
+            "text": "Salida temprano de Cusco hacia el km 82..."
+            },
+            "2": {
+            "title": "Día 2: Wayllabamba - Paso Warmiwañusca - Pacaymayo",
+            "text": "El día más desafiante del recorrido..."
+            },
+            "3": {
+            "title": "Día 3: Pacaymayo - Wiñay Wayna",
+            "text": "Visitamos los complejos arqueológicos..."
+            },
+            "4": {
+            "title": "Día 4: Wiñay Wayna - Machu Picchu - Cusco",
+            "text": "Salida antes del amanecer hacia Inti Punku..."
+            }
+        },
+
+        "reviews": {
+            "r1": "Un trek impresionante. El amanecer en Machu Picchu es inolvidable.",
+            "r2": "Muy duro pero totalmente recomendable."
+        }
+        }
+    }
+
+}

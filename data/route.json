@@ -1,0 +1,134 @@
+{
+    "route_caminoinca": {
+    
+        "continent": "america",
+        "country": "peru",
+
+        "images": [
+        "caminoinca_1.jpg",
+        "caminoinca_2.jpg",
+        "caminoinca_3.jpg",
+        "caminoinca_4.jpg"
+        ],
+
+        "duration": "4",
+        "difficulty": "hard",
+        "distance": 43,
+        "elevationGain": 1200,
+        "maxAltitude": 4200,
+
+        "priceFrom": 450,
+        "pricePerDay": 70,
+
+        "rating": 4.9,
+        "reviewsCount": 2847,
+        "favorites": 3821,
+        "travelers": 12450,
+
+        "transport": ["hiking"],
+        "features": ["camping", "local-guide", "permit-required"],
+
+        "includes": [
+        "guide",
+        "transport",
+        "meals",
+        "camping-gear",
+        "permits",
+        "insurance"
+        ],
+
+        "itinerary": [
+        {
+            "day": 1,
+            "distance": 12,
+            "duration": "5-6h",
+            "altitude": 2800,
+            "highlights": ["valle-sagrado", "patallaqta"]
+        },
+        {
+            "day": 2,
+            "distance": 11,
+            "duration": "7-8h",
+            "altitude": 4200,
+            "highlights": ["warmiwañusca"]
+        },
+        {
+            "day": 3,
+            "distance": 16,
+            "duration": "8-9h",
+            "altitude": 2650,
+            "highlights": ["runkurakay", "sayacmarca", "phuyupatamarca"]
+        },
+        {
+            "day": 4,
+            "distance": 4,
+            "duration": "2h",
+            "altitude": 2430,
+            "highlights": ["inti-punku", "machupicchu"]
+        }
+        ],
+
+        "map": {
+        "start": [-13.1604, -72.5209],
+        "end": [-13.1631, -72.5450],
+        "polyline": [
+            [-13.1604, -72.5209],
+            [-13.166, -72.532],
+            [-13.172, -72.540],
+            [-13.1631, -72.5450]
+        ]
+        },
+
+        "elevationProfile": [
+        { "km": 0, "m": 2600 },
+        { "km": 5, "m": 3000 },
+        { "km": 15, "m": 4200 },
+        { "km": 25, "m": 3600 },
+        { "km": 35, "m": 2800 },
+        { "km": 43, "m": 2430 }
+        ],
+
+        "reviews": [
+            {
+                "id": "r1",
+                "user": "maria_gonzalez",
+                "rating": 5,
+                "date": "2025-01-12",
+                "helpful": 45,
+                "images": ["machu1.jpg", "machu2.jpg"]
+            },
+            {
+                "id": "r2",
+                "user": "carlos_rodriguez",
+                "rating": 5,
+                "date": "2025-01-03",
+                "helpful": 32,
+                "images": []
+            },
+            {
+                "id": "r3",
+                "user": "ana_martinez",
+                "rating": 4,
+                "date": "2024-12-10",
+                "helpful": 28,
+                "images": ["patagonia1.jpg"]
+            },
+            {
+                "id": "r4",
+                "user": "jorge_lopez",
+                "rating": 5,
+                "date": "2024-11-15",
+                "helpful": 51,
+                "images": []
+            },
+            {
+                "id": "r5",
+                "user": "laura_fernandez",
+                "rating": 5,
+                "date": "2024-10-20",
+                "helpful": 38,
+                "images": ["islandia1.jpg", "costa-rica1.jpg"]
+            }
+        ]
+    }
+}
