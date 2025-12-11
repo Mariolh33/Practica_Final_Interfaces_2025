@@ -4,9 +4,9 @@ window.carousel = (function() {
 
     async function loadPacks() {
         try {
-            const res = await fetch("data/pack.json");
-            if (!res.ok) throw new Error("No se pudo cargar data/pack.json");
-            packs = await res.json();
+            const fpack = await fetch("../data/pack.json");            
+            if (!fpack.ok) throw new Error("No se pudo cargar data/pack.json");
+            packs = await fpack.json();            
             update(); // Mostrar primer pack
         } catch (error) {
             console.error("Error cargando packs:", error);
@@ -15,11 +15,14 @@ window.carousel = (function() {
         }
     }
 
-    function update() {
-        if (!packs.length || !i18nData.packs) return;
+    async function update() {
+        const currentLang = localStorage.getItem("lang") || "es";
+        const fi18n = await fetch(`../data/i18n/${currentLang}/pack.json`);
+        i18nPacks = await fi18n.json();
+        if (!packs.length || !i18nPacks) return;
 
         const pack = packs[currentIndex];
-        const packText = i18nData.packs[pack.id] || {};
+        const packText = i18nPacks[pack.id] || {};
 
         // Imagen
         const imgEl = document.getElementById("carousel-img");
@@ -40,7 +43,7 @@ window.carousel = (function() {
 
         // Botón comprar
         const buyEl = document.querySelector(".pack-footer button span[data-i18n='index_pack_buy']");
-        if (buyEl) buyEl.textContent = i18nData.index_pack_buy || "Comprar";
+        if (buyEl) buyEl.textContent = i18nPacks.index_pack_buy || "Comprar";
     }
 
     function changeLeft() {

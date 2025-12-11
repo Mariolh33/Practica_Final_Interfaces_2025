@@ -1,0 +1,49 @@
+{
+  "route_caminoinca": {
+    "title": "Camino Inca a Machu Picchu",
+    "location": "Cusco, Perú",
+
+    "descShort": "Una experiencia única recorriendo los pasos de los antiguos incas.",
+    "descLong": "El Camino Inca es considerado uno de los trekkings más espectaculares del mundo...",
+
+    "galleryAlt": "Imagen del Camino Inca",
+
+    "highlights": {
+      "h_valle_sagrado": "Paisajes del Valle Sagrado",
+      "h_patallaqta": "Ruinas de Patallaqta",
+      "h_warmiwanusca": "Paso Warmiwañusca (4200 m)",
+      "h_runkurakay": "Ruinas de Runkurakay",
+      "h_sayacmarca": "Complejo arqueológico de Sayacmarca",
+      "h_phuyupatamarca": "Phuyupatamarca, 'La ciudad sobre las nubes'",
+      "h_intipunku": "Puerta del Sol (Inti Punku)",
+      "h_machupicchu": "Ciudadela de Machu Picchu"
+    },
+
+    "itinerary": {
+      "1": {
+        "title": "Día 1: Cusco - Km 82 - Wayllabamba",
+        "text": "Salida temprano de Cusco hacia el km 82..."
+      },
+      "2": {
+        "title": "Día 2: Wayllabamba - Paso Warmiwañusca - Pacaymayo",
+        "text": "El día más desafiante del recorrido..."
+      },
+      "3": {
+        "title": "Día 3: Pacaymayo - Wiñay Wayna",
+        "text": "Visitamos los complejos arqueológicos..."
+      },
+      "4": {
+        "title": "Día 4: Wiñay Wayna - Machu Picchu - Cusco",
+        "text": "Salida antes del amanecer hacia Inti Punku..."
+      }
+    },
+
+    "reviews": {
+        "r1": "¡Experiencia increíble! El Camino Inca superó todas mis expectativas. Los paisajes son espectaculares y llegar a Machu Picchu al amanecer fue mágico. El guía era muy conocedor y el equipo de porteadores fue excelente. La comida en el camping era sorprendentemente buena. Totalmente recomendado para cualquiera con buena condición física.",
+        "r2": "Una aventura inolvidable. El segundo día es bastante exigente debido a la altitud, pero vale totalmente la pena. Los sitios arqueológicos en el camino son fascinantes y menos concurridos que Machu Picchu. Recomiendo llevar bastones de trekking y tomarse tiempo para aclimatarse en Cusco antes.",
+        "r3": "Excelente trek, aunque físicamente demandante. La organización fue perfecta y el equipo muy profesional. El único inconveniente fue el clima - llovió dos días, así que prepárense bien. Las tiendas y sacos de dormir eran de buena calidad. La experiencia cultural y natural es única.",
+        "r4": "Mejor experiencia de viaje de mi vida. El camino es desafiante pero gratificante. Ver Machu Picchu desde Inti Punku fue un momento que nunca olvidaré. Los porteadores son verdaderos héroes - llevan todo el equipo pesado. Vale cada euro invertido.",
+        "r5": "Simplemente perfecto. La combinación de naturaleza, historia y aventura es imbatible. Los campamentos están bien ubicados y la comida es abundante. El guía compartió muchas historias fascinantes sobre la cultura inca. Consejo: reserven con la mayor anticipación posible."
+    }
+  }
+}
