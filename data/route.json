@@ -141,10 +141,10 @@
         "title": "Trekking en la Patagonia",
         "location": "El Chaltén, Argentina",
         "images": [
-            "patagonia_1.jpg",
-            "patagonia_2.jpg",
-            "patagonia_3.jpg",
-            "patagonia_4.jpg"
+            "images/ruta_detalle/patagonia_1.jpg",
+            "images/ruta_detalle/patagonia_2.jpg",
+            "images/ruta_detalle/patagonia_3.jpg",
+            "images/ruta_detalle/patagonia_4.jpg"
         ],
         "duration": "5",
         "difficulty": "medium",
@@ -291,7 +291,7 @@
             {"day": 4, "distance": 14, "duration": "5h", "altitude": 4000, "highlights": ["upper-pisang"]},
             {"day": 5, "distance": 17, "duration": "6h", "altitude": 4500, "highlights": ["manang"]},
             {"day": 6, "distance": 0, "duration": "rest", "altitude": 4500, "highlights": ["aclimatacion"]},
-            {"day": 7, "distance": 12, "duration": "4h", "altitude": 4800, "highlights": ["yak-kharka"]},
+            {"day": 7, "duration": "4h", "altitude": 4800, "highlights": ["yak-kharka"]},
             {"day": 8, "distance": 14, "duration": "6-7h", "altitude": 5416, "highlights": ["thorong-la-pass"]},
             {"day": 9, "distance": 16, "duration": "7-8h", "altitude": 3800, "highlights": ["muktinath"]},
             {"day": 10, "distance": 20, "duration": "6h", "altitude": 2800, "highlights": ["jomsom"]}
