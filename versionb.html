@@ -11,13 +11,14 @@
     <link rel="stylesheet" href="./style/detalle.css">
     <link rel="stylesheet" href="./style/user-sidebar.css">
     <link rel="stylesheet" href="./style/comprar.css">
+    <link rel="stylesheet" href="./style/versionb.css">
 
     <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Scripts -->
-    <script src="script/versionb.js"></script>
     <script src="script/carousel.js"></script>
+    <script src="script/versionb.js"></script>
     <script src="script/consejos.js"></script>
 </head>
 
@@ -93,49 +94,47 @@
 
     <!-- ================= MAIN PAGE ================= -->
     <main class="home-main">
-        <div class="main-container">
-
-            <!-- ================= CAROUSEL DE PACKS ================= -->
-            <section id="featured-packs" class="featured-packs">
-                <div class="section-container">
-                    <div class="section-header">
-                        <h2>Packs Destacados</h2>
-                        <p>Las mejores ofertas seleccionadas para ti</p>
-                    </div>
+        <!-- ================= CAROUSEL DE PACKS ================= -->
+        <section id="featured-packs" class="featured-packs">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Packs Destacados</h2>
+                    <p>Las mejores ofertas seleccionadas para ti</p>
+                </div>
+                
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn carousel-btn-prev" onclick="window.carousel.changeLeft()">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
                     
-                    <div class="carousel-wrapper">
-                        <button class="carousel-btn carousel-btn-prev" onclick="changeCarouselLeft()">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        
-                        <div class="carousel-track">
-                            <div class="pack-card">
-                                <div class="pack-image">
-                                    <img id="carousel-img" src="images/Mexico.jpg" alt="Pack">
-                                    <span class="pack-badge">Oferta</span>
-                                </div>
-                                <div class="pack-content">
-                                    <h3 id="carousel-title">Pack Sudeste Asiático</h3>
-                                    <p id="carousel-desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
-                                    <div class="pack-footer">
-                                        <span class="pack-price" id="carousel-price">600€</span>
-                                        <button class="btn btn-primary" onclick="navigateToBuy()">
-                                            <i class="fas fa-shopping-cart"></i>
-                                            Comprar
-                                        </button>
-                                    </div>
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="pack-card">
+                            <div class="pack-image">
+                                <img id="carousel-img" src="images/Mexico.jpg" alt="Pack">
+                                <span class="pack-badge">Oferta</span>
+                            </div>
+                            <div class="pack-content">
+                                <h3 id="carousel-title">Pack Sudeste Asiático</h3>
+                                <p id="carousel-desc">Vietnam y Camboya, buses, hostales y guía de visados</p>
+                                <div class="pack-footer">
+                                    <span class="pack-price" id="carousel-price">600€</span>
+                                    <button class="btn btn-primary" onclick="navigateToBuy()">
+                                        <i class="fas fa-shopping-cart"></i>
+                                        Comprar
+                                    </button>
                                 </div>
                             </div>
                         </div>
-
-                        <button class="carousel-btn carousel-btn-next" onclick="changeCarouselRight()">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
                     </div>
+
+                    <button class="carousel-btn carousel-btn-next" onclick="window.carousel.changeRight()">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
                 </div>
-            </section>
+            </div>
+        </section>
 
-
+        <div class="main-container">
             <!-- ================= GRID DE DESTINOS ================= -->
             <section class="destinations-section">
                 <div class="section-header">
@@ -213,9 +212,7 @@
                 </div>
             </section>
 
-        </div>
-
-        <!-- ================= SIDEBAR DE USUARIO ================= -->
+            <!-- ================= SIDEBAR DE USUARIO ================= -->
         <aside class="home-sidebar user-sidebar">
             <!-- Popup cerrar sesión -->
             <div id="popupCerrarSesion" class="popup">
@@ -371,7 +368,8 @@
                 </form>
             </div>
 
-        </aside>
+            </aside>
+        </div>
     </main>
 
 
