@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle de Ruta - Mochileros Sin Fronteras</title>
+    <title data-i18n="page_title_route_detail">Detalle de Ruta - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/detalle.css">
@@ -16,18 +16,18 @@
     <nav class="navbar">
         <div class="nav-brand">
             <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span>Mochileros Sin Fronteras</span>
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
         </div>
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="buscar-rutas.html">Rutas</a></li>
-            <li><a href="otros-rincones.html">Otros rincones</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="comunidad.html">Comunidad</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="otros-rincones.html" data-i18n="nav_cities">Otros rincones</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
             <li>
                 <select name="idioma" id="idioma">
                     <option value="es">🇪🇸 Español</option>
@@ -39,16 +39,16 @@
             <button class="btn-icon" aria-label="Buscar">
                 <i class="fas fa-search"></i>
             </button>
-            <a href="registro.html" class="btn btn-primary">Mi Cuenta</a>
+            <a href="registro.html" class="btn btn-primary" data-i18n="btn_my_account">Mi Cuenta</a>
         </div>
     </nav>
 
     <!-- Breadcrumb -->
     <div class="breadcrumb-container">
         <nav class="breadcrumb">
-            <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
+            <a href="index.html"><i class="fas fa-home"></i> <span data-i18n="nav_home">Inicio</span></a>
             <i class="fas fa-chevron-right"></i>
-            <a href="buscar-rutas.html">Rutas</a>
+            <a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a>
             <i class="fas fa-chevron-right"></i>
             <span id="breadcrumbTitle"></span>
         </nav>
@@ -260,38 +260,38 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Mochileros Sin Fronteras</h3>
-                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
+                <p data-i18n="footer_about">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
                 <div class="social-links" id="footerSocialLinks">
                     <!-- Redes dinámicas -->
                 </div>
             </div>
             
             <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
+                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
                 <ul id="footerQuickLinks">
                     <!-- Links dinámicos -->
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4 data-i18n="footer_legal">Legal</h4>
                 <ul id="footerLegalLinks">
                     <!-- Links legales dinámicos -->
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Recibe nuestras últimas novedades</p>
+                <h4 data-i18n="footer_newsletter">Newsletter</h4>
+                <p data-i18n="footer_news_sub">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form" id="newsletterForm">
                     <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom" id="footerBottom">
-            <p>&copy; <span id="currentYear"></span> Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            <p data-i18n="footer_copyright">&copy; <span id="currentYear"></span> Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
 

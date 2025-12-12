@@ -118,4 +118,95 @@
     "index_sidebar_event_date2": "December 25, 2025",
     "index_sidebar_event_valencia": "Valencia",
     "index_sidebar_event_date3": "January 8, 2026"
+    ,"btn_my_account": "My Account"
+    ,"page_title_register": "Register - Backpackers Without Borders"
+    ,"page_title_privacy": "Privacy Policy - Backpackers Without Borders"
+    ,"page_title_search": "Search Routes - Backpackers Without Borders"
+    ,"page_title_checkout": "Checkout - Backpackers Without Borders"
+    ,"page_title_route_detail": "Route Details - Backpackers Without Borders"
+    ,"page_title_packs": "Packs - Backpackers Without Borders"
+    ,"page_title_contact": "Contact - Backpackers Without Borders"
+    ,"nav_packs": "Packs"
+    ,"footer_about": "Your community of travelers and adventurers. Discover the world with us."
+    ,"footer_news_sub": "Get our latest updates"
+    ,"auth_login": "Log in"
+    ,"auth_register": "Register"
+    ,"privacy_title": "Privacy Policy"
+    ,"privacy_updated": "Last updated: January 2025"
+,
+    "continents": {
+        "america": "America"
+    },
+
+    "countries": {
+        "peru": "Peru"
+    },
+
+    "difficulty": {
+        "hard": "Hard"
+    },
+
+    "transport": {
+        "hiking": "Hiking"
+    },
+
+    "features": {
+        "camping": "Camping",
+        "local-guide": "Local guide",
+        "permit-required": "Permit required"
+    },
+
+    "includes": {
+        "guide": "Professional guide",
+        "transport": "Transport included",
+        "meals": "All meals",
+        "camping-gear": "Camping equipment",
+        "permits": "Inca Trail and Machu Picchu permits",
+        "insurance": "Insurance included"
+    },
+
+    "highlights": {
+        "valle-sagrado": "Sacred Valley landscapes",
+        "patallaqta": "Patallaqta ruins",
+        "warmiwañusca": "Warmiwañusca Pass (4200 m)",
+        "runkurakay": "Runkurakay ruins",
+        "sayacmarca": "Sayacmarca archaeological complex",
+        "phuyupatamarca": "Phuyupatamarca, 'City above the clouds'",
+        "inti-punku": "Sun Gate",
+        "machupicchu": "Machu Picchu"
+    },
+
+    "routes": {
+        "route_caminoinca": {
+        "title": "Inca Trail to Machu Picchu",
+        "location": "Cusco, Peru",
+        "descShort": "A unique experience walking in the footsteps of the ancient Incas.",
+        "descLong": "The Inca Trail is considered one of the most spectacular treks in the world...",
+        "galleryAlt": "Image of the Inca Trail",
+
+        "itinerary": {
+            "1": {
+            "title": "Day 1: Cusco - Km 82 - Wayllabamba",
+            "text": "Early departure from Cusco towards Km 82..."
+            },
+            "2": {
+            "title": "Day 2: Wayllabamba - Warmiwañusca Pass - Pacaymayo",
+            "text": "The most challenging day of the route..."
+            },
+            "3": {
+            "title": "Day 3: Pacaymayo - Wiñay Wayna",
+            "text": "We visit archaeological complexes..."
+            },
+            "4": {
+            "title": "Day 4: Wiñay Wayna - Machu Picchu - Cusco",
+            "text": "Departure before dawn towards Inti Punku..."
+            }
+        },
+
+        "reviews": {
+            "r1": "An impressive trek. The sunrise at Machu Picchu is unforgettable.",
+            "r2": "Very tough but totally recommended."
+        }
+        }
+    }
 }

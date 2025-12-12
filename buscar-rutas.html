@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Rutas - Mochileros Sin Fronteras</title>
+    <title data-i18n="page_title_search">Buscar Rutas - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/buscar.css">
@@ -16,18 +16,18 @@
     <nav class="navbar">
         <div class="nav-brand">
             <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span>Mochileros Sin Fronteras</span>
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
         </div>
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
         <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="buscar-rutas.html" class="active">Rutas</a></li>
-            <li><a href="otros-rincones.html">Otros rincones</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="comunidad.html">Comunidad</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" class="active" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="otros-rincones.html" data-i18n="nav_cities">Otros rincones</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
             <li>
                 <select name="idioma" id="idioma">
                     <option value="es">🇪🇸 Español</option>
@@ -47,10 +47,10 @@
         <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
 
             <div class="user-menu" id="userMenu">
-                <button id="btnMiPerfil" class="btn btn-primary">Mi perfil</button>
-                <button id="btnMisAmigos" class="btn btn-primary">Mis Amigos</button>
-                <button class="btn btn-primary">Mis Rutas</button>
-                <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
+                <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
+                <button id="btnMisAmigos" class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
+                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
+                <button class="btn btn-secondary btn-block" onclick="cerrarSesion()" data-i18n="profile_logout">Cerrar sesión</button>
             </div>
         </div>
     </nav>
@@ -717,8 +717,8 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Mochileros Sin Fronteras</h3>
-                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
+                <p data-i18n="footer_about">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -729,20 +729,20 @@
             <div class="footer-section">
                 <h4>Enlaces Rápidos</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
-                    <li><a href="versionb.html">Packs</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="buscar-rutas.html" data-i18n="nav_routes">Buscar Rutas</a></li>
+                    <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
                 <h4>Legal</h4>
                 <ul>
-                    <li><a href="politica.html">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html" data-i18n="footer_privacy">Política de Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_terms">Términos y Condiciones</a></li>
+                    <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
+                    <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
                     <li>
                         <select name="idioma" id="idioma">
                             <option value="es">🇪🇸 Español</option>
@@ -753,16 +753,16 @@
             </div>
             
             <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Recibe nuestras últimas novedades</p>
+                <h4 data-i18n="footer_newsletter">Newsletter</h4>
+                <p data-i18n="footer_news_sub">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
 

@@ -1,0 +1,268 @@
+{
+  "route_caminoinca": {
+    "title": "Inca Trail to Machu Picchu",
+    "location": "Cusco, Peru",
+
+    "descShort": "A unique experience following the footsteps of the ancient Incas.",
+    "descLong": "The Inca Trail is considered one of the most spectacular treks in the world...",
+
+    "galleryAlt": "Image of the Inca Trail",
+
+    "highlights": {
+      "h_valle_sagrado": "Sacred Valley landscapes",
+      "h_patallaqta": "Patallaqta ruins",
+      "h_warmiwanusca": "Warmiwañusca Pass (4200 m)",
+      "h_runkurakay": "Runkurakay ruins",
+      "h_sayacmarca": "Sayacmarca archaeological complex",
+      "h_phuyupatamarca": "Phuyupatamarca, 'City above the clouds'",
+      "h_intipunku": "Sun Gate (Inti Punku)",
+      "h_machupicchu": "Machu Picchu citadel"
+    },
+
+    "itinerary": {
+      "1": {
+        "title": "Day 1: Cusco - Km 82 - Wayllabamba",
+        "text": "Early departure from Cusco towards Km 82..."
+      },
+      "2": {
+        "title": "Day 2: Wayllabamba - Warmiwañusca Pass - Pacaymayo",
+        "text": "The most challenging day of the route..."
+      },
+      "3": {
+        "title": "Day 3: Pacaymayo - Wiñay Wayna",
+        "text": "We visit the archaeological complexes..."
+      },
+      "4": {
+        "title": "Day 4: Wiñay Wayna - Machu Picchu - Cusco",
+        "text": "Departure before dawn towards Inti Punku..."
+      }
+    },
+
+    "reviews": {
+        "r1": "An incredible trek. The sunrise at Machu Picchu is unforgettable.",
+        "r2": "Very hard but totally recommended.",
+        "r3": "Excellent trek, though physically demanding. The organization was perfect.",
+        "r4": "Best travel experience of my life. Challenging but rewarding.",
+        "r5": "Simply perfect. The combination of nature, history and adventure is unbeatable."
+    }
+  },
+  "route_patagonia": {
+    "title": "Trekking in Patagonia",
+    "location": "El Chaltén, Argentina",
+    "descShort": "Explore the spectacular landscapes of Patagonia with views to Fitz Roy.",
+    "descLong": "Trekking in Patagonia is a unique experience in one of South America's wildest and most beautiful corners. With towering mountains, glaciers and crystal lakes, the region offers pure adventure for hiking lovers.",
+    "itinerary": {
+      "1": {"title": "Day 1: Arrival to El Chaltén", "text": "We arrive to El Chaltén and do a short acclimatization hike."},
+      "2": {"title": "Day 2: Laguna de los Tres", "text": "Excursion to Laguna de los Tres with spectacular views of Fitz Roy."},
+      "3": {"title": "Day 3: Ascent to Fitz Roy", "text": "Challenging ascent rewarded with unforgettable panoramic views."},
+      "4": {"title": "Day 4: Laguna Torre", "text": "Hike to Laguna Torre with views of Cerro Torre."},
+      "5": {"title": "Day 5: Return", "text": "Final trekking day before return to civilization."}
+    },
+    "reviews": {
+      "r1": "Absolutely breathtaking. Fitz Roy is even more spectacular in person.",
+      "r2": "An adventure I'll never forget. Patagonia has something magical.",
+      "r3": "Very good experience, although the third day was tough. Campsites are comfortable."
+    }
+  },
+  "route_balcanes": {
+    "title": "Balkans Route",
+    "location": "Eastern Europe",
+    "descShort": "Discover the beauty of the Balkans visiting Bosnia, Croatia, Montenegro and Albania.",
+    "descLong": "The Balkans Route takes you through some of Europe's most beautiful and less explored countries. Beaches, mountains and millenary culture in one adventure.",
+    "itinerary": {
+      "1": {"title": "Day 1: Sarajevo", "text": "Explore the Bosnian capital with its fascinating history and architecture."},
+      "2": {"title": "Day 2: Mostar", "text": "Visit the famous Mostar bridge and Ottoman bazaars."},
+      "3": {"title": "Day 3: Dubrovnik", "text": "The Pearl of the Adriatic with medieval walls and crystal beaches."},
+      "4": {"title": "Day 4: Kotor", "text": "Kotor Fjord in Montenegro, one of the Mediterranean's most beautiful spots."},
+      "5": {"title": "Day 5: Budva", "text": "Beaches and nightlife on the Montenegrin coast."},
+      "6": {"title": "Day 6: Tirana", "text": "Vibrant Albanian capital mixing communist and modern architecture."},
+      "7": {"title": "Day 7: Ohrid", "text": "Europe's oldest lake with Byzantine monasteries."}
+    },
+    "reviews": {
+      "r1": "The Balkans are a hidden gem. History, nature and gastronomy blend perfectly.",
+      "r2": "Excellent route, very well organized.",
+      "r3": "Loved the diversity of landscapes and cultures."
+    }
+  },
+  "route_serengeti": {
+    "title": "Serengeti and Ngorongoro Safari",
+    "location": "Tanzania",
+    "descShort": "See the great migration and the Big Five in Africa's most famous national parks.",
+    "descLong": "A Serengeti and Ngorongoro safari is a unique wildlife experience. Watch lions, elephants, rhinos, buffalo and leopards in their natural habitat.",
+    "itinerary": {
+      "1": {"title": "Day 1: Arusha - Serengeti", "text": "Transfer from Arusha to Serengeti National Park."},
+      "2": {"title": "Day 2: Seronera Valley", "text": "Full safari in the heart of the Serengeti."},
+      "3": {"title": "Day 3: Great Migration", "text": "Search for wildebeest and zebra herds on their annual migration."},
+      "4": {"title": "Day 4: Serengeti Kopjes", "text": "Explore the rock formations home to lions and leopards."},
+      "5": {"title": "Day 5: Ngorongoro Crater", "text": "Descend into the crater, a unique ecosystem with high animal concentration."},
+      "6": {"title": "Day 6: Crater floor", "text": "Last safari on the crater floor before return."}
+    },
+    "reviews": {
+      "r1": "Seeing lions hunting in the Serengeti was the most thrilling moment of my life.",
+      "r2": "Ngorongoro Crater is simply spectacular.",
+      "r3": "Unforgettable experience."
+    }
+  },
+  "route_annapurna": {
+    "title": "Annapurna Circuit",
+    "location": "Nepal",
+    "descShort": "One of the world's most spectacular treks crossing Thorong La at 5,416m.",
+    "descLong": "The Annapurna Circuit is one of the best treks worldwide, crossing Thorong La above 5,400 meters with spectacular Himalayan views.",
+    "itinerary": {
+      "1": {"title": "Day 1: Besisahar - Bhulbhule", "text": "Start of the circuit in Nepal's subtropical valleys."},
+      "2": {"title": "Day 2: Jagat - Dharapani", "text": "Gradual ascent following the Marsyangdi river."},
+      "3": {"title": "Day 3: Chame", "text": "Entering the Annapurna area with first snowy peak views."},
+      "4": {"title": "Day 4: Upper Pisang", "text": "Spectacular views of Annapurna II and III."},
+      "5": {"title": "Day 5: Manang", "text": "Arrival to Manang for acclimatization."},
+      "6": {"title": "Day 6: Acclimatization day", "text": "Rest day in Manang to adapt to altitude."},
+      "7": {"title": "Day 7: Yak Kharka", "text": "Continue ascent towards Thorong La."},
+      "8": {"title": "Day 8: Thorong La Pass", "text": "The most challenging day: crossing the 5,416 m pass."},
+      "9": {"title": "Day 9: Muktinath", "text": "Descent towards the pilgrimage site of Muktinath."},
+      "10": {"title": "Day 10: Jomsom", "text": "Arrival to Jomsom completing the circuit."}
+    },
+    "reviews": {
+      "r1": "Annapurna is epic. Thorong La was extremely hard but the views are worth it.",
+      "r2": "A transformative experience.",
+      "r3": "Physically demanding but emotionally rewarding. Acclimatization is crucial."
+    }
+  },
+  "route_islandia": {
+    "title": "Ring Road Iceland",
+    "location": "Iceland",
+    "descShort": "Drive the Ring Road discovering waterfalls, glaciers, northern lights and hot springs.",
+    "descLong": "A full circle around Iceland via the famous Ring Road is a nature-lover's dream.",
+    "itinerary": {
+      "1": {"title": "Day 1: Reykjavik - Vik", "text": "Route along the south coast with Seljalandsfoss and Skógafoss waterfalls."},
+      "2": {"title": "Day 2: Jökulsárlón Glacier", "text": "Glacial lagoon with floating icebergs."},
+      "3": {"title": "Day 3: Egilsstaðir", "text": "Eastern fjords with dramatic scenery."},
+      "4": {"title": "Day 4: Lake Mývatn", "text": "Geothermal area with lava formations and natural baths."},
+      "5": {"title": "Day 5: Akureyri", "text": "The northern capital with botanical gardens."},
+      "6": {"title": "Day 6: Westfjords", "text": "Remote region with cliffs and marine wildlife."},
+      "7": {"title": "Day 7: Snæfellsnes Peninsula", "text": "Iceland in miniature with volcanoes and beaches."},
+      "8": {"title": "Day 8: Golden Circle", "text": "Geysir, Gullfoss and Þingvellir National Park."}
+    },
+    "reviews": {
+      "r1": "Iceland is another planet. The variety of landscapes is overwhelming.",
+      "r2": "Perfect trip for nature lovers.",
+      "r3": "Expensive but worth every krona."
+    }
+  },
+  "route_angkor": {
+    "title": "Angkor Wat Temples",
+    "location": "Cambodia",
+    "descShort": "Discover the millenary temples of Angkor by bike with sunrise at Angkor Wat.",
+    "descLong": "Angkor's temples are one of the world's most impressive archaeological complexes. Cycling allows exploring both main and hidden jungle temples.",
+    "itinerary": {
+      "1": {"title": "Day 1: Angkor Wat and Angkor Thom", "text": "Sunrise at Angkor Wat followed by Angkor Thom and the Bayon."},
+      "2": {"title": "Day 2: Jungle Temples", "text": "Ta Prohm, Preah Khan and Neak Pean."},
+      "3": {"title": "Day 3: Banteay Srei", "text": "The most ornate temple with pink stone carvings."}
+    },
+    "reviews": {
+      "r1": "Angkor at sunrise is magical.",
+      "r2": "Cycling the temples was great.",
+      "r3": "An incredible cultural experience."
+    }
+  },
+  "route_sahara": {
+    "title": "Sahara Desert",
+    "location": "Morocco",
+    "descShort": "Adventure in Erg Chebbi dunes with a night under the stars in a Berber camp.",
+    "descLong": "The Sahara experience in Morocco is unforgettable. From Erg Chebbi's golden dunes to Berber hospitality.",
+    "itinerary": {
+      "1": {"title": "Day 1: Marrakech - Ouarzazate", "text": "Cross the High Atlas towards the 'door of the desert'."},
+      "2": {"title": "Day 2: Dades Valley and Todra", "text": "Explore the impressive Todra gorges."},
+      "3": {"title": "Day 3: Merzouga and Erg Chebbi", "text": "Camel ride at sunset and night in a Berber camp under the stars."},
+      "4": {"title": "Day 4: Sunrise in the Dunes", "text": "Sunrise in the dunes before return."}
+    },
+    "reviews": {
+      "r1": "The night in the desert was magical. The starry sky is unforgettable.",
+      "r2": "The Berbers were amazing hosts.",
+      "r3": "The dunes are impressive. A camel ride is a must."
+    }
+  },
+  "route_noruega": {
+    "title": "Norwegian Fjords",
+    "location": "Norway",
+    "descShort": "Train journey through Norwegian fjords visiting Bergen, Flåm and Geirangerfjord.",
+    "descLong": "Norwegian fjords offer some of Europe's most spectacular landscapes. Scenic trains, fjord ferries and charming towns.",
+    "itinerary": {
+      "1": {"title": "Day 1: Bergen - Voss", "text": "From the Hanseatic city of Bergen into the mountains."},
+      "2": {"title": "Day 2: Flåm Railway", "text": "The most beautiful railway descending to the fjord."},
+      "3": {"title": "Day 3: Sognefjord", "text": "Cruise the longest and deepest Norwegian fjord."},
+      "4": {"title": "Day 4: Geirangerfjord", "text": "UNESCO site with spectacular waterfalls."},
+      "5": {"title": "Day 5: Ålesund", "text": "Art nouveau city rebuilt after the 1904 fire."},
+      "6": {"title": "Day 6: Trondheim", "text": "Norway's third city with a gothic cathedral."},
+      "7": {"title": "Day 7: Return to Bergen", "text": "Return to Bergen completing the fjords circuit."}
+    },
+    "reviews": {
+      "r1": "The fjords are spectacular. The Flåm train is truly the most beautiful I've taken.",
+      "r2": "Norway is expensive but worth it.",
+      "r3": "Perfect mix of nature and culture."
+    }
+  },
+  "route_costarica": {
+    "title": "Costa Rica Adventure",
+    "location": "Costa Rica",
+    "descShort": "Rainforest, paradise beaches and wildlife in Monteverde, Arenal and Manuel Antonio.",
+    "descLong": "Costa Rica is biodiversity paradise with volcanoes, cloud forests and pristine beaches.",
+    "itinerary": {
+      "1": {"title": "Day 1: San José - La Fortuna", "text": "Transfer towards Arenal volcano."},
+      "2": {"title": "Day 2: Arenal Volcano and Hot Springs", "text": "Hike near the volcano and relax in natural hot springs."},
+      "3": {"title": "Day 3: Monteverde Cloud Forest", "text": "Explore the cloud forest and its biodiversity."},
+      "4": {"title": "Day 4: Canopy Tour", "text": "Zipline among tree canopies and hanging bridges."},
+      "5": {"title": "Day 5: Manuel Antonio", "text": "Transfer to the Pacific coast."},
+      "6": {"title": "Day 6: Manuel Antonio Beach", "text": "Beach day in the national park with monkeys and sloths."},
+      "7": {"title": "Day 7: Uvita Whale Watching", "text": "Whale watching (seasonal)."},
+      "8": {"title": "Day 8: Corcovado National Park", "text": "One of the planet's most biodiverse places."},
+      "9": {"title": "Day 9: Tortuguero", "text": "Explore Tortuguero's canals by kayak."}
+    },
+    "reviews": {
+      "r1": "Costa Rica is pure life. The amount of animals we saw was incredible.",
+      "r2": "Perfect balance of adventure and relaxation.",
+      "r3": "The naturalist guides are excellent." 
+    }
+  },
+  "route_muralla_china": {
+    "title": "Great Wall of China",
+    "location": "China",
+    "descShort": "Walk restored and wild sections of the Great Wall with stunning views.",
+    "descLong": "Walking the Great Wall of China is touring history. This route mixes restored and wild sections for an authentic experience.",
+    "itinerary": {
+      "1": {"title": "Day 1: Jinshanling", "text": "A restored but less touristic section with well-preserved watchtowers."},
+      "2": {"title": "Day 2: Simatai and Wild Wall", "text": "A more challenging stretch with unrestored sections and spectacular views."},
+      "3": {"title": "Day 3: Mutianyu", "text": "One of the most beautiful sections surrounded by forests."}
+    },
+    "reviews": {
+      "r1": "The Wall is more impressive than I imagined.",
+      "r2": "Walking the wild Wall is a unique adventure.",
+      "r3": "Physically demanding but worth it." 
+    }
+  },
+  "route_ruta66": {
+    "title": "Classic Route 66",
+    "location": "United States",
+    "descShort": "From Chicago to Los Angeles down the mother road crossing America's heart.",
+    "descLong": "Route 66 is a trip through deep America, from Chicago skyscrapers to Santa Monica beaches, passing ghost towns and retro diners.",
+    "itinerary": {
+      "1": {"title": "Day 1: Chicago - Springfield", "text": "Start in Chicago following the earliest historic stretches."},
+      "2": {"title": "Day 2: St. Louis", "text": "The famous Gateway Arch and Missouri BBQ."},
+      "3": {"title": "Day 3: Tulsa", "text": "Oklahoma and its Route 66 museums."},
+      "4": {"title": "Day 4: Oklahoma City", "text": "Oklahoma's capital with cowboy culture."},
+      "5": {"title": "Day 5: Amarillo", "text": "The famous Cadillac Ranch in Texas."},
+      "6": {"title": "Day 6: Santa Fe", "text": "Art and culture in New Mexico."},
+      "7": {"title": "Day 7: Albuquerque", "text": "Southwest desert and native American culture."},
+      "8": {"title": "Day 8: Flagstaff", "text": "Gateway to the Grand Canyon in Arizona."},
+      "9": {"title": "Day 9: Grand Canyon", "text": "A must-see detour to one of the world's natural wonders."},
+      "10": {"title": "Day 10: Williams - Seligman", "text": "Classic Route 66 towns beautifully preserved."},
+      "11": {"title": "Day 11: Kingman - Oatman", "text": "Ghost town with wild donkeys."},
+      "12": {"title": "Day 12: Barstow", "text": "Mojave Desert in California."},
+      "13": {"title": "Day 13: San Bernardino", "text": "First original McDonald's on Route 66."},
+      "14": {"title": "Day 14: Santa Monica Pier", "text": "Epic finish at the iconic Pacific Pier."}
+    },
+    "reviews": {
+      "r1": "A nostalgic trip through classic America.",
+      "r2": "The freedom of the road is real.",
+      "r3": "Doing Route 66 was a childhood dream that exceeded expectations."
+    }
+  }
+}

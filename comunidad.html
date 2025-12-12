@@ -48,7 +48,7 @@
             <!-- Botón Mi Cuenta (solo visible sin login) -->
             <button id="botonCuenta" class="btn btn-primary">
                 <i class="fas fa-user-circle"></i>
-                <span>Mi Cuenta</span>
+                <span data-i18n="btn_my_account">Mi Cuenta</span>
             </button>
             
             <!-- Foto de perfil (solo visible con login) -->
@@ -62,8 +62,8 @@
             </div>
             
             <div class="user-menu-no-login" id="userMenuNoLogin">
-                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'">Iniciar sesión</button>
-                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'">Registrarse</button>
+                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_login">Iniciar sesión</button>
+                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_register">Registrarse</button>
             </div>
         </div>
     </nav>
@@ -280,9 +280,9 @@
                 <!-- Aviso de no logueado -->
                 <div id="noLogueadoContainer" class="no-logueado-container">
                     <i class="fas fa-lock"></i>
-                    <h3>Inicia sesión para participar</h3>
-                    <p>Necesitas estar logueado para crear temas y responder mensajes. Los temas pueden ser vistos por todos.</p>
-                    <button class="btn btn-primary" onclick="window.location.href='registro.html'">Iniciar sesión</button>
+                    <h3 data-i18n="login_required_title">Inicia sesión para participar</h3>
+                    <p data-i18n="login_required_text">Necesitas estar logueado para crear temas y responder mensajes. Los temas pueden ser vistos por todos.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='registro.html'" data-i18n="auth_login">Iniciar sesión</button>
                 </div>
 
                 <!-- Lista de Temas -->
