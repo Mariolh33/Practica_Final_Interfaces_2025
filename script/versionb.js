@@ -94,22 +94,43 @@ function validaSesion() {
 function cargarUsuario() {
     const loginValido = sessionStorage.getItem("loginValido");
     const usernameLogueado = sessionStorage.getItem("usuarioLogueado");
+    
+    const botonCuenta = document.getElementById("botonCuenta");
+    const fotoPerfil = document.getElementById("fotoPerfil");
+    const nombreEl = document.getElementById("nombreUsuario");
 
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
     const usuario = usuarios.find(u => u.username === usernameLogueado);
 
-    if (!usuario) return;
+    // Si hay sesión válida y usuario encontrado
+    if (loginValido === "true" && usuario) {
+        // FOTO PERFIL - mostrar
+        if (fotoPerfil) {
+            fotoPerfil.src = usuario.foto;
+            fotoPerfil.style.display = 'inline-block';
+        }
 
-    // FOTO PERFIL
-    const fotoPerfil = document.getElementById("fotoPerfil");
-    if (fotoPerfil) {
-        fotoPerfil.src = usuario.foto;
-    }
+        // NOMBRE - mostrar
+        if (nombreEl) {
+            nombreEl.textContent = usuario.nombre + " " + usuario.apellido;
+            nombreEl.style.display = 'inline-block';
+        }
 
-    // NOMBRE
-    const nombreEl = document.getElementById("nombreUsuario");
-    if (nombreEl) {
-        nombreEl.textContent = usuario.nombre + " " + usuario.apellido;
+        // BOTÓN MI CUENTA - ocultar
+        if (botonCuenta) {
+            botonCuenta.style.display = 'none';
+        }
+    } else {
+        // No hay sesión - mostrar botón, ocultar foto y nombre
+        if (fotoPerfil) {
+            fotoPerfil.style.display = 'none';
+        }
+        if (nombreEl) {
+            nombreEl.style.display = 'none';
+        }
+        if (botonCuenta) {
+            botonCuenta.style.display = 'flex';
+        }
     }
 }
 
@@ -122,6 +143,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const fotoPerfil = document.getElementById("fotoPerfil");
     const nombreUsuario = document.getElementById("nombreUsuario"); // opcional
     const menu = document.getElementById("userMenu");
+    const botonCuenta = document.getElementById("botonCuenta");
+    const userMenuNoLogin = document.getElementById("userMenuNoLogin");
 
     if (!fotoPerfil || !menu) return;
 
@@ -129,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fotoPerfil.addEventListener("click", (e) => {
         e.stopPropagation();
         menu.classList.toggle("active");
+        if (userMenuNoLogin) userMenuNoLogin.classList.remove("active");
     });
 
     // Si el nombre existe y también debe abrir el menú
@@ -136,6 +160,16 @@ document.addEventListener("DOMContentLoaded", () => {
         nombreUsuario.addEventListener("click", (e) => {
             e.stopPropagation();
             menu.classList.toggle("active");
+            if (userMenuNoLogin) userMenuNoLogin.classList.remove("active");
+        });
+    }
+
+    // Click en el botón Mi Cuenta (cuando no hay sesión)
+    if (botonCuenta && userMenuNoLogin) {
+        botonCuenta.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userMenuNoLogin.classList.toggle('active');
+            if (menu) menu.classList.remove('active');
         });
     }
 
@@ -143,6 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (e) => {
         if (!menu.contains(e.target) && e.target !== fotoPerfil && e.target !== nombreUsuario) {
             menu.classList.remove("active");
+        }
+        if (userMenuNoLogin && !userMenuNoLogin.contains(e.target) && e.target !== botonCuenta) {
+            userMenuNoLogin.classList.remove("active");
         }
     });
 });
