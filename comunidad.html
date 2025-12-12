@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page_title">Comunidad - Mochileros Sin Fronteras</title>
+    <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/components.css">
+    <link rel="stylesheet" href="./style/comunidad.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script/versionb.js"></script>
+    <script src="script/nav.js"></script>
+    <script src="script/i18n.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="images/Logo.png" height="40" width="40" alt="Logo">
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
+        </div>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu">
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+            <li>
+                <select name="idioma" id="idiomaHeader">
+                     <option value="es">🇪🇸 Español</option>
+                     <option value="en">🇬🇧 English</option>
+                 </select>
+             </li>
+         </ul>
+        <div class="nav-actions">
+            <button class="btn-icon" aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+
+        <!-- Perfil en Navbar -->
+        <div class="perfil-wrapper">
+        <span id="nombreUsuario" class="nombre-usuario"></span>
+        <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+
+            <div class="user-menu" id="userMenu">
+                <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
+                <button class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
+                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
+                <button class="btn btn-secondary btn-block" data-i18n="profile_logout" onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
+            
+            <div class="user-menu-no-login" id="userMenuNoLogin">
+                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'">Iniciar sesión</button>
+                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'">Registrarse</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Popups -->
+    <!-- Popup Gestionar Perfil -->
+    <div id="popupMiPerfil" class="popup profile-popup">
+        <div class="popup-content profile-popup-content">
+            <button id="closeProfile" class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Mi Perfil</h2>
+            <div class="profile-form-wrapper">
+                <form id="profileForm" class="profile-form">
+                    <div class="profile-photo-section">
+                        <div class="profile-photo-container">
+                            <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
+                        </div>
+                        <div class="profile-photo-input">
+                            <label for="profilePhoto">Cambiar foto</label>
+                            <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
+                        </div>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileNombre">Nombre</label>
+                        <input type="text" id="profileNombre" name="nombre" required>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileApellido">Apellido</label>
+                        <input type="text" id="profileApellido" name="apellido" required>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileEmail">Email</label>
+                        <input type="email" id="profileEmail" name="email" required>
+                    </div>
+
+                    <div class="profile-field">
+                        <label for="profileUsername">Usuario</label>
+                        <input type="text" id="profileUsername" name="username" disabled>
+                    </div>
+
+                    <div id="profileMessage" class="profile-message"></div>
+
+                    <div class="profile-buttons">
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        <button type="button" class="btn btn-secondary" id="closeBtnProfile">Cerrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Amigos -->
+    <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
+        <div class="popup-content friends-popup-content">
+            <div class="friends-left">
+                <div class="friends-header">
+                    <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                    </div>
+                </div>
+
+                <div id="friendsPanels" class="friends-panels">
+                    <div id="panel-friends" class="panel panel-active" role="tabpanel">
+                        <ul id="friendsList" class="friends-list"></ul>
+                    </div>
+
+                    <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
+                        <form id="addFriendForm" class="add-friend-panel">
+                            <label for="newFriendUsername">Nombre de usuario (username)</label>
+                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
+                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
+                        </form>
+                    </div>
+
+                    <div id="panel-online" class="panel" role="tabpanel" aria-hidden="true">
+                        <ul id="onlineList" class="friends-list online-list"></ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-panel">
+                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
+                <div id="messages" class="messages" aria-live="polite"></div>
+                <div class="chat-input-row">
+                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
+                    <button id="chatSend" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+            <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
+        </div>
+    </div>
+
+    <!-- Popup Confirmar eliminación de amigo -->
+    <div id="popupEliminarAmigo" class="popup">
+        <div class="popup-content">
+            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
+            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
+            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+    <div id="popupMisRutas" class="popup">
+        <div class="popup-content">
+            <button class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Mis Rutas</h2>
+            <p>Aquí aparecerán las rutas que has creado y guardado.</p>
+            <div id="rutasContent" style="margin-top: 20px; min-height: 200px; text-align: center; color: #a0aec0;">
+                <p>No tienes rutas guardadas aún</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Cerrar Sesión -->
+    <div id="popupCerrarSesion" class="popup">
+        <div class="popup-content">
+            <p>¿Estás seguro de que quieres cerrar sesión?</p>
+            <button id="confirmarCerrar" class="btn btn-primary">Sí, cerrar sesión</button>
+            <button id="cancelarCerrar" class="btn btn-secondary">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="comunidad-main">
+        <!-- Header -->
+        <div class="comunidad-header">
+            <div class="comunidad-header-content">
+                <h1>Comunidad Mochileros</h1>
+                <p>Comparte tus experiencias, consejos y conecta con otros viajeros</p>
+            </div>
+        </div>
+
+        <!-- Container Principal -->
+        <div class="comunidad-container">
+            <!-- Sidebar con filtros -->
+            <aside class="comunidad-sidebar">
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <div class="filter-group">
+                        <label class="filter-label">
+                            <input type="radio" name="sortBy" value="recent" checked>
+                            <span>Más recientes</span>
+                        </label>
+                        <label class="filter-label">
+                            <input type="radio" name="sortBy" value="popular">
+                            <span>Más populares</span>
+                        </label>
+                        <label class="filter-label">
+                            <input type="radio" name="sortBy" value="replies">
+                            <span>Más respuestas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-tag"></i> Categorías</h3>
+                    <ul class="categories-list">
+                        <li><a href="#" data-category="all" class="active">Todas</a></li>
+                        <li><a href="#" data-category="viajes">Viajes</a></li>
+                        <li><a href="#" data-category="consejos">Consejos</a></li>
+                        <li><a href="#" data-category="destinos">Destinos</a></li>
+                        <li><a href="#" data-category="fotos">Fotos</a></li>
+                        <li><a href="#" data-category="preguntas">Preguntas</a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3><i class="fas fa-info-circle"></i> Info</h3>
+                    <p class="info-text">Únete a nuestra comunidad de viajeros. Comparte tus historias y aprende de otros aventureros.</p>
+                </div>
+            </aside>
+
+            <!-- Contenido Principal -->
+            <section class="comunidad-content">
+                <!-- Sección de Nuevo Tema (Solo si está logueado) -->
+                <div id="nuevoTemaContainer" class="nuevo-tema-container" style="display: none;">
+                    <h2>Crear nuevo tema</h2>
+                    <form id="formNuevoTema" class="form-nuevo-tema">
+                        <div class="form-group">
+                            <label for="tituloTema">Título del tema</label>
+                            <input type="text" id="tituloTema" name="titulo" placeholder="¿Cuál es tu pregunta o comentario?" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="categoriaTema">Categoría</label>
+                            <select id="categoriaTema" name="categoria" required>
+                                <option value="">Selecciona una categoría</option>
+                                <option value="viajes">Viajes</option>
+                                <option value="consejos">Consejos</option>
+                                <option value="destinos">Destinos</option>
+                                <option value="fotos">Fotos</option>
+                                <option value="preguntas">Preguntas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contenidoTema">Contenido</label>
+                            <textarea id="contenidoTema" name="contenido" rows="6" placeholder="Comparte tu experiencia, pregunta o consejo..." required></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="btn btn-primary">Publicar tema</button>
+                            <button type="reset" class="btn btn-secondary">Limpiar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Aviso de no logueado -->
+                <div id="noLogueadoContainer" class="no-logueado-container">
+                    <i class="fas fa-lock"></i>
+                    <h3>Inicia sesión para participar</h3>
+                    <p>Necesitas estar logueado para crear temas y responder mensajes. Los temas pueden ser vistos por todos.</p>
+                    <button class="btn btn-primary" onclick="window.location.href='registro.html'">Iniciar sesión</button>
+                </div>
+
+                <!-- Lista de Temas -->
+                <div class="temas-container">
+                    <div class="temas-header">
+                        <h2>Temas de la comunidad</h2>
+                        <span class="temas-count">Total: <span id="temasCount">0</span></span>
+                    </div>
+
+                    <div id="temasList" class="temas-list">
+                        <!-- Los temas se cargarán aquí dinámicamente -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modal para ver tema detallado y responder -->
+    <div id="temaModal" class="modal">
+        <div class="modal-content tema-modal-content">
+            <button class="close-modal-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <!-- El contenido del tema se cargará aquí -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script/profile.js"></script>
+    <script src="script/friends.js"></script>
+    <script src="script/comunidad.js"></script>
+</body>
+</html>
