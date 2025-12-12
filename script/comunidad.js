@@ -428,46 +428,8 @@ class ComunidadForo {
 
   // ===== MANEJO DE FORMULARIOS =====
   agregarEventListeners() {
-    // Mostrar/ocultar menú de usuario al hacer click en el botón o foto
-    const botonCuenta = document.getElementById('botonCuenta');
-    const fotoPerfil = document.getElementById('fotoPerfil');
-    const userMenuNoLogin = document.getElementById('userMenuNoLogin');
-    const userMenu = document.getElementById('userMenu');
+    // La gestión del menú de usuario ya está en versionb.js, no duplicar aquí
     
-    // Click en el botón Mi Cuenta (cuando no hay sesión)
-    if (botonCuenta) {
-      botonCuenta.addEventListener('click', (e) => {
-        e.stopPropagation();
-        
-        if (this.usuarioLogueado && this.usuarioLogueado !== 'anon') {
-          // Usuario logueado - mostrar/ocultar userMenu
-          if (userMenu) {
-            userMenu.classList.toggle('active');
-            if (userMenuNoLogin) userMenuNoLogin.classList.remove('active');
-          }
-        } else {
-          // Usuario no logueado - mostrar/ocultar userMenuNoLogin
-          if (userMenuNoLogin) {
-            userMenuNoLogin.classList.toggle('active');
-            if (userMenu) userMenu.classList.remove('active');
-          }
-        }
-      });
-    }
-
-    // Click en la foto de perfil (cuando hay sesión)
-    // Abrir/cerrar menú al pulsar la foto
-    fotoPerfil.addEventListener("click", (e) => {
-        e.stopPropagation();
-        menu.classList.toggle("active");
-    });
-    
-    // Cerrar menú cuando se hace click en cualquier otro lado
-    document.addEventListener('click', () => {
-      if (userMenu) userMenu.classList.remove('active');
-      if (userMenuNoLogin) userMenuNoLogin.classList.remove('active');
-    });
-
     // Form de nuevo tema
     const formNuevoTema = document.getElementById('formNuevoTema');
     if (formNuevoTema) {

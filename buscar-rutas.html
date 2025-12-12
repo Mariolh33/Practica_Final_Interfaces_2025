@@ -43,14 +43,27 @@
 
         <!-- Perfil en Navbar -->
         <div class="perfil-wrapper">
-        <span id="nombreUsuario" class="nombre-usuario"></span>
-        <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+            <span id="nombreUsuario" class="nombre-usuario"></span>
+            
+            <!-- Botón Mi Cuenta (solo visible sin login) -->
+            <button id="botonCuenta" class="btn btn-primary">
+                <i class="fas fa-user-circle"></i>
+                <span>Mi Cuenta</span>
+            </button>
+            
+            <!-- Foto de perfil (solo visible con login) -->
+            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" style="display: none;">
 
             <div class="user-menu" id="userMenu">
                 <button id="btnMiPerfil" class="btn btn-primary">Mi perfil</button>
                 <button id="btnMisAmigos" class="btn btn-primary">Mis Amigos</button>
                 <button class="btn btn-primary">Mis Rutas</button>
                 <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
+            </div>
+            
+            <div class="user-menu-no-login" id="userMenuNoLogin">
+                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'">Iniciar sesión</button>
+                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'">Registrarse</button>
             </div>
         </div>
     </nav>

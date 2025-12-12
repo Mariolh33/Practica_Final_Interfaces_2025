@@ -400,6 +400,81 @@ nav ul li a.active {
     cursor: pointer;
 }
 
+/* Botón Mi Cuenta */
+#botonCuenta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(10, 25, 41, 0.15);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+#botonCuenta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(10, 25, 41, 0.2);
+}
+
+#botonCuenta i {
+  font-size: 1.2rem;
+}
+
+/* Menú sin login */
+.user-menu-no-login {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #1a2332;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  min-width: 240px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+  margin-top: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top right;
+  transition: opacity .18s ease, transform .18s ease;
+  visibility: hidden;
+}
+
+.user-menu-no-login.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(6px);
+  visibility: visible;
+}
+
+.user-menu-no-login.visible {
+  visibility: visible;
+}
+
+.user-menu-no-login .btn {
+  padding: 12px 16px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+}
+
+/* Asegurar que los menús estén ocultos cuando no están activos */
+.user-menu[style*="visibility: hidden"] {
+  display: none !important;
+}
+
+.user-menu-no-login[style*="visibility: hidden"] {
+  display: none !important;
+}
+
 
 /* ===========================
    CAROUSEL
