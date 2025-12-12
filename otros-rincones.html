@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page_title">Blog - Mochileros Sin Fronteras</title>
+    <title data-i18n="page_title_cities">Otros rincones - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/blog.css">
@@ -77,7 +77,7 @@
             <button id="closeProfile" class="close-popup-btn">
                 <i class="fas fa-times"></i>
             </button>
-            <h2>Mi Perfil</h2>
+            <h2 data-i18n="profile_title">Mi Perfil</h2>
             <div class="profile-form-wrapper">
                 <form id="profileForm" class="profile-form">
                     <div class="profile-photo-section">
@@ -85,42 +85,42 @@
                             <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
                         </div>
                         <div class="profile-photo-input">
-                            <label for="profilePhoto">Cambiar foto</label>
+                            <label for="profilePhoto" data-i18n="profile_photo_change">Cambiar foto</label>
                             <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
                         </div>
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileNombre">Nombre</label>
-                        <input type="text" id="profileNombre" placeholder="Tu nombre" readonly>
+                        <label for="profileNombre" data-i18n="profile_name_label">Nombre</label>
+                        <input type="text" id="profileNombre" placeholder="Tu nombre" readonly data-i18n-placeholder="profile_name_placeholder">
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileApellido">Apellido</label>
-                        <input type="text" id="profileApellido" placeholder="Tu apellido" readonly>
+                        <label for="profileApellido" data-i18n="profile_lastname_label">Apellido</label>
+                        <input type="text" id="profileApellido" placeholder="Tu apellido" readonly data-i18n-placeholder="profile_lastname_placeholder">
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileEmail">Email</label>
-                        <input type="email" id="profileEmail" placeholder="tu@email.com" readonly>
+                        <label for="profileEmail" data-i18n="profile_email_label">Email</label>
+                        <input type="email" id="profileEmail" placeholder="tu@email.com" readonly data-i18n-placeholder="profile_email_placeholder">
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileUsername">Nombre de Usuario</label>
-                        <input type="text" id="profileUsername" placeholder="Tu usuario" readonly>
+                        <label for="profileUsername" data-i18n="profile_username_label">Nombre de Usuario</label>
+                        <input type="text" id="profileUsername" placeholder="Tu usuario" readonly data-i18n-placeholder="profile_username_placeholder">
                     </div>
 
                     <div class="profile-field">
-                        <label for="profilePassword">Cambiar contraseña (opcional)</label>
-                        <input type="password" id="profilePassword" placeholder="Nueva contraseña (dejar en blanco para no cambiar)" readonly>
+                        <label for="profilePassword" data-i18n="profile_password_label">Cambiar contraseña (opcional)</label>
+                        <input type="password" id="profilePassword" placeholder="Nueva contraseña (dejar en blanco para no cambiar)" readonly data-i18n-placeholder="profile_password_placeholder">
                     </div>
 
                     <div id="profileMessage" class="profile-message"></div>
 
                     <div class="profile-actions">
-                        <button type="button" id="btnEditProfile" class="btn btn-primary">Editar</button>
-                        <button type="submit" id="btnSaveProfile" class="btn btn-primary" style="display:none;">Guardar cambios</button>
-                        <button type="button" id="btnCancelEdit" class="btn btn-secondary" style="display:none;">Cancelar</button>
+                        <button type="button" id="btnEditProfile" class="btn btn-primary" data-i18n="profile_edit_btn">Editar</button>
+                        <button type="submit" id="btnSaveProfile" class="btn btn-primary" style="display:none;" data-i18n="profile_save_btn">Guardar cambios</button>
+                        <button type="button" id="btnCancelEdit" class="btn btn-secondary" style="display:none;" data-i18n="profile_cancel_btn">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -132,9 +132,9 @@
             <div class="friends-left">
                 <div class="friends-header">
                     <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true" data-i18n="friends_tab_friends">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false" data-i18n="friends_tab_add">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false" data-i18n="friends_tab_online">Online</button>
                     </div>
                 </div>
 
@@ -145,9 +145,9 @@
 
                     <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
                         <form id="addFriendForm" class="add-friend-panel">
-                            <label for="newFriendUsername">Nombre de usuario (username)</label>
-                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
-                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                            <label for="newFriendUsername" data-i18n="friends_add_label">Nombre de usuario (username)</label>
+                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required data-i18n-placeholder="friends_add_placeholder">
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="friends_add_button">Añadir amigo</button>
                             <div id="addFriendError" class="error-msg" aria-live="polite"></div>
                         </form>
                     </div>
@@ -158,11 +158,11 @@
                 </div>
             </div>
             <div class="chat-panel">
-                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
+                <div id="chatHeader" class="chat-header" data-i18n="friends_chat_header">Selecciona un amigo para chatear</div>
                 <div id="messages" class="messages" aria-live="polite"></div>
                 <div class="chat-input-row">
-                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
-                    <button id="chatSend" class="btn btn-primary">Enviar</button>
+                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje..." data-i18n-placeholder="friends_chat_placeholder">
+                    <button id="chatSend" class="btn btn-primary" data-i18n="friends_chat_send">Enviar</button>
                 </div>
             </div>
             <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
@@ -172,18 +172,18 @@
     <!-- Popup Confirmar eliminación de amigo -->
     <div id="popupEliminarAmigo" class="popup">
         <div class="popup-content">
-            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
-            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
-            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
+            <p id="eliminarAmigoMsg" data-i18n="friends_delete_msg">¿Eliminar a este amigo?</p>
+            <button id="confirmarEliminarAmigo" class="btn btn-primary" data-i18n="friends_delete_confirm">Sí, eliminar</button>
+            <button id="cancelarEliminarAmigo" class="btn btn-secondary" data-i18n="friends_delete_cancel">Cancelar</button>
         </div>
     </div>
 
     <!-- Popup cerrar sesión -->
             <div id="popupCerrarSesion" class="popup">
                 <div class="popup-content">
-                    <p>¿Estás seguro de que quieres cerrar sesión?</p>
-                    <button id="confirmarCerrar" class="btn btn-primary">Sí, cerrar sesión</button>
-                    <button id="cancelarCerrar" class="btn btn-secondary">Cancelar</button>
+                    <p data-i18n="logout_confirm_msg">¿Estás seguro de que quieres cerrar sesión?</p>
+                    <button id="confirmarCerrar" class="btn btn-primary" data-i18n="logout_confirm_btn">Sí, cerrar sesión</button>
+                    <button id="cancelarCerrar" class="btn btn-secondary" data-i18n="logout_cancel_btn">Cancelar</button>
                 </div>
             </div>
 
@@ -250,7 +250,7 @@
                 <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
                 <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required data-i18n="newsletter_placeholder">
+                    <input type="email" placeholder="Tu email" required data-i18n-placeholder="newsletter_placeholder">
                     <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>

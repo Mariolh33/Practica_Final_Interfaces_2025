@@ -625,9 +625,367 @@ const EMBEDDED_CITIES = window.EMBEDDED_CITIES || {
 
 window.EMBEDDED_CITIES = EMBEDDED_CITIES;
 
+const LOCATION_TRANSLATIONS = {
+    countries: {
+        "Austria": { en: "Austria" },
+        "Bélgica": { en: "Belgium" },
+        "Dinamarca": { en: "Denmark" },
+        "Eslovenia": { en: "Slovenia" },
+        "España": { en: "Spain" },
+        "Estonia": { en: "Estonia" },
+        "Francia": { en: "France" },
+        "Hungría": { en: "Hungary" },
+        "Italia": { en: "Italy" },
+        "Malta": { en: "Malta" },
+        "Noruega": { en: "Norway" },
+        "Países Bajos": { en: "Netherlands" },
+        "Portugal": { en: "Portugal" },
+        "Reino Unido": { en: "United Kingdom" },
+        "República Checa": { en: "Czech Republic" },
+        "Suiza": { en: "Switzerland" },
+        "Islandia": { en: "Iceland" },
+        "China": { en: "China" },
+        "Corea del Sur": { en: "South Korea" },
+        "India": { en: "India" },
+        "Japón": { en: "Japan" },
+        "Laos": { en: "Laos" },
+        "Líbano": { en: "Lebanon" },
+        "Omán": { en: "Oman" },
+        "Qatar": { en: "Qatar" },
+        "Tailandia": { en: "Thailand" },
+        "Vietnam": { en: "Vietnam" },
+        "Singapur": { en: "Singapore" },
+        "Marruecos": { en: "Morocco" },
+        "Sudáfrica": { en: "South Africa" },
+        "Australia": { en: "Australia" },
+        "Nueva Zelanda": { en: "New Zealand" },
+        "Canadá": { en: "Canada" },
+        "Cuba": { en: "Cuba" },
+        "Estados Unidos": { en: "United States" },
+        "México": { en: "Mexico" },
+        "Argentina": { en: "Argentina" },
+        "Brasil": { en: "Brazil" },
+        "Colombia": { en: "Colombia" },
+        "Ecuador": { en: "Ecuador" },
+        "Perú": { en: "Peru" }
+    },
+    cities: {
+        "Viena": {
+            en: {
+                name: "Vienna",
+                description: "Imperial city packed with museums and classical music. Schönbrunn Palace and the Ringstrasse blend baroque and historicism, while cafés keep pastry traditions alive. Great for strolling parks and opera houses."
+            }
+        },
+        "Brujas": {
+            en: {
+                name: "Bruges",
+                description: "Perfectly preserved medieval center with tree-lined canals and cobbled squares like the Markt. Belfries, guild houses, and chocolate shops create a storybook feel made for slow wandering."
+            }
+        },
+        "Copenhague": {
+            en: {
+                name: "Copenhagen",
+                description: "Blend of contemporary design and Nordic tradition. Nyhavn, Tivoli, and cycling districts show a warm, human city with avant-garde food and cared-for public spaces."
+            }
+        },
+        "Liubliana": {
+            en: {
+                name: "Ljubljana",
+                description: "Small, scenic capital with a walkable old town, riverside cafés, and a hilltop castle. Ideal base for day trips to Lake Bled and the Julian Alps."
+            }
+        },
+        "Barcelona": {
+            en: {
+                name: "Barcelona",
+                description: "Gaudí modernism with sea and hills together. Sagrada Família, Park Güell, lively neighborhoods, markets, and museums; walks from Montjuïc to the beaches."
+            }
+        },
+        "Sevilla": {
+            en: {
+                name: "Seville",
+                description: "Monumental historic core with patios and tilework. The Alcázar, Cathedral, and Santa Cruz quarter pair with tapas culture and flamenco."
+            }
+        },
+        "Tallin": {
+            en: {
+                name: "Tallinn",
+                description: "Walled medieval Old Town with towers and colorful roofs over the Baltic. Cold winters but photogenic views from Toompea."
+            }
+        },
+        "París": {
+            en: {
+                name: "Paris",
+                description: "Urban romance along the Seine, boulevards, and iconic museums. Distinct neighborhoods and street cafés; Notre Dame, Sacré-Cœur, and the Eiffel Tower as essentials."
+            }
+        },
+        "Budapest": {
+            en: {
+                name: "Budapest",
+                description: "Art Nouveau architecture, thermal baths, and night walks over the Danube. The Parliament glows at dusk from Chain Bridge."
+            }
+        },
+        "Florencia": {
+            en: {
+                name: "Florence",
+                description: "Renaissance cradle with the Duomo, Uffizi, and artisans in Oltrarno. A living museum where streets hide sculptures, palaces, and workshops."
+            }
+        },
+        "Roma": {
+            en: {
+                name: "Rome",
+                description: "The Eternal City blends classical ruins, baroque squares, and neighborhood life. From the Pantheon to Trevi Fountain, history meets trattorias and terraces."
+            }
+        },
+        "Venecia": {
+            en: {
+                name: "Venice",
+                description: "No cars, only canals. Palaces and bridges link islands; from St. Mark’s to quiet sestieri, it’s pure contemplation on water."
+            }
+        },
+        "La Valeta": {
+            en: {
+                name: "Valletta",
+                description: "Fortified and baroque with viewpoints over the Grand Harbour. Palaces, churches, and museums in a compact, walkable core."
+            }
+        },
+        "Bergen": {
+            en: {
+                name: "Bergen",
+                description: "Wooden houses in Bryggen, lively harbor, and mountains dropping into fjords. Perfect launchpad for scenic routes."
+            }
+        },
+        "Ámsterdam": {
+            en: {
+                name: "Amsterdam",
+                description: "UNESCO-listed canals, narrow gabled houses, and bike culture. Top-tier museums and green neighborhoods linked by bridges."
+            }
+        },
+        "Oporto": {
+            en: {
+                name: "Porto",
+                description: "Azulejos, bridges over the Douro, and port wine cellars. Livraria Lello and Leça pools as contemporary icons."
+            }
+        },
+        "Londres": {
+            en: {
+                name: "London",
+                description: "History and cutting-edge culture along the Thames. Free museums, vast parks, and an endless food and arts scene."
+            }
+        },
+        "Edimburgo": {
+            en: {
+                name: "Edinburgh",
+                description: "Royal Mile, castle, and green hills. Arthur’s Seat gives sweeping views over the stone city."
+            }
+        },
+        "Praga": {
+            en: {
+                name: "Prague",
+                description: "Gothic spires and domes over a photogenic old town. Charles Bridge at dawn and historic cafés with music and literature."
+            }
+        },
+        "Lucerna": {
+            en: {
+                name: "Lucerne",
+                description: "Lake, nearby peaks, and the Kapellbrücke postcard. Medieval roofs and alpine air minutes from mountain trails."
+            }
+        },
+        "Zúrich": {
+            en: {
+                name: "Zurich",
+                description: "Elegant old town by the lake, museums, galleries, and life on the water. Vibrant summers and Swiss efficiency in every detail."
+            }
+        },
+        "Reikiavik": {
+            en: {
+                name: "Reykjavik",
+                description: "Modern architecture like Harpa and Hallgrímskirkja amid volcanic landscapes. Base for northern lights and nearby hot springs."
+            }
+        },
+        "Beijing": {
+            en: {
+                name: "Beijing",
+                description: "Imperial capital with the Forbidden City, hutongs, and broad avenues. Gateway to Great Wall stretches and rich regional cuisine."
+            }
+        },
+        "Hong Kong": {
+            en: {
+                name: "Hong Kong",
+                description: "Dense skyline around a busy harbor. Mountains, islands, and nature reserves minutes from the financial core."
+            }
+        },
+        "Seúl": {
+            en: {
+                name: "Seoul",
+                description: "Skyscrapers and palaces, night markets, and a spotless metro. Districts like Bukchon and Myeongdong mix tradition and fashion."
+            }
+        },
+        "Jaipur": {
+            en: {
+                name: "Jaipur",
+                description: "The Pink City with Hawa Mahal, forts, and salmon-colored bazaars. Crafts, jewelry, and Rajasthani cuisine in palaces and streets."
+            }
+        },
+        "Kioto": {
+            en: {
+                name: "Kyoto",
+                description: "Temples, shrines, and classic gardens. Spring hanami, tree-lined paths, and the chance to spot geishas in Gion."
+            }
+        },
+        "Luang Prabang": {
+            en: {
+                name: "Luang Prabang",
+                description: "UNESCO town at two rivers’ confluence. Dawn alms processions, nearby waterfalls, and colonial-Buddhist architecture."
+            }
+        },
+        "Beirut": {
+            en: {
+                name: "Beirut",
+                description: "Beaches, clubs, and rooftops beside mosques and historic souks. Mediterranean and Levantine flavors with lively nightlife."
+            }
+        },
+        "Mascate": {
+            en: {
+                name: "Muscat",
+                description: "Bays and mountains framing mosques, souks, and Portuguese forts. Coastal walks and white architecture by the Gulf of Oman."
+            }
+        },
+        "Doha": {
+            en: {
+                name: "Doha",
+                description: "Corniche with futuristic skyline, Souq Waqif, and the Museum of Islamic Art. Tradition meets emerging cultural districts."
+            }
+        },
+        "Chiang Mai": {
+            en: {
+                name: "Chiang Mai",
+                description: "Hillside temples, cafés, and creative markets. Base for northern nature and intense culinary experiences."
+            }
+        },
+        "Hanoi": {
+            en: {
+                name: "Hanoi",
+                description: "Lakes, temples, and a romantic French Quarter. Narrow streets with traditional cafés and vibrant markets."
+            }
+        },
+        "Singapur": {
+            en: {
+                name: "Singapore",
+                description: "Garden city with urban jungle, Botanic Garden, and Gardens by the Bay. Temples, heritage shophouses, and flawless logistics."
+            }
+        },
+        "Chefchaouen": {
+            en: {
+                name: "Chefchaouen",
+                description: "Blue medina between Rif mountains. Painted alleys, artisan doors, and nearby lookouts over the town."
+            }
+        },
+        "Ciudad del Cabo": {
+            en: {
+                name: "Cape Town",
+                description: "Table Mountain, penguin beaches, and colorful Bo-Kaap. Gardens, nearby vineyards, and scenic coastal drives."
+            }
+        },
+        "Sídney": {
+            en: {
+                name: "Sydney",
+                description: "Opera House icon, sail-worthy harbor, and urban beaches like Bondi. Daily ferries and parks beside the water."
+            }
+        },
+        "Queenstown": {
+            en: {
+                name: "Queenstown",
+                description: "Adventure capital between lake and mountains. Natural viewpoints, thrills, and cinematic landscapes."
+            }
+        },
+        "Ciudad de Quebec": {
+            en: {
+                name: "Quebec City",
+                description: "Walled upper town overlooking the St. Lawrence. European vibe, steep roofs, and rosy sunsets."
+            }
+        },
+        "La Habana": {
+            en: {
+                name: "Havana",
+                description: "Pastel colonial architecture, music on every corner, and seaside promenades. Old Havana and the Malecón set the rhythm."
+            }
+        },
+        "Nueva York": {
+            en: {
+                name: "New York",
+                description: "Iconic skyline, parks like Central Park, and an unrivaled arts scene. Urban energy that never stops."
+            }
+        },
+        "San Francisco": {
+            en: {
+                name: "San Francisco",
+                description: "Golden Gate Bridge, hills, and Victorian houses. World-class museums and character-filled neighborhoods."
+            }
+        },
+        "San Miguel de Allende": {
+            en: {
+                name: "San Miguel de Allende",
+                description: "Colonial center with a pink neo-Gothic parish. Cobbled streets, courtyards, and art in galleries and studios."
+            }
+        },
+        "Buenos Aires": {
+            en: {
+                name: "Buenos Aires",
+                description: "Distinct neighborhoods, varied architecture, and intense culture. Tango, parrillas, and bookshops in emblematic buildings."
+            }
+        },
+        "Río de Janeiro": {
+            en: {
+                name: "Rio de Janeiro",
+                description: "Legendary beaches, urban rainforest, and Christ the Redeemer watching bays and peaks. Samba rhythm across streets and squares."
+            }
+        },
+        "Cartagena": {
+            en: {
+                name: "Cartagena",
+                description: "Walled city with plazas and colonial mansions covered in bougainvillea. Getsemaní and Bocagrande show creative and modern sides."
+            }
+        },
+        "Quito": {
+            en: {
+                name: "Quito",
+                description: "Golden historic center beneath Andean volcanoes. Views from Basílica del Voto Nacional and traditional markets."
+            }
+        },
+        "Cuzco": {
+            en: {
+                name: "Cusco",
+                description: "Former Inca capital with plazas, convents, and cobbled streets. Gateway to Machu Picchu and viewpoints like Cristo Blanco."
+            }
+        }
+    }
+};
+
+const getCitiesLang = () => localStorage.getItem('lang') || 'es';
+const getCountryName = (name, lang) => {
+    const entry = LOCATION_TRANSLATIONS.countries[name];
+    return (entry && entry[lang]) || name;
+};
+const getCityData = (city, lang) => {
+    const entry = LOCATION_TRANSLATIONS.cities[city.name];
+    return {
+        name: (entry && entry[lang] && entry[lang].name) || city.name,
+        description: (entry && entry[lang] && entry[lang].description) || city.description || ''
+    };
+};
+const t = (key, fallback = '') => {
+    const lang = getCitiesLang();
+    const dict = (window.EMBEDDED_I18N && window.EMBEDDED_I18N[lang]) || {};
+    if (dict[key]) return dict[key];
+    return fallback || key;
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const grid = document.getElementById('destinationsGrid');
     if (!grid) return;
+
+    const lang = getCitiesLang();
+    const favoriteLabel = t('cities_favorite_label', 'Guardar');
 
     const data = EMBEDDED_CITIES;
     data.continents.forEach(continent => {
@@ -637,30 +995,34 @@ document.addEventListener('DOMContentLoaded', function() {
                 article.className = 'destination-card';
 
                 const imgUrl = city.image && city.image.url ? city.image.url : 'images/default.jpg';
-                const imgAlt = city.image && city.image.alt ? city.image.alt : city.name;
+                const { name: cityName, description: cityDescription } = getCityData(city, lang);
+                const countryName = getCountryName(country.name, lang);
+                const imgAlt = city.image && city.image.alt ? city.image.alt : cityName;
 
                 article.innerHTML = `
                         <div class="destination-image">
-                                <img src="${imgUrl}" alt="${imgAlt}">
-                                <button class="favorite-btn" aria-label="Guardar">
-                                        <i class="far fa-heart"></i>
-                                </button>
+                            <img src="${imgUrl}" alt="${imgAlt}">
+                            <button class="favorite-btn" aria-label="${favoriteLabel}">
+                                <i class="far fa-heart"></i>
+                            </button>
                         </div>
                         <div class="destination-info">
-                                <h3>${city.name}, ${country.name}</h3>
-                                <p class="destination-description">${city.description || ''}</p>
+                                <h3>${cityName}, ${countryName}</h3>
+                                <p class="destination-description">${cityDescription}</p>
                         </div>
                 `;
 
                 const imgEl = article.querySelector('.destination-image img');
-                if (imgEl) imgEl.title = city.description || '';
+                if (imgEl) imgEl.title = cityDescription;
 
                 grid.appendChild(article);
             });
         });
     });
 
-    if (window.i18n && typeof window.i18n.translate === 'function') {
+    if (typeof applyTranslations === 'function') {
+        try { applyTranslations(getCitiesLang()); } catch (e) { console.warn('applyTranslations error', e); }
+    } else if (window.i18n && typeof window.i18n.translate === 'function') {
         try { window.i18n.translate(); } catch (e) { console.warn('i18n.translate error', e); }
     }
 });

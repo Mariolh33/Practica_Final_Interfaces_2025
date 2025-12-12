@@ -1,4 +1,9 @@
 // === GESTIÓN DEL FORO DE COMUNIDAD ===
+const t = (key, fallback = '') => {
+  const lang = localStorage.getItem('lang') || 'es';
+  const dict = (window.EMBEDDED_I18N && window.EMBEDDED_I18N[lang]) || (window.EMBEDDED_I18N && window.EMBEDDED_I18N.es) || {};
+  return dict[key] || fallback || key;
+};
 
 class ComunidadForo {
   constructor() {
@@ -7,6 +12,31 @@ class ComunidadForo {
     this.categoriaActual = 'all';
     this.ordenActual = 'recent';
     this.init();
+  }
+
+  translate(key, fallback = '') {
+    return t(key, fallback);
+  }
+
+  formatCount(key, n) {
+    return this.translate(key, '{n}').replace('{n}', n);
+  }
+
+  getCategoryLabel(cat) {
+    const map = {
+      viajes: 'community_cat_travel',
+      consejos: 'community_cat_tips',
+      destinos: 'community_cat_destinations',
+      fotos: 'community_cat_photos',
+      preguntas: 'community_cat_questions',
+      all: 'community_cat_all'
+    };
+    return this.translate(map[cat] || map.all, cat);
+  }
+
+  getLocale() {
+    const lang = localStorage.getItem('lang') || 'es';
+    return lang === 'en' ? 'en-US' : 'es-ES';
   }
 
   init() {
@@ -181,10 +211,11 @@ class ComunidadForo {
     temasFiltrados = this.ordenarTemas(temasFiltrados);
 
     if (temasFiltrados.length === 0) {
+      const emptyText = this.translate('community_no_topics', 'No hay temas en esta categoría.');
       temasList.innerHTML = `
         <div class="sin-temas">
           <i class="fas fa-inbox"></i>
-          <p>No hay temas en esta categoría.</p>
+          <p>${this.escaparHTML(emptyText)}</p>
         </div>
       `;
       return;
@@ -207,6 +238,9 @@ class ComunidadForo {
     const fechaFormato = this.formatearFecha(fecha);
     const autor = this.obtenerNombreAutor(tema.autor);
     const avatar = this.obtenerAvatarAutor(tema.autor);
+    const categoriaTexto = this.getCategoryLabel(tema.categoria);
+    const vistasTexto = this.formatCount('community_views_label', tema.vistas);
+    const respuestasTexto = this.formatCount('community_replies_label', tema.respuestas.length);
 
     return `
       <div class="tema-card ${tema.categoria}" data-tema-id="${tema.id}">
@@ -214,18 +248,18 @@ class ComunidadForo {
           <h3 class="tema-title">${this.escaparHTML(tema.titulo)}</h3>
           <span class="tema-badge ${tema.categoria}">
             <i class="fas fa-tag"></i>
-            ${tema.categoria}
+            ${this.escaparHTML(categoriaTexto)}
           </span>
         </div>
         <p class="tema-description">${this.escaparHTML(tema.contenido)}</p>
         <div class="tema-meta">
           <div class="tema-meta-item">
             <i class="fas fa-eye"></i>
-            <span>${tema.vistas} vistas</span>
+            <span>${this.escaparHTML(vistasTexto)}</span>
           </div>
           <div class="tema-meta-item">
             <i class="fas fa-comments"></i>
-            <span>${tema.respuestas.length} respuestas</span>
+            <span>${this.escaparHTML(respuestasTexto)}</span>
           </div>
           <div class="tema-autor">
             <div class="tema-avatar">${avatar}</div>
@@ -247,12 +281,24 @@ class ComunidadForo {
     const horas = Math.floor(minutos / 60);
     const dias = Math.floor(horas / 24);
 
-    if (minutos < 1) return 'Hace unos segundos';
-    if (minutos < 60) return `Hace ${minutos} ${minutos === 1 ? 'minuto' : 'minutos'}`;
-    if (horas < 24) return `Hace ${horas} ${horas === 1 ? 'hora' : 'horas'}`;
-    if (dias < 7) return `Hace ${dias} ${dias === 1 ? 'día' : 'días'}`;
-    
-    return fecha.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
+    if (minutos < 1) return this.translate('time_seconds_ago', 'Hace unos segundos');
+
+    if (minutos < 60) {
+      const key = minutos === 1 ? 'time_minutes_ago' : 'time_minutes_ago_plural';
+      return this.translate(key, 'Hace {n} minutos').replace('{n}', minutos);
+    }
+
+    if (horas < 24) {
+      const key = horas === 1 ? 'time_hours_ago' : 'time_hours_ago_plural';
+      return this.translate(key, 'Hace {n} horas').replace('{n}', horas);
+    }
+
+    if (dias < 7) {
+      const key = dias === 1 ? 'time_days_ago' : 'time_days_ago_plural';
+      return this.translate(key, 'Hace {n} días').replace('{n}', dias);
+    }
+
+    return fecha.toLocaleDateString(this.getLocale(), { year: 'numeric', month: 'long', day: 'numeric' });
   }
 
   filtrarTemas() {
@@ -320,6 +366,16 @@ class ComunidadForo {
     const autor = this.obtenerNombreAutor(tema.autor);
     const avatar = this.obtenerAvatarAutor(tema.autor);
     const fechaFormato = this.formatearFecha(new Date(tema.fecha));
+    const categoriaTexto = this.getCategoryLabel(tema.categoria);
+    const vistasTexto = this.formatCount('community_views_label', tema.vistas);
+    const respuestasTexto = this.formatCount('community_replies_label', tema.respuestas.length);
+    const respuestasTitulo = this.translate('community_responses_title', 'Respuestas');
+    const addRespuestaTitulo = this.translate('community_add_response_title', 'Agregar una respuesta');
+    const replyPlaceholder = this.translate('community_reply_placeholder', 'Comparte tu respuesta...');
+    const replySubmit = this.translate('community_reply_submit', 'Publicar respuesta');
+    const replyReset = this.translate('community_reply_reset', 'Limpiar');
+    const loginReplyTitle = this.translate('community_login_to_reply_title', 'Inicia sesión para responder');
+    const loginReplyText = this.translate('community_login_to_reply_text', 'Necesitas estar logueado para publicar respuestas.');
 
     let htmlRespuestas = '';
     if (tema.respuestas.length > 0) {
@@ -327,7 +383,7 @@ class ComunidadForo {
         <div class="respuestas-section">
           <h2 class="respuestas-title">
             <i class="fas fa-comments"></i>
-            Respuestas
+            ${this.escaparHTML(respuestasTitulo)}
             <span class="respuestas-count">${tema.respuestas.length}</span>
           </h2>
           <div class="respuestas-list">
@@ -339,20 +395,20 @@ class ComunidadForo {
 
     const htmlFormRespuesta = this.usuarioLogueado ? `
       <div class="form-respuesta-container">
-        <h3>Agregar una respuesta</h3>
+        <h3>${this.escaparHTML(addRespuestaTitulo)}</h3>
         <form class="form-respuesta" data-tema-id="${tema.id}">
-          <textarea rows="5" placeholder="Comparte tu respuesta..." required></textarea>
+          <textarea rows="5" placeholder="${this.escaparHTML(replyPlaceholder)}" required></textarea>
           <div class="form-respuesta-buttons">
-            <button type="submit" class="btn btn-primary">Publicar respuesta</button>
-            <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button type="submit" class="btn btn-primary">${this.escaparHTML(replySubmit)}</button>
+            <button type="reset" class="btn btn-secondary">${this.escaparHTML(replyReset)}</button>
           </div>
         </form>
       </div>
     ` : `
       <div class="no-logueado-container">
         <i class="fas fa-lock"></i>
-        <h3>Inicia sesión para responder</h3>
-        <p>Necesitas estar logueado para publicar respuestas.</p>
+        <h3>${this.escaparHTML(loginReplyTitle)}</h3>
+        <p>${this.escaparHTML(loginReplyText)}</p>
       </div>
     `;
 
@@ -369,11 +425,11 @@ class ComunidadForo {
           </div>
           <div class="tema-meta-item">
             <i class="fas fa-eye"></i>
-            <span>${tema.vistas} vistas</span>
+            <span>${this.escaparHTML(vistasTexto)}</span>
           </div>
           <span class="tema-badge ${tema.categoria}">
             <i class="fas fa-tag"></i>
-            ${tema.categoria}
+            ${this.escaparHTML(categoriaTexto)}
           </span>
         </div>
       </div>
@@ -470,7 +526,7 @@ class ComunidadForo {
     e.preventDefault();
 
     if (!this.usuarioLogueado) {
-      this.mostrarMensaje('Debes iniciar sesión para crear un tema', 'error');
+      this.mostrarMensaje(this.translate('community_error_login_create', 'Debes iniciar sesión para crear un tema'), 'error');
       return;
     }
 
@@ -479,7 +535,7 @@ class ComunidadForo {
     const contenido = document.getElementById('contenidoTema').value.trim();
 
     if (!titulo || !categoria || !contenido) {
-      this.mostrarMensaje('Por favor completa todos los campos', 'error');
+      this.mostrarMensaje(this.translate('community_error_required_fields', 'Por favor completa todos los campos'), 'error');
       return;
     }
 
@@ -501,14 +557,14 @@ class ComunidadForo {
     // Limpiar formulario
     document.getElementById('formNuevoTema').reset();
     
-    this.mostrarMensaje('¡Tema creado exitosamente!', 'success');
+    this.mostrarMensaje(this.translate('community_success_topic_created', '¡Tema creado exitosamente!'), 'success');
   }
 
   enviarRespuesta(e, temaId) {
     e.preventDefault();
 
     if (!this.usuarioLogueado) {
-      this.mostrarMensaje('Debes iniciar sesión para responder', 'error');
+      this.mostrarMensaje(this.translate('community_error_login_reply', 'Debes iniciar sesión para responder'), 'error');
       return;
     }
 
@@ -519,7 +575,7 @@ class ComunidadForo {
     const contenido = textarea.value.trim();
 
     if (!contenido) {
-      this.mostrarMensaje('La respuesta no puede estar vacía', 'error');
+      this.mostrarMensaje(this.translate('community_error_empty_reply', 'La respuesta no puede estar vacía'), 'error');
       return;
     }
 
@@ -536,7 +592,7 @@ class ComunidadForo {
     // Re-abrir el tema para actualizar
     this.abrirTema(temaId);
 
-    this.mostrarMensaje('¡Respuesta publicada!', 'success');
+    this.mostrarMensaje(this.translate('community_success_reply_posted', '¡Respuesta publicada!'), 'success');
   }
 
   mostrarMensaje(texto, tipo = 'info') {

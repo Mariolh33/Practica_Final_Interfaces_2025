@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page_title">Comunidad - Mochileros Sin Fronteras</title>
+    <title data-i18n="page_title_community">Comunidad - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/comunidad.css">
@@ -75,7 +75,7 @@
             <button id="closeProfile" class="close-popup-btn">
                 <i class="fas fa-times"></i>
             </button>
-            <h2>Mi Perfil</h2>
+            <h2 data-i18n="profile_title">Mi Perfil</h2>
             <div class="profile-form-wrapper">
                 <form id="profileForm" class="profile-form">
                     <div class="profile-photo-section">
@@ -83,36 +83,36 @@
                             <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
                         </div>
                         <div class="profile-photo-input">
-                            <label for="profilePhoto">Cambiar foto</label>
+                            <label for="profilePhoto" data-i18n="profile_photo_change">Cambiar foto</label>
                             <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
                         </div>
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileNombre">Nombre</label>
-                        <input type="text" id="profileNombre" name="nombre" required>
+                        <label for="profileNombre" data-i18n="profile_name_label">Nombre</label>
+                        <input type="text" id="profileNombre" name="nombre" data-i18n-placeholder="profile_name_placeholder" placeholder="Tu nombre" required>
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileApellido">Apellido</label>
-                        <input type="text" id="profileApellido" name="apellido" required>
+                        <label for="profileApellido" data-i18n="profile_lastname_label">Apellido</label>
+                        <input type="text" id="profileApellido" name="apellido" data-i18n-placeholder="profile_lastname_placeholder" placeholder="Tu apellido" required>
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileEmail">Email</label>
-                        <input type="email" id="profileEmail" name="email" required>
+                        <label for="profileEmail" data-i18n="profile_email_label">Email</label>
+                        <input type="email" id="profileEmail" name="email" data-i18n-placeholder="profile_email_placeholder" placeholder="tu@email.com" required>
                     </div>
 
                     <div class="profile-field">
-                        <label for="profileUsername">Usuario</label>
-                        <input type="text" id="profileUsername" name="username" disabled>
+                        <label for="profileUsername" data-i18n="profile_username_label">Usuario</label>
+                        <input type="text" id="profileUsername" name="username" data-i18n-placeholder="profile_username_placeholder" placeholder="Tu usuario" disabled>
                     </div>
 
                     <div id="profileMessage" class="profile-message"></div>
 
                     <div class="profile-buttons">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                        <button type="button" class="btn btn-secondary" id="closeBtnProfile">Cerrar</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="profile_save_btn">Guardar cambios</button>
+                        <button type="button" class="btn btn-secondary" id="closeBtnProfile" data-i18n="profile_close_btn">Cerrar</button>
                     </div>
                 </form>
             </div>
@@ -125,9 +125,9 @@
             <div class="friends-left">
                 <div class="friends-header">
                     <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true" data-i18n="friends_tab_friends">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false" data-i18n="friends_tab_add">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false" data-i18n="friends_tab_online">Online</button>
                     </div>
                 </div>
 
@@ -138,9 +138,9 @@
 
                     <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
                         <form id="addFriendForm" class="add-friend-panel">
-                            <label for="newFriendUsername">Nombre de usuario (username)</label>
-                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
-                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
+                            <label for="newFriendUsername" data-i18n="friends_add_label">Nombre de usuario (username)</label>
+                            <input id="newFriendUsername" name="username" class="form-input" data-i18n-placeholder="friends_add_placeholder" placeholder="Ej. Usuario123" required>
+                            <button type="submit" class="btn btn-primary btn-block" data-i18n="friends_add_button">Añadir amigo</button>
                             <div id="addFriendError" class="error-msg" aria-live="polite"></div>
                         </form>
                     </div>
@@ -151,11 +151,11 @@
                 </div>
             </div>
             <div class="chat-panel">
-                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
+                <div id="chatHeader" class="chat-header" data-i18n="friends_chat_header">Selecciona un amigo para chatear</div>
                 <div id="messages" class="messages" aria-live="polite"></div>
                 <div class="chat-input-row">
-                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
-                    <button id="chatSend" class="btn btn-primary">Enviar</button>
+                    <input id="chatInput" class="chat-input" data-i18n-placeholder="friends_chat_placeholder" placeholder="Escribe un mensaje...">
+                    <button id="chatSend" class="btn btn-primary" data-i18n="friends_chat_send">Enviar</button>
                 </div>
             </div>
             <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
@@ -165,9 +165,9 @@
     <!-- Popup Confirmar eliminación de amigo -->
     <div id="popupEliminarAmigo" class="popup">
         <div class="popup-content">
-            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
-            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
-            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
+            <p id="eliminarAmigoMsg" data-i18n="friends_delete_msg">¿Eliminar a este amigo?</p>
+            <button id="confirmarEliminarAmigo" class="btn btn-primary" data-i18n="friends_delete_confirm">Sí, eliminar</button>
+            <button id="cancelarEliminarAmigo" class="btn btn-secondary" data-i18n="friends_delete_cancel">Cancelar</button>
         </div>
     </div>
     <div id="popupMisRutas" class="popup">
@@ -175,10 +175,10 @@
             <button class="close-popup-btn">
                 <i class="fas fa-times"></i>
             </button>
-            <h2>Mis Rutas</h2>
-            <p>Aquí aparecerán las rutas que has creado y guardado.</p>
+            <h2 data-i18n="my_routes_title">Mis Rutas</h2>
+            <p data-i18n="my_routes_desc">Aquí aparecerán las rutas que has creado y guardado.</p>
             <div id="rutasContent" style="margin-top: 20px; min-height: 200px; text-align: center; color: #a0aec0;">
-                <p>No tienes rutas guardadas aún</p>
+                <p data-i18n="my_routes_empty">No tienes rutas guardadas aún</p>
             </div>
         </div>
     </div>
@@ -186,9 +186,9 @@
     <!-- Popup Cerrar Sesión -->
     <div id="popupCerrarSesion" class="popup">
         <div class="popup-content">
-            <p>¿Estás seguro de que quieres cerrar sesión?</p>
-            <button id="confirmarCerrar" class="btn btn-primary">Sí, cerrar sesión</button>
-            <button id="cancelarCerrar" class="btn btn-secondary">Cancelar</button>
+            <p data-i18n="logout_confirm_msg">¿Estás seguro de que quieres cerrar sesión?</p>
+            <button id="confirmarCerrar" class="btn btn-primary" data-i18n="logout_confirm_btn">Sí, cerrar sesión</button>
+            <button id="cancelarCerrar" class="btn btn-secondary" data-i18n="logout_cancel_btn">Cancelar</button>
         </div>
     </div>
 
@@ -197,8 +197,8 @@
         <!-- Header -->
         <div class="comunidad-header">
             <div class="comunidad-header-content">
-                <h1>Comunidad Mochileros</h1>
-                <p>Comparte tus experiencias, consejos y conecta con otros viajeros</p>
+                <h1 data-i18n="community_hero_title">Comunidad Mochileros</h1>
+                <p data-i18n="community_hero_subtitle">Comparte tus experiencias, consejos y conecta con otros viajeros</p>
             </div>
         </div>
 
@@ -207,38 +207,38 @@
             <!-- Sidebar con filtros -->
             <aside class="comunidad-sidebar">
                 <div class="sidebar-card">
-                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <h3><i class="fas fa-filter"></i> <span data-i18n="community_filters_title">Filtros</span></h3>
                     <div class="filter-group">
                         <label class="filter-label">
                             <input type="radio" name="sortBy" value="recent" checked>
-                            <span>Más recientes</span>
+                            <span data-i18n="community_filter_recent">Más recientes</span>
                         </label>
                         <label class="filter-label">
                             <input type="radio" name="sortBy" value="popular">
-                            <span>Más populares</span>
+                            <span data-i18n="community_filter_popular">Más populares</span>
                         </label>
                         <label class="filter-label">
                             <input type="radio" name="sortBy" value="replies">
-                            <span>Más respuestas</span>
+                            <span data-i18n="community_filter_replies">Más respuestas</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="sidebar-card">
-                    <h3><i class="fas fa-tag"></i> Categorías</h3>
+                    <h3><i class="fas fa-tag"></i> <span data-i18n="community_categories_title">Categorías</span></h3>
                     <ul class="categories-list">
-                        <li><a href="#" data-category="all" class="active">Todas</a></li>
-                        <li><a href="#" data-category="viajes">Viajes</a></li>
-                        <li><a href="#" data-category="consejos">Consejos</a></li>
-                        <li><a href="#" data-category="destinos">Destinos</a></li>
-                        <li><a href="#" data-category="fotos">Fotos</a></li>
-                        <li><a href="#" data-category="preguntas">Preguntas</a></li>
+                        <li><a href="#" data-category="all" class="active" data-i18n="community_cat_all">Todas</a></li>
+                        <li><a href="#" data-category="viajes" data-i18n="community_cat_travel">Viajes</a></li>
+                        <li><a href="#" data-category="consejos" data-i18n="community_cat_tips">Consejos</a></li>
+                        <li><a href="#" data-category="destinos" data-i18n="community_cat_destinations">Destinos</a></li>
+                        <li><a href="#" data-category="fotos" data-i18n="community_cat_photos">Fotos</a></li>
+                        <li><a href="#" data-category="preguntas" data-i18n="community_cat_questions">Preguntas</a></li>
                     </ul>
                 </div>
 
                 <div class="sidebar-card">
-                    <h3><i class="fas fa-info-circle"></i> Info</h3>
-                    <p class="info-text">Únete a nuestra comunidad de viajeros. Comparte tus historias y aprende de otros aventureros.</p>
+                    <h3><i class="fas fa-info-circle"></i> <span data-i18n="community_info_title">Info</span></h3>
+                    <p class="info-text" data-i18n="community_info_text">Únete a nuestra comunidad de viajeros. Comparte tus historias y aprende de otros aventureros.</p>
                 </div>
             </aside>
 
@@ -246,33 +246,33 @@
             <section class="comunidad-content">
                 <!-- Sección de Nuevo Tema (Solo si está logueado) -->
                 <div id="nuevoTemaContainer" class="nuevo-tema-container" style="display: none;">
-                    <h2>Crear nuevo tema</h2>
+                    <h2 data-i18n="community_new_topic_title">Crear nuevo tema</h2>
                     <form id="formNuevoTema" class="form-nuevo-tema">
                         <div class="form-group">
-                            <label for="tituloTema">Título del tema</label>
-                            <input type="text" id="tituloTema" name="titulo" placeholder="¿Cuál es tu pregunta o comentario?" required>
+                            <label for="tituloTema" data-i18n="community_new_topic_label_title">Título del tema</label>
+                            <input type="text" id="tituloTema" name="titulo" data-i18n-placeholder="community_new_topic_placeholder_title" placeholder="¿Cuál es tu pregunta o comentario?" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="categoriaTema">Categoría</label>
+                            <label for="categoriaTema" data-i18n="community_new_topic_label_category">Categoría</label>
                             <select id="categoriaTema" name="categoria" required>
-                                <option value="">Selecciona una categoría</option>
-                                <option value="viajes">Viajes</option>
-                                <option value="consejos">Consejos</option>
-                                <option value="destinos">Destinos</option>
-                                <option value="fotos">Fotos</option>
-                                <option value="preguntas">Preguntas</option>
+                                <option value="" data-i18n="community_new_topic_option_default">Selecciona una categoría</option>
+                                <option value="viajes" data-i18n="community_cat_travel">Viajes</option>
+                                <option value="consejos" data-i18n="community_cat_tips">Consejos</option>
+                                <option value="destinos" data-i18n="community_cat_destinations">Destinos</option>
+                                <option value="fotos" data-i18n="community_cat_photos">Fotos</option>
+                                <option value="preguntas" data-i18n="community_cat_questions">Preguntas</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="contenidoTema">Contenido</label>
-                            <textarea id="contenidoTema" name="contenido" rows="6" placeholder="Comparte tu experiencia, pregunta o consejo..." required></textarea>
+                            <label for="contenidoTema" data-i18n="community_new_topic_label_content">Contenido</label>
+                            <textarea id="contenidoTema" name="contenido" rows="6" data-i18n-placeholder="community_new_topic_placeholder_content" placeholder="Comparte tu experiencia, pregunta o consejo..." required></textarea>
                         </div>
 
                         <div class="form-buttons">
-                            <button type="submit" class="btn btn-primary">Publicar tema</button>
-                            <button type="reset" class="btn btn-secondary">Limpiar</button>
+                            <button type="submit" class="btn btn-primary" data-i18n="community_new_topic_publish">Publicar tema</button>
+                            <button type="reset" class="btn btn-secondary" data-i18n="community_new_topic_reset">Limpiar</button>
                         </div>
                     </form>
                 </div>
@@ -288,8 +288,8 @@
                 <!-- Lista de Temas -->
                 <div class="temas-container">
                     <div class="temas-header">
-                        <h2>Temas de la comunidad</h2>
-                        <span class="temas-count">Total: <span id="temasCount">0</span></span>
+                        <h2 data-i18n="community_topics_title">Temas de la comunidad</h2>
+                        <span class="temas-count"><span data-i18n="community_topics_total">Total:</span> <span id="temasCount">0</span></span>
                     </div>
 
                     <div id="temasList" class="temas-list">
@@ -320,12 +320,12 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4 data-i18n="footer_about">Sobre Nosotros</h4>
-                <p data-i18n="footer_about_text">Conectamos a viajeros de todo el mundo para compartir experiencias y descubrir nuevos destinos.</p>
+                <h4 data-i18n="footer_about_title">Sobre Nosotros</h4>
+                <p data-i18n="footer_about">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
             </div>
             
             <div class="footer-section">
-                <h4 data-i18n="footer_links">Enlaces Rápidos</h4>
+                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
                 <ul>
                     <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
                     <li><a href="buscar-rutas.html" data-i18n="footer_link_routes">Buscar Rutas</a></li>
@@ -354,7 +354,7 @@
                 <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
                 <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" data-i18n="footer_newsletter_placeholder" required>
+                    <input type="email" placeholder="Tu email" data-i18n-placeholder="newsletter_placeholder" required>
                     <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
