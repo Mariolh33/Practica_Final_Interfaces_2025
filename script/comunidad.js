@@ -20,6 +20,8 @@ class ComunidadForo {
     const usuarioMenu = document.getElementById('userMenu');
     const usuarioMenuNoLogin = document.getElementById('userMenuNoLogin');
     const nombreUsuario = document.getElementById('nombreUsuario');
+    const botonCuenta = document.getElementById('botonCuenta');
+    const fotoPerfil = document.getElementById('fotoPerfil');
     
     if (this.usuarioLogueado && this.usuarioLogueado !== 'anon') {
       // Usuario logueado
@@ -28,13 +30,26 @@ class ComunidadForo {
       
       if (usuario) {
         nombreUsuario.textContent = usuario.nombre || usuario.username;
+        // Actualizar foto de perfil
+        if (fotoPerfil && usuario.foto) {
+          fotoPerfil.src = usuario.foto;
+        }
       }
+      
+      // Mostrar foto de perfil y ocultar botón
+      if (fotoPerfil) fotoPerfil.style.display = 'inline-block';
+      if (botonCuenta) botonCuenta.style.display = 'none';
       
       if (usuarioMenu) usuarioMenu.style.visibility = 'visible';
       if (usuarioMenuNoLogin) usuarioMenuNoLogin.style.visibility = 'hidden';
     } else {
       // Usuario no logueado
       nombreUsuario.textContent = '';
+      
+      // Mostrar botón y ocultar foto de perfil
+      if (botonCuenta) botonCuenta.style.display = 'flex';
+      if (fotoPerfil) fotoPerfil.style.display = 'none';
+      
       if (usuarioMenu) usuarioMenu.style.visibility = 'hidden';
       if (usuarioMenuNoLogin) usuarioMenuNoLogin.style.visibility = 'visible';
     }
@@ -413,13 +428,15 @@ class ComunidadForo {
 
   // ===== MANEJO DE FORMULARIOS =====
   agregarEventListeners() {
-    // Mostrar/ocultar menú de usuario al hacer click en el perfil
+    // Mostrar/ocultar menú de usuario al hacer click en el botón o foto
+    const botonCuenta = document.getElementById('botonCuenta');
     const fotoPerfil = document.getElementById('fotoPerfil');
     const userMenuNoLogin = document.getElementById('userMenuNoLogin');
     const userMenu = document.getElementById('userMenu');
     
-    if (fotoPerfil) {
-      fotoPerfil.addEventListener('click', (e) => {
+    // Click en el botón Mi Cuenta (cuando no hay sesión)
+    if (botonCuenta) {
+      botonCuenta.addEventListener('click', (e) => {
         e.stopPropagation();
         
         if (this.usuarioLogueado && this.usuarioLogueado !== 'anon') {
@@ -437,6 +454,13 @@ class ComunidadForo {
         }
       });
     }
+
+    // Click en la foto de perfil (cuando hay sesión)
+    // Abrir/cerrar menú al pulsar la foto
+    fotoPerfil.addEventListener("click", (e) => {
+        e.stopPropagation();
+        menu.classList.toggle("active");
+    });
     
     // Cerrar menú cuando se hace click en cualquier otro lado
     document.addEventListener('click', () => {
