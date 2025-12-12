@@ -4,16 +4,23 @@
 ========================================== */
 
 :root {
-  --navy-dark: #1a3a52;
-  --navy-medium: #2d5a7b;
-  --navy-bright: #4a90e2;
-  --gray-light: #f5f7fa;
-  --gray-medium: #a0aec0;
-  --gray-dark: #4a5568;
+  --navy-darker: #0a1929;
+  --navy-dark: #1a2332;
+  --navy-medium: #1e3a8a;
+  --navy-bright: #2563eb;
+  --navy-light: #3b82f6;
   --white: #ffffff;
-  --success: #48bb78;
-  --warning: #ed8936;
-  --danger: #f56565;
+  --gray-lightest: #f8f9fa;
+  --gray-light: #e5e7eb;
+  --gray-medium: #9ca3af;
+  --gray-dark: #4b5563;
+  --gray-darker: #1f2937;
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --error: #ef4444;
+  --error-light: #fee2e2;
 }
 
 /* ===========================
@@ -23,7 +30,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background: #e0e0e0;
+  background: var(--navy-dark);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   min-width: 240px;
@@ -246,7 +253,7 @@
 .form-group select,
 .form-group textarea {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--gray-medium);
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
@@ -259,7 +266,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--navy-bright);
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
 .form-group textarea {
@@ -407,28 +414,28 @@
 }
 
 .tema-badge.viajes {
-  background: #e6f2ff;
-  color: #1a3a52;
+  background: var(--navy-medium);
+  color: var(--white);
 }
 
 .tema-badge.consejos {
-  background: #f0fff4;
-  color: #22543d;
+  background: var(--success);
+  color: var(--white);
 }
 
 .tema-badge.destinos {
-  background: #fffaf0;
-  color: #7c2d12;
+  background: var(--warning);
+  color: var(--white);
 }
 
 .tema-badge.fotos {
-  background: #faf5ff;
-  color: #44337a;
+  background: var(--navy-bright);
+  color: var(--white);
 }
 
 .tema-badge.preguntas {
-  background: #f0fffd;
-  color: #234e52;
+  background: var(--gray-dark);
+  color: var(--white);
 }
 
 .tema-description {
@@ -732,10 +739,10 @@
    FORMULARIO DE RESPUESTA
 =========================== */
 .form-respuesta-container {
-  background: white;
+  background: var(--white);
   border-radius: 12px;
   padding: 24px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--gray-medium);
 }
 
 .form-respuesta-container h3 {
@@ -752,7 +759,7 @@
 
 .form-respuesta textarea {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--gray-medium);
   border-radius: 8px;
   font-family: inherit;
   font-size: 1rem;
@@ -764,7 +771,7 @@
 .form-respuesta textarea:focus {
   outline: none;
   border-color: var(--navy-bright);
-  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
 }
 
 .form-respuesta-buttons {
@@ -1003,7 +1010,7 @@
 }
 
 .popup-content {
-  background: #fff;
+  background: var(--white);
   padding: 25px;
   border-radius: 10px;
   text-align: center;
@@ -1071,4 +1078,96 @@
 
 #confirmarCerrar:hover {
   background: linear-gradient(135deg, var(--navy-bright) 0%, var(--navy-medium) 100%) !important;
+}
+
+/* ===========================
+   FOOTER
+=========================== */
+footer {
+  background: var(--navy-dark);
+  color: white;
+  padding: 60px 0 30px;
+  margin-top: 80px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer-section h4 {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 20px;
+}
+
+.footer-section p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: var(--navy-bright);
+  padding-left: 5px;
+}
+
+.footer-section form {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-section input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.footer-section button {
+  padding: 12px 24px;
+  background: var(--navy-bright);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.footer-section button:hover {
+  background: var(--navy-medium);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 20px 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
 }
