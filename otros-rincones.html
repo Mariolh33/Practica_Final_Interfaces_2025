@@ -3,56 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Mochileros Sin Fronteras</title>
-    <link rel="stylesheet" href="./style/components.css">
+    <title data-i18n="page_title">Blog - Mochileros Sin Fronteras</title>
     <link rel="stylesheet" href="./style/index.css">
+    <link rel="stylesheet" href="./style/components.css">
+    <link rel="stylesheet" href="./style/blog.css">
     <link rel="stylesheet" href="./style/detalle.css">
-    <link rel="stylesheet" href="./style/contacto.css"> <!-- NUEVO CSS OPCIONAL -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="script/versionb.js"></script>
+    <script src="script/nav.js"></script>
+    <script src="script/i18n.js" defer></script>
+    <script src="script/friends.js"></script>
 </head>
-
 <body>
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-brand">
             <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span>Mochileros Sin Fronteras</span>
+            <span data-i18n="brand">Mochileros Sin Fronteras</span>
         </div>
-
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
             <span></span><span></span><span></span>
         </button>
-
         <ul class="nav-menu">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="buscar-rutas.html">Rutas</a></li>
-            <li><a href="otros-rincones.html">Otros rincones</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="comunidad.html">Comunidad</a></li>
-            <li><a href="contacto.html" class="active">Contacto</a></li>
+            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
+            <li><a href="otros-rincones.html" data-i18n="nav_cities" class="active">Otros rincones</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
+            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
             <li>
-                <select name="idioma" id="idioma">
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="en">🇬🇧 English</option>
-                </select>
-            </li>
-        </ul>
-
+                <select name="idioma" id="idiomaHeader">
+                     <option value="es">🇪🇸 Español</option>
+                     <option value="en">🇬🇧 English</option>
+                 </select>
+             </li>
+         </ul>
         <div class="nav-actions">
             <button class="btn-icon" aria-label="Buscar">
                 <i class="fas fa-search"></i>
             </button>
-            <!-- Perfil en Navbar -->
-            <div class="perfil-wrapper">
-                <span id="nombreUsuario" class="nombre-usuario"></span>
-                <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+        </div>
 
-                <div class="user-menu" id="userMenu">
-                    <button id="btnMiPerfil" class="btn btn-primary">Mi perfil</button>
-                    <button id="btnMisAmigos" class="btn btn-primary">Mis Amigos</button>
-                    <button class="btn btn-primary">Mis Rutas</button>
-                    <button class="btn btn-secondary btn-block" onclick="cerrarSesion()">Cerrar sesión</button>
-                </div>
+        <!-- Perfil en Navbar -->
+        <div class="perfil-wrapper">
+        <span id="nombreUsuario" class="nombre-usuario"></span>
+        <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+
+            <div class="user-menu" id="userMenu">
+                <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
+                <button class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
+                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
+                <button class="btn btn-secondary btn-block" data-i18n="profile_logout" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
         </div>
     </nav>
@@ -113,8 +113,7 @@
             </div>
         </div>
     </div>
-
-    <!-- Popup Amigos  -->
+    <!-- Popup Amigos -->
     <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
         <div class="popup-content friends-popup-content">
             <div class="friends-left">
@@ -175,103 +174,32 @@
                 </div>
             </div>
 
-    <!-- MAIN -->
-    <main class="contacto-main">
-        <div class="contacto-container">
-            <section class="contacto-hero">
-                <h1><i class="fas fa-envelope"></i> Contacta con Nosotros</h1>
-                <p>¿Tienes dudas, sugerencias o quieres colaborar? ¡Estamos aquí para ayudarte!</p>
-            </section>
-
-            <div class="contacto-content">
-                <!-- FORMULARIO -->
-                <div class="contacto-card">
-                    <div class="card-header">
-                        <h2>Formulario de Contacto</h2>
-                        <p>Envíanos tu mensaje y te responderemos lo antes posible</p>
-                    </div>
-
-                    <form id="contactoForm" class="contacto-form">
-                        <div class="form-group">
-                            <label for="nombre">
-                                <i class="fas fa-user"></i> Nombre *
-                            </label>
-                            <input type="text" id="nombre" name="nombre" class="form-input" placeholder="Tu nombre" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">
-                                <i class="fas fa-envelope"></i> Email *
-                            </label>
-                            <input type="email" id="email" name="email" class="form-input" placeholder="tu@email.com" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="asunto">
-                                <i class="fas fa-comment"></i> Asunto *
-                            </label>
-                            <input type="text" id="asunto" name="asunto" class="form-input" placeholder="Motivo de tu consulta" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="mensaje">
-                                <i class="fas fa-pencil-alt"></i> Mensaje *
-                            </label>
-                            <textarea id="mensaje" name="mensaje" class="form-input" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">
-                            <i class="fas fa-paper-plane"></i> Enviar mensaje
-                        </button>
-
-                        <p id="mensajeForm" class="form-message"></p>
-                    </form>
-                </div>
-
-                <!-- INFORMACIÓN + MAPA -->
-                <div class="contacto-info">
-                    <h3><i class="fas fa-map-marked-alt"></i> Información de Contacto</h3>
-                    <ul class="info-list">
-                        <li>
-                            <i class="fas fa-envelope"></i>                            
-                            <div>                                
-                                <strong>Email:</strong> 
-                                <p>soporte@mochilerossinfronteras.com</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <div>                                
-                                <strong>Teléfono:</strong>
-                                <p>+34 600 123 456</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-location-dot"></i>
-                            <div>                                
-                                <strong>Oficina:</strong>
-                                <p>Madrid, España</p>
-                            </div>                            
-                        </li>
-                    </ul>
-
-                    <div class="contacto-mapa">
-                        <iframe 
-                            src="https://maps.google.com/maps?q=madrid&t=&z=12&ie=UTF8&iwloc=&output=embed" 
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                </div>
+    <main class="blog-main">
+        <!-- Header del blog -->
+        <section class="blog-header">
+            <div class="blog-header-content">
+                <h1 data-i18n="cities_title">Otros rincones</h1>
+                <p data-i18n="cities_subtitle">Visualiza información sobre las ciudades del mundo</p>
             </div>
-        </div>
-    </main>
+        </section>
 
-    <!-- FOOTER -->
+        <!-- Ciudades del mundo -->
+            <section class="destinations-section">
+                <div class="section-header">
+                    <h2 data-i18n="cities_popular_destinations">Ciudades del mundo</h2>
+                </div>
+                
+                <div id="destinationsGrid" class="destinations-grid">
+                    <!-- Las tarjetas se generan dinámicamente desde data/ciudades-del-mundo.json -->
+                </div>
+                <script src="script/ciudades.js" defer></script>
+            </section>
+    </main>
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Mochileros Sin Fronteras</h3>
-                <p>Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
+                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
+                <p data-i18n="footer_desc">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
                 <div class="social-links">
                     <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
@@ -280,42 +208,46 @@
             </div>
             
             <div class="footer-section">
-                <h4>Enlaces Rápidos</h4>
+                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="buscar-rutas.html">Buscar Rutas</a></li>
-                    <li><a href="versionb.html">Packs</a></li>
-                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
+                    <li><a href="buscar-rutas.html" data-i18n="footer_link_routes">Buscar Rutas</a></li>
+                    <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
+                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Legal</h4>
+                <h4 data-i18n="footer_legal">Legal</h4>
                 <ul>
-                    <li><a href="politica.html">Política de Privacidad</a></li>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Aviso Legal</a></li>
-                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="politica.html" data-i18n="footer_policy">Política de Privacidad</a></li>
+                    <li><a href="#" data-i18n="footer_terms">Términos y Condiciones</a></li>
+                    <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
+                    <li><a href="#contacto" data-i18n="nav_contact">Contacto</a></li>
+                    <li>
+                        <select name="idioma" id="idiomaFooter">
+                             <option value="es">🇪🇸 Español</option>
+                             <option value="en">🇬🇧 English</option>
+                         </select>
+                     </li>
                 </ul>
             </div>
             
             <div class="footer-section">
-                <h4>Newsletter</h4>
-                <p>Recibe nuestras últimas novedades</p>
+                <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
+                <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                    <input type="email" placeholder="Tu email" required data-i18n="newsletter_placeholder">
+                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
                 </form>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
+            <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
+</footer>
+<script src="script/profile.js"></script>
 
-    <script src="script/versionb.js"></script>
-    <script src="script/nav.js"></script>
-    <script src="script/friends.js"></script>
-    <script src="script/profile.js"></script>
 </body>
 </html>
