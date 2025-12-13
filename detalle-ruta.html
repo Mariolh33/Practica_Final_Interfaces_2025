@@ -96,36 +96,36 @@
                         <div class="rating-large">
                             <i class="fas fa-star"></i>
                             <span class="rating-number" id="routeRating"></span>
-                            <span class="rating-reviews">(<span id="reviewsCount"></span> opiniones)</span>
+                            <span class="rating-reviews">(<span id="reviewsCount"></span> <span data-i18n="label_reviews">opiniones</span>)</span>
                         </div>
                         <div class="route-stats">
                             <div class="stat-item">
                                 <i class="fas fa-route"></i>
-                                <span><strong id="routeDistance"></strong> km</span>
+                                <span><strong id="routeDistance"></strong> <span data-i18n="label_km">km</span></span>
                             </div>
                             <div class="stat-item">
                                 <i class="fas fa-users"></i>
-                                <span><strong id="routeTravelers"></strong> viajeros</span>
+                                <span><strong id="routeTravelers"></strong> <span data-i18n="label_travelers">viajeros</span></span>
                             </div>
                             <div class="stat-item">
                                 <i class="fas fa-heart"></i>
-                                <span><strong id="routeFavorites"></strong> favoritos</span>
+                                <span><strong id="routeFavorites"></strong> <span data-i18n="label_favorites">favoritos</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="route-header-price">
                     <div class="price-card">
-                        <div class="price-label">Desde</div>
+                        <div class="price-label" data-i18n="price_from">Desde</div>
                         <div class="price-amount">
                             <span class="currency">€</span><span id="routePrice"></span>
                         </div>
-                        <div class="price-per">por persona</div>
+                        <div class="price-per" data-i18n="price_per_person">por persona</div>
                         <button class="btn btn-primary btn-lg btn-block" id="bookNowBtn">
-                            <i class="fas fa-calendar-check"></i> Reservar ahora
+                            <i class="fas fa-calendar-check"></i> <span data-i18n="book_now">Reservar ahora</span>
                         </button>
                         <button class="btn btn-outline btn-block" id="addToFavBtn">
-                            <i class="far fa-heart"></i> Guardar en favoritos
+                            <i class="far fa-heart"></i> <span data-i18n="save_to_favorites">Guardar en favoritos</span>
                         </button>
                         <div class="share-buttons" id="shareButtons">
                             <!-- Botones de compartir dinámicos -->
@@ -154,36 +154,36 @@
                 <!-- Tabs de navegación -->
                 <nav class="tabs-nav">
                     <button class="tab-btn active" data-tab="overview">
-                        <i class="fas fa-info-circle"></i> Descripción
+                        <i class="fas fa-info-circle"></i> <span data-i18n="tab_overview">Descripción</span>
                     </button>
                     <button class="tab-btn" data-tab="itinerary">
-                        <i class="fas fa-list"></i> Itinerario
+                        <i class="fas fa-list"></i> <span data-i18n="tab_itinerary">Itinerario</span>
                     </button>
                     <button class="tab-btn" data-tab="map">
-                        <i class="fas fa-map"></i> Mapa
+                        <i class="fas fa-map"></i> <span data-i18n="tab_map">Mapa</span>
                     </button>
                     <button class="tab-btn" data-tab="reviews">
-                        <i class="fas fa-star"></i> Opiniones
+                        <i class="fas fa-star"></i> <span data-i18n="tab_reviews">Opiniones</span>
                     </button>
                 </nav>
 
                 <!-- Tab: Descripción -->
                 <div class="tab-content active" id="overview">
                     <div class="content-section">
-                        <h2>Sobre esta ruta</h2>
+                        <h2 data-i18n="overview_title">Sobre esta ruta</h2>
                         <p class="lead" id="routeShortDescription"></p>
                         <p class="lead" id="routeDescription"></p>
                     </div>
 
                     <div class="content-section">
-                        <h2>¿Qué incluye?</h2>
+                        <h2 data-i18n="includes_title">¿Qué incluye?</h2>
                         <div class="includes-grid" id="includesGrid">
                             <!-- Items dinámicos -->
                         </div>
                     </div>
 
                     <div class="content-section">
-                        <h2>Requisitos y recomendaciones</h2>
+                        <h2 data-i18n="requirements_title">Requisitos y recomendaciones</h2>
                         <div class="requirements-list" id="requirementsList">
                             <!-- Requisitos dinámicos -->
                         </div>
@@ -207,7 +207,7 @@
                     </div>
 
                     <div class="elevation-section">
-                        <h3>Perfil de elevación</h3>
+                        <h3 data-i18n="elevation_title">Perfil de elevación</h3>
                         <canvas id="elevationChart"></canvas>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                     </div>
 
                     <button class="btn btn-outline btn-lg btn-block" id="loadMoreReviewsBtn">
-                        <i class="fas fa-plus"></i> Cargar más opiniones
+                        <i class="fas fa-plus"></i> <span data-i18n="reviews_load_more">Cargar más opiniones</span>
                     </button>
                 </div>
             </div>
@@ -235,7 +235,7 @@
             <!-- Sidebar -->
             <aside class="route-sidebar">
                 <div class="widget weather-widget">
-                    <h3><i class="fas fa-cloud-sun"></i> Clima actual</h3>
+                    <h3><i class="fas fa-cloud-sun"></i> <span data-i18n="weather_title">Clima actual</span></h3>
                     <div id="weatherData" class="weather-data">
                         <div class="weather-main">
                             <img src="" alt="Clima" id="weatherIcon" class="weather-icon">
@@ -247,18 +247,18 @@
                         <div class="weather-details">
                             <div class="weather-detail">
                                 <i class="fas fa-tint"></i>
-                                <span><span id="humidity"></span>% humedad</span>
+                                <span><span id="humidity"></span><span data-i18n="humidity_label">% humedad</span></span>
                             </div>
                             <div class="weather-detail">
                                 <i class="fas fa-wind"></i>
-                                <span><span id="windSpeed"></span> km/h</span>
+                                <span><span id="windSpeed"></span><span data-i18n="wind_label"> km/h</span></span>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="widget organizer-widget">
-                    <h3><i class="fas fa-user-circle"></i> Organizador</h3>
+                    <h3><i class="fas fa-user-circle"></i> <span data-i18n="organizer_title">Organizador</span></h3>
                     <div class="organizer-info">
                         <img src="" alt="Organizador" class="organizer-avatar" id="organizerAvatar">
                         <div>
@@ -268,12 +268,12 @@
                     </div>
                     <p id="organizerDescription"></p>
                     <button class="btn btn-outline btn-block" id="contactOrganizerBtn">
-                        <i class="fas fa-envelope"></i> Contactar
+                        <i class="fas fa-envelope"></i> <span data-i18n="contact_btn">Contactar</span>
                     </button>
                 </div>
 
                 <div class="widget similar-routes-widget">
-                    <h3><i class="fas fa-route"></i> Rutas similares</h3>
+                    <h3><i class="fas fa-route"></i> <span data-i18n="similar_routes_title">Rutas similares</span></h3>
                     <div class="similar-routes-list" id="similarRoutesList">
                         <!-- Rutas similares dinámicas -->
                     </div>
@@ -322,6 +322,7 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script/i18n.js" defer></script>
     <script src="script/detalle-ruta.js"></script>
     <script src="script/nav.js"></script>
 </body>

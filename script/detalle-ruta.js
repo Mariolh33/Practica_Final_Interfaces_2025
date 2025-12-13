@@ -911,6 +911,179 @@ let userData = EMBEDDED_USER_DATA;
 let i18nRoute = EMBEDDED_ROUTE_I18N;
 let currentRouteId = 'route_caminoinca';
 
+// Traducciones básicas EN para títulos/ubicación/descripciones
+// Mantiene el mismo orden y sólo cubre campos visibles clave
+const ROUTE_BASIC_I18N_EN = {
+  "route_caminoinca": {
+    title: "Inca Trail to Machu Picchu",
+    location: "Cusco, Peru",
+    descShort: "A unique experience walking in the footsteps of the ancient Incas.",
+    descLong: "The Inca Trail is one of the world's most spectacular treks, with breathtaking Andean scenery, archaeological ruins, and an unforgettable sunrise at Machu Picchu."
+  },
+  "route_balcanes": {
+    title: "Balkans Route",
+    location: "Eastern Europe",
+    descShort: "Discover the beauty of the Balkans visiting Bosnia, Croatia, Montenegro and Albania.",
+    descLong: "A journey through medieval towns, Adriatic coasts, mountains and ancient culture. The Balkans offer diversity and hospitality in every stop."
+  },
+  "route_serengeti": {
+    title: "Serengeti and Ngorongoro Safari",
+    location: "Tanzania",
+    descShort: "Watch the great migration and the Big Five in Africa's most famous parks.",
+    descLong: "Experience iconic wildlife in Serengeti and Ngorongoro. Lodges, guided game drives and golden savannah sunsets make this a lifetime safari."
+  },
+  "route_annapurna": {
+    title: "Annapurna Circuit",
+    location: "Nepal",
+    descShort: "One of the world's most spectacular treks across Thorong La pass (5,416m).",
+    descLong: "Classic Himalayan circuit with terraced valleys, high passes and towering peaks. Cultural tea houses and dramatic landscapes throughout the route."
+  },
+  "route_islandia": {
+    title: "Iceland Ring Road",
+    location: "Iceland",
+    descShort: "Drive the Ring Road discovering waterfalls, glaciers, northern lights and hot springs.",
+    descLong: "A complete lap around Iceland's raw nature: geysers, black-sand beaches, ice caves and geothermal pools under vast skies."
+  },
+  "route_patagonia": {
+    title: "Argentine Patagonia",
+    location: "Argentina",
+    descShort: "Explore El Chaltén, Perito Moreno and Torres del Paine with stunning alpine scenery.",
+    descLong: "Turquoise lakes, granite spires and massive glaciers define Patagonia's epic landscapes. Trails, refuges and local culture complete the adventure."
+  },
+  "route_angkor": {
+    title: "Angkor Wat Temples",
+    location: "Cambodia",
+    descShort: "Discover ancient Angkor temples by bicycle with sunrise at Angkor Wat.",
+    descLong: "Temple complexes entwined with jungle, serene moats and intricate carvings. A spiritual and historic journey through Khmer heritage."
+  },
+  "route_sahara": {
+    title: "Sahara Desert",
+    location: "Morocco",
+    descShort: "Adventure in Erg Chebbi dunes with a starry night at a Berber camp.",
+    descLong: "Golden dunes, camel treks and desert silence. Traditional hospitality and sunset ridgelines create unforgettable memories."
+  },
+  "route_noruega": {
+    title: "Norwegian Fjords",
+    location: "Norway",
+    descShort: "Train and ferry journeys through dramatic fjords visiting Bergen, Flåm and Geirangerfjord.",
+    descLong: "Sheer cliffs, mirror waters and mountain villages. Scenic railways and fjord cruises showcase Norway's majestic nature."
+  },
+  "route_costarica": {
+    title: "Costa Rica Adventure",
+    location: "Costa Rica",
+    descShort: "Rainforest, paradise beaches and wildlife across Monteverde, Arenal and Manuel Antonio.",
+    descLong: "Cloud forests, volcano views and Pacific sands. Biodiversity at every turn, ideal for eco-adventures and nature lovers."
+  },
+  "route_muralla_china": {
+    title: "Great Wall of China",
+    location: "China",
+    descShort: "Walk restored and wild sections of the Great Wall with sweeping views.",
+    descLong: "Ancient fortifications winding along ridgelines. History, engineering and mountain scenery combined in an iconic world wonder."
+  },
+  "route_ruta66": {
+    title: "Route 66",
+    location: "USA",
+    descShort: "From Chicago to Los Angeles on the Mother Road through America's heartland.",
+    descLong: "Neon signs, diners and desert highways. Classic Americana and roadside nostalgia define this cross-country road trip."
+  }
+};
+
+// Itinerarios EN (títulos y textos por día) para las 12 rutas
+const ROUTE_ITINERARY_I18N_EN = {
+  "route_caminoinca": {
+    itinerary: {
+      1: { title: "Day 1: Cusco - Km 82 - Wayllabamba", text: "Start from Km 82 and hike along the Sacred Valley with first Inca sites in view." },
+      2: { title: "Day 2: Dead Woman's Pass", text: "The highest point at Warmiwañusca. Challenging ascent rewarded by sweeping mountain vistas." },
+      3: { title: "Day 3: Ruins and cloud forest", text: "Visit Runkurakay, Sayacmarca and Phuyupatamarca through lush cloud forest trails." },
+      4: { title: "Day 4: Inti Punku - Machu Picchu", text: "Sunrise at the Sun Gate and descent into Machu Picchu before returning to Cusco." }
+    }
+  },
+  "route_patagonia": {
+    itinerary: {
+      1: { title: "Day 1: Arrival in El Chaltén", text: "Short acclimatization hike and orientation in the town surrounded by peaks." },
+      2: { title: "Day 2: Laguna de los Tres", text: "Full-day trek to the iconic viewpoint of Mount Fitz Roy." },
+      3: { title: "Day 3: Fitz Roy ridge", text: "Challenging ascent with panoramic views over glaciers and valleys." }
+    }
+  },
+  "route_balcanes": {
+    itinerary: {
+      1: { title: "Day 1: Sarajevo & Mostar", text: "Historic bridges and Ottoman heritage." },
+      2: { title: "Day 2: Dubrovnik", text: "City walls and the Adriatic coast." },
+      3: { title: "Day 3: Kotor & Budva", text: "Bay views and medieval lanes." }
+    }
+  },
+  "route_serengeti": {
+    itinerary: {
+      1: { title: "Day 1: Serengeti game drive", text: "Search for lions, elephants and herds on the plains." },
+      2: { title: "Day 2: Ngorongoro Crater", text: "Descend into the crater, a wildlife sanctuary." },
+      3: { title: "Day 3: Lodges & sunsets", text: "Relax and enjoy golden hour views." }
+    }
+  },
+  "route_annapurna": {
+    itinerary: {
+      1: { title: "Day 1: Marshyangdi Valley", text: "Terraced fields and villages." },
+      2: { title: "Day 2: Thorong La approach", text: "Acclimatization towards the high pass." },
+      3: { title: "Day 3: Over the pass", text: "Cross the pass and descend to Muktinath." }
+    }
+  },
+  "route_islandia": {
+    itinerary: {
+      1: { title: "Day 1: Golden Circle", text: "Geysers, waterfalls and Thingvellir." },
+      2: { title: "Day 2: South Coast", text: "Black sands and glacier tongues." },
+      3: { title: "Day 3: East Fjords", text: "Remote coves and fishing towns." }
+    }
+  },
+  "route_angkor": {
+    itinerary: {
+      1: { title: "Day 1: Sunrise at Angkor Wat", text: "Temple corridors and bas-reliefs." },
+      2: { title: "Day 2: Ta Prohm & Bayon", text: "Jungle roots and faces towers." },
+      3: { title: "Day 3: Hidden temples", text: "Quiet spots beyond the crowds." }
+    }
+  },
+  "route_sahara": {
+    itinerary: {
+      1: { title: "Day 1: Dunes of Erg Chebbi", text: "Camel ride and sunset ridge." },
+      2: { title: "Day 2: Berber camp", text: "Starry night and desert silence." },
+      3: { title: "Day 3: Oasis tracks", text: "Return via palm groves." }
+    }
+  },
+  "route_noruega": {
+    itinerary: {
+      1: { title: "Day 1: Bergen", text: "Bryggen wharf and mountain funicular." },
+      2: { title: "Day 2: Flåm Railway", text: "Scenic train and fjord cruise." },
+      3: { title: "Day 3: Geirangerfjord", text: "Viewpoints and waterfalls." }
+    }
+  },
+  "route_costarica": {
+    itinerary: {
+      1: { title: "Day 1: Monteverde", text: "Cloud forest canopy and trails." },
+      2: { title: "Day 2: Arenal", text: "Volcano vistas and hot springs." },
+      3: { title: "Day 3: Manuel Antonio", text: "Beach time and wildlife." }
+    }
+  },
+  "route_muralla_china": {
+    itinerary: {
+      1: { title: "Day 1: Mutianyu section", text: "Restored wall and cable car views." },
+      2: { title: "Day 2: Jinshanling section", text: "Wild stretches and ridge lines." },
+      3: { title: "Day 3: Village paths", text: "Local food and countryside." }
+    }
+  },
+  "route_ruta66": {
+    itinerary: {
+      1: { title: "Day 1: Chicago", text: "Neon, diners and blues." },
+      2: { title: "Day 2: Midwest", text: "Roadside nostalgia and motels." },
+      3: { title: "Day 3: Southwest", text: "Desert highways to LA." }
+    }
+  }
+};
+
+// Función para actualizar contenido de ruta según idioma
+window.refreshRouteContent = function() {
+  if (typeof initializeApp === 'function') {
+    initializeApp();
+  }
+};
+
 // ============================================
 // CARGAR DATOS
 // ============================================
@@ -919,10 +1092,18 @@ function loadData() {
     console.log('=== INICIANDO CARGA DE DATOS ===');
     routeData = EMBEDDED_ROUTE_DATA;
     userData = EMBEDDED_USER_DATA;
-    i18nRoute = EMBEDDED_ROUTE_I18N;
+    // Seleccionar i18n por idioma si la estructura tiene lenguajes
+    const lang = (localStorage.getItem('lang') || 'es');
+    if (EMBEDDED_ROUTE_I18N && (EMBEDDED_ROUTE_I18N.es || EMBEDDED_ROUTE_I18N.en)) {
+      // Estructura multilanguage: { es: {routeId: {...}}, en: {...} }
+      i18nRoute = EMBEDDED_ROUTE_I18N[lang] || EMBEDDED_ROUTE_I18N.es || {};
+    } else {
+      // Estructura simple: { routeId: {...} }
+      i18nRoute = EMBEDDED_ROUTE_I18N || {};
+    }
     console.log('routeData cargado:', routeData);
     console.log('userData cargado, usuarios:', Object.keys(userData).length);
-    console.log('i18nRoute cargado:', i18nRoute);
+    console.log('i18nRoute cargado (lang=', lang, '):', i18nRoute);
     console.log('=== DATOS CARGADOS EXITOSAMENTE ===');
     initializeApp();
   } catch (error) {
@@ -980,7 +1161,7 @@ function loadRouteData(routeId) {
   console.log('>>> loadRouteData:', routeId);
   
   const route = routeData[routeId];
-  const i18n = i18nRoute[routeId] || {};
+  let i18n = i18nRoute[routeId] || {};
 
   if (!route) {
     console.error(`Ruta no encontrada: ${routeId}`);
@@ -1001,15 +1182,21 @@ function loadRouteData(routeId) {
     }
   };
 
+  // Si el idioma es EN y existen traducciones básicas, fusionar
+  const lang = (localStorage.getItem('lang') || 'es');
+  if (lang === 'en' && ROUTE_BASIC_I18N_EN[routeId]) {
+    i18n = { ...i18n, ...ROUTE_BASIC_I18N_EN[routeId] };
+  }
+
   updateEl('breadcrumbTitle', i18n.title || route.title || 'Ruta');
   updateEl('routeTitle', i18n.title || route.title || '');
   updateEl('routeLocation', i18n.location || route.location || '');
   updateEl('routeRating', route.rating || '0');
-  updateEl('reviewsCount', (route.reviewsCount || 0).toLocaleString());
+  updateEl('reviewsCount', (route.reviewsCount || 0).toLocaleString(lang === 'en' ? 'en-US' : 'es-ES'));
   updateEl('routeDistance', route.distance || '0');
-  updateEl('routePrice', (route.priceFrom || 0).toLocaleString());
-  updateEl('routeTravelers', (route.travelers || 0).toLocaleString());
-  updateEl('routeFavorites', (route.favorites || 0).toLocaleString());
+  updateEl('routePrice', (route.priceFrom || 0).toLocaleString(lang === 'en' ? 'en-US' : 'es-ES'));
+  updateEl('routeTravelers', (route.travelers || 0).toLocaleString(lang === 'en' ? 'en-US' : 'es-ES'));
+  updateEl('routeFavorites', (route.favorites || 0).toLocaleString(lang === 'en' ? 'en-US' : 'es-ES'));
   updateEl('routeShortDescription', i18n.descShort || '');
   updateEl('routeDescription', i18n.descLong || '');
 }
@@ -1061,21 +1248,41 @@ function loadIncludes(routeId) {
   const includesGrid = document.getElementById('includesGrid');
   if (!includesGrid) return;
 
+  const lang = (localStorage.getItem('lang') || 'es');
+  const includesText = {
+    es: {
+      'guide': 'Guía profesional',
+      'transport': 'Transporte',
+      'meals': 'Comidas',
+      'camping-gear': 'Equipo camping',
+      'permits': 'Permisos',
+      'insurance': 'Seguro'
+    },
+    en: {
+      'guide': 'Professional guide',
+      'transport': 'Transport',
+      'meals': 'Meals',
+      'camping-gear': 'Camping gear',
+      'permits': 'Permits',
+      'insurance': 'Insurance'
+    }
+  };
   const icons = {
-    'guide': { icon: 'fa-person-hiking', text: 'Guía profesional' },
-    'transport': { icon: 'fa-car', text: 'Transporte' },
-    'meals': { icon: 'fa-utensils', text: 'Comidas' },
-    'camping-gear': { icon: 'fa-tent', text: 'Equipo camping' },
-    'permits': { icon: 'fa-ticket', text: 'Permisos' },
-    'insurance': { icon: 'fa-shield', text: 'Seguro' }
+    'guide': { icon: 'fa-person-hiking' },
+    'transport': { icon: 'fa-car' },
+    'meals': { icon: 'fa-utensils' },
+    'camping-gear': { icon: 'fa-tent' },
+    'permits': { icon: 'fa-ticket' },
+    'insurance': { icon: 'fa-shield' }
   };
 
   includesGrid.innerHTML = route.includes.map(item => {
-    const config = icons[item] || { icon: 'fa-check', text: item };
+    const config = icons[item] || { icon: 'fa-check' };
+    const text = (includesText[lang] && includesText[lang][item]) || item;
     return `
       <div class="include-item">
         <i class="fas ${config.icon}"></i>
-        <span>${config.text}</span>
+        <span>${text}</span>
       </div>
     `;
   }).join('');
@@ -1101,8 +1308,21 @@ function loadItinerary(routeId) {
     return;
   }
 
+  const lang = (localStorage.getItem('lang') || 'es');
+  // Fusionar itinerario EN básico si aplica
+  let i18nMerged = i18n;
+  if (lang === 'en' && ROUTE_ITINERARY_I18N_EN[routeId]) {
+    i18nMerged = {
+      ...i18n,
+      itinerary: {
+        ...(i18n.itinerary || {}),
+        ...(ROUTE_ITINERARY_I18N_EN[routeId].itinerary || {})
+      }
+    };
+  }
+
   container.innerHTML = route.itinerary.map(day => {
-    const dayData = i18n.itinerary?.[day.day] || {};
+    const dayData = i18nMerged.itinerary?.[day.day] || {};
     return `
       <div class="itinerary-day">
         <div class="day-header">
@@ -1113,7 +1333,7 @@ function loadItinerary(routeId) {
             <span><i class="fas fa-mountain"></i> ${day.altitude}m</span>
           </div>
         </div>
-        <p class="day-description">${dayData.text || 'Descripción disponible'}</p>
+        <p class="day-description">${dayData.text || (lang==='en' ? 'Description available' : 'Descripción disponible')}</p>
       </div>
     `;
   }).join('');
@@ -1290,7 +1510,12 @@ function loadWeatherData() {
   const weather = { temp: 18, description: "Parcialmente nublado", humidity: 65, windSpeed: 12, icon: "02d" };
 
   document.getElementById('temperature').textContent = weather.temp;
-  document.getElementById('weatherDescription').textContent = weather.description;
+  // Translate common weather descriptions via i18n if available
+  const lang = localStorage.getItem('lang') || (document.documentElement.getAttribute('lang') || 'es').toLowerCase();
+  const keyCandidate = `weather_${weather.description.toLowerCase()}`;
+  const i18n = (window.EMBEDDED_I18N && window.EMBEDDED_I18N[lang]) || {};
+  const translated = i18n[keyCandidate] || weather.description;
+  document.getElementById('weatherDescription').textContent = translated;
   document.getElementById('humidity').textContent = weather.humidity;
   document.getElementById('windSpeed').textContent = weather.windSpeed;
   document.getElementById('weatherIcon').src = `https://openweathermap.org/img/wn/${weather.icon}@2x.png`;

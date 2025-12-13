@@ -311,6 +311,36 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
             "local-guide": "Guía local",
             "permit-required": "Requiere permiso"
         },
+        
+        /* Detalle ruta - textos estáticos */
+        "tab_overview": "Descripción",
+        "tab_itinerary": "Itinerario",
+        "tab_map": "Mapa",
+        "tab_reviews": "Opiniones",
+        "overview_title": "Sobre esta ruta",
+        "includes_title": "¿Qué incluye?",
+        "requirements_title": "Requisitos y recomendaciones",
+        "elevation_title": "Perfil de elevación",
+        "reviews_load_more": "Cargar más opiniones",
+        "weather_title": "Clima actual",
+        "humidity_label": "% humedad",
+        "wind_label": " km/h",
+        "organizer_title": "Organizador",
+        "contact_btn": "Contactar",
+        "similar_routes_title": "Rutas similares",
+        
+        /* Detalle ruta - etiquetas dinámicas cerca de números */
+        "label_reviews": "opiniones",
+        "label_km": "km",
+        "label_travelers": "viajeros",
+        "label_favorites": "favoritos",
+        "price_from": "Desde",
+        "price_per_person": "por persona",
+        "book_now": "Reservar ahora",
+        "save_to_favorites": "Guardar en favoritos",
+        
+        /* Descripciones de clima comunes */
+        "weather_partly_cloudy": "Parcialmente nublado",
         "includes": {
             "guide": "Guía profesional",
             "transport": "Transporte incluido",
@@ -652,16 +682,49 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
         "transport_bus": "Bus",
         "transport_train": "Train",
         "transport_4x4": "4x4"
+        ,
+        /* Route detail - static texts */
+        "tab_overview": "Overview",
+        "tab_itinerary": "Itinerary",
+        "tab_map": "Map",
+        "tab_reviews": "Reviews",
+        "overview_title": "About this route",
+        "includes_title": "What’s included?",
+        "requirements_title": "Requirements and recommendations",
+        "elevation_title": "Elevation profile",
+        "reviews_load_more": "Load more reviews",
+        "weather_title": "Current weather",
+        "humidity_label": "% humidity",
+        "wind_label": " km/h",
+        "organizer_title": "Organizer",
+        "contact_btn": "Contact",
+        "similar_routes_title": "Similar routes",
+        
+        /* Route detail - dynamic labels near numbers */
+        "label_reviews": "reviews",
+        "label_km": "km",
+        "label_travelers": "travelers",
+        "label_favorites": "favorites",
+        "price_from": "From",
+        "price_per_person": "per person",
+        "book_now": "Book now",
+        "save_to_favorites": "Save to favorites",
+        
+        /* Weather common descriptions examples */
+        "weather_partly_cloudy": "Partly cloudy"
     }
 };
 
 window.EMBEDDED_I18N = EMBEDDED_I18N;
 
-let currentLang = localStorage.getItem('lang') || 'es';
+// Prefer document <html lang> when localStorage is unset
+const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+let currentLang = localStorage.getItem('lang') || (htmlLang === 'en' || htmlLang === 'es' ? htmlLang : 'es');
 let i18nData = EMBEDDED_I18N[currentLang] || EMBEDDED_I18N.es || {};
 
 function applyTranslations(lang = currentLang) {
     i18nData = EMBEDDED_I18N[lang] || EMBEDDED_I18N.es || {};
+    try { console.log('[i18n] Applying language:', lang); } catch {}
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
@@ -689,7 +752,17 @@ function applyTranslations(lang = currentLang) {
             if (typeof window.applyFilters === 'function') {
                 window.applyFilters();
             }
+            else {
+                if (typeof window.routesData !== 'undefined' && typeof renderRoutes === 'function') {
+                    renderRoutes(window.routesData);
+                }
+            }
         }
+    }
+
+    // Actualizar contenido de detalle de ruta si estamos en esa página
+    if (typeof window.refreshRouteContent === 'function' && document.querySelector('.route-detail-container')) {
+        window.refreshRouteContent();
     }
 
 }
@@ -702,12 +775,29 @@ function changeLanguage(lang) {
 
 const headerSelect = document.getElementById('idiomaHeader');
 const footerSelect = document.getElementById('idiomaFooter');
+// Detail page uses #idioma select in navbar
+const routeDetailSelect = document.getElementById('idioma');
 
 headerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
 footerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
+routeDetailSelect?.addEventListener('change', e => changeLanguage(e.target.value));
 
 document.addEventListener('DOMContentLoaded', () => {
+    // On first load, persist language from <html lang> if none is set
+    const stored = localStorage.getItem('lang');
+    const pageLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
+    if (!stored) {
+        const initialLang = (pageLang === 'en' || pageLang === 'es') ? pageLang : 'es';
+        localStorage.setItem('lang', initialLang);
+        currentLang = initialLang;
+    } else {
+        currentLang = stored;
+    }
+
+    // Sync dropdowns to current language
     if (headerSelect) headerSelect.value = currentLang;
     if (footerSelect) footerSelect.value = currentLang;
-    applyTranslations();
+    if (routeDetailSelect) routeDetailSelect.value = currentLang;
+
+    applyTranslations(currentLang);
 });
