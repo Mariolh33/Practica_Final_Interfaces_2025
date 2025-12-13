@@ -46,23 +46,17 @@
         <!-- Perfil en Navbar -->
         <div class="perfil-wrapper">
             <span id="nombreUsuario" class="nombre-usuario"></span>
-            
-            <!-- Botón Mi Cuenta (solo visible sin login) -->
             <button id="botonCuenta" class="btn btn-primary">
                 <i class="fas fa-user-circle"></i>
                 <span data-i18n="btn_my_account">Mi Cuenta</span>
             </button>
-            
-            <!-- Foto de perfil (solo visible con login) -->
             <img id="fotoPerfil" class="foto-perfil" src="img/default.png" style="display: none;">
-
             <div class="user-menu" id="userMenu">
                 <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
                 <button class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
                 <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
                 <button class="btn btn-secondary btn-block" data-i18n="profile_logout" onclick="cerrarSesion()">Cerrar sesión</button>
             </div>
-            
             <div class="user-menu-no-login" id="userMenuNoLogin">
                 <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_login">Iniciar sesión</button>
                 <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_register">Registrarse</button>
@@ -70,125 +64,7 @@
         </div>
     </nav>
 
-    <!-- Popups -->
-    <!-- Popup Gestionar Perfil -->
-    <div id="popupMiPerfil" class="popup profile-popup">
-        <div class="popup-content profile-popup-content">
-            <button id="closeProfile" class="close-popup-btn">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Mi Perfil</h2>
-            <div class="profile-form-wrapper">
-                <form id="profileForm" class="profile-form">
-                    <div class="profile-photo-section">
-                        <div class="profile-photo-container">
-                            <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
-                        </div>
-                        <div class="profile-photo-input">
-                            <label for="profilePhoto">Cambiar foto</label>
-                            <input type="file" id="profilePhoto" accept="image/*" style="display:none;">
-                        </div>
-                    </div>
-
-                    <div class="profile-field">
-                        <label for="profileNombre">Nombre</label>
-                        <input type="text" id="profileNombre" placeholder="Tu nombre" readonly>
-                    </div>
-
-                    <div class="profile-field">
-                        <label for="profileApellido">Apellido</label>
-                        <input type="text" id="profileApellido" placeholder="Tu apellido" readonly>
-                    </div>
-
-                    <div class="profile-field">
-                        <label for="profileEmail">Email</label>
-                        <input type="email" id="profileEmail" placeholder="tu@email.com" readonly>
-                    </div>
-
-                    <div class="profile-field">
-                        <label for="profileUsername">Nombre de Usuario</label>
-                        <input type="text" id="profileUsername" placeholder="Tu usuario" readonly>
-                    </div>
-
-                    <div class="profile-field">
-                        <label for="profilePassword">Cambiar contraseña (opcional)</label>
-                        <input type="password" id="profilePassword" placeholder="Nueva contraseña (dejar en blanco para no cambiar)" readonly>
-                    </div>
-
-                    <div id="profileMessage" class="profile-message"></div>
-
-                    <div class="profile-actions">
-                        <button type="button" id="btnEditProfile" class="btn btn-primary">Editar</button>
-                        <button type="submit" id="btnSaveProfile" class="btn btn-primary" style="display:none;">Guardar cambios</button>
-                        <button type="button" id="btnCancelEdit" class="btn btn-secondary" style="display:none;">Cancelar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Popup Amigos -->
-    <div id="popupFriends" class="popup friends-popup" aria-hidden="true">
-        <div class="popup-content friends-popup-content">
-            <div class="friends-left">
-                <div class="friends-header">
-                    <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
-                    </div>
-                </div>
-
-                <div id="friendsPanels" class="friends-panels">
-                    <div id="panel-friends" class="panel panel-active" role="tabpanel">
-                        <ul id="friendsList" class="friends-list"></ul>
-                    </div>
-
-                    <div id="panel-add" class="panel" role="tabpanel" aria-hidden="true">
-                        <form id="addFriendForm" class="add-friend-panel">
-                            <label for="newFriendUsername">Nombre de usuario (username)</label>
-                            <input id="newFriendUsername" name="username" class="form-input" placeholder="Ej. Usuario123" required>
-                            <button type="submit" class="btn btn-primary btn-block">Añadir amigo</button>
-                            <div id="addFriendError" class="error-msg" aria-live="polite"></div>
-                        </form>
-                    </div>
-
-                    <div id="panel-online" class="panel" role="tabpanel" aria-hidden="true">
-                        <ul id="onlineList" class="friends-list online-list"></ul>
-                    </div>
-                </div>
-            </div>
-            <div class="chat-panel">
-                <div id="chatHeader" class="chat-header">Selecciona un amigo para chatear</div>
-                <div id="messages" class="messages" aria-live="polite"></div>
-                <div class="chat-input-row">
-                    <input id="chatInput" class="chat-input" placeholder="Escribe un mensaje...">
-                    <button id="chatSend" class="btn btn-primary">Enviar</button>
-                </div>
-            </div>
-            <button id="closeFriends" class="btn btn-ghost" aria-label="Cerrar">×</button>
-        </div>
-    </div>
-
-    <!-- Popup Confirmar eliminación de amigo -->
-    <div id="popupEliminarAmigo" class="popup">
-        <div class="popup-content">
-            <p id="eliminarAmigoMsg">¿Eliminar a este amigo?</p>
-            <button id="confirmarEliminarAmigo" class="btn btn-primary">Sí, eliminar</button>
-            <button id="cancelarEliminarAmigo" class="btn btn-secondary">Cancelar</button>
-        </div>
-    </div>
-
-    <!-- Popup cerrar sesión -->
-            <div id="popupCerrarSesion" class="popup">
-                <div class="popup-content">
-                    <p>¿Estás seguro de que quieres cerrar sesión?</p>
-                    <button id="confirmarCerrar" class="btn btn-primary">Sí, cerrar sesión</button>
-                    <button id="cancelarCerrar" class="btn btn-secondary">Cancelar</button>
-                </div>
-            </div>
-
     <main class="blog-main">
-        <!-- Header del blog -->
         <section class="blog-header">
             <div class="blog-header-content">
                 <h1 data-i18n="blog_title">Blog de Viajeros</h1>
@@ -197,274 +73,48 @@
         </section>
 
         <div class="blog-container">
-            <!-- Artículo destacado -->
-            <div class="featured-article">
-                <div class="featured-image">
-                    <img src="images/machu-picchu.jpg" alt="Artículo destacado">
-                    <span class="badge badge-warning featured-badge" data-i18n="featured_badge">Destacado</span>
-                </div>
-                <div class="featured-content">
-                    <div class="article-meta">
-                        <span class="article-category" data-i18n="featured_category">Guías de viaje</span>
-                        <span class="article-date"><i class="fas fa-calendar"></i> 20 Nov 2025</span>
-                        <span class="article-read-time"><i class="fas fa-clock"></i> 10 min</span>
-                    </div>
-                    <h2 data-i18n="featured_title">Guía completa para hacer el Camino Inca: Todo lo que necesitas saber</h2>
-                    <p data-i18n="featured_excerpt">Descubre todos los secretos del trek más famoso de Sudamérica. Desde cómo conseguir permisos hasta qué llevar en tu mochila y cómo prepararte físicamente para la aventura de tu vida.</p>
-                    <div class="article-footer">
-                        <div class="author-info">
-                            <div class="author-avatar">MG</div>
-                            <div>
-                                <div class="author-name">María González</div>
-                                <div class="author-role" data-i18n="author_role">Viajera frecuente</div>
-                            </div>
-                        </div>
-                        <a href="#" class="btn btn-primary" data-i18n="read_more">Leer más <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
+            <!-- Grid de artículos generado por JS -->
             <div class="blog-content-wrapper">
-                <!-- Grid de artículos -->
-                <div class="articles-grid">
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/patagonia.jpg" alt="Patagonia">
-                            <span class="badge badge-info" data-i18n="badge_tips">Consejos</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 18 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 6 min</span>
-                            </div>
-                            <h3 data-i18n="card1_title">10 consejos para viajar barato por Sudamérica</h3>
-                            <p data-i18n="card1_excerpt">Aprende a estirar tu presupuesto al máximo sin sacrificar experiencias increíbles en tu viaje por Sudamérica.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">CR</span>
-                                    <span>Carlos R.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card1_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/islandia.jpg" alt="Islandia">
-                            <span class="badge badge-success" data-i18n="badge_destinations">Destinos</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 15 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 8 min</span>
-                            </div>
-                            <h3 data-i18n="card2_title">Islandia en invierno: La guía definitiva</h3>
-                            <p data-i18n="card2_excerpt">Todo lo que necesitas saber para disfrutar de auroras boreales, glaciares y aguas termales en la tierra del hielo y el fuego.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">AM</span>
-                                    <span>Ana M.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card2_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/annapurna.jpg" alt="Nepal">
-                            <span class="badge badge-error" data-i18n="badge_experiences">Experiencias</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 12 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 12 min</span>
-                            </div>
-                            <h3 data-i18n="card3_title">Mi experiencia en el Circuito Annapurna</h3>
-                            <p data-i18n="card3_excerpt">Un relato personal de 15 días caminando por el Himalaya, superando desafíos y viviendo momentos inolvidables.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">JL</span>
-                                    <span>Jorge L.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card3_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/sahara.jpg" alt="Desierto">
-                            <span class="badge badge-warning" data-i18n="badge_guides">Guías</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 10 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 7 min</span>
-                            </div>
-                            <h3 data-i18n="card4_title">Qué llevar en tu mochila para el desierto</h3>
-                            <p data-i18n="card4_excerpt">La lista definitiva de equipo esencial para sobrevivir y disfrutar de una aventura en el desierto del Sahara.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">LF</span>
-                                    <span>Laura F.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card4_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/costa-rica.jpg" alt="Costa Rica">
-                            <span class="badge badge-success" data-i18n="badge_destinations">Destinos</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 8 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 9 min</span>
-                            </div>
-                            <h3 data-i18n="card5_title">Costa Rica: Naturaleza y aventura</h3>
-                            <p data-i18n="card5_excerpt">Los mejores parques nacionales, playas escondidas y actividades de aventura en el paraíso centroamericano.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">MG</span>
-                                    <span>María G.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card5_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <div class="blog-card-image">
-                            <img src="images/noruega.jpg" alt="Noruega">
-                            <span class="badge badge-info" data-i18n="badge_tips">Consejos</span>
-                        </div>
-                        <div class="blog-card-content">
-                            <div class="article-meta">
-                                <span class="article-date"><i class="fas fa-calendar"></i> 5 Nov</span>
-                                <span class="article-read-time"><i class="fas fa-clock"></i> 5 min</span>
-                            </div>
-                            <h3 data-i18n="card6_title">Viajar por Noruega sin arruinarte</h3>
-                            <p data-i18n="card6_excerpt">Estrategias comprobadas para disfrutar de uno de los países más caros del mundo con presupuesto mochilero.</p>
-                            <div class="blog-card-footer">
-                                <div class="author-mini">
-                                    <span class="author-avatar-sm">CR</span>
-                                    <span>Carlos R.</span>
-                                </div>
-                                <a href="#" class="btn-text" data-i18n="card6_read_more">Leer más →</a>
-                            </div>
-                        </div>
-                    </article>
+                <div class="articles-grid" id="articlesGrid">
+                    <!-- Aquí se insertarán los artículos dinámicamente -->
                 </div>
 
                 <!-- Sidebar -->
                 <aside class="blog-sidebar">
-                    <!-- Categorías -->
                     <div class="widget">
                         <h3><i class="fas fa-folder"></i> <span data-i18n="widget_categories">Categorías</span></h3>
-                        <div class="categories-list">
-                            <a href="#" class="category-item">
-                                <span data-i18n="cat_guides">Guías de viaje</span>
-                                <span class="category-count">24</span>
-                            </a>
-                            <a href="#" class="category-item">
-                                <span data-i18n="cat_tips">Consejos</span>
-                                <span class="category-count">18</span>
-                            </a>
-                            <a href="#" class="category-item">
-                                <span data-i18n="cat_experiences">Experiencias</span>
-                                <span class="category-count">32</span>
-                            </a>
-                            <a href="#" class="category-item">
-                                <span data-i18n="cat_destinations">Destinos</span>
-                                <span class="category-count">41</span>
-                            </a>
-                            <a href="#" class="category-item">
-                                <span data-i18n="cat_equipment">Equipamiento</span>
-                                <span class="category-count">15</span>
-                            </a>
+                        <div class="categories-list" id="categoriesList">
+                            <!-- Categorías dinámicas -->
                         </div>
                     </div>
 
-                    <!-- Artículos populares -->
-                    <div class="widget">
-                        <h3><i class="fas fa-fire"></i> <span data-i18n="widget_popular">Más leídos</span></h3>
-                        <div class="popular-posts">
-                            <a href="#" class="popular-post">
-                                <img src="images/machu-picchu.jpg" alt="Popular 1">
-                                <div>
-                                    <h4 data-i18n="pop1_title">Camino Inca: Guía completa</h4>
-                                    <span class="post-views"><i class="fas fa-eye"></i> 12.4K</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-post">
-                                <img src="images/balcanes.jpg" alt="Popular 2">
-                                <div>
-                                    <h4 data-i18n="pop2_title">Ruta por los Balcanes</h4>
-                                    <span class="post-views"><i class="fas fa-eye"></i> 9.8K</span>
-                                </div>
-                            </a>
-                            <a href="#" class="popular-post">
-                                <img src="images/serengeti.jpg" alt="Popular 3">
-                                <div>
-                                    <h4 data-i18n="pop3_title">Safari en Tanzania</h4>
-                                    <span class="post-views"><i class="fas fa-eye"></i> 8.2K</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Newsletter -->
-                    <div class="widget widget-cta">
-                        <h3><i class="fas fa-envelope"></i> <span data-i18n="widget_newsletter_title">Newsletter</span></h3>
-                        <p data-i18n="widget_newsletter_text">Recibe los mejores consejos de viaje directamente en tu email</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Tu email" required data-i18n="newsletter_placeholder">
-                            <button type="submit" class="btn btn-primary btn-block" data-i18n="newsletter_subscribe">
-                                <i class="fas fa-paper-plane"></i> Suscribirme
-                            </button>
-                         </form>
-                    </div>
-
-                    <!-- Tags -->
                     <div class="widget">
                         <h3><i class="fas fa-tags"></i> <span data-i18n="widget_tags">Tags populares</span></h3>
-                        <div class="tags-cloud">
-                            <a href="#" class="tag" data-i18n="tag_backpacker">Mochilero</a>
-                            <a href="#" class="tag" data-i18n="tag_south_america">Sudamérica</a>
-                            <a href="#" class="tag" data-i18n="tag_asia">Asia</a>
-                            <a href="#" class="tag" data-i18n="tag_trekking">Trekking</a>
-                            <a href="#" class="tag" data-i18n="tag_budget">Presupuesto</a>
-                            <a href="#" class="tag" data-i18n="tag_europe">Europa</a>
-                            <a href="#" class="tag" data-i18n="tag_camping">Camping</a>
-                            <a href="#" class="tag" data-i18n="tag_mountain">Montaña</a>
-                            <a href="#" class="tag" data-i18n="tag_africa">África</a>
-                            <a href="#" class="tag" data-i18n="tag_tips">Consejos</a>
+                        <div class="tags-cloud" id="tagsCloud">
+                            <!-- Tags dinámicos -->
                         </div>
                     </div>
                 </aside>
             </div>
 
             <!-- Paginación -->
-            <div class="pagination">
-                <a href="#" class="pagination-prev disabled" data-i18n="pagination_prev">
-                    <i class="fas fa-chevron-left"></i> Anterior
-                </a>
-                <a href="#" class="pagination-number active">1</a>
-                <a href="#" class="pagination-number">2</a>
-                <a href="#" class="pagination-number">3</a>
-                <a href="#" class="pagination-number">4</a>
-                <a href="#" class="pagination-more">...</a>
-                <a href="#" class="pagination-number">12</a>
-                <a href="#" class="pagination-next" data-i18n="pagination_next">
-                    Siguiente <i class="fas fa-chevron-right"></i>
-                </a>
+            <div class="pagination" id="pagination">
+                <!-- Paginación generada por JS -->
             </div>
         </div>
     </main>
+
+    <!-- Modal para ver tema detallado -->
+    <div id="temaModal" class="modal">
+        <div class="modal-content tema-modal-content">
+            <button class="close-modal-btn">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <!-- El contenido del tema se cargará aquí -->
+            </div>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="footer-content">
@@ -517,8 +167,10 @@
             <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
         </div>
     </footer>
-</footer>
-<script src="script/profile.js"></script>
 
+    <!-- Scripts -->
+    <script src="script/profile.js"></script>
+    <script src="data/blog.js"></script>
+    <script src="script/blog.js" defer></script>
 </body>
 </html>

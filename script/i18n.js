@@ -536,6 +536,11 @@ function applyTranslations(lang = currentLang) {
     if (window.carousel && typeof window.carousel.update === 'function') {
         window.carousel.update();
     }
+
+    if (typeof renderArticles === 'function' && document.querySelector('.blog-main')) {
+    renderArticles();
+}
+
 }
 
 function changeLanguage(lang) {

@@ -99,6 +99,7 @@
   margin-bottom: 20px;
   font-size: 0.875rem;
   color: var(--gray-medium);
+  margin-top: 20px;
 }
 
 .article-category {
@@ -542,4 +543,141 @@
   .blog-card-content h3 {
     font-size: 1.125rem;
   }
+}
+
+
+/* ===========================
+   MODAL DE TEMA
+=========================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--gray-dark);
+  z-index: 1001;
+  transition: color 0.3s;
+}
+
+.close-modal-btn:hover {
+  color: var(--navy-dark);
+}
+
+.modal-body {
+  padding: 40px;
+}
+
+.tema-detalle-header {
+  margin-bottom: 32px;
+  border-bottom: 2px solid var(--gray-light);
+  padding-bottom: 24px;
+}
+
+.tema-detalle-title {
+  font-size: 2rem;
+  color: var(--navy-dark);
+  margin: 0 0 16px 0;
+  font-weight: 700;
+}
+
+.tema-detalle-meta {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.tema-detalle-autor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tema-detalle-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--navy-bright);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.tema-detalle-autor-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tema-detalle-autor-nombre {
+  font-weight: 600;
+  color: var(--navy-dark);
+}
+
+.tema-detalle-autor-fecha {
+  font-size: 0.85rem;
+  color: var(--gray-medium);
+}
+
+.tema-detalle-content {
+  color: var(--gray-dark);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
