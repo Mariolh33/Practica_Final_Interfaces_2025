@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="script/versionb.js"></script>
     <script src="script/friends.js"></script>
+    <script src="script/i18n.js" defer></script>
 </head>
 <body>
     <nav class="navbar">
@@ -29,7 +30,7 @@
             <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
             <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
             <li>
-                <select name="idioma" id="idioma">
+                <select name="idioma" id="idiomaHeader">
                     <option value="es">🇪🇸 Español</option>
                     <option value="en">🇬🇧 English</option>
                 </select>
@@ -190,13 +191,13 @@
         <!-- Hero de búsqueda -->
         <section class="search-hero">
             <div class="search-hero-content">
-                <h1>Encuentra tu próxima aventura</h1>
-                <p>Descubre rutas y destinos increíbles para mochileros de todo el mundo</p>
+                <h1 data-i18n="search_title">Encuentra tu próxima aventura</h1>
+                <p data-i18n="search_subtitle">Descubre rutas y destinos increíbles para mochileros de todo el mundo</p>
                 
                 <div class="search-bar-main">
                     <div class="search-input-wrapper">
                         <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="Buscar destino, país, tipo de ruta...">
+                        <input type="text" id="searchInput" placeholder="Buscar destino, país, tipo de ruta..." data-i18n-placeholder="search_placeholder">
                     </div>
                     <button class="btn btn-primary btn-lg" id="searchBtn">
                         <i class="fas fa-search"></i>
@@ -220,7 +221,7 @@
             <!-- Sidebar de filtros -->
             <aside class="filters-sidebar" id="filtersSidebar">
                 <div class="filters-header">
-                    <h3><i class="fas fa-filter"></i> Filtros</h3>
+                    <h3><i class="fas fa-filter"></i> <span data-i18n="filters_title">Filtros</span></h3>
                     <button class="btn-ghost btn-sm" id="clearFilters">
                         <i class="fas fa-redo"></i> Limpiar
                     </button>
@@ -228,57 +229,57 @@
 
                 <!-- Duración -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Duración</h4>
+                    <h4 class="filter-title" data-i18n="filter_duration">Duración</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="1-3-dias">
-                            <span>1-3 días</span>
+                            <span data-i18n="filter_duration_1_3_days">1-3 días</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="4-dias">
-                            <span>4 días</span>
+                            <span data-i18n="filter_duration_4_days">4 días</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="1-semana">
-                            <span>1 semana</span>
+                            <span data-i18n="filter_duration_1_week">1 semana</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="10-dias">
-                            <span>10 días</span>
+                            <span data-i18n="filter_duration_10_days">10 días</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="2-semanas">
-                            <span>2 semanas</span>
+                            <span data-i18n="filter_duration_2_weeks">2 semanas</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="duration" value="3-semanas">
-                            <span>3+ semanas</span>
+                            <span data-i18n="filter_duration_3_weeks">3+ semanas</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Dificultad -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Dificultad</h4>
+                    <h4 class="filter-title" data-i18n="filter_difficulty">Dificultad</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="facil">
-                            <span>🟢 Fácil</span>
+                            <span data-i18n="filter_difficulty_easy">🟢 Fácil</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="moderado">
-                            <span>🟡 Moderado</span>
+                            <span data-i18n="filter_difficulty_moderate">🟡 Moderado</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="difficulty" value="dificil">
-                            <span>🔴 Difícil</span>
+                            <span data-i18n="filter_difficulty_hard">🔴 Difícil</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Presupuesto -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Presupuesto total</h4>
+                    <h4 class="filter-title" data-i18n="filter_budget">Presupuesto total</h4>
                     <div class="filter-range">
                         <input type="range" id="budgetSlider" min="0" max="3000" value="3000" step="100" class="range-slider">
                         <div class="range-values">
@@ -290,88 +291,88 @@
 
                 <!-- Distancia -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Distancia total</h4>
+                    <h4 class="filter-title" data-i18n="filter_distance">Distancia total</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="distance" value="0-50">
-                            <span>0-50 km</span>
+                            <span data-i18n="filter_distance_0_50">0-50 km</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="distance" value="50-200">
-                            <span>50-200 km</span>
+                            <span data-i18n="filter_distance_50_200">50-200 km</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="distance" value="200-500">
-                            <span>200-500 km</span>
+                            <span data-i18n="filter_distance_200_500">200-500 km</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="distance" value="500+">
-                            <span>500+ km</span>
+                            <span data-i18n="filter_distance_500">500+ km</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Tipo de transporte -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Tipo de transporte</h4>
+                    <h4 class="filter-title" data-i18n="filter_transport">Tipo de transporte</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="a-pie">
-                            <span>🚶 A pie</span>
+                            <span data-i18n="filter_transport_walking">🚶 A pie</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="bicicleta">
-                            <span>🚴 Bicicleta</span>
+                            <span data-i18n="filter_transport_bicycle">🚴 Bicicleta</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="bus">
-                            <span>🚌 Bus</span>
+                            <span data-i18n="filter_transport_bus">🚌 Bus</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="coche">
-                            <span>🚗 Coche</span>
+                            <span data-i18n="filter_transport_car">🚗 Coche</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="tren">
-                            <span>🚂 Tren</span>
+                            <span data-i18n="filter_transport_train">🚂 Tren</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="transport" value="4x4">
-                            <span>🚙 4x4</span>
+                            <span data-i18n="filter_transport_4x4">🚙 4x4</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Continente -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Continente</h4>
+                    <h4 class="filter-title" data-i18n="filter_continent">Continente</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="continent" value="europa">
-                            <span>🌍 Europa</span>
+                            <span data-i18n="filter_continent_europe">🌍 Europa</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="continent" value="asia">
-                            <span>🌏 Asia</span>
+                            <span data-i18n="filter_continent_asia">🌏 Asia</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="continent" value="africa">
-                            <span>🌍 África</span>
+                            <span data-i18n="filter_continent_africa">🌍 África</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="continent" value="america">
-                            <span>🌎 América</span>
+                            <span data-i18n="filter_continent_america">🌎 América</span>
                         </label>
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="continent" value="oceania">
-                            <span>🌏 Oceanía</span>
+                            <span data-i18n="filter_continent_oceania">🌏 Oceanía</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Características -->
                 <div class="filter-group">
-                    <h4 class="filter-title">Características</h4>
+                    <h4 class="filter-title" data-i18n="filter_features">Características</h4>
                     <div class="filter-options">
                         <label class="form-checkbox">
                             <input type="checkbox" class="filter-checkbox" data-filter="features" value="guia-local">
@@ -402,19 +403,19 @@
                 <!-- Header de resultados -->
                 <div class="results-header">
                     <div class="results-info">
-                        <h2><span id="resultsCount">12</span> rutas encontradas</h2>
+                        <h2><span id="resultsCount">12</span> <span data-i18n="results_found">rutas encontradas</span></h2>
                         <button class="btn-ghost mobile-filter-btn">
                             <i class="fas fa-filter"></i> Filtros
                         </button>
                     </div>
                     <div class="results-sort">
-                        <label for="sortSelect">Ordenar por:</label>
+                        <label for="sortSelect" data-i18n="sort_label">Ordenar por:</label>
                         <select id="sortSelect" class="form-select">
-                            <option value="relevancia">Más relevantes</option>
-                            <option value="valoracion">Mejor valoradas</option>
-                            <option value="popularidad">Más populares</option>
-                            <option value="precio-asc">Precio: Bajo a Alto</option>
-                            <option value="precio-desc">Precio: Alto a Bajo</option>
+                            <option value="relevancia" data-i18n="sort_relevance">Más relevantes</option>
+                            <option value="valoracion" data-i18n="sort_rating">Mejor valoradas</option>
+                            <option value="popularidad" data-i18n="sort_popularity">Más populares</option>
+                            <option value="precio-asc" data-i18n="sort_price_asc">Precio: Bajo a Alto</option>
+                            <option value="precio-desc" data-i18n="sort_price_desc">Precio: Alto a Bajo</option>
                         </select>
                     </div>
                 </div>
@@ -757,7 +758,7 @@
                     <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
                     <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
                     <li>
-                        <select name="idioma" id="idioma">
+                        <select name="idioma" id="idiomaFooter">
                             <option value="es">🇪🇸 Español</option>
                             <option value="en">🇬🇧 English</option>
                         </select>
@@ -779,7 +780,8 @@
         </div>
     </footer>
 
-    <script src="script/buscar.js"></script>
+    <script src="script/i18n.js" defer></script>
+    <script src="script/buscar.js" defer></script>
     <script src="script/nav.js"></script>
     <script src="script/profile.js"></script>
 

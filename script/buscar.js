@@ -4,9 +4,18 @@
 ========================================== */
 
 // ===========================
+// FUNCIÓN DE TRADUCCIÓN
+// ===========================
+function getTranslation(key) {
+  const currentLang = localStorage.getItem('lang') || 'es';
+  const translations = window.EMBEDDED_I18N?.[currentLang] || window.EMBEDDED_I18N?.es || {};
+  return translations[key] || key;
+}
+
+// ===========================
 // DATOS DE EJEMPLO (mock data)
 // ===========================
-const routesData = [
+const routesDataES = [
   {
     id: "route_caminoinca",
     title: "Camino Inca a Machu Picchu",
@@ -201,6 +210,222 @@ const routesData = [
   }
 ];
 
+// DATOS EN INGLÉS
+const routesDataEN = [
+  {
+    id: "route_caminoinca",
+    title: "Inca Trail to Machu Picchu",
+    location: "Cusco, Peru",
+    rating: 4.9,
+    reviews: 2847,
+    difficulty: "dificil",
+    duration: "4-dias",
+    budget: 450,
+    distance: 43,
+    transport: "a-pie",
+    continent: "america",
+    image: "images/machu-picchu.jpg",
+    description: "A unique experience walking in the footsteps of the ancient Incas. Spectacular landscapes, archaeological ruins and an unforgettable sunrise.",
+    features: ["guia-local", "camping"]
+  },
+  {
+    id: "route_balcanes",
+    title: "Balkans Route",
+    location: "Eastern Europe",
+    rating: 4.7,
+    reviews: 1923,
+    difficulty: "moderado",
+    duration: "2-semanas",
+    budget: 800,
+    distance: 1200,
+    transport: "bus",
+    continent: "europa",
+    image: "images/balcanes.jpg",
+    description: "Discover the beauty of the Balkans visiting Bosnia, Croatia, Montenegro and Albania. Beaches, mountains and ancient culture in one route.",
+    features: ["transporte", "hostel"]
+  },
+  {
+    id: "route_serengeti",
+    title: "Serengeti and Ngorongoro Safari",
+    location: "Tanzania",
+    rating: 4.8,
+    reviews: 1567,
+    difficulty: "facil",
+    duration: "1-semana",
+    budget: 1200,
+    distance: 450,
+    transport: "4x4",
+    continent: "africa",
+    image: "images/serengeti.jpg",
+    description: "Watch the great migration and the Big Five in Africa's most famous national parks. Includes lodging at lodges.",
+    features: ["guia-local", "hotel"]
+  },
+  {
+    id: "route_annapurna",
+    title: "Annapurna Circuit",
+    location: "Nepal",
+    rating: 4.9,
+    reviews: 3201,
+    difficulty: "dificil",
+    duration: "2-semanas",
+    budget: 600,
+    distance: 230,
+    transport: "a-pie",
+    continent: "asia",
+    image: "images/annapurna.jpg",
+    description: "One of the world's most spectacular treks. Cross the Thorong La pass at 5,416m and enjoy incredible views of the Himalayas.",
+    features: ["guia-local", "camping", "hostel"]
+  },
+  {
+    id: "route_islandia",
+    title: "Iceland Ring Road",
+    location: "Iceland",
+    rating: 4.6,
+    reviews: 2134,
+    difficulty: "facil",
+    duration: "10-dias",
+    budget: 1500,
+    distance: 1400,
+    transport: "coche",
+    continent: "europa",
+    image: "images/islandia.jpg",
+    description: "Drive the Ring Road discovering waterfalls, glaciers, northern lights and thermal springs. Nature at its purest.",
+    features: ["transporte", "hotel"]
+  },
+  {
+    id: "route_patagonia",
+    title: "Argentine Patagonia",
+    location: "Argentina",
+    rating: 4.8,
+    reviews: 1876,
+    difficulty: "moderado",
+    duration: "10-dias",
+    budget: 950,
+    distance: 600,
+    transport: "bus",
+    continent: "america",
+    image: "images/patagonia.jpg",
+    description: "Explore El Chaltén, Perito Moreno and Torres del Paine. Mountains, glaciers and turquoise lakes await you at the end of the world.",
+    features: ["guia-local", "hostel", "camping"]
+  },
+  {
+    id: "route_angkor",
+    title: "Angkor Wat Temples",
+    location: "Cambodia",
+    rating: 4.7,
+    reviews: 2456,
+    difficulty: "facil",
+    duration: "3-dias",
+    budget: 250,
+    distance: 80,
+    transport: "bicicleta",
+    continent: "asia",
+    image: "images/angkor.jpeg",
+    description: "Discover the ancient temples of Angkor by bicycle. Sunrise at Angkor Wat and exploration of hidden temples in the jungle.",
+    features: ["guia-local", "hostel"]
+  },
+  {
+    id: "route_sahara",
+    title: "Sahara Desert",
+    location: "Morocco",
+    rating: 4.5,
+    reviews: 1234,
+    difficulty: "moderado",
+    duration: "4-dias",
+    budget: 400,
+    distance: 300,
+    transport: "4x4",
+    continent: "africa",
+    image: "images/sahara.jpg",
+    description: "Adventure in the Erg Chebbi dunes. Night under the stars in a Berber camp and camel ride at sunset.",
+    features: ["guia-local", "camping"]
+  },
+  {
+    id: "route_noruega",
+    title: "Norwegian Fjords",
+    location: "Norway",
+    rating: 4.8,
+    reviews: 2567,
+    difficulty: "moderado",
+    duration: "1-semana",
+    budget: 1100,
+    distance: 500,
+    transport: "coche",
+    continent: "europa",
+    image: "images/noruega.jpg",
+    description: "Navigate through dramatic fjords, see the northern lights and discover charming Norwegian villages.",
+    features: ["transporte", "hotel"]
+  },
+  {
+    id: "route_costarica",
+    title: "Costa Rica Adventure",
+    location: "Costa Rica",
+    rating: 4.6,
+    reviews: 1956,
+    difficulty: "moderado",
+    duration: "2-semanas",
+    budget: 850,
+    distance: 320,
+    transport: "4x4",
+    continent: "america",
+    image: "images/costa-rica.jpg",
+    description: "Explore rainforests, volcanoes, wildlife and pristine beaches. A perfect destination for adventure seekers.",
+    features: ["guia-local", "camping", "hostel"]
+  },
+  {
+    id: "route_muralla_china",
+    title: "Great Wall of China",
+    location: "China",
+    rating: 4.5,
+    reviews: 2789,
+    difficulty: "moderado",
+    duration: "3-dias",
+    budget: 350,
+    distance: 70,
+    transport: "a-pie",
+    continent: "asia",
+    image: "images/muralla-china.jpg",
+    description: "Walk along restored and wild sections of the Great Wall. Ancient history and breathtaking views.",
+    features: ["guia-local", "hotel"]
+  },
+  {
+    id: "route_ruta66",
+    title: "Route 66",
+    location: "USA",
+    rating: 4.4,
+    reviews: 1456,
+    difficulty: "facil",
+    duration: "2-semanas",
+    budget: 2000,
+    distance: 3940,
+    transport: "coche",
+    continent: "america",
+    image: "images/ruta66.jpg",
+    description: "From Chicago to Los Angeles on the Mother Road. Abandoned towns, diners and iconic landscapes.",
+    features: ["transporte", "hotel"]
+  }
+];
+
+// Función para obtener datos según idioma
+function getRoutesByLanguage() {
+  const lang = localStorage.getItem('lang') || 'es';
+  return lang === 'en' ? routesDataEN : routesDataES;
+}
+
+// Función para actualizar los datos de rutas según idioma (modifica la variable local)
+let routesData;
+function updateRoutesData() {
+  routesData = getRoutesByLanguage();
+  window.routesData = routesData;
+  filteredRoutes = [...routesData];
+  return routesData;
+}
+
+// Inicializar routesData
+routesData = getRoutesByLanguage();
+window.getRoutesByLanguage = getRoutesByLanguage;
+window.updateRoutesData = updateRoutesData;
+
 // ===========================
 // ESTADO DE FILTROS
 // ===========================
@@ -217,6 +442,11 @@ let currentFilters = {
 
 let currentSort = 'relevancia';
 let filteredRoutes = [...routesData];
+
+// Exponemos filteredRoutes y routesData a window para que i18n.js pueda acceder
+window.filteredRoutes = filteredRoutes;
+window.routesData = routesData;
+window.currentFilters = currentFilters;
 
 // ===========================
 // INICIALIZACIÓN
@@ -458,7 +688,11 @@ function applyFilters() {
 
   sortRoutes();
   updateResultsCount(filteredRoutes.length);
+  window.filteredRoutes = filteredRoutes;
 }
+
+// Exponer applyFilters a window
+window.applyFilters = applyFilters;
 
 // ===========================
 // RENDERIZADO DE RUTAS
@@ -471,10 +705,10 @@ function renderRoutes(routes) {
     grid.innerHTML = `
       <div style="grid-column: 1/-1; text-align: center; padding: 60px 20px;">
         <i class="fas fa-search" style="font-size: 4rem; color: var(--gray-medium); margin-bottom: 20px;"></i>
-        <h3 style="color: var(--navy-dark); margin-bottom: 12px;">No se encontraron rutas</h3>
-        <p style="color: var(--gray-dark); margin-bottom: 24px;">Intenta ajustar los filtros o realizar una búsqueda diferente</p>
+        <h3 style="color: var(--navy-dark); margin-bottom: 12px;">${getTranslation('routes_not_found_title')}</h3>
+        <p style="color: var(--gray-dark); margin-bottom: 24px;">${getTranslation('routes_not_found_subtitle')}</p>
         <button class="btn btn-primary" onclick="clearAllFilters()">
-          <i class="fas fa-redo"></i> Limpiar filtros
+          <i class="fas fa-redo"></i> ${getTranslation('filter_clear')}
         </button>
       </div>
     `;
@@ -513,7 +747,7 @@ function renderRoutes(routes) {
           </div>
           <div class="route-meta-item">
             <i class="fas fa-users"></i>
-            <span>${route.reviews.toLocaleString()} viajeros</span>
+            <span>${route.reviews.toLocaleString()} ${getTranslation('route_card_travelers')}</span>
           </div>
           <div class="route-meta-item">
             <i class="fas fa-${getTransportIcon(route.transport)}"></i>
@@ -522,12 +756,12 @@ function renderRoutes(routes) {
         </div>
         <div class="route-footer">
           <div class="route-price">
-            <span class="price-from">Desde</span>
+            <span class="price-from">${getTranslation('route_card_from')}</span>
             <span class="price-amount">€${route.budget}</span>
-            <span class="price-unit">/ persona</span>
+            <span class="price-unit">${getTranslation('route_card_per_person')}</span>
           </div>
           <a href="detalle-ruta.html?id=${route.id}" class="btn btn-primary">
-            <i class="fas fa-info-circle"></i> Ver detalles
+            <i class="fas fa-info-circle"></i> ${getTranslation('route_card_view_details')}
           </a>
         </div>
       </div>
@@ -549,23 +783,23 @@ function getDifficultyColor(difficulty) {
 
 function getDifficultyLabel(difficulty) {
   const labels = {
-    'facil': 'Fácil',
-    'moderado': 'Moderado',
-    'dificil': 'Difícil'
+    'facil': 'filter_difficulty_easy',
+    'moderado': 'filter_difficulty_moderate',
+    'dificil': 'filter_difficulty_hard'
   };
-  return labels[difficulty] || difficulty;
+  return getTranslation(labels[difficulty] || difficulty).replace(/🟢 |🟡 |🔴 /g, '');
 }
 
 function getDurationLabel(duration) {
   const labels = {
-    '1-3-dias': '1-3 días',
-    '4-dias': '4 días',
-    '1-semana': '1 semana',
-    '10-dias': '10 días',
-    '2-semanas': '2 semanas',
-    '3-semanas': '3+ semanas'
+    '1-3-dias': 'filter_duration_1_3_days',
+    '4-dias': 'filter_duration_4_days',
+    '1-semana': 'filter_duration_1_week',
+    '10-dias': 'filter_duration_10_days',
+    '2-semanas': 'filter_duration_2_weeks',
+    '3-semanas': 'filter_duration_3_weeks'
   };
-  return labels[duration] || duration;
+  return getTranslation(labels[duration] || duration);
 }
 
 function getTransportIcon(transport) {
@@ -582,14 +816,14 @@ function getTransportIcon(transport) {
 
 function getTransportLabel(transport) {
   const labels = {
-    'a-pie': 'A pie',
-    'bicicleta': 'Bicicleta',
-    'coche': 'Coche',
-    'bus': 'Bus',
-    'tren': 'Tren',
-    '4x4': '4x4'
+    'a-pie': 'transport_walking',
+    'bicicleta': 'transport_bicycle',
+    'coche': 'transport_car',
+    'bus': 'transport_bus',
+    'tren': 'transport_train',
+    '4x4': 'transport_4x4'
   };
-  return labels[transport] || transport;
+  return getTranslation(labels[transport] || transport);
 }
 
 function updateResultsCount(count) {
