@@ -2,7 +2,7 @@ window.blogData = {
     articles: {
         "article_machu_picchu": {
             "category": "cat_travel_guides",
-            "img": "images/blog/machu_pichu.png",
+            "img": "images/blog/machu_pichu.jpg",
             "i18n": {
                 "es": {
                     "title": "Guía completa para hacer el Camino Inca: Todo lo que necesitas saber",
@@ -24,7 +24,7 @@ window.blogData = {
         },
         "article_safari_kenya": {
             "category": "cat_experiences",
-            "img": "images/blog/safari_kenya.png",
+            "img": "images/blog/safari_kenya.jpg",
             "i18n": {
                 "es": {
                     "title": "Safari en Kenia: La aventura de tu vida",
@@ -46,7 +46,7 @@ window.blogData = {
         },
         "article_crucero_mediterraneo": {
             "category": "cat_destinations",
-            "img": "images/blog/crucero_mediterraneo.png",
+            "img": "images/blog/crucero_mediterraneo.jpg",
             "i18n": {
                 "es": {
                     "title": "Crucero por el Mediterráneo: Qué esperar y cómo prepararte",
@@ -68,7 +68,7 @@ window.blogData = {
         },
         "article_gastronomia_italia": {
             "category": "cat_experiences",
-            "img": "images/blog/gastronomia_italiana.png",
+            "img": "images/blog/gastronomia_italiana.jpg",
             "i18n": {
                 "es": {
                     "title": "Viaje gastronómico a Italia: Platos que no te puedes perder",
@@ -90,7 +90,7 @@ window.blogData = {
         },
         "article_japon_cultura": {
             "category": "cat_destinations",
-            "img": "images/blog/japon_cultura.png",
+            "img": "images/blog/japon_cultura.jpg",
             "i18n": {
                 "es": {
                     "title": "Descubriendo Japón: Guía de viaje y cultura",
@@ -112,7 +112,7 @@ window.blogData = {
         },
         "article_peru_lake_titicaca": {
             "category": "cat_destinations",
-            "img": "images/blog/lago_titicaca.png",
+            "img": "images/blog/lago_titicaca.jpg",
             "i18n": {
                 "es": {
                     "title": "Explorando el Lago Titicaca: Cultura y naturaleza",
@@ -134,7 +134,7 @@ window.blogData = {
         },
         "article_island_bali": {
             "category": "cat_destinations",
-            "img": "images/blog/island_bali.png",
+            "img": "images/blog/island_bali.jpg",
             "i18n": {
                 "es": {
                     "title": "Bali: La isla de los templos y playas",
@@ -156,7 +156,7 @@ window.blogData = {
         },
         "article_camino_santiago": {
             "category": "cat_travel_guides",
-            "img": "images/blog/camino_santiago.png",
+            "img": "images/blog/camino_santiago.jpg",
             "i18n": {
                 "es": {
                     "title": "Camino de Santiago: Guía para peregrinos modernos",
@@ -178,7 +178,7 @@ window.blogData = {
         },
         "article_rafting_peru": {
             "category": "cat_experiences",
-            "img": "images/blog/rafting_peru.png",
+            "img": "images/blog/rafting_peru.jpg",
             "i18n": {
                 "es": {
                     "title": "Rafting en el Río Urubamba: Emoción y aventura",
@@ -200,7 +200,7 @@ window.blogData = {
         },
         "article_trekking_everest": {
             "category": "cat_travel_guides",
-            "img": "images/blog/trekking_everest.png",
+            "img": "images/blog/trekking_everest.jpg",
             "i18n": {
                 "es": {
                     "title": "Trekking al Everest Base Camp: Preparación y consejos",
@@ -222,7 +222,7 @@ window.blogData = {
         },
         "article_snowboard_alpes": {
             "category": "cat_experiences",
-            "img": "images/blog/snowboard_alpes.png",
+            "img": "images/blog/snowboard_alpes.jpg",
             "i18n": {
                 "es": {
                     "title": "Snowboard en los Alpes: Diversión sobre la nieve",
@@ -244,7 +244,7 @@ window.blogData = {
         },
         "article_equipo_senderismo": {
             "category": "cat_equipment",
-            "img": "images/blog/equipo_senderismo.png",
+            "img": "images/blog/equipo_senderismo.jpg",
             "i18n": {
                 "es": {
                     "title": "Equipamiento esencial para senderismo",
@@ -266,7 +266,7 @@ window.blogData = {
         },
         "article_tips_viajar_solo": {
             "category": "cat_tips",
-            "img": "images/blog/viajar_solo.png",
+            "img": "images/blog/viajar_solo.jpg",
             "i18n": {
                 "es": {
                     "title": "Consejos para viajar solo y disfrutar al máximo",
@@ -288,7 +288,7 @@ window.blogData = {
         },
         "article_expedicion_antartida": {
             "category": "cat_experiences",
-            "img": "images/blog/expedicion_antartida.png",
+            "img": "images/blog/expedicion_antartida.jpg",
             "i18n": {
                 "es": {
                     "title": "Expedición a la Antártida: Una aventura extrema",
@@ -310,7 +310,7 @@ window.blogData = {
         },
         "article_equipo_camping": {
             "category": "cat_equipment",
-            "img": "images/blog/equipo_camping.png",
+            "img": "images/blog/equipo_camping.jpg",
             "i18n": {
                 "es": {
                     "title": "Equipamiento esencial para camping",
@@ -332,7 +332,7 @@ window.blogData = {
         },
         "article_paris_romantico": {
             "category": "cat_destinations",
-            "img": "images/blog/paris_romantico.png",
+            "img": "images/blog/paris_romantico.jpg",
             "i18n": {
                 "es": {
                     "title": "París romántico: Guía para parejas",
@@ -354,7 +354,7 @@ window.blogData = {
         },
         "article_tips_presupuesto_viaje": {
             "category": "cat_tips",
-            "img": "images/blog/presupuesto_viaje.png",
+            "img": "images/blog/presupuesto_viaje.jpg",
             "i18n": {
                 "es": {
                     "title": "Cómo viajar con bajo presupuesto y disfrutar al máximo",
@@ -376,7 +376,7 @@ window.blogData = {
         },
         "article_buceo_gran_barrera": {
             "category": "cat_experiences",
-            "img": "images/blog/buceo_gran_barrera.png",
+            "img": "images/blog/buceo_gran_barrera.jpg",
             "i18n": {
                 "es": {
                     "title": "Buceo en la Gran Barrera de Coral: Colores bajo el mar",
@@ -420,7 +420,7 @@ window.blogData = {
         },
         "article_equipo_viaje_largo": {
             "category": "cat_equipment",
-            "img": "images/blog/equipo_viaje_largo.png",
+            "img": "images/blog/equipo_viaje_largo.jpg",
             "i18n": {
                 "es": {
                     "title": "Equipamiento ideal para un viaje largo",
