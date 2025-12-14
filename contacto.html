@@ -55,7 +55,7 @@
             </button>
             
             <!-- Foto de perfil (solo visible con login) -->
-            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" style="display: none;">
+            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil" style="display: none;">
 
             <div class="user-menu" id="userMenu">
                 <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
@@ -134,9 +134,9 @@
             <div class="friends-left">
                 <div class="friends-header">
                     <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true" data-i18n="friends_tab_friends">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false" data-i18n="friends_tab_add">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false" data-i18n="friends_tab_online">Online</button>
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true" data-i18n="friends_tab_friends" aria-controls="panel-friends" id="tab-friends">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false" data-i18n="friends_tab_add" aria-controls="panel-add" id="tab-add">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false" data-i18n="friends_tab_online" aria-controls="panel-online" id="tab-online">Online</button>
                     </div>
                 </div>
 

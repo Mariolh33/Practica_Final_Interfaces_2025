@@ -52,7 +52,7 @@
             </button>
             
             <!-- Foto de perfil (solo visible con login) -->
-            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" style="display: none;">
+            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil" style="display: none;">
 
             <div class="user-menu" id="userMenu">
                 <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
@@ -87,7 +87,7 @@
                     <div class="route-badges-top" id="routeBadges">
                         <!-- Badges dinámicos -->
                     </div>
-                    <h1 id="routeTitle"></h1>
+                    <h1 id="routeTitle">Ruta seleccionada</h1>
                     <div class="route-location-header">
                         <i class="fas fa-map-marker-alt"></i>
                         <span id="routeLocation"></span>
@@ -136,9 +136,10 @@
         </section>
 
         <!-- Galería de imágenes -->
-        <section class="route-gallery">
+        <section class="route-gallery" aria-labelledby="routeGalleryTitle">
+            <h2 id="routeGalleryTitle" class="visually-hidden">Galería de la ruta</h2>
             <div class="gallery-main">
-                <img src="" alt="Imagen principal" id="mainImage">
+                <img src="images/Machu_Picchu.jpg" alt="Imagen principal" id="mainImage">
                 <button class="gallery-fullscreen" id="fullscreenBtn">
                     <i class="fas fa-expand"></i>
                 </button>
@@ -238,7 +239,7 @@
                     <h3><i class="fas fa-cloud-sun"></i> <span data-i18n="weather_title">Clima actual</span></h3>
                     <div id="weatherData" class="weather-data">
                         <div class="weather-main">
-                            <img src="" alt="Clima" id="weatherIcon" class="weather-icon">
+                            <img src="images/Logo.png" alt="Clima" id="weatherIcon" class="weather-icon">
                             <div class="weather-temp">
                                 <span id="temperature"></span>°C
                             </div>
@@ -260,9 +261,9 @@
                 <div class="widget organizer-widget">
                     <h3><i class="fas fa-user-circle"></i> <span data-i18n="organizer_title">Organizador</span></h3>
                     <div class="organizer-info">
-                        <img src="" alt="Organizador" class="organizer-avatar" id="organizerAvatar">
+                        <img src="images/Logo.png" alt="Organizador" class="organizer-avatar" id="organizerAvatar">
                         <div>
-                            <h4 id="organizerName"></h4>
+                            <h4 id="organizerName">Organizador</h4>
                             <div class="organizer-rating" id="organizerRating"></div>
                         </div>
                     </div>

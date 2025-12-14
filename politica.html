@@ -43,7 +43,7 @@
             <!-- Perfil en Navbar -->
             <div class="perfil-wrapper">
                 <span id="nombreUsuario" class="nombre-usuario"></span>
-                <img id="fotoPerfil" class="foto-perfil" src="img/default.png">
+                <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil">
 
                 <div class="user-menu" id="userMenu">
                     <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
@@ -117,9 +117,9 @@
             <div class="friends-left">
                 <div class="friends-header">
                     <div class="friends-tabs" role="tablist" aria-label="Amigos Tabs">
-                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true">Amigos</button>
-                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false">Añadir</button>
-                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false">Online</button>
+                        <button type="button" class="friends-tab-btn active" data-tab="friends" role="tab" aria-selected="true" aria-controls="panel-friends" id="tab-friends">Amigos</button>
+                        <button type="button" class="friends-tab-btn" data-tab="add" role="tab" aria-selected="false" aria-controls="panel-add" id="tab-add">Añadir</button>
+                        <button type="button" class="friends-tab-btn" data-tab="online" role="tab" aria-selected="false" aria-controls="panel-online" id="tab-online">Online</button>
                     </div>
                 </div>
 
@@ -183,6 +183,7 @@
 
         <div class="politica-container">
             <article class="politica-content">
+                <h2 class="visually-hidden">Contenido de la política</h2>
                 <section class="politica-section">
                     <h2><i class="fas fa-info-circle"></i> Información General</h2>
                     <p>
@@ -349,7 +350,7 @@
                     <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
                     <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
                     <li>
-                        <select name="idioma" id="idioma">
+                        <select name="idioma" id="idiomaFooter">
                             <option value="es">🇪🇸 Español</option>
                             <option value="en">🇬🇧 English</option>
                         </select>
