@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Intercept links that resolve to the site's index (including fragments or queries)
+// Interceptar clics en enlaces a la página de índice
   document.querySelectorAll('a[href]').forEach(a => {
     const raw = a.getAttribute('href');
     if (!raw) return;
 
-    // ignore pure fragment links (they target the current page's fragment only)
+    // Ignorar enlaces a fragmentos dentro de la misma página
     if (raw.trim().startsWith('#')) return;
 
     try {
       const resolved = new URL(raw, location.href);
       const pathname = resolved.pathname || '/';
 
-      // Consider root '/' or any path that ends with '/index.html' as the site index
+      // Considerar tanto '/' como '/index.html' como páginas de índice
       const isIndex = pathname === '/' || pathname.endsWith('/index.html');
 
       if (isIndex) {
@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
           const logged = sessionStorage.getItem('loginValido') === 'true';
           if (logged) {
             e.preventDefault();
-            // Preserve query and fragment when redirecting so index.html#foo -> versionb.html#foo
+            // Preeservar búsqueda y fragmento al redirigir a versionb.html
             const search = resolved.search || '';
             const hash = resolved.hash || '';
             const target = 'versionb.html' + search + hash;
             window.location.href = target;
           }
-          // otherwise allow the default navigation (including fragment) to index.html
+          // Si no está logueado, dejar que el enlace funcione normalmente
         });
       }
     } catch (err) {
-      // ignore invalid URLs
+      // ignorar URLs inválidas
     }
   });
 });

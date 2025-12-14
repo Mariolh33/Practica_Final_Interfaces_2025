@@ -1,12 +1,3 @@
-/*
-  friends.js
-  - Maneja la ventana de "Mis Amigos" y el chat local.
-  - Almacena la lista de amigos por usuario en localStorage.
-  - Guarda mensajes globales en localStorage bajo la clave 'global_chats'
-  - Diseño simple para pruebas: mensajes se comparten entre cuentas cambiando la sesión (sessionStorage.usuarioLogueado).
-  NOTA: Este archivo usa solo almacenamiento local (no hay servidor).
-*/
-
 (function(){
   // Variables DOM que se asignan en init para soportar inclusión del script en <head>
   let popup = null;
@@ -266,7 +257,7 @@
     document.querySelectorAll('.friend-item').forEach(i => i.classList.remove('active'));
     chatHeader.textContent = 'Selecciona un amigo para chatear';
     messagesEl.innerHTML = '';
-    // hide chat when closing
+    // cerrar chat al cerrar popup
     setChatActive(false);
     if (popupContent) popupContent.classList.remove('chat-open');
   }
@@ -327,9 +318,9 @@
     addFriendErrorEl = document.getElementById('addFriendError');
     popupContent = popup ? popup.querySelector('.friends-popup-content') : null;
 
-    // attach events
+    // adjuntar eventos
     if (btnOpen) btnOpen.addEventListener('click', (e)=>{ e.stopPropagation(); openPopup(); });
-    // also handle buttons that use data-i18n text instead of id
+    // ademas del botón principal, soportar también el botón alternativo con data-i18n
     const altBtn = document.querySelector('[data-i18n="profile_friends"]');
     if (!btnOpen && altBtn) altBtn.addEventListener('click', (e)=>{ e.stopPropagation(); openPopup(); });
     if (btnClose) btnClose.addEventListener('click', (e)=>{ e.stopPropagation(); closePopup(); });
@@ -346,10 +337,10 @@
       e.preventDefault();
       const username = (newFriendUsername.value || '').trim();
       if (!username) return;
-      // clear previous error
+      // borrar error previo
       if (addFriendErrorEl) addFriendErrorEl.textContent = '';
 
-      // load existing site users from localStorage (key: 'usuarios')
+      // cargar usuarios del sitio desde localStorage
       let siteUsers = [];
       try { siteUsers = JSON.parse(localStorage.getItem('usuarios')) || []; } catch(err) { siteUsers = []; }
 
@@ -359,7 +350,7 @@
         return;
       }
 
-      // prevent adding yourself: current logged username stored in sessionStorage.usuarioLogueado
+      // prevenir añadirse a uno mismo
       try {
         const logged = sessionStorage.getItem('usuarioLogueado');
         if (logged && logged === user.username) {

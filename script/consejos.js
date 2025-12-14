@@ -16,8 +16,8 @@ function renderConsejos() {
     console.log(consejos);
 }
 
-// Adds a consejo to a stack in local storage
-// if consejos > 3 then it pops from the stack
+// añade un consejo al inicio del array
+// si hay más de 3 consejos, elimina el último
 
 function addConsejo(titulo, descripcion) {
 
@@ -32,7 +32,7 @@ function addConsejo(titulo, descripcion) {
     renderConsejos();
 }
 
-// Listening for submissions of consejos form
+// escucha el submit del formulario
 document.addEventListener("DOMContentLoaded", () => {
 
     renderConsejos();

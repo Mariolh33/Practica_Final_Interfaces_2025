@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1500);
     })
 
-    // Clear form when Borrar is clicked
+    // borrar formulario
     botonBorrar.addEventListener("click", () => {
         form.reset();          
         return mostrarError("La forma a sido borrada")

@@ -1510,7 +1510,7 @@ function loadWeatherData() {
   const weather = { temp: 18, description: "Parcialmente nublado", humidity: 65, windSpeed: 12, icon: "02d" };
 
   document.getElementById('temperature').textContent = weather.temp;
-  // Translate common weather descriptions via i18n if available
+  // traducir descripción
   const lang = localStorage.getItem('lang') || (document.documentElement.getAttribute('lang') || 'es').toLowerCase();
   const keyCandidate = `weather_${weather.description.toLowerCase()}`;
   const i18n = (window.EMBEDDED_I18N && window.EMBEDDED_I18N[lang]) || {};
