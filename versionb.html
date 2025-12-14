@@ -29,64 +29,6 @@
 
 <body onload="validaSesion()">
 
-    <!-- ================= NAVBAR ================= -->
-    <nav class="navbar">
-        <div class="nav-brand">
-            <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span data-i18n="brand">Mochileros Sin Fronteras</span>
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu">
-            <li><a href="index.html" data-i18n="nav_home" class= "active" >Inicio</a></li>
-            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
-            <li><a href="otros-rincones.html" data-i18n="nav_cities">Otros rincones</a></li>
-            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-            <li><a href="comunidad.html" data-i18n="nav_community">Comunidad</a></li>
-            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
-            <li>
-                <select name="idioma" id="idioma">
-                    <option value="es">🇪🇸 Español</option>
-                    <option value="en">🇬🇧 English</option>
-                </select>
-            </li>
-        </ul>
-        <div class="nav-actions">
-            <button class="btn-icon" aria-label="Buscar">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-
-        <!-- Perfil en Navbar -->
-        <div class="perfil-wrapper">
-            <span id="nombreUsuario" class="nombre-usuario"></span>
-            
-            <!-- Botón Mi Cuenta (solo visible sin login) -->
-            <button id="botonCuenta" class="btn btn-primary">
-                <i class="fas fa-user-circle"></i>
-                <span data-i18n="btn_my_account">Mi Cuenta</span>
-            </button>
-            
-            <!-- Foto de perfil (solo visible con login) -->
-            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil" style="display: none;">
-
-            <div class="user-menu" id="userMenu">
-                <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
-                <button id="btnMisAmigos" class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
-                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
-                <button class="btn btn-secondary btn-block" onclick="cerrarSesion()" data-i18n="profile_logout">Cerrar sesión</button>
-            </div>
-            
-            <div class="user-menu-no-login" id="userMenuNoLogin">
-                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_login">Iniciar sesión</button>
-                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_register">Registrarse</button>
-            </div>
-        </div>
-
-
-
-    </nav>
 
     <!-- Sección de titular -->
     <section class="hero-home">
