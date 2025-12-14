@@ -1,6 +1,5 @@
 window.blogData = {
     articles: {
-
         "article_machu_picchu": {
             "category": "cat_travel_guides",
             "img": "images/blog/machu_pichu.png",
@@ -667,6 +666,14 @@ window.blogData = {
                 "es": "consejos",
                 "en": "tips"
             }
+        }
+    },
+    "i18n": {
+        "es": {
+            "read_more": "Leer más →"
+        },
+        "en": {
+            "read_more": "Read more →"
         }
     }
 }
