@@ -48,7 +48,7 @@ function openProfilePopup() {
     document.getElementById('profileApellido').value = user.apellido || '';
     document.getElementById('profileEmail').value = user.email || '';
     document.getElementById('profileUsername').value = user.username || '';
-    document.getElementById('profilePhotoPreview').src = user.foto || 'img/default.png';
+    document.getElementById('profilePhotoPreview').src = user.foto || 'images/user.png';
   }
 
   popup.classList.add('active');
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('profileNombre').value = user.nombre || '';
         document.getElementById('profileApellido').value = user.apellido || '';
         document.getElementById('profileEmail').value = user.email || '';
-        document.getElementById('profilePhotoPreview').src = user.foto || 'img/default.png';
+        document.getElementById('profilePhotoPreview').src = user.foto || 'images/user.png';
       }
     });
   }
@@ -286,3 +286,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+window.openProfilePopup = openProfilePopup;

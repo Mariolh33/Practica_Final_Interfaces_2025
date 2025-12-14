@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script src="script/versionb.js"></script>
+    <script src="script/navbar.js"></script>
+    <script src="script/i18n.js" defer></script>
+    <script src="script/footer.js" defer></script>
 </head>
 <body>
     <script>console.log('DOM cargado, ejecutando scripts...');</script>
@@ -52,7 +55,11 @@
             </button>
             
             <!-- Foto de perfil (solo visible con login) -->
+<<<<<<< HEAD
             <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil" style="display: none;">
+=======
+            <img id="fotoPerfil" class="foto-perfil" src="images/user.png" style="display: none;">
+>>>>>>> 570a1a6 (Reorganizar header y footer)
 
             <div class="user-menu" id="userMenu">
                 <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
@@ -283,49 +290,14 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3 data-i18n="brand">Mochileros Sin Fronteras</h3>
-                <p data-i18n="footer_about">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
-                <div class="social-links" id="footerSocialLinks">
-                    <!-- Redes dinámicas -->
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
-                <ul id="footerQuickLinks">
-                    <!-- Links dinámicos -->
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_legal">Legal</h4>
-                <ul id="footerLegalLinks">
-                    <!-- Links legales dinámicos -->
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_newsletter">Newsletter</h4>
-                <p data-i18n="footer_news_sub">Recibe nuestras últimas novedades</p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom" id="footerBottom">
-            <p data-i18n="footer_copyright">&copy; <span id="currentYear"></span> Mochileros Sin Fronteras. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src="script/i18n.js" defer></script>
     <script src="script/detalle-ruta.js"></script>
+<<<<<<< HEAD
     <script src="script/nav.js"></script>
     <script src="script/social-share.js"></script>
+=======
+    <!-- <script src="script/nav.js"></script> -->
+>>>>>>> 570a1a6 (Reorganizar header y footer)
 </body>
 </html>

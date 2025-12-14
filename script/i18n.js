@@ -717,87 +717,48 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
 
 window.EMBEDDED_I18N = EMBEDDED_I18N;
 
-// Prefer document <html lang> when localStorage is unset
-const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
-let currentLang = localStorage.getItem('lang') || (htmlLang === 'en' || htmlLang === 'es' ? htmlLang : 'es');
-let i18nData = EMBEDDED_I18N[currentLang] || EMBEDDED_I18N.es || {};
+// Idioma inicial
+let currentLang = localStorage.getItem("lang") || "es";
+let i18nData = EMBEDDED_I18N[currentLang] || EMBEDDED_I18N.es;
 
+/* ===== APLICAR TRADUCCIONES ===== */
 function applyTranslations(lang = currentLang) {
-    i18nData = EMBEDDED_I18N[lang] || EMBEDDED_I18N.es || {};
-    try { console.log('[i18n] Applying language:', lang); } catch {}
+  currentLang = lang;
+  i18nData = EMBEDDED_I18N[lang] || EMBEDDED_I18N.es;
 
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (i18nData[key]) el.textContent = i18nData[key];
-    });
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.dataset.i18n;
+    if (i18nData[key]) el.textContent = i18nData[key];
+  });
 
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
-        if (i18nData[key]) el.placeholder = i18nData[key];
-    });
-
-    if (window.carousel && typeof window.carousel.update === 'function') {
-        window.carousel.update();
-    }
-
-    if (typeof renderArticles === 'function' && document.querySelector('.blog-main')) {
-    renderArticles();
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.dataset.i18nPlaceholder;
+    if (i18nData[key]) el.placeholder = i18nData[key];
+  });
 }
 
-    if (typeof renderRoutes === 'function' && document.querySelector('#routesGrid')) {
-        // Actualizar datos de rutas según idioma
-        if (typeof window.updateRoutesData === 'function') {
-            window.updateRoutesData();
-            // Re-aplicar filtros existentes con los nuevos datos
-            if (typeof window.applyFilters === 'function') {
-                window.applyFilters();
-            }
-            else {
-                if (typeof window.routesData !== 'undefined' && typeof renderRoutes === 'function') {
-                    renderRoutes(window.routesData);
-                }
-            }
-        }
-    }
-
-    // Actualizar contenido de detalle de ruta si estamos en esa página
-    if (typeof window.refreshRouteContent === 'function' && document.querySelector('.route-detail-container')) {
-        window.refreshRouteContent();
-    }
-
-}
-
+/* ===== CAMBIAR IDIOMA ===== */
 function changeLanguage(lang) {
-    currentLang = lang;
-    localStorage.setItem('lang', lang);
-    applyTranslations(lang);
+  localStorage.setItem("lang", lang);
+  applyTranslations(lang);
 }
 
-const headerSelect = document.getElementById('idiomaHeader');
-const footerSelect = document.getElementById('idiomaFooter');
-// Detail page uses #idioma select in navbar
-const routeDetailSelect = document.getElementById('idioma');
+/* ===== SELECTOR HEADER ===== */
+function bindLanguageSelector() {
+  const select = document.getElementById("idiomaHeader");
+  if (!select) return;
 
-headerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
-footerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
-routeDetailSelect?.addEventListener('change', e => changeLanguage(e.target.value));
+  select.value = currentLang;
+  select.onchange = e => changeLanguage(e.target.value);
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    // On first load, persist language from <html lang> if none is set
-    const stored = localStorage.getItem('lang');
-    const pageLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
-    if (!stored) {
-        const initialLang = (pageLang === 'en' || pageLang === 'es') ? pageLang : 'es';
-        localStorage.setItem('lang', initialLang);
-        currentLang = initialLang;
-    } else {
-        currentLang = stored;
-    }
-
-    // Sync dropdowns to current language
-    if (headerSelect) headerSelect.value = currentLang;
-    if (footerSelect) footerSelect.value = currentLang;
-    if (routeDetailSelect) routeDetailSelect.value = currentLang;
-
-    applyTranslations(currentLang);
+/* ===== INIT ===== */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations(currentLang);
+  bindLanguageSelector();
 });
+
+/* ===== GLOBAL ===== */
+window.applyTranslations = applyTranslations;
+window.bindLanguageSelector = bindLanguageSelector;
+window.changeLanguage = changeLanguage;

@@ -8,66 +8,14 @@
     <link rel="stylesheet" href="./style/components.css">
     <link rel="stylesheet" href="./style/comunidad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="script/versionb.js"></script>
-    <script src="script/nav.js"></script>
+    <script src="script/navbar.js"></script>
     <script src="script/i18n.js" defer></script>
+    <script src="script/footer.js" defer></script>
+    <script src="script/friends.js"></script>
+    <script src="script/versionb.js"></script>
+    <script src="script/comunidad.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-brand">
-            <img src="images/Logo.png" height="40" width="40" alt="Logo">
-            <span data-i18n="brand">Mochileros Sin Fronteras</span>
-        </div>
-        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-        <ul class="nav-menu">
-            <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
-            <li><a href="buscar-rutas.html" data-i18n="nav_routes">Rutas</a></li>
-            <li><a href="otros-rincones.html" data-i18n="nav_cities">Ciudades</a></li>
-            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-            <li><a href="comunidad.html" data-i18n="nav_community" class="active">Comunidad</a></li>
-            <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
-            <li>
-                <select name="idioma" id="idiomaHeader">
-                     <option value="es">🇪🇸 Español</option>
-                     <option value="en">🇬🇧 English</option>
-                 </select>
-             </li>
-         </ul>
-        <div class="nav-actions">
-            <button class="btn-icon" aria-label="Buscar">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-
-        <!-- Perfil en Navbar -->
-        <div class="perfil-wrapper">
-            <span id="nombreUsuario" class="nombre-usuario"></span>
-            
-            <!-- Botón Mi Cuenta (solo visible sin login) -->
-            <button id="botonCuenta" class="btn btn-primary">
-                <i class="fas fa-user-circle"></i>
-                <span data-i18n="btn_my_account">Mi Cuenta</span>
-            </button>
-            
-            <!-- Foto de perfil (solo visible con login) -->
-            <img id="fotoPerfil" class="foto-perfil" src="img/default.png" alt="Foto de perfil" style="display: none;">
-
-            <div class="user-menu" id="userMenu">
-                <button id="btnMiPerfil" class="btn btn-primary" data-i18n="profile_profile">Mi perfil</button>
-                <button class="btn btn-primary" data-i18n="profile_friends">Mis Amigos</button>
-                <button class="btn btn-primary" data-i18n="profile_routes">Mis Rutas</button>
-                <button class="btn btn-secondary btn-block" data-i18n="profile_logout" onclick="cerrarSesion()">Cerrar sesión</button>
-            </div>
-            
-            <div class="user-menu-no-login" id="userMenuNoLogin">
-                <button class="btn btn-primary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_login">Iniciar sesión</button>
-                <button class="btn btn-secondary btn-block" onclick="window.location.href='registro.html'" data-i18n="auth_register">Registrarse</button>
-            </div>
-        </div>
-    </nav>
-
     <!-- Popups -->
     <!-- Popup Gestionar Perfil -->
     <div id="popupMiPerfil" class="popup profile-popup">
@@ -80,7 +28,7 @@
                 <form id="profileForm" class="profile-form">
                     <div class="profile-photo-section">
                         <div class="profile-photo-container">
-                            <img id="profilePhotoPreview" src="img/default.png" alt="Foto de perfil">
+                            <img id="profilePhotoPreview" src="images/user.png" alt="Foto de perfil">
                         </div>
                         <div class="profile-photo-input">
                             <label for="profilePhoto" data-i18n="profile_photo_change">Cambiar foto</label>
@@ -312,56 +260,5 @@
         </div>
     </div>
 
-    <script src="script/profile.js"></script>
-    <script src="script/friends.js"></script>
-    <script src="script/comunidad.js"></script>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4 data-i18n="footer_about_title">Sobre Nosotros</h4>
-                <p data-i18n="footer_about">Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_quick_links">Enlaces Rápidos</h4>
-                <ul>
-                    <li><a href="index.html" data-i18n="nav_home">Inicio</a></li>
-                    <li><a href="buscar-rutas.html" data-i18n="footer_link_routes">Buscar Rutas</a></li>
-                    <li><a href="versionb.html" data-i18n="nav_packs">Packs</a></li>
-                    <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_legal">Legal</h4>
-                <ul>
-                    <li><a href="politica.html" data-i18n="footer_policy">Política de Privacidad</a></li>
-                    <li><a href="#" data-i18n="footer_terms">Términos y Condiciones</a></li>
-                    <li><a href="#" data-i18n="footer_legal_notice">Aviso Legal</a></li>
-                    <li><a href="contacto.html" data-i18n="nav_contact">Contacto</a></li>
-                    <li>
-                        <select name="idioma" id="idiomaFooter">
-                            <option value="es">🇪🇸 Español</option>
-                            <option value="en">🇬🇧 English</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4 data-i18n="footer_newsletter_title">Newsletter</h4>
-                <p data-i18n="footer_newsletter_text">Recibe nuestras últimas novedades</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Tu email" data-i18n-placeholder="newsletter_placeholder" required>
-                    <button type="submit" class="btn btn-primary" data-i18n="footer_subscribe">Suscribirse</button>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p data-i18n="footer_copyright">&copy; 2025 Mochileros Sin Fronteras. Todos los derechos reservados.</p>
-        </div>
-    </footer>
 </body>
 </html>
