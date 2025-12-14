@@ -1,7 +1,6 @@
 {
     "page_title": "Blog - Mochileros Sin Fronteras",
     "index_page_title": "Inicio - Mochileros Sin Fronteras",
-    "page_title_contact": "Contacto - Mochileros Sin Fronteras",
     "page_title_community": "Comunidad - Mochileros Sin Fronteras",
     "page_title_cities": "Otros rincones - Mochileros Sin Fronteras",
     "brand": "Mochileros Sin Fronteras",
@@ -94,7 +93,6 @@
     "pagination_prev": "Anterior",
     "pagination_next": "Siguiente",
     "footer_about_title": "Sobre Nosotros",
-    "footer_about": "Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.",
     "footer_desc": "Tu comunidad de viajeros y aventureros. Descubre el mundo con nosotros.",
     "footer_quick_links": "Enlaces Rápidos",
     "footer_link_routes": "Buscar Rutas",
