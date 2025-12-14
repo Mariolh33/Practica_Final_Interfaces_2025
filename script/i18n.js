@@ -683,7 +683,7 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
         "transport_train": "Train",
         "transport_4x4": "4x4"
         ,
-        /* Route detail - static texts */
+        /* Detalle ruta - textos estáticos */
         "tab_overview": "Overview",
         "tab_itinerary": "Itinerary",
         "tab_map": "Map",
@@ -700,7 +700,7 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
         "contact_btn": "Contact",
         "similar_routes_title": "Similar routes",
         
-        /* Route detail - dynamic labels near numbers */
+        /* Detalle ruta - etiquetas dinámicas cerca de números */
         "label_reviews": "reviews",
         "label_km": "km",
         "label_travelers": "travelers",
@@ -710,14 +710,14 @@ const EMBEDDED_I18N = window.EMBEDDED_I18N || {
         "book_now": "Book now",
         "save_to_favorites": "Save to favorites",
         
-        /* Weather common descriptions examples */
+        /* Descripciones de clima comunes */
         "weather_partly_cloudy": "Partly cloudy"
     }
 };
 
 window.EMBEDDED_I18N = EMBEDDED_I18N;
 
-// Prefer document <html lang> when localStorage is unset
+// Inicialización de idioma
 const htmlLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
 let currentLang = localStorage.getItem('lang') || (htmlLang === 'en' || htmlLang === 'es' ? htmlLang : 'es');
 let i18nData = EMBEDDED_I18N[currentLang] || EMBEDDED_I18N.es || {};
@@ -775,7 +775,7 @@ function changeLanguage(lang) {
 
 const headerSelect = document.getElementById('idiomaHeader');
 const footerSelect = document.getElementById('idiomaFooter');
-// Detail page uses #idioma select in navbar
+// para la página de detalle de ruta
 const routeDetailSelect = document.getElementById('idioma');
 
 headerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
@@ -783,7 +783,7 @@ footerSelect?.addEventListener('change', e => changeLanguage(e.target.value));
 routeDetailSelect?.addEventListener('change', e => changeLanguage(e.target.value));
 
 document.addEventListener('DOMContentLoaded', () => {
-    // On first load, persist language from <html lang> if none is set
+    // al cargar la página, establecer el idioma desde localStorage o el atributo lang
     const stored = localStorage.getItem('lang');
     const pageLang = (document.documentElement.getAttribute('lang') || '').toLowerCase();
     if (!stored) {
@@ -794,7 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
         currentLang = stored;
     }
 
-    // Sync dropdowns to current language
+    // sincronizar selects de idioma
     if (headerSelect) headerSelect.value = currentLang;
     if (footerSelect) footerSelect.value = currentLang;
     if (routeDetailSelect) routeDetailSelect.value = currentLang;
